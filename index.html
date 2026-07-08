@@ -1,0 +1,1559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="RK WebCraft - Front-End Developer from Thiruvannamalai, Tamil Nadu. I build responsive websites, landing pages, and dashboards for small businesses.">
+  <title>RK WebCraft | Front-End Developer for Small Businesses</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-Avb2QiuDEEvB4bZJYdft2mNjVShBftLdPG8FJ0V7irTLQ8Uo0qcPxh4Plq7G5tGm0rU+1SPhVotteLpBERwTkw==" crossorigin="anonymous" referrerpolicy="no-referrer">
+
+  <style>
+    :root {
+      --color-primary: #4f46e5;
+      --color-primary-dark: #4338ca;
+      --color-accent: #06b6d4;
+      --color-dark: #1e293b;
+      --color-darker: #0f172a;
+      --color-light: #f8fafc;
+      --color-gray: #64748b;
+      --color-gray-light: #94a3b8;
+      --color-white: #ffffff;
+      --color-focus: #fbbf24;
+      --color-success: #10b981;
+      --color-warning: #f59e0b;
+
+      --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+      --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+      --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+      --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+
+      --radius-sm: 8px;
+      --radius: 12px;
+      --radius-lg: 16px;
+      --radius-full: 9999px;
+
+      --transition-fast: 150ms ease;
+      --transition: 300ms ease;
+      --transition-slow: 500ms ease;
+
+      --header-height: 80px;
+      --container-max: 1200px;
+      --section-padding: clamp(3rem, 8vw, 5rem);
+    }
+
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: var(--header-height);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      line-height: 1.7;
+      background: var(--color-light);
+      color: var(--color-dark);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
+      line-height: 1.2;
+      text-wrap: balance;
+    }
+
+    /* ===== FAST PRELOADER ===== */
+    .preloader {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      background: var(--color-white);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1), 
+                  visibility 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .preloader.hidden {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+
+    .preloader-content {
+      text-align: center;
+      max-width: 320px;
+      padding: 2rem;
+    }
+
+    .preloader-brand {
+      margin-bottom: 1.5rem;
+      opacity: 0;
+      animation: fadeIn 0.4s ease-out 0.1s forwards;
+    }
+
+    .preloader-brand-mark {
+      width: 48px;
+      height: 48px;
+      background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 0.75rem;
+      box-shadow: 0 4px 14px rgba(79, 70, 229, 0.25);
+    }
+
+    .preloader-brand-mark i {
+      color: var(--color-white);
+      font-size: 1.25rem;
+    }
+
+    .preloader-brand-name {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--color-darker);
+      letter-spacing: -0.5px;
+    }
+
+    .preloader-status {
+      opacity: 0;
+      animation: fadeIn 0.4s ease-out 0.3s forwards;
+    }
+
+    .preloader-track {
+      width: 140px;
+      height: 2px;
+      background: #e2e8f0;
+      border-radius: var(--radius-full);
+      margin: 0 auto;
+      overflow: hidden;
+    }
+
+    .preloader-fill {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, var(--color-primary), var(--color-accent));
+      border-radius: var(--radius-full);
+      transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Skip Link */
+    .skip-link {
+      position: absolute;
+      top: -40px;
+      left: 0;
+      background: var(--color-primary);
+      color: var(--color-white);
+      padding: 8px 16px;
+      z-index: 100;
+      transition: top var(--transition-fast);
+      text-decoration: none;
+      font-weight: 600;
+      border-radius: 0 0 var(--radius-sm) 0;
+    }
+
+    .skip-link:focus { top: 0; }
+
+    /* Header */
+    header {
+      background: var(--color-darker);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: var(--shadow);
+      height: var(--header-height);
+      display: flex;
+      align-items: center;
+    }
+
+    nav {
+      width: 100%;
+      max-width: var(--container-max);
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .logo-img {
+      height: 50px;
+      width: 50px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--color-accent);
+      transition: transform var(--transition);
+    }
+
+    .logo:hover .logo-img { transform: scale(1.05); }
+
+    .logo-text {
+      color: var(--color-white);
+      font-size: 1.25rem;
+      font-weight: 600;
+      letter-spacing: -0.5px;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 2.5rem;
+    }
+
+    .nav-links a {
+      color: rgba(255, 255, 255, 0.85);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.95rem;
+      position: relative;
+      padding: 0.5rem 0;
+      transition: color var(--transition-fast);
+      border-radius: 2px;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--color-accent);
+      transition: width var(--transition);
+    }
+
+    .nav-links a:hover,
+    .nav-links a:focus-visible {
+      color: var(--color-white);
+      outline: none;
+    }
+
+    .nav-links a:hover::after,
+    .nav-links a:focus-visible::after { width: 100%; }
+
+    .nav-links a:focus-visible {
+      outline: 2px solid var(--color-focus);
+      outline-offset: 4px;
+    }
+
+    /* Mobile Menu Toggle */
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: 2px solid rgba(255, 255, 255, 0.2);
+      color: var(--color-white);
+      font-size: 1.25rem;
+      cursor: pointer;
+      padding: 0.5rem;
+      border-radius: var(--radius-sm);
+      transition: all var(--transition-fast);
+    }
+
+    .menu-toggle:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: rgba(255, 255, 255, 0.4);
+    }
+
+    .menu-toggle:focus-visible {
+      outline: 2px solid var(--color-focus);
+      outline-offset: 2px;
+    }
+
+    /* Hero Section */
+    .hero {
+      text-align: center;
+      padding: clamp(4rem, 10vw, 6rem) 2rem;
+      background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
+      color: var(--color-white);
+      position: relative;
+      overflow: hidden;
+      isolation: isolate;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      z-index: -1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      padding: 0.5rem 1.25rem;
+      border-radius: var(--radius-full);
+      font-size: 0.875rem;
+      font-weight: 500;
+      margin-bottom: 1.5rem;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      animation: fadeInUp 0.6s ease-out;
+    }
+
+    .hero h1 {
+      font-size: clamp(2rem, 5vw, 3rem);
+      margin-bottom: 1rem;
+      letter-spacing: -1px;
+      animation: fadeInUp 0.6s ease-out 0.1s both;
+    }
+
+    .hero p {
+      font-size: clamp(1rem, 2.5vw, 1.25rem);
+      opacity: 0.9;
+      margin-bottom: 2.5rem;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      animation: fadeInUp 0.6s ease-out 0.2s both;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      animation: fadeInUp 0.6s ease-out 0.3s both;
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 1rem 2rem;
+      background: var(--color-white);
+      color: var(--color-primary);
+      text-decoration: none;
+      border-radius: var(--radius-full);
+      font-weight: 600;
+      font-size: 1rem;
+      box-shadow: var(--shadow-lg);
+      transition: all var(--transition);
+      border: 2px solid transparent;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-xl);
+    }
+
+    .btn:focus-visible {
+      outline: 3px solid var(--color-focus);
+      outline-offset: 3px;
+    }
+
+    .btn:active { transform: translateY(-1px); }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--color-white);
+      border-color: var(--color-white);
+      margin: 6px;
+    }
+
+    .btn-outline:hover {
+      background: var(--color-white);
+      color: var(--color-primary);
+    }
+
+    /* Small buttons for project links */
+    .btn-sm {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.5rem 1rem;
+      background: var(--color-primary);
+      color: var(--color-white);
+      text-decoration: none;
+      border-radius: var(--radius-sm);
+      font-weight: 500;
+      font-size: 0.875rem;
+      transition: all var(--transition-fast);
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn-sm:hover {
+      background: var(--color-primary-dark);
+      transform: translateY(-1px);
+    }
+
+    .btn-sm-outline {
+      background: transparent;
+      color: var(--color-primary);
+      border: 1.5px solid var(--color-primary);
+    }
+
+    .btn-sm-outline:hover {
+      background: var(--color-primary);
+      color: var(--color-white);
+    }
+
+    /* Sections */
+    section {
+      padding: var(--section-padding) 2rem;
+      max-width: var(--container-max);
+      margin: 0 auto;
+    }
+
+    .section-header { margin-bottom: 3rem; }
+
+    section h2 {
+      font-size: clamp(1.75rem, 4vw, 2.25rem);
+      color: var(--color-darker);
+      position: relative;
+      display: inline-block;
+      margin-bottom: 0.5rem;
+    }
+
+    section h2::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      width: 60px;
+      height: 4px;
+      background: linear-gradient(90deg, var(--color-primary), var(--color-accent));
+      border-radius: 2px;
+    }
+
+    .section-subtitle {
+      color: var(--color-gray);
+      font-size: 1.05rem;
+      margin-top: 1rem;
+      max-width: 600px;
+    }
+
+    /* About Section */
+    #about {
+      background: var(--color-white);
+      border-radius: var(--radius);
+      margin-top: -3rem;
+      position: relative;
+      z-index: 10;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .about-content {
+      max-width: 800px;
+    }
+
+    .about-content > p {
+      font-size: 1.15rem;
+      color: var(--color-gray);
+      line-height: 1.8;
+    }
+
+    .about-content > p + p {
+      margin-top: 1.25rem;
+    }
+
+    .about-content strong {
+      color: var(--color-darker);
+      font-weight: 600;
+    }
+
+    .about-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      margin: 2.5rem 0;
+      padding: 1.5rem 0;
+      border-top: 1px solid #e2e8f0;
+      border-bottom: 1px solid #e2e8f0;
+    }
+
+    .stat-item {
+      text-align: center;
+    }
+
+    .stat-number {
+      font-family: 'Poppins', sans-serif;
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--color-primary);
+      line-height: 1;
+    }
+
+    .stat-label {
+      font-size: 0.875rem;
+      color: var(--color-gray);
+      margin-top: 0.5rem;
+      font-weight: 500;
+    }
+
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: 2rem;
+    }
+
+    .skill-tag {
+      background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+      color: var(--color-white);
+      padding: 0.5rem 1.25rem;
+      border-radius: var(--radius-full);
+      font-size: 0.875rem;
+      font-weight: 500;
+      transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+      cursor: default;
+    }
+
+    .skill-tag:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow);
+    }
+
+    /* ===== SERVICES SECTION ===== */
+    #services {
+      padding-top: 4rem;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+
+    .service-card {
+      background: var(--color-white);
+      border-radius: var(--radius);
+      padding: 2rem;
+      box-shadow: var(--shadow);
+      transition: transform var(--transition), box-shadow var(--transition);
+      border: 2px solid transparent;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .service-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+      border-color: var(--color-primary);
+    }
+
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--color-primary), var(--color-accent));
+      opacity: 0;
+      transition: opacity var(--transition);
+    }
+
+    .service-card:hover::before {
+      opacity: 1;
+    }
+
+    .service-icon {
+      width: 50px;
+      height: 50px;
+      background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-white);
+      font-size: 1.25rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .service-card h3 {
+      font-size: 1.15rem;
+      color: var(--color-darker);
+      margin-bottom: 0.75rem;
+    }
+
+    .service-card p {
+      color: var(--color-gray);
+      font-size: 0.95rem;
+      line-height: 1.6;
+      margin-bottom: 1rem;
+    }
+
+    .service-features {
+      list-style: none;
+      margin-bottom: 1.25rem;
+    }
+
+    .service-features li {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.875rem;
+      color: var(--color-gray);
+      margin-bottom: 0.4rem;
+    }
+
+    .service-features li i {
+      color: var(--color-success);
+      font-size: 0.75rem;
+    }
+
+    .service-price {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--color-primary);
+    }
+
+    .service-price span {
+      font-size: 0.8rem;
+      font-weight: 400;
+      color: var(--color-gray);
+    }
+
+    /* ===== HOW I WORK SECTION ===== */
+    #process {
+      padding-top: 4rem;
+    }
+
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr));
+      gap: 1.5rem;
+      margin-top: 3rem;
+      counter-reset: process-step;
+    }
+
+    .process-step {
+      background: var(--color-white);
+      border-radius: var(--radius);
+      padding: 2rem 1.5rem;
+      box-shadow: var(--shadow);
+      text-align: center;
+      position: relative;
+      transition: transform var(--transition);
+    }
+
+    .process-step:hover {
+      transform: translateY(-4px);
+    }
+
+    .process-step::before {
+      counter-increment: process-step;
+      content: counter(process-step);
+      position: absolute;
+      top: -15px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 36px;
+      height: 36px;
+      background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+      color: var(--color-white);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 700;
+      font-size: 0.875rem;
+      box-shadow: var(--shadow);
+    }
+
+    .process-icon {
+      font-size: 1.75rem;
+      color: var(--color-primary);
+      margin-bottom: 0.75rem;
+      margin-top: 0.5rem;
+    }
+
+    .process-step h3 {
+      font-size: 1rem;
+      color: var(--color-darker);
+      margin-bottom: 0.5rem;
+    }
+
+    .process-step p {
+      font-size: 0.875rem;
+      color: var(--color-gray);
+      line-height: 1.6;
+    }
+
+    /* ===== PROJECTS SECTION ===== */
+    #projects { padding-top: 4rem; }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+      align-items: stretch;
+    }
+
+    .project-card {
+      background: var(--color-white);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: transform var(--transition), box-shadow var(--transition);
+      text-decoration: none;
+      color: inherit;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+
+    .project-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .project-card:focus-visible {
+      outline: 3px solid var(--color-focus);
+      outline-offset: 4px;
+      border-radius: var(--radius);
+    }
+
+    .project-image {
+      height: 200px;
+      background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+      color: var(--color-white);
+      position: relative;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+
+    .project-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform var(--transition);
+    }
+
+    .project-card:hover .project-image img {
+      transform: scale(1.05);
+    }
+
+    .project-image::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.3), transparent 60%);
+      opacity: 0;
+      transition: opacity var(--transition);
+    }
+
+    .project-card:hover .project-image::after { opacity: 1; }
+
+    .project-content {
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .project-card h3 {
+      font-size: 1.25rem;
+      margin-bottom: 0.75rem;
+      color: var(--color-darker);
+    }
+
+    .project-problem {
+      font-size: 0.8rem;
+      color: var(--color-warning);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.5rem;
+    }
+
+    .project-card p {
+      color: var(--color-gray);
+      font-size: 0.95rem;
+      line-height: 1.6;
+      flex-grow: 1;
+    }
+
+    .project-links {
+      display: flex;
+      gap: 0.75rem;
+      margin-top: 1.5rem;
+      flex-wrap: wrap;
+      flex-shrink: 0;
+    }
+
+    /* Hire Me CTA */
+    #hire {
+      text-align: center;
+      padding: 5rem 2rem;
+      background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+      color: var(--color-white);
+      border-radius: var(--radius);
+      margin-bottom: 3rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    #hire::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+
+    #hire h2 {
+      color: var(--color-white);
+      margin-bottom: 1rem;
+      position: relative;
+    }
+
+    #hire h2::after {
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(255,255,255,0.5);
+    }
+
+    #hire > p {
+      opacity: 0.9;
+      margin-bottom: 2rem;
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+      position: relative;
+    }
+
+    #hire .btn {
+      background: var(--color-white);
+      color: var(--color-primary);
+      position: relative;
+    }
+
+    #hire .btn:hover {
+      background: var(--color-light);
+    }
+
+    /* Contact Section */
+    #contact {
+      background: var(--color-white);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      margin-bottom: 3rem;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+
+    .contact-icon {
+      width: 50px;
+      height: 50px;
+      background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-white);
+      font-size: 1.25rem;
+      flex-shrink: 0;
+      transition: transform var(--transition-fast);
+    }
+
+    .contact-item:hover .contact-icon {
+      transform: scale(1.1) rotate(5deg);
+    }
+
+    .contact-info h4 {
+      font-size: 0.875rem;
+      color: var(--color-gray);
+      font-weight: 500;
+      margin-bottom: 0.25rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .contact-info p,
+    .contact-info a {
+      color: var(--color-darker);
+      font-weight: 600;
+      text-decoration: none;
+      transition: color var(--transition-fast);
+      word-break: break-word;
+      font-size: 0.95rem;
+    }
+
+    .contact-info a:hover,
+    .contact-info a:focus-visible {
+      color: var(--color-primary);
+      outline: none;
+    }
+
+    /* Social Links */
+    .social-links {
+      display: flex;
+      gap: 1rem;
+      margin-top: 2.5rem;
+    }
+
+    .social-link {
+      width: 45px;
+      height: 45px;
+      background: var(--color-light);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-gray);
+      font-size: 1.25rem;
+      transition: all var(--transition);
+      text-decoration: none;
+      border: 2px solid transparent;
+    }
+
+    .social-link:hover {
+      background: var(--color-primary);
+      color: var(--color-white);
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .social-link:focus-visible {
+      outline: 3px solid var(--color-focus);
+      outline-offset: 2px;
+    }
+
+    /* Footer */
+    footer {
+      background: var(--color-darker);
+      color: var(--color-white);
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+
+    .footer-content {
+      max-width: var(--container-max);
+      margin: 0 auto;
+    }
+
+    .footer-logo {
+      height: 60px;
+      width: 60px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 1rem;
+      border: 2px solid var(--color-accent);
+      transition: transform var(--transition);
+    }
+
+    .footer-logo:hover { transform: scale(1.1); }
+
+    footer p {
+      color: rgba(255, 255, 255, 0.6);
+      font-size: 0.9rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      :root { --header-height: 70px; }
+
+      .preloader-brand-mark {
+        width: 48px;
+        height: 48px;
+      }
+
+      .menu-toggle {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--color-darker);
+        flex-direction: column;
+        padding: 1rem 2rem 2rem;
+        gap: 0;
+        box-shadow: var(--shadow-lg);
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .nav-links.active {
+        display: flex;
+        animation: slideDown 0.3s ease-out;
+      }
+
+      @keyframes slideDown {
+        from { opacity: 0; transform: translateY(-10px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+
+      .nav-links li {
+        padding: 0.75rem 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .nav-links li:last-child { border-bottom: none; }
+
+      .hero-actions {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .btn-outline { margin-left: 0; }
+
+      .about-stats {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+
+      section {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+      }
+
+      .contact-grid { gap: 1.5rem; }
+
+      .project-links { justify-content: center; }
+
+      .services-grid,
+      .process-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 480px) {
+      nav { padding: 0 1rem; }
+      .hero { padding: 3rem 1rem; }
+      .project-grid { grid-template-columns: 1fr; }
+      .skills { gap: 0.5rem; }
+      .skill-tag {
+        font-size: 0.8rem;
+        padding: 0.4rem 1rem;
+      }
+      #hire { padding: 3rem 1.5rem; }
+    }
+
+    @media print {
+      .preloader, header, .hero, .social-links, .menu-toggle, #hire { display: none; }
+      section {
+        padding: 2rem 0;
+        page-break-inside: avoid;
+      }
+      a[href]::after {
+        content: " (" attr(href) ")";
+        font-size: 0.8em;
+        color: var(--color-gray);
+      }
+    }
+  </style>
+<base target="_blank">
+</head>
+<body>
+
+  <!-- Fast Preloader -->
+  <div class="preloader" id="preloader" role="status" aria-label="Loading portfolio">
+    <div class="preloader-content">
+      <div class="preloader-brand">
+        <div class="preloader-brand-mark">
+          <i class="fas fa-code" aria-hidden="true"></i>
+        </div>
+        <div class="preloader-brand-name">RK WebCraft</div>
+      </div>
+
+      <div class="preloader-status">
+        <div class="preloader-track">
+          <div class="preloader-fill" id="progressBar"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <header>
+    <nav aria-label="Main navigation">
+      <a href="#" class="logo" aria-label="RK WebCraft Home">
+        <img src="logo.jpg" alt="RK Logo" class="logo-img" loading="lazy" width="50" height="50">
+        <span class="logo-text">RK WebCraft</span>
+      </a>
+
+      <button class="menu-toggle" onclick="toggleMenu()" aria-label="Toggle menu" aria-expanded="false" aria-controls="navLinks">
+        <i class="fas fa-bars" aria-hidden="true"></i>
+      </button>
+
+      <ul class="nav-links" id="navLinks" role="menubar">
+        <li role="none"><a href="#about" role="menuitem">About</a></li>
+        <li role="none"><a href="#services" role="menuitem">Services</a></li>
+        <li role="none"><a href="#projects" role="menuitem">Projects</a></li>
+        <li role="none"><a href="#process" role="menuitem">How I Work</a></li>
+        <li role="none"><a href="#contact" role="menuitem">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main-content">
+    <section class="hero" aria-label="Introduction">
+      <div class="hero-content">
+        <span class="hero-badge">
+          <span aria-hidden="true">👋</span> Available for freelance work
+        </span>
+        <h1>Front-End Developer for Small Businesses</h1>
+        <p>I build fast, responsive websites that help local businesses get more customers online. Based in Thiruvannamalai, Tamil Nadu — working with clients across India.</p>
+        <div class="hero-actions">
+          <a href="#services" class="btn">
+            <i class="fas fa-briefcase" aria-hidden="true"></i> See Services
+          </a>
+          <a href="#contact" class="btn btn-outline">
+            <i class="fas fa-envelope" aria-hidden="true"></i> Get a Free Quote
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" aria-labelledby="about-heading">
+      <div class="section-header">
+        <h2 id="about-heading">About Me</h2>
+      </div>
+      <div class="about-content">
+        <p>
+          I'm <strong>Arun R</strong>, a front-end developer based in <strong>Thiruvannamalai, Tamil Nadu</strong>. I help small businesses and local shops create their online presence without spending too much.
+        </p>
+        <p>
+          I specialize in building <strong>responsive websites, landing pages, and admin dashboards</strong> using HTML, CSS, and JavaScript. Every site I make is mobile-friendly, loads fast, and looks professional — because most of your customers are browsing on their phones.
+        </p>
+        <p>
+          Whether you need a simple business website, a product landing page to get leads, or a dashboard to manage your data, I can build it. I focus on clean code, clear communication, and delivering on time.
+        </p>
+
+        <div class="about-stats">
+          <div class="stat-item">
+            <div class="stat-number">3+</div>
+            <div class="stat-label">Projects Built</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">1+</div>
+            <div class="stat-label">Year Experience</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">100%</div>
+            <div class="stat-label">Commitment</div>
+          </div>
+        </div>
+
+        <div class="skills" role="list" aria-label="Technical skills">
+          <span class="skill-tag" role="listitem">HTML5</span>
+          <span class="skill-tag" role="listitem">CSS3</span>
+          <span class="skill-tag" role="listitem">JavaScript</span>
+          <span class="skill-tag" role="listitem">Responsive Design</span>
+          <span class="skill-tag" role="listitem">UI/UX</span>
+          <span class="skill-tag" role="listitem">Git</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SERVICES SECTION ===== -->
+    <section id="services" aria-labelledby="services-heading">
+      <div class="section-header">
+        <h2 id="services-heading">Services & Pricing</h2>
+        <p class="section-subtitle">Clear pricing, no hidden costs. Choose what fits your business needs.</p>
+      </div>
+
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-icon">
+            <i class="fas fa-rocket"></i>
+          </div>
+          <h3>Landing Page</h3>
+          <p>A single-page website designed to convert visitors into customers. Perfect for product launches, service promotions, or lead generation.</p>
+          <ul class="service-features">
+            <li><i class="fas fa-check"></i> Mobile-friendly design</li>
+            <li><i class="fas fa-check"></i> Contact form integration</li>
+            <li><i class="fas fa-check"></i> Fast loading speed</li>
+            <li><i class="fas fa-check"></i> 1 round of revisions</li>
+          </ul>
+          <div class="service-price">₹5,000 <span>starting price</span></div>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">
+            <i class="fas fa-store"></i>
+          </div>
+          <h3>Business Website</h3>
+          <p>A complete multi-page website for your business. Home, About, Services, Contact, and more — everything you need to look professional online.</p>
+          <ul class="service-features">
+            <li><i class="fas fa-check"></i> Up to 5 pages</li>
+            <li><i class="fas fa-check"></i> SEO-friendly structure</li>
+            <li><i class="fas fa-check"></i> Google Maps integration</li>
+            <li><i class="fas fa-check"></i> 2 rounds of revisions</li>
+          </ul>
+          <div class="service-price">₹12,000 <span>starting price</span></div>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">
+            <i class="fas fa-tools"></i>
+          </div>
+          <h3>Website Maintenance</h3>
+          <p>Keep your website running smoothly with regular updates, security checks, and content changes. No technical headaches for you.</p>
+          <ul class="service-features">
+            <li><i class="fas fa-check"></i> Monthly backups</li>
+            <li><i class="fas fa-check"></i> Security updates</li>
+            <li><i class="fas fa-check"></i> Content updates (up to 5/month)</li>
+            <li><i class="fas fa-check"></i> Priority support</li>
+          </ul>
+          <div class="service-price">₹2,000 <span>/month</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== HOW I WORK SECTION ===== -->
+    <section id="process" aria-labelledby="process-heading">
+      <div class="section-header">
+        <h2 id="process-heading">How I Work</h2>
+        <p class="section-subtitle">A simple, transparent process from first message to live website.</p>
+      </div>
+
+      <div class="process-grid">
+        <div class="process-step">
+          <div class="process-icon"><i class="fas fa-comments"></i></div>
+          <h3>Free Consultation</h3>
+          <p>Tell me about your business and what you need. I'll suggest the best solution for your budget.</p>
+        </div>
+
+        <div class="process-step">
+          <div class="process-icon"><i class="fas fa-file-contract"></i></div>
+          <h3>Clear Proposal</h3>
+          <p>I send you a detailed quote with timeline, deliverables, and price — no surprises later.</p>
+        </div>
+
+        <div class="process-step">
+          <div class="process-icon"><i class="fas fa-code"></i></div>
+          <h3>Build & Review</h3>
+          <p>I build your site with weekly updates. You review and give feedback at each stage.</p>
+        </div>
+
+        <div class="process-step">
+          <div class="process-icon"><i class="fas fa-rocket"></i></div>
+          <h3>Launch & Handover</h3>
+          <p>Your site goes live! I provide a simple guide so you can make basic updates yourself.</p>
+        </div>
+
+        <div class="process-step">
+          <div class="process-icon"><i class="fas fa-headset"></i></div>
+          <h3>Ongoing Support</h3>
+          <p>Optional monthly maintenance to keep your site secure, fast, and up-to-date.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" aria-labelledby="projects-heading">
+      <div class="section-header">
+        <h2 id="projects-heading">Featured Projects</h2>
+        <p class="section-subtitle">Real projects I've built to solve real problems. Click to see them live.</p>
+      </div>
+      <div class="project-grid">
+
+        <div class="project-card">
+          <div class="project-image">
+            <i class="fas fa-rocket" aria-hidden="true"></i>
+          </div>
+          <div class="project-content">
+            <div class="project-problem">Problem: Business needs more online leads</div>
+            <h3>Business Landing Page</h3>
+            <p>A conversion-focused landing page for a local service business. Includes a compelling hero section, services overview, pricing cards, and a working contact form that sends leads directly to email. Built mobile-first and optimized to load in under 2 seconds.</p>
+            <div class="project-links">
+              <a href="landingpage.html" class="btn-sm" target="_blank" rel="noopener noreferrer">
+                <i class="fas fa-external-link-alt"></i> Live Demo
+              </a>
+             
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-image">
+            <i class="fas fa-chart-line" aria-hidden="true"></i>
+          </div>
+          <div class="project-content">
+            <div class="project-problem">Problem: Business needs to track data visually</div>
+            <h3>Admin Dashboard UI</h3>
+            <p>A clean admin dashboard for small business owners to track sales, customers, and inventory. Features sidebar navigation, summary cards with key metrics, sortable data tables, interactive charts, and a dark mode toggle for comfortable viewing.</p>
+            <div class="project-links">
+              <a href="dashboard.html" class="btn-sm" target="_blank" rel="noopener noreferrer">
+                <i class="fas fa-external-link-alt"></i> Live Demo
+              </a>
+             
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-image">
+            <i class="fas fa-shopping-cart" aria-hidden="true"></i>
+          </div>
+          <div class="project-content">
+            <div class="project-problem">Problem: Shop needs to sell products online</div>
+            <h3>E-Commerce Product Page</h3>
+            <p>A fully responsive e-commerce product listing page with category filtering, price sorting, add-to-cart functionality, quantity management, and a mobile-friendly cart drawer. Simulates a real shopping experience with local storage persistence.</p>
+            <div class="project-links">
+              <a href="e-commerce.html" class="btn-sm" target="_blank" rel="noopener noreferrer">
+                <i class="fas fa-external-link-alt"></i> Live Demo
+              </a>
+              
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section id="hire" aria-labelledby="hire-heading">
+      <h2 id="hire-heading">Ready to get your business online?</h2>
+      <p>I'm currently available for freelance projects. Let's discuss your needs and I'll give you a free, no-obligation quote. Most projects start within 48 hours.</p>
+      <a href="mailto:rkwebcrafts@gmail.com" class="btn">
+        <i class="fas fa-paper-plane" aria-hidden="true"></i> Get Your Free Quote
+      </a>
+    </section>
+
+    <section id="contact" aria-labelledby="contact-heading">
+      <div class="section-header">
+        <h2 id="contact-heading">Get In Touch</h2>
+        <p class="section-subtitle">Have a project in mind? Send me a message and I'll reply within 24 hours.</p>
+      </div>
+      <div class="contact-grid">
+
+        <div class="contact-item">
+          <div class="contact-icon" aria-hidden="true">
+            <i class="fas fa-envelope"></i>
+          </div>
+          <div class="contact-info">
+            <h4>Email</h4>
+            <a href="mailto:rkwebcrafts@gmail.com">rkwebcrafts@gmail.com</a>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-icon" aria-hidden="true">
+            <i class="fas fa-phone"></i>
+          </div>
+          <div class="contact-info">
+            <h4>Phone</h4>
+            <a href="tel:+918072427088">+91 80724 27088</a>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-icon" aria-hidden="true">
+            <i class="fas fa-map-marker-alt"></i>
+          </div>
+          <div class="contact-info">
+            <h4>Location</h4>
+            <p>Thiruvannamalai, Tamil Nadu, India</p>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-icon" aria-hidden="true">
+            <i class="fas fa-file-alt"></i>
+          </div>
+          <div class="contact-info">
+            <h4>Resume</h4>
+            <a href="https://arunraja1068.github.io/web/arun%20resume.pdf" download>Download CV (PDF)</a>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="social-links" aria-label="Social media links">
+        <a href="https://linkedin.com/in/YOUR_LINKEDIN_USERNAME" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="LinkedIn">
+          <i class="fab fa-linkedin-in" aria-hidden="true"></i>
+        </a>
+        <a href="https://github.com/YOUR_GITHUB_USERNAME" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="GitHub">
+          <i class="fab fa-github" aria-hidden="true"></i>
+        </a>
+        <a href="https://wa.me/918072427088" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="WhatsApp">
+          <i class="fab fa-whatsapp" aria-hidden="true"></i>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-content">
+      <img src="logo.jpg" alt="RK Logo" class="footer-logo" loading="lazy" width="60" height="60">
+      <p>&copy; <span id="year">2026</span> RK WebCraft. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    // ===== FAST PRELOADER =====
+    const preloader = document.getElementById('preloader');
+    const progressBar = document.getElementById('progressBar');
+
+    let progress = 0;
+    const minLoadTime = 800;
+    const startTime = Date.now();
+
+    function updateProgress() {
+      const remaining = 100 - progress;
+      const increment = remaining * (Math.random() * 0.2 + 0.1);
+      progress = Math.min(progress + increment, 85);
+
+      progressBar.style.width = progress + '%';
+
+      if (progress < 85) {
+        setTimeout(updateProgress, Math.random() * 100 + 50);
+      }
+    }
+
+    function hidePreloader() {
+      const elapsed = Date.now() - startTime;
+      const remaining = Math.max(0, minLoadTime - elapsed);
+
+      setTimeout(() => {
+        progress = 100;
+        progressBar.style.width = '100%';
+
+        setTimeout(() => {
+          preloader.classList.add('hidden');
+          document.body.style.overflow = '';
+
+          setTimeout(() => {
+            preloader.remove();
+          }, 500);
+        }, 200);
+      }, remaining);
+    }
+
+    document.body.style.overflow = 'hidden';
+    updateProgress();
+
+    window.addEventListener('load', hidePreloader);
+    setTimeout(hidePreloader, 3000);
+
+    // ===== MOBILE MENU =====
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navLinks = document.getElementById('navLinks');
+    const navLinksItems = document.querySelectorAll('.nav-links a');
+
+    function toggleMenu() {
+      const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
+      menuToggle.setAttribute('aria-expanded', !isExpanded);
+      navLinks.classList.toggle('active');
+      document.body.style.overflow = isExpanded ? '' : 'hidden';
+    }
+
+    function closeMenu() {
+      menuToggle.setAttribute('aria-expanded', 'false');
+      navLinks.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    navLinksItems.forEach(link => {
+      link.addEventListener('click', closeMenu);
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!menuToggle.contains(e.target) && !navLinks.contains(e.target) && navLinks.classList.contains('active')) {
+        closeMenu();
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && navLinks.classList.contains('active')) {
+        closeMenu();
+        menuToggle.focus();
+      }
+    });
+
+    // ===== MISC =====
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        const targetId = this.getAttribute('href');
+        if (targetId === '#') return;
+
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+          e.preventDefault();
+          targetElement.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
