@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://arunraja1068.github.io/web/sitemap.xml
+Sitemap: https://rkwebcrafts.github.io/portfolio/sitemap.xml
