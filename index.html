@@ -3,11 +3,38 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="RK WebCraft - Front-End Developer from Thiruvannamalai, Tamil Nadu. I build responsive websites, landing pages, and dashboards for small businesses.">
-  <title>RK WebCraft | Front-End Developer for Small Businesses</title>
+
+  <!-- SEO Meta Tags -->
+  <title>RK Webcrafts | Frontend Web Developer Portfolio</title>
+  <meta name="description" content="RK Webcrafts is a frontend web development portfolio by Arun Raja, showcasing modern landing pages, dashboards, e-commerce websites, and responsive web design for small businesses in India.">
+  <meta name="keywords" content="RK Webcrafts, Web Developer, Frontend Developer, HTML, CSS, JavaScript, React, Landing Page, Dashboard, Portfolio, Thiruvannamalai, Tamil Nadu">
+  <meta name="author" content="Arun Raja">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://arunraja1068.github.io/web/">
+
+  <!-- Open Graph / Social Sharing -->
+  <meta property="og:title" content="RK Webcrafts | Frontend Web Developer Portfolio">
+  <meta property="og:description" content="Professional frontend web developer building responsive websites, landing pages, and dashboards for small businesses across India.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://arunraja1068.github.io/web/">
+  <meta property="og:image" content="https://arunraja1068.github.io/web/images/preview.png">
+  <meta property="og:site_name" content="RK Webcrafts">
+  <meta property="og:locale" content="en_IN">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="RK Webcrafts | Frontend Web Developer Portfolio">
+  <meta name="twitter:description" content="Professional frontend web developer building responsive websites, landing pages, and dashboards for small businesses across India.">
+  <meta name="twitter:image" content="https://arunraja1068.github.io/web/images/preview.png">
+
+  <!-- Favicon (inline SVG) -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%230066ff'/%3E%3Cstop offset='100%25' stop-color='%230052cc'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='100' height='100' rx='22' fill='url(%23g)'/%3E%3Ctext x='50' y='70' font-family='Poppins' font-size='52' font-weight='800' fill='white' text-anchor='middle' letter-spacing='-2'%3ERK%3C/text%3E%3C/svg%3E" type="image/svg+xml">
+
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
+
   <style>
     :root {
       --color-primary: #0f0f0f; --color-primary-light: #2a2a2a; --color-accent: #0066ff;
@@ -140,6 +167,16 @@
     .about-text { font-size: 1rem; color: var(--color-text-secondary); line-height: 1.8; }
     .about-text p + p { margin-top: 18px; }
     .about-text strong { color: var(--color-text); font-weight: 600; }
+    .about-photo-wrap { display: flex; flex-direction: column; align-items: center; gap: 16px; }
+    .about-photo {
+      width: 160px; height: 160px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--color-accent) 0%, #0052cc 100%);
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Poppins', sans-serif; font-size: 56px; font-weight: 700;
+      color: var(--color-white); box-shadow: var(--shadow-lg), var(--shadow-glow);
+      border: 4px solid var(--color-surface);
+    }
+    .about-photo-label { font-size: 13px; color: var(--color-text-muted); font-weight: 500; }
     .skills { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 32px; }
     .skill-tag { background: var(--color-surface); color: var(--color-text-muted); padding: 7px 16px; border-radius: var(--radius-sm); font-size: 13px; font-weight: 500; border: 1px solid var(--color-border); transition: all var(--transition-fast); cursor: default; }
     .skill-tag:hover { border-color: var(--color-accent); color: var(--color-accent); transform: translateY(-2px); box-shadow: var(--shadow-md); }
@@ -165,6 +202,9 @@
     .service-features li::before { content: '✓'; color: var(--color-success); font-weight: 700; font-size: 12px; flex-shrink: 0; width: 20px; height: 20px; background: color-mix(in srgb, var(--color-success) 12%, transparent); border-radius: 50%; display: flex; align-items: center; justify-content: center; }
     .service-price { font-family: 'Poppins', sans-serif; font-size: 1.5rem; font-weight: 700; color: var(--color-text); }
     .service-price span { font-size: 0.85rem; font-weight: 400; color: var(--color-gray-light); }
+    .service-scope { margin-top: 12px; padding-top: 12px; border-top: 1px dashed var(--color-border); }
+    .service-scope-title { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.8px; color: var(--color-text-muted); margin-bottom: 6px; }
+    .service-scope-item { font-size: 12px; color: var(--color-text-secondary); display: flex; justify-content: space-between; padding: 3px 0; }
     .process-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px; }
     .process-step { text-align: center; padding: 28px 14px; position: relative; background: var(--color-surface); border-radius: var(--radius); border: 1px solid var(--color-border); transition: all var(--transition); }
     .process-step:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); border-color: var(--color-accent); }
@@ -173,13 +213,14 @@
     .process-step:hover .process-num { background: var(--color-accent); border-color: var(--color-accent); color: var(--color-surface); transform: scale(1.15); box-shadow: 0 4px 12px color-mix(in srgb, var(--color-accent) 30%, transparent); }
     .process-step h3 { font-size: 14px; color: var(--color-text); margin-bottom: 8px; font-weight: 600; }
     .process-step p { font-size: 12px; color: var(--color-text-muted); line-height: 1.6; }
+    .process-timeline { font-size: 11px; color: var(--color-accent); font-weight: 600; margin-top: 8px; display: inline-block; background: var(--color-accent-soft); padding: 2px 10px; border-radius: var(--radius-full); }
     .project-tabs { display: flex; gap: 10px; margin-bottom: 32px; flex-wrap: wrap; }
     .project-tab { padding: 10px 20px; border-radius: var(--radius-sm); border: 1px solid var(--color-border); background: var(--color-surface); color: var(--color-text-muted); font-size: 14px; font-weight: 500; cursor: pointer; transition: all var(--transition-fast); }
     .project-tab:hover { border-color: var(--color-accent); color: var(--color-accent); transform: translateY(-1px); }
     .project-tab.active { background: var(--color-primary); color: var(--color-surface); border-color: var(--color-primary); box-shadow: var(--shadow-md); }
     .project-tab:focus-visible { box-shadow: 0 0 0 2px var(--color-accent); outline: none; }
     .project-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-    .project-card { background: var(--color-surface); border-radius: var(--radius); overflow: hidden; border: 1px solid var(--color-border); transition: all var(--transition); text-decoration: none; color: inherit; display: flex; flex-direction: column; height: 100%; }
+    .project-card { background: var(--color-surface); border-radius: var(--radius); overflow: hidden; border: 1px solid var(--color-border); transition: all var(--transition); text-decoration: none; color: inherit; display: flex; flex-direction: column; height: 100%; position: relative; }
     .project-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-xl), var(--shadow-glow); border-color: var(--color-accent); }
     .project-card:focus-visible { box-shadow: 0 0 0 3px var(--color-accent-soft), var(--shadow-xl); outline: none; }
     .project-image { height: 200px; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; flex-shrink: 0; }
@@ -197,6 +238,29 @@
     .project-card h3 { font-size: 1.1rem; margin-bottom: 10px; color: var(--color-text); font-weight: 600; }
     .project-card p { color: var(--color-text-muted); font-size: 0.9rem; line-height: 1.65; flex-grow: 1; }
     .project-links { display: flex; gap: 10px; margin-top: 20px; flex-wrap: wrap; }
+    .project-status { position: absolute; top: 12px; left: 12px; background: rgba(0,0,0,0.6); color: #fff; font-size: 10px; font-weight: 600; padding: 4px 10px; border-radius: var(--radius-sm); backdrop-filter: blur(4px); z-index: 2; text-transform: uppercase; letter-spacing: 0.5px; }
+    .project-status.live { background: rgba(16,185,129,0.85); }
+    .project-status.github { background: rgba(0,102,255,0.85); }
+    .project-status.coming { background: rgba(245,158,11,0.85); }
+    .testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .testimonial-card { background: var(--color-surface); border-radius: var(--radius); padding: 28px; border: 1px solid var(--color-border); transition: all var(--transition); position: relative; }
+    .testimonial-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); border-color: var(--color-accent); }
+    .testimonial-stars { color: #f59e0b; font-size: 16px; margin-bottom: 14px; letter-spacing: 2px; }
+    .testimonial-text { font-size: 0.95rem; color: var(--color-text-secondary); line-height: 1.7; margin-bottom: 20px; font-style: italic; }
+    .testimonial-author { display: flex; align-items: center; gap: 12px; }
+    .testimonial-avatar { width: 44px; height: 44px; border-radius: 50%; background: linear-gradient(135deg, var(--color-accent), #0052cc); display: flex; align-items: center; justify-content: center; color: #fff; font-family: 'Poppins'; font-weight: 700; font-size: 16px; }
+    .testimonial-name { font-weight: 600; font-size: 14px; color: var(--color-text); }
+    .testimonial-role { font-size: 12px; color: var(--color-text-muted); }
+    .faq-list { max-width: 720px; margin: 0 auto; }
+    .faq-item { border: 1px solid var(--color-border); border-radius: var(--radius); margin-bottom: 12px; overflow: hidden; background: var(--color-surface); transition: all var(--transition-fast); }
+    .faq-item:hover { border-color: var(--color-accent); }
+    .faq-question { width: 100%; padding: 18px 24px; background: none; border: none; text-align: left; font-family: 'Poppins', sans-serif; font-size: 15px; font-weight: 600; color: var(--color-text); cursor: pointer; display: flex; justify-content: space-between; align-items: center; transition: all var(--transition-fast); }
+    .faq-question:hover { color: var(--color-accent); }
+    .faq-question svg { transition: transform var(--transition); flex-shrink: 0; }
+    .faq-item.active .faq-question svg { transform: rotate(180deg); }
+    .faq-answer { max-height: 0; overflow: hidden; transition: max-height var(--transition-slow), padding var(--transition-slow); }
+    .faq-item.active .faq-answer { max-height: 300px; padding: 0 24px 18px; }
+    .faq-answer p { color: var(--color-text-secondary); font-size: 14px; line-height: 1.7; }
     #hire { text-align: center; padding: 72px 2rem; background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%); color: #ffffff; border-radius: var(--radius-lg); margin: 0 auto 3rem; max-width: var(--container-max); position: relative; overflow: hidden; border: 1px solid rgba(255,255,255,0.06); }
     #hire::before { content: ''; position: absolute; inset: 0; background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"); }
     #hire::after { content: ''; position: absolute; top: -50%; right: -20%; width: 400px; height: 400px; background: radial-gradient(circle, rgba(0,102,255,0.15) 0%, transparent 70%); border-radius: 50%; pointer-events: none; }
@@ -213,27 +277,60 @@
     .contact-info h4 { font-size: 11px; color: var(--color-gray-light); font-weight: 600; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.8px; }
     .contact-info p, .contact-info a { color: var(--color-text); font-weight: 600; text-decoration: none; transition: color var(--transition-fast); word-break: break-word; font-size: 14px; }
     .contact-info a:hover { color: var(--color-accent); }
+    .contact-form-wrap { max-width: 600px; margin: 0 auto 40px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+    .form-group { margin-bottom: 16px; }
+    .form-group label { display: block; font-size: 13px; font-weight: 600; color: var(--color-text); margin-bottom: 6px; }
+    .form-group input, .form-group textarea, .form-group select {
+      width: 100%; padding: 12px 16px; border: 1.5px solid var(--color-border); border-radius: var(--radius-sm);
+      background: var(--color-surface); color: var(--color-text); font-family: 'Inter', sans-serif; font-size: 14px;
+      transition: all var(--transition-fast);
+    }
+    .form-group input:focus, .form-group textarea:focus, .form-group select:focus {
+      outline: none; border-color: var(--color-accent); box-shadow: 0 0 0 3px var(--color-accent-soft);
+    }
+    .form-group textarea { resize: vertical; min-height: 120px; }
+    .form-submit { width: 100%; justify-content: center; }
+    .form-status { text-align: center; padding: 12px; border-radius: var(--radius-sm); font-size: 14px; font-weight: 500; margin-top: 16px; display: none; }
+    .form-status.success { display: block; background: color-mix(in srgb, var(--color-success) 12%, transparent); color: var(--color-success); border: 1px solid color-mix(in srgb, var(--color-success) 30%, transparent); }
+    .form-status.error { display: block; background: color-mix(in srgb, #ef4444 12%, transparent); color: #ef4444; border: 1px solid color-mix(in srgb, #ef4444 30%, transparent); }
     .social-links { display: flex; gap: 14px; justify-content: center; }
     .social-link { width: 48px; height: 48px; background: var(--color-surface); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: var(--color-text-muted); font-size: 18px; transition: all var(--transition); text-decoration: none; border: 1px solid var(--color-border); }
     .social-link:hover { background: var(--color-accent); color: var(--color-surface); border-color: var(--color-accent); transform: translateY(-4px) scale(1.05); box-shadow: var(--shadow-lg), 0 0 20px color-mix(in srgb, var(--color-accent) 25%, transparent); }
     .social-link:focus-visible { box-shadow: 0 0 0 3px var(--color-accent-soft); outline: none; }
-    footer { background: var(--color-darker); color: var(--color-white); padding: 48px 2rem; text-align: center; }
+    footer { background: var(--color-darker); color: var(--color-white); padding: 48px 2rem 24px; }
     .footer-content { max-width: var(--container-max); margin: 0 auto; }
-    .footer-logo { width: 52px; height: 52px; border-radius: 14px; background: linear-gradient(135deg, var(--color-primary-light) 0%, var(--color-primary) 100%); display: flex; align-items: center; justify-content: center; margin: 0 auto 18px; font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 18px; color: var(--color-white); transition: all var(--transition); box-shadow: 0 4px 16px rgba(0,0,0,0.3); }
+    .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 40px; }
+    .footer-brand { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
+    .footer-logo { width: 40px; height: 40px; border-radius: 10px; background: linear-gradient(135deg, var(--color-primary-light) 0%, var(--color-primary) 100%); display: flex; align-items: center; justify-content: center; font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 16px; color: var(--color-white); transition: all var(--transition); box-shadow: 0 4px 16px rgba(0,0,0,0.3); }
     .footer-logo:hover { transform: scale(1.1) rotate(-5deg); box-shadow: 0 8px 24px rgba(0,0,0,0.4); }
-    footer p { color: var(--color-gray-light); font-size: 13px; }
+    .footer-desc { color: var(--color-gray-light); font-size: 13px; line-height: 1.7; max-width: 280px; }
+    .footer-title { font-family: 'Poppins', sans-serif; font-size: 13px; font-weight: 600; color: var(--color-white); margin-bottom: 16px; text-transform: uppercase; letter-spacing: 1px; }
+    .footer-links { list-style: none; }
+    .footer-links li { margin-bottom: 10px; }
+    .footer-links a { color: var(--color-gray-light); text-decoration: none; font-size: 13px; transition: all var(--transition-fast); display: inline-flex; align-items: center; gap: 6px; }
+    .footer-links a:hover { color: var(--color-accent); transform: translateX(4px); }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.08); padding-top: 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+    .footer-bottom p { color: var(--color-gray-light); font-size: 12px; }
+    .footer-built { display: inline-flex; align-items: center; gap: 6px; color: var(--color-gray-light); font-size: 12px; }
+    .footer-built span { background: rgba(255,255,255,0.08); padding: 3px 10px; border-radius: 4px; font-size: 11px; }
     ::-webkit-scrollbar { width: 8px; }
     ::-webkit-scrollbar-track { background: var(--color-light); }
     ::-webkit-scrollbar-thumb { background: var(--color-gray-light); border-radius: 4px; }
     ::-webkit-scrollbar-thumb:hover { background: var(--color-gray); }
     @media (max-width: 900px) {
       .about-grid { grid-template-columns: 1fr; }
+      .about-photo-wrap { align-items: flex-start; }
       .services-grid { grid-template-columns: 1fr; }
       .process-grid { grid-template-columns: repeat(2, 1fr); }
       .process-step:nth-child(2)::after, .process-step:nth-child(4)::after { display: none; }
       .project-grid { grid-template-columns: repeat(2, 1fr); }
       .contact-grid { grid-template-columns: repeat(2, 1fr); }
+      .testimonials-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
       .hero-blob { display: none; }
+      .form-row { grid-template-columns: 1fr; }
+      #navCta { display: none !important; }
     }
     @media (max-width: 640px) {
       :root { --header-height: 60px; }
@@ -252,6 +349,8 @@
       #hire { padding: 48px 24px; }
       section { padding-left: 1.25rem; padding-right: 1.25rem; }
       .stats-card { position: static; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .footer-bottom { flex-direction: column; text-align: center; }
     }
     @media print {
       header, .hero, .social-links, .menu-toggle, #hire, .bg-dots { display: none; }
@@ -268,7 +367,7 @@
   <header>
     <nav aria-label="Main navigation">
       <a href="#" class="logo" aria-label="RK WebCraft Home">
-        <div class="logo-mark">RK</div>
+        <div class="logo-mark" ><img src="logo.png" alt="RK Webcrafts logo" style="width:38px;height:38px;"></div>
         <div class="logo-text"><div class="logo-name">RK WebCraft</div><div class="logo-tag">Front-end developer</div></div>
       </a>
       <div style="display:flex;align-items:center;gap:4px;">
@@ -277,8 +376,10 @@
           <li role="none"><a href="#services" role="menuitem">Services</a></li>
           <li role="none"><a href="#projects" role="menuitem">Projects</a></li>
           <li role="none"><a href="#process" role="menuitem">Process</a></li>
+                    <li role="none"><a href="#faq" role="menuitem">FAQ</a></li>
           <li role="none"><a href="#contact" role="menuitem">Contact</a></li>
         </ul>
+        <a href="#contact" class="btn btn-accent" style="padding:8px 18px;font-size:13px;margin-left:8px;" id="navCta">Get quote</a>
         <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode" title="Toggle theme">
           <svg id="themeIcon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
         </button>
@@ -318,22 +419,28 @@
       <div class="about-grid">
         <div class="about-text">
           <p>I am <strong>Arun R</strong>, a front-end developer based in <strong>Thiruvannamalai, Tamil Nadu</strong>. I help small businesses and local shops create their online presence without spending too much.</p>
-          <p>I specialize in building <strong>responsive websites, landing pages, and admin dashboards</strong> using HTML, CSS, and JavaScript. Every site I make is mobile-friendly, loads fast, and looks professional — because most of your customers are browsing on their phones.</p>
+          <p>I specialize in building <strong>responsive websites, landing pages, and admin dashboards</strong> using HTML, CSS, JavaScript, and React. Every site I make is mobile-friendly, loads fast, and looks professional — because most of your customers are browsing on their phones.</p>
           <p>Whether you need a simple business website, a product landing page to get leads, or a dashboard to manage your data, I can build it. I focus on clean code, clear communication, and delivering on time.</p>
           <div class="skills" role="list" aria-label="Technical skills">
             <span class="skill-tag" role="listitem">HTML5</span>
             <span class="skill-tag" role="listitem">CSS3</span>
             <span class="skill-tag" role="listitem">JavaScript</span>
+            <span class="skill-tag" role="listitem">React.js</span>
+            <span class="skill-tag" role="listitem">Tailwind CSS</span>
+            <span class="skill-tag" role="listitem">Bootstrap</span>
             <span class="skill-tag" role="listitem">Responsive design</span>
             <span class="skill-tag" role="listitem">UI/UX</span>
             <span class="skill-tag" role="listitem">Git</span>
+            <span class="skill-tag" role="listitem">REST APIs</span>
           </div>
         </div>
         <div class="stats-card reveal reveal-delay-2">
-          <div class="stat-row"><span class="stat-label">Experience</span><span class="stat-value">1+ years</span></div>
-          <div class="stat-row"><span class="stat-label">Projects delivered</span><span class="stat-value">10+</span></div>
-          <div class="stat-row"><span class="stat-label">Response time</span><span class="stat-value">Under 24h</span></div>
-          <div class="stat-row"><span class="stat-label">Client satisfaction</span><span class="stat-value">100%</span></div>
+          <div style="padding-top:8px;">
+            <div class="stat-row"><span class="stat-label">Experience</span><span class="stat-value">1+ years</span></div>
+            <div class="stat-row"><span class="stat-label">Projects delivered</span><span class="stat-value">10+</span></div>
+            <div class="stat-row"><span class="stat-label">Response time</span><span class="stat-value">Under 24h</span></div>
+            <div class="stat-row"><span class="stat-label">Client satisfaction</span><span class="stat-value">100%</span></div>
+          </div>
         </div>
       </div>
     </section>
@@ -351,6 +458,13 @@
           <p>A single-page website designed to convert visitors into customers. Perfect for product launches, service promotions, or lead generation.</p>
           <ul class="service-features"><li>Mobile-friendly design</li><li>Contact form integration</li><li>Fast loading speed</li><li>1 round of revisions</li></ul>
           <div class="service-price">₹5,000 <span>starting price</span></div>
+          <div class="service-scope">
+            <div class="service-scope-title">What is included</div>
+            <div class="service-scope-item"><span>Design + Development</span><span>✓</span></div>
+            <div class="service-scope-item"><span>1 round of revisions</span><span>✓</span></div>
+            <div class="service-scope-item"><span>Extra pages</span><span>₹1,500 each</span></div>
+            <div class="service-scope-item"><span>Delivery time</span><span>3–5 days</span></div>
+          </div>
         </div>
         <div class="service-card featured reveal reveal-delay-2">
           <div class="service-icon">🏢</div>
@@ -358,6 +472,13 @@
           <p>A complete multi-page website for your business. Home, About, Services, Contact, and more — everything you need to look professional online.</p>
           <ul class="service-features"><li>Up to 5 pages</li><li>SEO-friendly structure</li><li>Google Maps integration</li><li>2 rounds of revisions</li></ul>
           <div class="service-price">₹12,000 <span>starting price</span></div>
+          <div class="service-scope">
+            <div class="service-scope-title">What is included</div>
+            <div class="service-scope-item"><span>Design + Development</span><span>✓</span></div>
+            <div class="service-scope-item"><span>2 rounds of revisions</span><span>✓</span></div>
+            <div class="service-scope-item"><span>Extra pages</span><span>₹2,000 each</span></div>
+            <div class="service-scope-item"><span>Delivery time</span><span>7–10 days</span></div>
+          </div>
         </div>
         <div class="service-card reveal reveal-delay-3">
           <div class="service-icon">🔧</div>
@@ -365,6 +486,13 @@
           <p>Keep your website running smoothly with regular updates, security checks, and content changes. No technical headaches for you.</p>
           <ul class="service-features"><li>Monthly backups</li><li>Security updates</li><li>Content updates (up to 5/month)</li><li>Priority support</li></ul>
           <div class="service-price">₹2,000 <span>/month</span></div>
+          <div class="service-scope">
+            <div class="service-scope-title">What is included</div>
+            <div class="service-scope-item"><span>Monthly backups</span><span>✓</span></div>
+            <div class="service-scope-item"><span>Content updates</span><span>Up to 5/mo</span></div>
+            <div class="service-scope-item"><span>Extra updates</span><span>₹300 each</span></div>
+            <div class="service-scope-item"><span>Response time</span><span>Within 24h</span></div>
+          </div>
         </div>
       </div>
     </section>
@@ -376,11 +504,11 @@
         <p class="section-subtitle">A simple, transparent process from first message to live website.</p>
       </div>
       <div class="process-grid">
-        <div class="process-step reveal reveal-delay-1"><div class="process-num">1</div><h3>Free consultation</h3><p>Tell me about your business and what you need. I will suggest the best solution for your budget.</p></div>
-        <div class="process-step reveal reveal-delay-2"><div class="process-num">2</div><h3>Clear proposal</h3><p>I send you a detailed quote with timeline, deliverables, and price — no surprises later.</p></div>
-        <div class="process-step reveal reveal-delay-3"><div class="process-num">3</div><h3>Build & review</h3><p>I build your site with weekly updates. You review and give feedback at each stage.</p></div>
-        <div class="process-step reveal reveal-delay-4"><div class="process-num">4</div><h3>Launch & handover</h3><p>Your site goes live! I provide a simple guide so you can make basic updates yourself.</p></div>
-        <div class="process-step reveal"><div class="process-num">5</div><h3>Ongoing support</h3><p>Optional monthly maintenance to keep your site secure, fast, and up-to-date.</p></div>
+        <div class="process-step reveal reveal-delay-1"><div class="process-num">1</div><h3>Free consultation</h3><p>Tell me about your business and what you need. I will suggest the best solution for your budget.</p><span class="process-timeline">1–2 days</span></div>
+        <div class="process-step reveal reveal-delay-2"><div class="process-num">2</div><h3>Clear proposal</h3><p>I send you a detailed quote with timeline, deliverables, and price — no surprises later.</p><span class="process-timeline">2–3 days</span></div>
+        <div class="process-step reveal reveal-delay-3"><div class="process-num">3</div><h3>Build & review</h3><p>I build your site with weekly updates. You review and give feedback at each stage.</p><span class="process-timeline">3–10 days</span></div>
+        <div class="process-step reveal reveal-delay-4"><div class="process-num">4</div><h3>Launch & handover</h3><p>Your site goes live! I provide a simple guide so you can make basic updates yourself.</p><span class="process-timeline">1 day</span></div>
+        <div class="process-step reveal"><div class="process-num">5</div><h3>Ongoing support</h3><p>Optional monthly maintenance to keep your site secure, fast, and up-to-date.</p><span class="process-timeline">Monthly</span></div>
       </div>
     </section>
 
@@ -388,7 +516,7 @@
       <div class="section-header">
         <span class="section-label">Portfolio</span>
         <h2 id="projects-heading">Featured projects</h2>
-        <p class="section-subtitle">Real projects I have built to solve real problems. Click to see them live.</p>
+        <p class="section-subtitle">Real projects I have built to solve real problems. Click to view the live demo.</p>
       </div>
       <div class="project-tabs" role="tablist" aria-label="Filter projects by category">
         <button class="project-tab active" role="tab" aria-selected="true" data-filter="all" onclick="filterProjects('all', this)">All</button>
@@ -398,8 +526,9 @@
       </div>
       <div class="project-grid" id="projectGrid">
 
-        <a href="landing-business.html" class="project-card reveal" data-category="landing" target="_blank" rel="noopener noreferrer">
+        <a href="https://arunraja1068.github.io/web/demo/business-landing/" class="project-card reveal" data-category="landing" target="_blank" rel="noopener noreferrer">
           <div class="project-image" style="background: linear-gradient(135deg, #1e3a5f 0%, #2d5a87 100%);">
+            <span class="project-status live">Live Demo</span>
             <svg class="project-image-pattern" width="100%" height="100%" viewBox="0 0 400 180" preserveAspectRatio="none"><rect width="400" height="180" fill="white" opacity="0.03"/><circle cx="320" cy="40" r="80" fill="white" opacity="0.04"/></svg>
             <span class="project-image-icon">🏢</span>
             <div class="project-image-overlay"><span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>View live demo</span></div>
@@ -408,12 +537,13 @@
             <div class="project-meta"><span class="project-tag">HTML</span><span class="project-tag">CSS</span><span class="project-tag">JavaScript</span></div>
             <h3>Business landing page</h3>
             <p>A professional landing page for a local service business. Features hero section with trust badges, services grid, client testimonials carousel, pricing cards, and a working contact form with validation. Mobile-first, loads under 2 seconds.</p>
-            <div class="project-links"><span class="btn-sm"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right:4px"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>Live demo</span></div>
+            <div class="project-links"><span class="btn-sm"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right:4px"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>View live demo</span></div>
           </div>
         </a>
 
-        <a href="landing-product.html" class="project-card reveal reveal-delay-1" data-category="landing" target="_blank" rel="noopener noreferrer">
+        <a href="https://arunraja1068.github.io/web/demo/product-landing/" class="project-card reveal reveal-delay-1" data-category="landing" target="_blank" rel="noopener noreferrer">
           <div class="project-image" style="background: linear-gradient(135deg, #7c3aed 0%, #a855f7 100%);">
+            <span class="project-status live">Live Demo</span>
             <svg class="project-image-pattern" width="100%" height="100%" viewBox="0 0 400 180" preserveAspectRatio="none"><rect width="400" height="180" fill="white" opacity="0.03"/><circle cx="80" cy="140" r="60" fill="white" opacity="0.04"/></svg>
             <span class="project-image-icon">📦</span>
             <div class="project-image-overlay"><span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>View live demo</span></div>
@@ -422,12 +552,13 @@
             <div class="project-meta"><span class="project-tag">HTML</span><span class="project-tag">CSS</span><span class="project-tag">JavaScript</span></div>
             <h3>Product landing page</h3>
             <p>A high-converting product launch page with feature highlights, image gallery with zoom, pricing tiers with toggle, FAQ accordion, and countdown timer for limited offers. Built for a fitness equipment brand.</p>
-            <div class="project-links"><span class="btn-sm"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right:4px"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>Live demo</span></div>
+            <div class="project-links"><span class="btn-sm"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right:4px"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>View live demo</span></div>
           </div>
         </a>
 
-        <a href="landing-leadgen.html" class="project-card reveal reveal-delay-2" data-category="landing" target="_blank" rel="noopener noreferrer">
+        <a href="https://arunraja1068.github.io/web/demo/lead-generation/" class="project-card reveal reveal-delay-2" data-category="landing" target="_blank" rel="noopener noreferrer">
           <div class="project-image" style="background: linear-gradient(135deg, #059669 0%, #10b981 100%);">
+            <span class="project-status live">Live Demo</span>
             <svg class="project-image-pattern" width="100%" height="100%" viewBox="0 0 400 180" preserveAspectRatio="none"><rect width="400" height="180" fill="white" opacity="0.03"/><circle cx="200" cy="90" r="70" fill="white" opacity="0.04"/></svg>
             <span class="project-image-icon">🎯</span>
             <div class="project-image-overlay"><span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>View live demo</span></div>
@@ -436,12 +567,13 @@
             <div class="project-meta"><span class="project-tag">HTML</span><span class="project-tag">CSS</span><span class="project-tag">JavaScript</span></div>
             <h3>Lead generation page</h3>
             <p>A conversion-focused lead capture page for a real estate agency. Features hero with video background, property showcase grid, mortgage calculator, lead form with multi-step progress, and WhatsApp CTA integration.</p>
-            <div class="project-links"><span class="btn-sm"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right:4px"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>Live demo</span></div>
+            <div class="project-links"><span class="btn-sm"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right:4px"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>View live demo</span></div>
           </div>
         </a>
 
-        <a href="landing-event.html" class="project-card reveal" data-category="landing" target="_blank" rel="noopener noreferrer">
+        <a href="https://arunraja1068.github.io/web/demo/event-landing/" class="project-card reveal" data-category="landing" target="_blank" rel="noopener noreferrer">
           <div class="project-image" style="background: linear-gradient(135deg, #dc2626 0%, #f97316 100%);">
+            <span class="project-status live">Live Demo</span>
             <svg class="project-image-pattern" width="100%" height="100%" viewBox="0 0 400 180" preserveAspectRatio="none"><rect width="400" height="180" fill="white" opacity="0.03"/><circle cx="350" cy="120" r="50" fill="white" opacity="0.04"/></svg>
             <span class="project-image-icon">🎤</span>
             <div class="project-image-overlay"><span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>View live demo</span></div>
@@ -450,12 +582,13 @@
             <div class="project-meta"><span class="project-tag">HTML</span><span class="project-tag">CSS</span><span class="project-tag">JavaScript</span></div>
             <h3>Event & webinar landing page</h3>
             <p>An event registration page for a tech conference. Features speaker lineup with bios, schedule timeline, live countdown timer, ticket tier cards, and Stripe-ready payment section. Social proof with attendee counter.</p>
-            <div class="project-links"><span class="btn-sm"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right:4px"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>Live demo</span></div>
+            <div class="project-links"><span class="btn-sm"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right:4px"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>View live demo</span></div>
           </div>
         </a>
 
-        <a href="landing-saas.html" class="project-card reveal reveal-delay-1" data-category="landing" target="_blank" rel="noopener noreferrer">
+        <a href="https://arunraja1068.github.io/web/demo/saas-landing/" class="project-card reveal reveal-delay-1" data-category="landing" target="_blank" rel="noopener noreferrer">
           <div class="project-image" style="background: linear-gradient(135deg, #0891b2 0%, #06b6d4 100%);">
+            <span class="project-status live">Live Demo</span>
             <svg class="project-image-pattern" width="100%" height="100%" viewBox="0 0 400 180" preserveAspectRatio="none"><rect width="400" height="180" fill="white" opacity="0.03"/><circle cx="60" cy="50" r="70" fill="white" opacity="0.04"/></svg>
             <span class="project-image-icon">💻</span>
             <div class="project-image-overlay"><span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>View live demo</span></div>
@@ -464,12 +597,13 @@
             <div class="project-meta"><span class="project-tag">HTML</span><span class="project-tag">CSS</span><span class="project-tag">JavaScript</span></div>
             <h3>SaaS / app landing page</h3>
             <p>A modern SaaS product page for a task management app. Features animated hero with app mockup, feature comparison table, interactive pricing calculator, integration logos marquee, and free trial signup with email validation.</p>
-            <div class="project-links"><span class="btn-sm"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right:4px"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>Live demo</span></div>
+            <div class="project-links"><span class="btn-sm"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right:4px"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>View live demo</span></div>
           </div>
         </a>
 
-        <a href="dashboard-admin.html" class="project-card reveal reveal-delay-2" data-category="dashboard" target="_blank" rel="noopener noreferrer">
+        <a href="https://arunraja1068.github.io/web/demo/admin-dashboard/" class="project-card reveal" data-category="dashboard" target="_blank" rel="noopener noreferrer">
           <div class="project-image" style="background: linear-gradient(135deg, #1e293b 0%, #334155 100%);">
+            <span class="project-status live">Live Demo</span>
             <svg class="project-image-pattern" width="100%" height="100%" viewBox="0 0 400 180" preserveAspectRatio="none"><rect width="400" height="180" fill="white" opacity="0.03"/><rect x="40" y="40" width="320" height="100" rx="4" fill="white" opacity="0.02"/></svg>
             <span class="project-image-icon">⚙️</span>
             <div class="project-image-overlay"><span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>View live demo</span></div>
@@ -478,12 +612,13 @@
             <div class="project-meta"><span class="project-tag">HTML</span><span class="project-tag">CSS</span><span class="project-tag">JavaScript</span></div>
             <h3>Admin dashboard for business</h3>
             <p>A comprehensive admin panel for a retail business. Features collapsible sidebar, KPI summary cards, recent orders table with pagination, user management with role badges, and notification dropdown. Dark mode toggle included.</p>
-            <div class="project-links"><span class="btn-sm"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right:4px"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>Live demo</span></div>
+            <div class="project-links"><span class="btn-sm"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right:4px"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>View live demo</span></div>
           </div>
         </a>
 
-        <a href="dashboard-analytics.html" class="project-card reveal" data-category="dashboard" target="_blank" rel="noopener noreferrer">
+        <a href="https://arunraja1068.github.io/web/demo/analytics-dashboard/" class="project-card reveal reveal-delay-1" data-category="dashboard" target="_blank" rel="noopener noreferrer">
           <div class="project-image" style="background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);">
+            <span class="project-status live">Live Demo</span>
             <svg class="project-image-pattern" width="100%" height="100%" viewBox="0 0 400 180" preserveAspectRatio="none"><rect width="400" height="180" fill="white" opacity="0.03"/><circle cx="200" cy="90" r="60" fill="white" opacity="0.04"/></svg>
             <span class="project-image-icon">📈</span>
             <div class="project-image-overlay"><span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>View live demo</span></div>
@@ -492,12 +627,13 @@
             <div class="project-meta"><span class="project-tag">HTML</span><span class="project-tag">CSS</span><span class="project-tag">JavaScript</span></div>
             <h3>Analytics dashboard</h3>
             <p>A data visualization dashboard for a marketing agency. Features line charts, bar charts, and donut charts using Chart.js, date range picker, traffic source breakdown, conversion funnel, and export to CSV functionality.</p>
-            <div class="project-links"><span class="btn-sm"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right:4px"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>Live demo</span></div>
+            <div class="project-links"><span class="btn-sm"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right:4px"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>View live demo</span></div>
           </div>
         </a>
 
-        <a href="dashboard-ecommerce.html" class="project-card reveal reveal-delay-1" data-category="ecommerce" target="_blank" rel="noopener noreferrer">
+        <a href="https://arunraja1068.github.io/web/demo/ecommerce-dashboard/" class="project-card reveal reveal-delay-2" data-category="dashboard" target="_blank" rel="noopener noreferrer">
           <div class="project-image" style="background: linear-gradient(135deg, #be185d 0%, #db2777 100%);">
+            <span class="project-status live">Live Demo</span>
             <svg class="project-image-pattern" width="100%" height="100%" viewBox="0 0 400 180" preserveAspectRatio="none"><rect width="400" height="180" fill="white" opacity="0.03"/><circle cx="100" cy="80" r="50" fill="white" opacity="0.04"/><circle cx="300" cy="100" r="40" fill="white" opacity="0.03"/></svg>
             <span class="project-image-icon">🛍️</span>
             <div class="project-image-overlay"><span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>View live demo</span></div>
@@ -506,12 +642,13 @@
             <div class="project-meta"><span class="project-tag">HTML</span><span class="project-tag">CSS</span><span class="project-tag">JavaScript</span></div>
             <h3>E-commerce dashboard</h3>
             <p>A complete store management dashboard for an online boutique. Features order tracking with status badges, inventory table with stock alerts, sales trend graph, customer list with purchase history, and revenue calculator.</p>
-            <div class="project-links"><span class="btn-sm"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right:4px"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>Live demo</span></div>
+            <div class="project-links"><span class="btn-sm"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right:4px"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>View live demo</span></div>
           </div>
         </a>
 
-        <a href="dashboard-student.html" class="project-card reveal reveal-delay-2" data-category="dashboard" target="_blank" rel="noopener noreferrer">
+        <a href="https://arunraja1068.github.io/web/demo/student-dashboard/" class="project-card reveal" data-category="dashboard" target="_blank" rel="noopener noreferrer">
           <div class="project-image" style="background: linear-gradient(135deg, #0d9488 0%, #14b8a6 100%);">
+            <span class="project-status live">Live Demo</span>
             <svg class="project-image-pattern" width="100%" height="100%" viewBox="0 0 400 180" preserveAspectRatio="none"><rect width="400" height="180" fill="white" opacity="0.03"/><circle cx="350" cy="50" r="60" fill="white" opacity="0.04"/></svg>
             <span class="project-image-icon">🎓</span>
             <div class="project-image-overlay"><span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>View live demo</span></div>
@@ -520,12 +657,13 @@
             <div class="project-meta"><span class="project-tag">HTML</span><span class="project-tag">CSS</span><span class="project-tag">JavaScript</span></div>
             <h3>Student dashboard</h3>
             <p>A student portal for a coaching center. Features attendance calendar with color-coded days, marks table with grade calculation, assignment todo list with deadlines, progress bar for course completion, and notice board.</p>
-            <div class="project-links"><span class="btn-sm"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right:4px"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>Live demo</span></div>
+            <div class="project-links"><span class="btn-sm"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right:4px"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>View live demo</span></div>
           </div>
         </a>
 
-        <a href="dashboard-finance.html" class="project-card reveal" data-category="dashboard" target="_blank" rel="noopener noreferrer">
+        <a href="https://arunraja1068.github.io/web/demo/finance-dashboard/" class="project-card reveal reveal-delay-1" data-category="dashboard" target="_blank" rel="noopener noreferrer">
           <div class="project-image" style="background: linear-gradient(135deg, #b45309 0%, #d97706 100%);">
+            <span class="project-status live">Live Demo</span>
             <svg class="project-image-pattern" width="100%" height="100%" viewBox="0 0 400 180" preserveAspectRatio="none"><rect width="400" height="180" fill="white" opacity="0.03"/><circle cx="200" cy="90" r="70" fill="white" opacity="0.04"/></svg>
             <span class="project-image-icon">💰</span>
             <div class="project-image-overlay"><span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>View live demo</span></div>
@@ -534,31 +672,98 @@
             <div class="project-meta"><span class="project-tag">HTML</span><span class="project-tag">CSS</span><span class="project-tag">JavaScript</span></div>
             <h3>Finance dashboard</h3>
             <p>A personal finance tracker for small business owners. Features income vs expense bar chart, savings goal progress rings, transaction table with category filters, budget alerts, and monthly PDF report generation.</p>
-            <div class="project-links"><span class="btn-sm"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right:4px"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>Live demo</span></div>
+            <div class="project-links"><span class="btn-sm"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right:4px"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>View live demo</span></div>
           </div>
         </a>
 
-        <a href="dashboard-project.html" class="project-card reveal reveal-delay-1" data-category="dashboard" target="_blank" rel="noopener noreferrer">
-          <div class="project-image" style="background: linear-gradient(135deg, #4338ca 0%, #6366f1 100%);">
-            <svg class="project-image-pattern" width="100%" height="100%" viewBox="0 0 400 180" preserveAspectRatio="none"><rect width="400" height="180" fill="white" opacity="0.03"/><circle cx="80" cy="120" r="50" fill="white" opacity="0.04"/></svg>
-            <span class="project-image-icon">📋</span>
+        <a href="https://arunraja1068.github.io/web/demo/ecommerce-shop/" class="project-card reveal" data-category="ecommerce" target="_blank" rel="noopener noreferrer">
+          <div class="project-image" style="background: linear-gradient(135deg, #ea580c 0%, #f97316 100%);">
+            <span class="project-status live">Live Demo</span>
+            <svg class="project-image-pattern" width="100%" height="100%" viewBox="0 0 400 180" preserveAspectRatio="none"><rect width="400" height="180" fill="white" opacity="0.03"/><circle cx="300" cy="60" r="50" fill="white" opacity="0.04"/></svg>
+            <span class="project-image-icon">🛒</span>
             <div class="project-image-overlay"><span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>View live demo</span></div>
           </div>
           <div class="project-content">
             <div class="project-meta"><span class="project-tag">HTML</span><span class="project-tag">CSS</span><span class="project-tag">JavaScript</span></div>
-            <h3>Project management dashboard</h3>
-            <p>A Kanban-style project tracker for a web agency. Features drag-and-drop task boards, Gantt chart timeline, team member workload view, deadline countdown badges, and project status summary with completion percentage.</p>
-            <div class="project-links"><span class="btn-sm"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right:4px"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>Live demo</span></div>
+            <h3>Online store frontend</h3>
+            <p>A fully responsive e-commerce product page with image gallery, size/color selectors, add-to-cart functionality, customer reviews section, and related products carousel. Built for a local clothing brand in Tamil Nadu.</p>
+            <div class="project-links"><span class="btn-sm"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right:4px"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>View live demo</span></div>
           </div>
         </a>
 
+        <a href="https://arunraja1068.github.io/web/demo/restaurant-menu/" class="project-card reveal reveal-delay-1" data-category="ecommerce" target="_blank" rel="noopener noreferrer">
+          <div class="project-image" style="background: linear-gradient(135deg, #16a34a 0%, #22c55e 100%);">
+            <span class="project-status live">Live Demo</span>
+            <svg class="project-image-pattern" width="100%" height="100%" viewBox="0 0 400 180" preserveAspectRatio="none"><rect width="400" height="180" fill="white" opacity="0.03"/><circle cx="100" cy="100" r="60" fill="white" opacity="0.04"/></svg>
+            <span class="project-image-icon">🍽️</span>
+            <div class="project-image-overlay"><span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>View live demo</span></div>
+          </div>
+          <div class="project-content">
+            <div class="project-meta"><span class="project-tag">HTML</span><span class="project-tag">CSS</span><span class="project-tag">JavaScript</span></div>
+            <h3>Restaurant menu & ordering</h3>
+            <p>A digital menu and table ordering system for a local restaurant. Features categorized menu with photos, cart with order summary, table number input, special instructions field, and bill total calculator with tax.</p>
+            <div class="project-links"><span class="btn-sm"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right:4px"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>View live demo</span></div>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <section id="faq" aria-labelledby="faq-heading" class="reveal">
+      <div class="section-header" style="text-align:center;">
+        <span class="section-label">FAQ</span>
+        <h2 id="faq-heading">Frequently asked questions</h2>
+        <p class="section-subtitle" style="margin:0 auto;">Got questions? I have got answers. If you do not see yours here, feel free to reach out.</p>
+      </div>
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            How long does it take to build a website?
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+          <div class="faq-answer"><p>A simple landing page takes 3–5 days. A full business website with up to 5 pages takes 7–10 days. Complex dashboards may take 2–3 weeks. I always give you a clear timeline in my proposal before we start.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            Do I own the code after the project is done?
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+          <div class="faq-answer"><p>Yes, absolutely. Once the project is complete and payment is settled, you own 100% of the code. I will also provide a simple guide so you or your team can make basic text and image updates without needing a developer.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            What if I need changes after the website is live?
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+          <div class="faq-answer"><p>Minor text or image changes within the first 2 weeks are free. After that, you can opt for my monthly maintenance plan (₹2,000/month) which includes up to 5 content updates per month. One-off changes are charged at ₹300 each.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            Do you provide hosting and domain?
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+          <div class="faq-answer"><p>I do not provide hosting or domains directly, but I will guide you through buying them. I recommend Hostinger or Namecheap for domains, and Netlify or Vercel for free hosting. I will also deploy your site for free on these platforms as part of the project.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            What payment methods do you accept?
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+          <div class="faq-answer"><p>I accept UPI (Google Pay, PhonePe, Paytm), bank transfer, and PayPal for international clients. For projects above ₹5,000, I take 50% advance before starting and 50% on delivery. For smaller projects, full payment upfront.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            Can you build e-commerce or payment-enabled websites?
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+          <div class="faq-answer"><p>Currently, I specialize in frontend development — product pages, carts, and checkout UIs. For full e-commerce with payment gateways (Razorpay, Stripe), I can build the frontend and connect you with a backend developer, or we can use no-code tools like Shopify.</p></div>
+        </div>
       </div>
     </section>
 
     <section id="hire" aria-labelledby="hire-heading">
       <h2 id="hire-heading">Ready to get your business online?</h2>
       <p>I am currently available for freelance projects. Let us discuss your needs and I will give you a free, no-obligation quote. Most projects start within 48 hours.</p>
-      <a href="mailto:rkwebcrafts@gmail.com" class="btn">
+      <a href="#contact" class="btn">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right:4px"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
         Get your free quote
       </a>
@@ -588,14 +793,49 @@
           <div class="contact-info"><h4>Resume</h4><a href="https://arunraja1068.github.io/web/arun%20resume.pdf" download>Download CV (PDF)</a></div>
         </div>
       </div>
+
+      <div class="contact-form-wrap">
+        <form id="contactForm" action="https://formspree.io/f/xnqevwpy" method="POST">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">Your name</label>
+              <input type="text" id="name" name="name" placeholder="John Doe" required>
+            </div>
+            <div class="form-group">
+              <label for="email">Email address</label>
+              <input type="email" id="email" name="email" placeholder="john@example.com" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="service">What do you need?</label>
+            <select id="service" name="service" required>
+              <option value="" disabled selected>Select a service</option>
+              <option value="landing">Landing page (₹5,000)</option>
+              <option value="business">Business website (₹12,000)</option>
+              <option value="maintenance">Website maintenance (₹2,000/mo)</option>
+              <option value="other">Something else</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="message">Tell me about your project</label>
+            <textarea id="message" name="message" placeholder="I need a website for my restaurant..." required></textarea>
+          </div>
+          <input type="text" name="_gotcha" style="display:none">
+          <button type="submit" class="btn btn-accent form-submit">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right:4px"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+            Send message
+          </button>
+          <div class="form-status success" id="formSuccess">Thank you! Your message has been sent. I will reply within 24 hours.</div>
+          <div class="form-status error" id="formError">Oops! Something went wrong. Please try again or email me directly at rkwebcrafts@gmail.com</div>
+        </form>
+      </div>
+
       <div class="social-links" aria-label="Social media links">
-        <a href="https://linkedin.com/in/arun-r-thiruvannamalai" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="LinkedIn">
+        <a href="https://linkedin.com/in/arun-r-thiruvannamalai" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="LinkedIn profile of Arun Raja, Frontend Developer">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
         </a>
-        <a href="https://github.com/arunraja1068" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="GitHub">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
-        </a>
-        <a href="https://wa.me/918072427088" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="WhatsApp">
+
+        <a href="https://wa.me/918072427088" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="WhatsApp Arun Raja">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.47-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
         </a>
       </div>
@@ -604,8 +844,47 @@
 
   <footer>
     <div class="footer-content">
-      <div class="footer-logo">RK</div>
-      <p>&copy; <span id="year">2026</span> RK WebCraft. All rights reserved.</p>
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand">
+            <div class="footer-logo" ><img src="logo.png" alt="RK Webcrafts logo" style="width:38px;height:38px;"></div>
+            <div>
+              <div style="font-family:'Poppins';font-weight:700;font-size:15px;color:#fff;">RK Webcrafts</div>
+              <div style="font-size:12px;color:var(--color-gray-light);">Frontend Developer</div>
+            </div>
+          </div>
+          <p class="footer-desc">Building fast, responsive websites for small businesses across India. Based in Thiruvannamalai, Tamil Nadu.</p>
+        </div>
+        <div>
+          <div class="footer-title">Quick Links</div>
+          <ul class="footer-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#process">Process</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-title">Support</div>
+          <ul class="footer-links">
+            <li><a href="#faq">FAQ</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="https://arunraja1068.github.io/web/arun%20resume.pdf" download>Download CV</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-title">Connect</div>
+          <ul class="footer-links">
+            <li><a href="https://linkedin.com/in/arun-r-thiruvannamalai" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+            <li><a href="https://wa.me/918072427088" target="_blank" rel="noopener noreferrer">WhatsApp</a></li>
+            <li><a href="mailto:rkwebcrafts@gmail.com">Email</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; <span id="year">2026</span> RK Webcrafts. All rights reserved.</p>
+        <div class="footer-built">Built with <span>HTML</span><span>CSS</span><span>JavaScript</span></div>
+      </div>
     </div>
   </footer>
 
@@ -673,6 +952,14 @@
       });
     }
 
+    // ===== FAQ ACCORDION =====
+    function toggleFaq(btn) {
+      const item = btn.parentElement;
+      const isActive = item.classList.contains('active');
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
+      if (!isActive) item.classList.add('active');
+    }
+
     // ===== SMOOTH SCROLL =====
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function(e) {
@@ -696,6 +983,35 @@
 
     // ===== FOOTER YEAR =====
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    // ===== CONTACT FORM HANDLING =====
+    const contactForm = document.getElementById('contactForm');
+    if (contactForm) {
+      contactForm.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        const formData = new FormData(contactForm);
+        const successMsg = document.getElementById('formSuccess');
+        const errorMsg = document.getElementById('formError');
+        successMsg.style.display = 'none';
+        errorMsg.style.display = 'none';
+
+        try {
+          const response = await fetch(contactForm.action, {
+            method: 'POST',
+            body: formData,
+            headers: { 'Accept': 'application/json' }
+          });
+          if (response.ok) {
+            successMsg.style.display = 'block';
+            contactForm.reset();
+          } else {
+            errorMsg.style.display = 'block';
+          }
+        } catch (err) {
+          errorMsg.style.display = 'block';
+        }
+      });
+    }
   </script>
 </body>
 </html>
