@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://rkwebcrafts.github.io/portfolio/sitemap.xml
+Sitemap: https://rkwebcrafts.github.io/portfolio/sitemap.txt
