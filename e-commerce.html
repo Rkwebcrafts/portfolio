@@ -1,1124 +1,1475 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="ShopEase - Premium electronics and gadgets at unbeatable prices. Smart shopping made easy.">
-<meta property="og:title" content="ShopEase - Smart Shopping">
-<meta property="og:description" content="Discover premium electronics with seamless shopping experience.">
-<meta property="og:type" content="website">
-<title>ShopEase Premium</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AURA — Timeless Fashion & Modern Elegance</title>
 
-<style>
-:root {
-    --primary: #4f46e5;
-    --primary-hover: #4338ca;
-    --secondary: #06b6d4;
-    --bg: #f1f5f9;
-    --card: #ffffff;
-    --text: #1e293b;
-    --text-muted: #64748b;
-    --border: #e2e8f0;
-    --success: #22c55e;
-    --danger: #ef4444;
-    --warning: #f59e0b;
-    --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
-    --shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
-    --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1);
-    --radius: 12px;
-    --radius-sm: 8px;
-}
+    <!-- Preconnect Headers for Performance Optimization -->
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="preconnect" href="https://images.unsplash.com">
+    <link rel="dns-prefetch" href="https://cdn.tailwindcss.com">
 
-@media (prefers-color-scheme: dark) {
-    :root {
-        --bg: #0f172a;
-        --card: #1e293b;
-        --text: #f1f5f9;
-        --text-muted: #94a3b8;
-        --border: #334155;
+    <!-- SEO & OpenGraph Meta Tags -->
+    <meta name="description" content="Explore AURA's luxury collection of minimalist apparel, crafted from high-grade organic fabrics with timeless design aesthetics.">
+    <meta name="keywords" content="fashion, luxury apparel, minimalist clothing, heavyweight hoodie, trench coat, modern elegance">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://aura-fashion.example.com/">
+    
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="AURA — Timeless Fashion & Modern Elegance">
+    <meta property="og:description" content="Discover uncompromised luxury craftsmanship and minimal silhouettes tailored for the contemporary wardrobe.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=1200&q=80">
+    <meta property="og:url" content="https://aura-fashion.example.com/">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="AURA — Luxury Minimalist Apparel">
+    <meta name="twitter:description" content="Crafted for durability and modern elegance. Explore the collection.">
+    <meta name="twitter:image" content="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=1200&q=80">
+
+    <!-- JSON-LD Structured Data for Google Rich Snippets -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ClothingStore",
+      "name": "AURA Luxury Fashion",
+      "image": "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=1200&q=80",
+      "description": "High-fashion minimalist apparel engineered with uncompromised craftsmanship.",
+      "currenciesAccepted": "USD, EUR, GBP, INR",
+      "priceRange": "$$$"
     }
-}
+    </script>
 
-* { margin: 0; padding: 0; box-sizing: border-box; }
-body { 
-    font-family: 'Inter', sans-serif; 
-    background: var(--bg); 
-    color: var(--text);
-    line-height: 1.6;
-}
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-/* ===== NAVIGATION ===== */
-.nav {
-    background: var(--card);
-    padding: 16px 40px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    box-shadow: var(--shadow);
-    position: sticky;
-    top: 0;
-    z-index: 100;
-}
-.nav__brand {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: var(--primary);
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-.nav__menu {
-    display: flex;
-    gap: 28px;
-    list-style: none;
-    align-items: center;
-}
-.nav__link {
-    text-decoration: none;
-    color: var(--text-muted);
-    font-weight: 500;
-    transition: color 0.2s;
-    cursor: pointer;
-}
-.nav__link:hover, .nav__link--active { color: var(--primary); }
-.nav__cart-btn {
-    position: relative;
-    cursor: pointer;
-}
-.nav__cart-badge {
-    position: absolute;
-    top: -8px;
-    right: -12px;
-    background: var(--primary);
-    color: #fff;
-    padding: 2px 8px;
-    border-radius: 12px;
-    font-size: 11px;
-    font-weight: 600;
-    min-width: 20px;
-    text-align: center;
-}
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            dark: '#111111',
+                            light: '#F7F7F7',
+                            accent: '#C89B3C',
+                            muted: '#444444',
+                            surface: '#1E1E1E'
+                        }
+                    },
+                    fontFamily: {
+                        heading: ['Playfair Display', 'serif'],
+                        body: ['Poppins', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Poppins', sans-serif; transition: background-color 0.3s, color 0.3s; }
+        h1, h2, h3, h4, .font-serif { font-family: 'Playfair Display', serif; }
+        
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+        }
+        .dark .glass-nav {
+            background: rgba(17, 17, 17, 0.85);
+            backdrop-filter: blur(14px);
+        }
 
-/* ===== HERO ===== */
-.hero {
-    text-align: center;
-    padding: 60px 20px;
-    background: linear-gradient(135deg, var(--primary), var(--secondary));
-    color: white;
-    position: relative;
-    overflow: hidden;
-}
-.hero::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
-    background-size: 20px 20px;
-    opacity: 0.3;
-}
-.hero__title { font-size: 2.5rem; font-weight: 700; margin-bottom: 12px; position: relative; }
-.hero__subtitle { font-size: 1.1rem; opacity: 0.9; position: relative; }
+        /* Tactile Feedback Micro-interactions */
+        button:active, a:active { transform: scale(0.96); }
 
-/* ===== SEARCH & FILTERS ===== */
-.search-filter {
-    padding: 24px 40px;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-.search-filter__row {
-    display: flex;
-    gap: 16px;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-}
-.search-filter__input {
-    padding: 12px 16px;
-    width: 100%;
-    max-width: 400px;
-    border: 2px solid var(--border);
-    border-radius: var(--radius-sm);
-    font-size: 15px;
-    background: var(--card);
-    color: var(--text);
-    transition: border-color 0.2s;
-}
-.search-filter__input:focus {
-    outline: none;
-    border-color: var(--primary);
-}
-.search-filter__select {
-    padding: 12px 16px;
-    border: 2px solid var(--border);
-    border-radius: var(--radius-sm);
-    background: var(--card);
-    color: var(--text);
-    cursor: pointer;
-    font-size: 14px;
-}
-.search-filter__category {
-    display: flex;
-    gap: 8px;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin-top: 16px;
-}
-.category-btn {
-    padding: 8px 16px;
-    border: 1px solid var(--border);
-    background: var(--card);
-    border-radius: 20px;
-    cursor: pointer;
-    font-size: 13px;
-    color: var(--text-muted);
-    transition: all 0.2s;
-}
-.category-btn:hover, .category-btn--active {
-    background: var(--primary);
-    color: white;
-    border-color: var(--primary);
-}
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #f1f1f1; }
+        .dark ::-webkit-scrollbar-track { background: #1a1a1a; }
+        ::-webkit-scrollbar-thumb { background: #C89B3C; border-radius: 3px; }
 
-/* ===== PRODUCTS ===== */
-.products {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 24px;
-    padding: 20px 40px 60px;
-    max-width: 1400px;
-    margin: 0 auto;
-}
-.product-card {
-    background: var(--card);
-    border-radius: var(--radius);
-    box-shadow: var(--shadow-sm);
-    overflow: hidden;
-    transition: transform 0.2s, box-shadow 0.2s;
-    position: relative;
-}
-.product-card:hover {
-    transform: translateY(-4px);
-    box-shadow: var(--shadow-lg);
-}
-.product-card__image-wrap {
-    position: relative;
-    overflow: hidden;
-    height: 200px;
-    background: linear-gradient(135deg, #e0e7ff, #cffafe);
-}
-.product-card__image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.3s;
-}
-.product-card:hover .product-card__image { transform: scale(1.05); }
-.product-card__wishlist {
-    position: absolute;
-    top: 12px;
-    right: 12px;
-    background: rgba(255,255,255,0.9);
-    border: none;
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.2s;
-    font-size: 16px;
-}
-.product-card__wishlist:hover { background: white; transform: scale(1.1); }
-.product-card__wishlist--active { color: var(--danger); }
-.product-card__badge {
-    position: absolute;
-    top: 12px;
-    left: 12px;
-    background: var(--warning);
-    color: white;
-    padding: 4px 10px;
-    border-radius: 20px;
-    font-size: 11px;
-    font-weight: 600;
-}
-.product-card__body { padding: 20px; }
-.product-card__category {
-    font-size: 12px;
-    color: var(--primary);
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    margin-bottom: 6px;
-}
-.product-card__name {
-    font-size: 1.1rem;
-    font-weight: 600;
-    margin-bottom: 8px;
-    color: var(--text);
-}
-.product-card__price {
-    font-size: 1.25rem;
-    font-weight: 700;
-    color: var(--primary);
-    margin-bottom: 16px;
-}
-.product-card__actions {
-    display: flex;
-    gap: 10px;
-}
-.btn {
-    padding: 10px 16px;
-    border: none;
-    border-radius: var(--radius-sm);
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.2s;
-    font-size: 14px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 6px;
-    flex: 1;
-}
-.btn--primary {
-    background: var(--primary);
-    color: white;
-}
-.btn--primary:hover { background: var(--primary-hover); }
-.btn--secondary {
-    background: var(--secondary);
-    color: white;
-}
-.btn--secondary:hover { opacity: 0.9; }
-.btn--outline {
-    background: transparent;
-    border: 2px solid var(--border);
-    color: var(--text-muted);
-}
-.btn--outline:hover { border-color: var(--primary); color: var(--primary); }
+        /* Skeleton Animation */
+        .skeleton {
+            background: linear-gradient(90deg, #e0e0e0 25%, #f5f5f5 50%, #e0e0e0 75%);
+            background-size: 200% 100%;
+            animation: skeleton-loading 1.5s infinite;
+        }
+        .dark .skeleton {
+            background: linear-gradient(90deg, #2a2a2a 25%, #3a3a3a 50%, #2a2a2a 75%);
+            background-size: 200% 100%;
+            animation: skeleton-loading 1.5s infinite;
+        }
+        @keyframes skeleton-loading {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
 
-/* ===== MODALS ===== */
-.modal-overlay {
-    display: none;
-    position: fixed;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    background: rgba(0,0,0,0.6);
-    backdrop-filter: blur(4px);
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-    padding: 20px;
-    animation: fadeIn 0.2s;
-}
-.modal-overlay--visible { display: flex; }
-@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-
-.modal {
-    background: var(--card);
-    border-radius: var(--radius);
-    width: 100%;
-    max-width: 500px;
-    max-height: 85vh;
-    overflow-y: auto;
-    box-shadow: var(--shadow-lg);
-    animation: slideUp 0.3s;
-}
-@keyframes slideUp { from { transform: translateY(20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
-
-.modal--wide { max-width: 800px; }
-
-.modal__header {
-    padding: 20px 24px;
-    border-bottom: 1px solid var(--border);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-.modal__title { font-size: 1.25rem; font-weight: 700; }
-.modal__close {
-    background: none;
-    border: none;
-    font-size: 24px;
-    cursor: pointer;
-    color: var(--text-muted);
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.2s;
-}
-.modal__close:hover { background: var(--bg); color: var(--text); }
-.modal__body { padding: 24px; }
-.modal__footer {
-    padding: 20px 24px;
-    border-top: 1px solid var(--border);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-/* ===== CART ITEMS ===== */
-.cart-item {
-    display: flex;
-    gap: 16px;
-    padding: 16px 0;
-    border-bottom: 1px solid var(--border);
-    align-items: center;
-}
-.cart-item:last-child { border-bottom: none; }
-.cart-item__image {
-    width: 60px;
-    height: 60px;
-    object-fit: cover;
-    border-radius: var(--radius-sm);
-    background: var(--bg);
-}
-.cart-item__info { flex: 1; }
-.cart-item__name { font-weight: 600; margin-bottom: 4px; }
-.cart-item__price { color: var(--text-muted); font-size: 14px; }
-.cart-item__qty {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    margin-top: 8px;
-}
-.qty-btn {
-    width: 28px;
-    height: 28px;
-    border: 1px solid var(--border);
-    background: var(--card);
-    border-radius: 6px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 600;
-    transition: all 0.2s;
-}
-.qty-btn:hover { background: var(--primary); color: white; border-color: var(--primary); }
-.cart-item__remove {
-    background: none;
-    border: none;
-    color: var(--danger);
-    cursor: pointer;
-    font-size: 18px;
-    padding: 4px;
-    border-radius: 6px;
-    transition: background 0.2s;
-}
-.cart-item__remove:hover { background: #fef2f2; }
-
-.cart-empty {
-    text-align: center;
-    padding: 40px;
-    color: var(--text-muted);
-}
-.cart-empty i { font-size: 48px; margin-bottom: 16px; opacity: 0.5; }
-
-.cart-total {
-    font-size: 1.25rem;
-    font-weight: 700;
-    color: var(--primary);
-}
-
-/* ===== PRODUCT DETAIL MODAL ===== */
-.product-detail {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 32px;
-}
-@media (max-width: 600px) {
-    .product-detail { grid-template-columns: 1fr; }
-}
-.product-detail__image {
-    width: 100%;
-    border-radius: var(--radius);
-    max-height: 400px;
-    object-fit: cover;
-}
-.product-detail__info { padding: 10px 0; }
-.product-detail__name { font-size: 1.75rem; font-weight: 700; margin-bottom: 8px; }
-.product-detail__price {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: var(--primary);
-    margin-bottom: 16px;
-}
-.product-detail__desc {
-    color: var(--text-muted);
-    line-height: 1.7;
-    margin-bottom: 24px;
-}
-.product-detail__features {
-    list-style: none;
-    margin-bottom: 24px;
-}
-.product-detail__features li {
-    padding: 6px 0;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    color: var(--text-muted);
-}
-.product-detail__features li i { color: var(--success); }
-
-/* ===== TOAST ===== */
-.toast-container {
-    position: fixed;
-    bottom: 24px;
-    right: 24px;
-    z-index: 2000;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-.toast {
-    background: var(--card);
-    color: var(--text);
-    padding: 14px 20px;
-    border-radius: var(--radius-sm);
-    box-shadow: var(--shadow-lg);
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    min-width: 280px;
-    animation: slideInRight 0.3s, fadeOut 0.3s 2.7s forwards;
-    border-left: 4px solid var(--success);
-}
-.toast--error { border-left-color: var(--danger); }
-.toast--info { border-left-color: var(--secondary); }
-@keyframes slideInRight {
-    from { transform: translateX(100%); opacity: 0; }
-    to { transform: translateX(0); opacity: 1; }
-}
-@keyframes fadeOut {
-    to { opacity: 0; transform: translateX(20px); }
-}
-
-/* ===== SKELETON LOADING ===== */
-.skeleton {
-    background: linear-gradient(90deg, var(--bg) 25%, #e2e8f0 50%, var(--bg) 75%);
-    background-size: 200% 100%;
-    animation: skeleton 1.5s infinite;
-    border-radius: var(--radius-sm);
-}
-@keyframes skeleton {
-    0% { background-position: 200% 0; }
-    100% { background-position: -200% 0; }
-}
-
-/* ===== RESPONSIVE ===== */
-@media (max-width: 768px) {
-    .nav { padding: 12px 20px; flex-direction: column; gap: 12px; }
-    .hero__title { font-size: 1.75rem; }
-    .products { padding: 20px; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); }
-    .search-filter { padding: 16px 20px; }
-    .product-detail { grid-template-columns: 1fr; }
-}
-
-/* ===== SCROLLBAR ===== */
-::-webkit-scrollbar { width: 8px; }
-::-webkit-scrollbar-track { background: var(--bg); }
-::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
-::-webkit-scrollbar-thumb:hover { background: var(--text-muted); }
-</style>
-<base target="_blank">
-<base target="_blank">
+        /* Reduced Motion Accessibility Override */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+        }
+    </style>
 </head>
+<body class="bg-brand-light dark:bg-brand-dark text-brand-muted dark:text-gray-300 antialiased selection:bg-brand-accent selection:text-white pb-16 md:pb-0">
 
-<body>
+    <!-- WCAG 2.1 Screen Reader Live Announcement Region -->
+    <div aria-live="polite" aria-atomic="true" class="sr-only" id="a11y-announcer"></div>
 
-<!-- Navigation -->
-<nav class="nav">
-    <div class="nav__brand">
-        <i class="fas fa-shopping-bag"></i> ShopEase
-    </div>
-    <ul class="nav__menu">
-        <li><a class="nav__link nav__link--active" onclick="scrollToProducts()">Products</a></li>
-        <li><a class="nav__link" onclick="showWishlist()">
-            <i class="fas fa-heart"></i> Wishlist <span id="wishlistCount" class="nav__cart-badge" style="position:static;display:none;">0</span>
-        </a></li>
-        <li class="nav__cart-btn" onclick="openCart()">
-            <a class="nav__link">
-                <i class="fas fa-shopping-cart"></i> Cart
-                <span id="cartCount" class="nav__cart-badge">0</span>
-            </a>
-        </li>
-        <li><a href="index.html" class="nav__link" style="color:var(--primary);font-weight:600;"><i class="fas fa-arrow-left"></i> Portfolio</a></li>
-    </ul>
-</nav>
+    <!-- Accessibility Skip Link -->
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50 focus:px-4 focus:py-2 focus:bg-brand-accent focus:text-white focus:rounded-md">Skip to main content</a>
 
-<!-- Hero -->
-<div class="hero">
-    <h1 class="hero__title">Premium Tech, Smart Prices</h1>
-    <p class="hero__subtitle">Discover cutting-edge electronics with seamless shopping experience</p>
-</div>
-
-<!-- Search & Filters -->
-<div class="search-filter">
-    <div class="search-filter__row">
-        <input type="text" id="searchInput" class="search-filter__input" placeholder="Search products..." aria-label="Search products">
-        <select id="sortSelect" class="search-filter__select" aria-label="Sort products">
-            <option value="default">Sort by</option>
-            <option value="price-asc">Price: Low to High</option>
-            <option value="price-desc">Price: High to Low</option>
-            <option value="name-asc">Name: A-Z</option>
-        </select>
-    </div>
-    <div class="search-filter__category" id="categoryFilters">
-        <button class="category-btn category-btn--active" data-category="all">All</button>
-        <button class="category-btn" data-category="Audio">Audio</button>
-        <button class="category-btn" data-category="Wearables">Wearables</button>
-        <button class="category-btn" data-category="Computers">Computers</button>
-        <button class="category-btn" data-category="Accessories">Accessories</button>
-        <button class="category-btn" data-category="Photography">Photography</button>
-    </div>
-</div>
-
-<!-- Products -->
-<section class="products" id="productsContainer"></section>
-
-<!-- Cart Modal -->
-<div class="modal-overlay" id="cartModal">
-    <div class="modal">
-        <div class="modal__header">
-            <h3 class="modal__title"><i class="fas fa-shopping-cart"></i> Your Cart</h3>
-            <button class="modal__close" onclick="closeCart()" aria-label="Close cart">&times;</button>
+    <!-- ================= ANNOUNCEMENT SLIDER ================= -->
+    <aside aria-label="Announcement" class="bg-brand-dark dark:bg-black text-white text-xs py-2 overflow-hidden relative border-b border-white/10 z-50">
+        <div id="announcement-track" class="flex transition-transform duration-700 ease-in-out">
+            <div class="w-full flex-shrink-0 text-center font-medium tracking-widest uppercase text-[11px]">
+                <i class="fa-solid fa-truck-fast text-brand-accent mr-2"></i> Free Worldwide Express Shipping On Orders Over $150
+            </div>
+            <div class="w-full flex-shrink-0 text-center font-medium tracking-widest uppercase text-[11px]">
+                <i class="fa-solid fa-sparkles text-brand-accent mr-2"></i> New Summer Luxe Collection Live Now
+            </div>
+            <div class="w-full flex-shrink-0 text-center font-medium tracking-widest uppercase text-[11px]">
+                <i class="fa-solid fa-tag text-brand-accent mr-2"></i> Use Code <span class="text-brand-accent font-bold">SAVE20</span> For 20% Off Your First Order
+            </div>
         </div>
-        <div class="modal__body" id="cartBody"></div>
-        <div class="modal__footer" id="cartFooter" style="display:none;">
-            <span class="cart-total" id="cartTotal"></span>
-            <button class="btn btn--primary" onclick="checkout()">
-                <i class="fas fa-credit-card"></i> Checkout
-            </button>
-        </div>
-    </div>
-</div>
+    </aside>
 
-<!-- Product Detail Modal -->
-<div class="modal-overlay" id="productModal">
-    <div class="modal modal--wide">
-        <div class="modal__header">
-            <h3 class="modal__title">Product Details</h3>
-            <button class="modal__close" onclick="closeProductModal()" aria-label="Close product details">&times;</button>
-        </div>
-        <div class="modal__body" id="productModalBody"></div>
-    </div>
-</div>
+    <!-- ================= NAVBAR ================= -->
+    <header id="main-navbar" class="sticky top-0 left-0 right-0 z-40 glass-nav border-b border-gray-200/60 dark:border-gray-800 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            
+            <div class="flex items-center space-x-3">
+                <button id="mobile-menu-btn" data-action="toggle-mobile-menu" class="md:hidden text-brand-dark dark:text-white text-xl p-2 focus:outline-none focus:ring-2 focus:ring-brand-accent rounded" aria-label="Open Mobile Menu">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+                <a href="#" class="text-2xl md:text-3xl font-bold tracking-widest text-brand-dark dark:text-white uppercase font-serif">
+                    AURA<span class="text-brand-accent">.</span>
+                </a>
+            </div>
 
-<!-- Wishlist Modal -->
-<div class="modal-overlay" id="wishlistModal">
-    <div class="modal">
-        <div class="modal__header">
-            <h3 class="modal__title"><i class="fas fa-heart"></i> Your Wishlist</h3>
-            <button class="modal__close" onclick="closeWishlist()" aria-label="Close wishlist">&times;</button>
-        </div>
-        <div class="modal__body" id="wishlistBody"></div>
-    </div>
-</div>
+            <!-- Desktop Navigation -->
+            <nav class="hidden md:flex space-x-8 text-xs font-semibold tracking-wider text-brand-dark dark:text-gray-200 uppercase" aria-label="Main Navigation">
+                <a href="#hero" class="hover:text-brand-accent transition py-1">Home</a>
+                <a href="#shop-page" class="hover:text-brand-accent transition py-1">Store Catalog</a>
+                <a href="#product-detail" class="hover:text-brand-accent transition py-1">Product Studio</a>
+                <a href="#portfolio-case-study" class="text-brand-accent hover:underline transition py-1"><i class="fa-solid fa-code mr-1"></i> Architecture</a>
+            </nav>
 
-<!-- Checkout Modal -->
-<div class="modal-overlay" id="checkoutModal">
-    <div class="modal">
-        <div class="modal__header">
-            <h3 class="modal__title"><i class="fas fa-credit-card"></i> Checkout</h3>
-            <button class="modal__close" onclick="closeCheckout()" aria-label="Close checkout">&times;</button>
+            <!-- Navbar Actions -->
+            <div class="flex items-center space-x-3 sm:space-x-4 text-brand-dark dark:text-white">
+                
+                <!-- Currency Switcher -->
+                <select id="currency-select" class="bg-transparent text-xs font-bold focus:outline-none cursor-pointer hover:text-brand-accent dark:bg-brand-dark" aria-label="Select Currency">
+                    <option value="USD">USD ($)</option>
+                    <option value="EUR">EUR (€)</option>
+                    <option value="GBP">GBP (£)</option>
+                    <option value="INR">INR (₹)</option>
+                </select>
+
+                <!-- Dark Mode Toggle -->
+                <button data-action="toggle-dark-mode" class="p-2 hover:text-brand-accent transition rounded-full" aria-label="Toggle Dark Mode">
+                    <i id="theme-icon" class="fa-solid fa-moon text-base"></i>
+                </button>
+
+                <!-- Search -->
+                <button data-action="toggle-search-modal" aria-label="Open Search" class="p-2 hover:text-brand-accent transition relative">
+                    <i class="fa-solid fa-magnifying-glass text-base"></i>
+                </button>
+
+                <!-- Compare -->
+                <button data-action="toggle-compare-drawer" aria-label="Open Compare Items" class="p-2 hover:text-brand-accent transition relative">
+                    <i class="fa-solid fa-code-compare text-base"></i>
+                    <span id="compare-badge" class="absolute -top-1 -right-1 bg-brand-accent text-white text-[10px] w-4 h-4 rounded-full flex items-center justify-center font-bold">0</span>
+                </button>
+
+                <!-- Wishlist -->
+                <button data-action="scroll-to-wishlist" aria-label="Scroll to Wishlist" class="p-2 hover:text-brand-accent transition relative">
+                    <i id="nav-heart-icon" class="fa-regular fa-heart text-base"></i>
+                    <span id="wishlist-badge" class="hidden absolute -top-1 -right-1 bg-brand-accent text-white text-[10px] w-4 h-4 rounded-full flex items-center justify-center font-bold">0</span>
+                </button>
+
+                <!-- Cart Bag -->
+                <button data-action="toggle-cart-drawer" aria-label="Open Shopping Bag" class="p-2 hover:text-brand-accent transition relative">
+                    <i class="fa-solid fa-bag-shopping text-base"></i>
+                    <span id="cart-badge" class="absolute -top-1 -right-1 bg-brand-dark dark:bg-brand-accent text-white text-[10px] w-4 h-4 rounded-full flex items-center justify-center font-bold">0</span>
+                </button>
+
+                <!-- User Profile Modal Button -->
+                <button data-action="toggle-auth-modal" aria-label="Account Login" class="p-2 hover:text-brand-accent transition">
+                    <i class="fa-regular fa-user text-base"></i>
+                </button>
+            </div>
         </div>
-        <div class="modal__body">
-            <form id="checkoutForm" onsubmit="submitOrder(event)">
-                <div style="margin-bottom:16px;">
-                    <label style="display:block;font-size:0.875rem;font-weight:600;margin-bottom:6px;color:var(--text);">Full Name</label>
-                    <input type="text" required placeholder="Enter your full name" style="width:100%;padding:10px 14px;border:2px solid var(--border);border-radius:var(--radius-sm);font-size:14px;background:var(--card);color:var(--text);">
+    </header>
+
+    <!-- Mobile Navigation Drawer -->
+    <div id="mobile-drawer" class="fixed inset-0 bg-black/60 z-50 opacity-0 pointer-events-none transition-opacity duration-300 md:hidden flex justify-start" aria-hidden="true">
+        <div id="mobile-drawer-content" class="w-4/5 max-w-sm bg-white dark:bg-brand-dark h-full shadow-2xl transform -translate-x-full transition-transform duration-300 p-6 flex flex-col justify-between">
+            <div>
+                <div class="flex justify-between items-center border-b pb-4 dark:border-gray-800">
+                    <span class="text-xl font-bold font-serif text-brand-dark dark:text-white uppercase">AURA<span class="text-brand-accent">.</span></span>
+                    <button data-action="toggle-mobile-menu" class="text-gray-400 text-xl" aria-label="Close Mobile Menu"><i class="fa-solid fa-xmark"></i></button>
                 </div>
-                <div style="margin-bottom:16px;">
-                    <label style="display:block;font-size:0.875rem;font-weight:600;margin-bottom:6px;color:var(--text);">Email Address</label>
-                    <input type="email" required placeholder="your@email.com" style="width:100%;padding:10px 14px;border:2px solid var(--border);border-radius:var(--radius-sm);font-size:14px;background:var(--card);color:var(--text);">
-                </div>
-                <div style="margin-bottom:16px;">
-                    <label style="display:block;font-size:0.875rem;font-weight:600;margin-bottom:6px;color:var(--text);">Phone Number</label>
-                    <input type="tel" required placeholder="+91 98765 43210" style="width:100%;padding:10px 14px;border:2px solid var(--border);border-radius:var(--radius-sm);font-size:14px;background:var(--card);color:var(--text);">
-                </div>
-                <div style="margin-bottom:16px;">
-                    <label style="display:block;font-size:0.875rem;font-weight:600;margin-bottom:6px;color:var(--text);">Delivery Address</label>
-                    <textarea required placeholder="Your complete delivery address" style="width:100%;padding:10px 14px;border:2px solid var(--border);border-radius:var(--radius-sm);font-size:14px;background:var(--card);color:var(--text);min-height:80px;resize:vertical;font-family:inherit;"></textarea>
-                </div>
-                <div style="margin-bottom:20px;padding:15px;background:var(--bg);border-radius:var(--radius-sm);">
-                    <div style="display:flex;justify-content:space-between;margin-bottom:8px;">
-                        <span style="color:var(--text-muted);">Subtotal</span>
-                        <span style="font-weight:600;" id="checkoutSubtotal">$0.00</span>
+                <nav class="flex flex-col space-y-4 mt-6 text-sm font-semibold uppercase text-brand-dark dark:text-gray-200">
+                    <a href="#hero" data-action="toggle-mobile-menu" class="hover:text-brand-accent">Home</a>
+                    <a href="#shop-page" data-action="toggle-mobile-menu" class="hover:text-brand-accent">Store Catalog</a>
+                    <a href="#product-detail" data-action="toggle-mobile-menu" class="hover:text-brand-accent">Product Studio</a>
+                    <a href="#portfolio-case-study" data-action="toggle-mobile-menu" class="hover:text-brand-accent text-brand-accent">Case Study</a>
+                </nav>
+            </div>
+            <div class="border-t pt-4 dark:border-gray-800 space-y-3">
+                <button data-action="toggle-auth-modal" class="w-full bg-brand-dark dark:bg-brand-accent text-white py-3 rounded-xl text-xs font-semibold uppercase">Account Login</button>
+            </div>
+        </div>
+    </div>
+
+    <main id="main-content">
+        <!-- ================= HERO BANNER ================= -->
+        <section id="hero" class="relative h-[88vh] flex items-center justify-center text-center text-white overflow-hidden">
+            <div class="absolute inset-0 bg-black/50 z-10"></div>
+            
+            <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=2000&q=80" 
+                 width="2000" height="1200" style="aspect-ratio: 5/3;"
+                 alt="Luxury Fashion Photography Banner" loading="eager" class="absolute inset-0 w-full h-full object-cover">
+            
+            <div class="relative z-20 max-w-4xl px-4 space-y-6">
+                
+                <!-- Deadline Countdown -->
+                <div class="inline-flex items-center gap-3 bg-black/60 backdrop-blur-md px-5 py-2 rounded-full border border-white/20">
+                    <span class="text-xs uppercase tracking-widest text-brand-accent font-bold"><i class="fa-solid fa-bolt mr-1"></i> Flash Sale Ends:</span>
+                    <div class="flex gap-1.5 text-xs font-bold font-mono">
+                        <span id="timer-hours" class="bg-brand-accent text-white px-2 py-0.5 rounded">02</span>:
+                        <span id="timer-minutes" class="bg-brand-accent text-white px-2 py-0.5 rounded">00</span>:
+                        <span id="timer-seconds" class="bg-brand-accent text-white px-2 py-0.5 rounded">00</span>
                     </div>
-                    <div style="display:flex;justify-content:space-between;margin-bottom:8px;">
-                        <span style="color:var(--text-muted);">Delivery</span>
-                        <span style="font-weight:600;color:var(--success);">Free</span>
+                </div>
+
+                <h1 class="text-4xl sm:text-6xl md:text-7xl font-bold tracking-tight leading-tight font-serif text-white">
+                    Timeless Fashion.<br><span class="italic font-normal">Modern Elegance.</span>
+                </h1>
+                <p class="text-gray-200 text-sm sm:text-base max-w-lg mx-auto font-light">
+                    Discover uncompromised luxury craftsmanship and minimal silhouettes tailored for the contemporary wardrobe.
+                </p>
+                <div class="flex justify-center gap-4 pt-2">
+                    <a href="#shop-page" class="bg-white text-brand-dark hover:bg-brand-accent hover:text-white px-8 py-3.5 rounded-full font-medium transition duration-300 shadow-xl text-xs uppercase tracking-wider">Explore Store</a>
+                    <a href="#featured" class="bg-brand-dark border border-white/30 text-white hover:bg-white hover:text-brand-dark px-8 py-3.5 rounded-full font-medium transition duration-300 backdrop-blur-sm text-xs uppercase tracking-wider">Featured Arrivals</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= BRAND LOGOS ================= -->
+        <section class="bg-white dark:bg-brand-surface py-8 border-b border-gray-200 dark:border-gray-800">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <p class="text-center text-[10px] uppercase tracking-[0.3em] text-gray-400 font-semibold mb-6">Featured In Global Publications</p>
+                <div class="flex flex-wrap justify-center items-center gap-8 md:gap-16 opacity-60 dark:opacity-80 grayscale hover:grayscale-0 transition duration-500">
+                    <span class="font-serif text-2xl font-bold tracking-widest text-brand-dark dark:text-white">VOGUE</span>
+                    <span class="font-serif text-2xl font-bold tracking-widest text-brand-dark dark:text-white">ELLE</span>
+                    <span class="font-serif text-2xl font-bold tracking-widest text-brand-dark dark:text-white">FORBES</span>
+                    <span class="font-serif text-2xl font-bold tracking-widest text-brand-dark dark:text-white">GQ</span>
+                    <span class="font-serif text-2xl font-bold tracking-widest text-brand-dark dark:text-white">BAZAAR</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= FEATURED ARRIVALS ================= -->
+        <section id="featured" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+            <div class="flex justify-between items-end mb-10 border-b pb-4 border-gray-200 dark:border-gray-800">
+                <div>
+                    <span class="text-xs uppercase tracking-widest text-brand-accent font-bold">Curated Selection</span>
+                    <h2 class="text-3xl font-bold text-brand-dark dark:text-white font-serif mt-1">Featured Arrivals</h2>
+                </div>
+                <a href="#shop-page" class="text-xs font-semibold text-brand-dark dark:text-gray-300 hover:text-brand-accent uppercase tracking-wider">View All Products &rarr;</a>
+            </div>
+
+            <div id="featured-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Injected via JavaScript -->
+            </div>
+        </section>
+
+        <!-- ================= PRODUCT STUDIO PAGE ================= -->
+        <section id="product-detail" class="bg-white dark:bg-brand-surface py-16 my-12 border-y border-gray-200 dark:border-gray-800">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <nav class="text-xs text-gray-400 mb-8 flex items-center space-x-2" aria-label="Breadcrumb">
+                    <a href="#" class="hover:text-brand-dark dark:hover:text-white">Home</a>
+                    <span>/</span>
+                    <a href="#shop-page" class="hover:text-brand-dark dark:hover:text-white">Men</a>
+                    <span>/</span>
+                    <span class="text-brand-dark dark:text-white font-semibold">Signature Heavyweight Hoodie</span>
+                </nav>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+                    
+                    <!-- Left Gallery Engine -->
+                    <div class="space-y-4">
+                        <div id="main-view-container" class="relative overflow-hidden rounded-2xl bg-gray-100 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 group h-[520px]">
+                            
+                            <img id="detail-main-img" src="https://images.unsplash.com/photo-1556905055-8f358a7a47b2?auto=format&fit=crop&w=1000&q=80" 
+                                 width="1000" height="1000" style="aspect-ratio: 1/1;"
+                                 alt="Signature Heavyweight Hoodie Front View" loading="eager" class="w-full h-full object-cover">
+                            
+                            <!-- Embedded Video Player -->
+                            <div id="studio-video-container" class="hidden absolute inset-0 bg-black flex items-center justify-center">
+                                <video id="studio-video" controls class="w-full h-full object-cover">
+                                    <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4" type="video/mp4">
+                                    Your browser does not support HTML5 video.
+                                </video>
+                            </div>
+                        </div>
+
+                        <!-- Gallery Thumbnails -->
+                        <div class="flex items-center gap-3 overflow-x-auto pb-2">
+                            <img data-action="switch-detail-media" data-media-type="img" data-src="https://images.unsplash.com/photo-1556905055-8f358a7a47b2?auto=format&fit=crop&w=1000&q=80" 
+                                 src="https://images.unsplash.com/photo-1556905055-8f358a7a47b2?auto=format&fit=crop&w=200&q=80" width="80" height="80" style="aspect-ratio: 1/1;" alt="Thumbnail 1" class="thumb-btn w-20 h-20 object-cover rounded-xl border-2 border-brand-accent cursor-pointer flex-shrink-0">
+                            <img data-action="switch-detail-media" data-media-type="img" data-src="https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=1000&q=80" 
+                                 src="https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=200&q=80" width="80" height="80" style="aspect-ratio: 1/1;" alt="Thumbnail 2" class="thumb-btn w-20 h-20 object-cover rounded-xl border border-gray-200 dark:border-gray-700 cursor-pointer flex-shrink-0 opacity-70 hover:opacity-100">
+                            
+                            <!-- Video Selector Button -->
+                            <button data-action="switch-detail-media" data-media-type="video" class="thumb-btn w-20 h-20 bg-brand-dark dark:bg-brand-accent text-white rounded-xl flex flex-col items-center justify-center text-xs font-semibold flex-shrink-0 hover:opacity-90 transition">
+                                <i class="fa-solid fa-play text-lg mb-1"></i> Video
+                            </button>
+                        </div>
                     </div>
-                    <div style="display:flex;justify-content:space-between;padding-top:8px;border-top:1px solid var(--border);">
-                        <span style="font-weight:700;">Total</span>
-                        <span style="font-weight:700;color:var(--primary);font-size:1.1rem;" id="checkoutTotal">$0.00</span>
+
+                    <!-- Right Product Controls -->
+                    <div class="space-y-6">
+                        <div>
+                            <span class="text-xs uppercase tracking-widest text-brand-accent font-bold">In Stock & Ready To Ship</span>
+                            <h1 id="studio-product-title" class="text-3xl sm:text-4xl font-bold text-brand-dark dark:text-white mt-2 font-serif">Signature Heavyweight Hoodie</h1>
+                            <p class="text-2xl font-bold text-brand-dark dark:text-white mt-2"><span class="price-display" data-usd="120">120.00</span> <span class="text-sm font-normal text-gray-400 line-through ml-2 price-display" data-usd="160">160.00</span></p>
+                        </div>
+
+                        <!-- Stock Progress Indicator -->
+                        <div class="bg-amber-50 dark:bg-amber-950/30 border border-amber-200 dark:border-amber-800 p-3.5 rounded-xl space-y-2">
+                            <div class="flex justify-between text-xs font-semibold text-amber-900 dark:text-amber-200">
+                                <span><i class="fa-solid fa-fire mr-1 text-amber-600"></i> Hurry! Only 5 items left in stock</span>
+                                <span>85% Sold</span>
+                            </div>
+                            <div class="w-full bg-amber-200 dark:bg-amber-800 h-2 rounded-full overflow-hidden">
+                                <div class="bg-amber-600 h-full rounded-full" style="width: 85%;"></div>
+                            </div>
+                        </div>
+
+                        <p class="text-gray-600 dark:text-gray-400 text-xs sm:text-sm leading-relaxed">
+                            Engineered from 450GSM organic French Terry cotton. Features dropped shoulders, double-stitched seams, clean cuff lines, and an exaggerated hood profile.
+                        </p>
+
+                        <!-- Color Selector -->
+                        <div>
+                            <label class="block text-xs uppercase tracking-wider text-gray-500 font-bold mb-2">Color: <span id="detail-color-text" class="text-brand-dark dark:text-white">Obsidian Black</span></label>
+                            <div class="flex space-x-3">
+                                <button data-action="select-detail-color" data-color="Obsidian Black" data-img="https://images.unsplash.com/photo-1556905055-8f358a7a47b2?auto=format&fit=crop&w=1000&q=80" aria-label="Select Obsidian Black" class="w-8 h-8 rounded-full bg-black border-2 border-brand-accent ring-2 ring-black/20 focus:outline-none"></button>
+                                <button data-action="select-detail-color" data-color="Heather Gray" data-img="https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=1000&q=80" aria-label="Select Heather Gray" class="w-8 h-8 rounded-full bg-gray-400 border border-gray-300 focus:outline-none"></button>
+                            </div>
+                        </div>
+
+                        <!-- Size Selector -->
+                        <div>
+                            <div class="flex justify-between items-center mb-2">
+                                <label class="block text-xs uppercase tracking-wider text-gray-500 font-bold">Size: <span id="selected-size-label" class="text-brand-dark dark:text-white">M</span></label>
+                                <span id="size-error" class="text-xs text-red-500 font-semibold hidden">Please select a size</span>
+                            </div>
+                            <div class="flex space-x-2">
+                                <button data-action="select-size" data-size="S" class="size-btn w-10 h-10 border rounded-xl text-xs font-bold dark:border-gray-700 hover:border-black transition">S</button>
+                                <button data-action="select-size" data-size="M" class="size-btn w-10 h-10 border rounded-xl text-xs font-bold border-brand-dark bg-brand-dark text-white dark:bg-brand-accent dark:border-brand-accent transition">M</button>
+                                <button data-action="select-size" data-size="L" class="size-btn w-10 h-10 border rounded-xl text-xs font-bold dark:border-gray-700 hover:border-black transition">L</button>
+                                <button data-action="select-size" data-size="XL" class="size-btn w-10 h-10 border rounded-xl text-xs font-bold dark:border-gray-700 hover:border-black transition">XL</button>
+                            </div>
+                        </div>
+
+                        <!-- ZIP Delivery Estimator -->
+                        <div class="bg-gray-50 dark:bg-gray-800 p-4 rounded-xl border border-gray-200 dark:border-gray-700 space-y-2">
+                            <label for="zip-input" class="block text-xs font-bold text-brand-dark dark:text-white uppercase tracking-wider">Estimate Delivery Date</label>
+                            <div class="flex gap-2">
+                                <input type="text" id="zip-input" placeholder="Enter ZIP / Postal Code" class="text-xs px-3 py-2 border dark:border-gray-700 dark:bg-brand-dark rounded-lg flex-1 focus:outline-none focus:border-brand-accent">
+                                <button data-action="check-delivery" class="bg-brand-dark dark:bg-brand-accent text-white text-xs px-4 py-2 rounded-lg hover:opacity-90 transition">Calculate</button>
+                            </div>
+                            <p id="delivery-result" class="text-xs text-emerald-600 font-semibold hidden"><i class="fa-solid fa-circle-check mr-1"></i> <span id="delivery-msg">Eligible for Express Delivery!</span></p>
+                        </div>
+
+                        <!-- Add to Cart CTAs -->
+                        <div class="flex gap-4 pt-2">
+                            <button data-action="add-detail-to-cart" class="flex-1 bg-brand-dark dark:bg-brand-accent text-white py-4 rounded-xl font-medium tracking-wider hover:opacity-90 transition duration-300 shadow-md uppercase text-xs">Add To Cart</button>
+                            <button data-action="toggle-wishlist-detail" aria-label="Add to Wishlist" class="px-5 border border-gray-300 dark:border-gray-700 rounded-xl hover:text-red-500 hover:border-red-500 transition"><i class="fa-regular fa-heart text-lg"></i></button>
+                        </div>
+
+                        <!-- Trust Badges & Social Proof -->
+                        <div class="border-t border-gray-200 dark:border-gray-800 pt-4 flex items-center justify-between text-xs text-gray-500">
+                            <div class="flex items-center space-x-2">
+                                <i class="fa-solid fa-shield-halved text-brand-accent text-base"></i>
+                                <span>2-Year Warranty Included</span>
+                            </div>
+                            <div class="flex space-x-3 text-base text-gray-400">
+                                <i class="fa-brands fa-cc-visa"></i>
+                                <i class="fa-brands fa-cc-mastercard"></i>
+                                <i class="fa-brands fa-cc-apple-pay"></i>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
-                <button type="submit" class="btn btn--primary" style="width:100%;"><i class="fas fa-lock"></i> Place Order</button>
+            </div>
+        </section>
+
+        <!-- Mobile Sticky Add-To-Cart Bar -->
+        <div class="md:hidden fixed bottom-0 left-0 right-0 bg-white dark:bg-brand-surface border-t border-gray-200 dark:border-gray-800 p-3 z-30 shadow-2xl flex items-center justify-between">
+            <div>
+                <p class="text-xs font-bold text-brand-dark dark:text-white">Heavyweight Hoodie</p>
+                <p class="text-[10px] text-gray-500 price-display" data-usd="120">120.00</p>
+            </div>
+            <button data-action="add-detail-to-cart" class="bg-brand-dark dark:bg-brand-accent text-white px-6 py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider">Add To Cart</button>
+        </div>
+
+        <!-- ================= FULL STORE CATALOG ================= -->
+        <section id="shop-page" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+            <div class="text-center mb-12">
+                <span class="text-xs uppercase tracking-widest text-brand-accent font-bold">Catalog</span>
+                <h2 class="text-3xl font-bold font-serif text-brand-dark dark:text-white mt-1">Explore Full Collection</h2>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
+                
+                <!-- Sidebar Filters -->
+                <aside class="space-y-6 bg-white dark:bg-brand-surface p-6 rounded-2xl border border-gray-200 dark:border-gray-800 h-fit">
+                    <div class="flex justify-between items-center border-b pb-3 dark:border-gray-800">
+                        <h3 class="font-bold text-brand-dark dark:text-white text-sm uppercase tracking-wider">Filters</h3>
+                        <button data-action="reset-filters" class="text-[10px] text-brand-accent font-semibold underline uppercase">Reset All</button>
+                    </div>
+                    
+                    <!-- Category Filter -->
+                    <div>
+                        <h4 class="text-xs font-bold text-gray-500 uppercase tracking-wider mb-2">Category</h4>
+                        <div class="space-y-2 text-xs">
+                            <label class="flex items-center space-x-2 cursor-pointer"><input type="checkbox" data-action="apply-filters" value="Men" class="shop-cat-filter rounded text-brand-accent"> <span>Men</span></label>
+                            <label class="flex items-center space-x-2 cursor-pointer"><input type="checkbox" data-action="apply-filters" value="Women" class="shop-cat-filter rounded text-brand-accent"> <span>Women</span></label>
+                            <label class="flex items-center space-x-2 cursor-pointer"><input type="checkbox" data-action="apply-filters" value="Footwear" class="shop-cat-filter rounded text-brand-accent"> <span>Footwear</span></label>
+                        </div>
+                    </div>
+
+                    <!-- Price Filter -->
+                    <div>
+                        <h4 class="text-xs font-bold text-gray-500 uppercase tracking-wider mb-2">Max Price (<span id="filter-price-symbol">$</span>)</h4>
+                        <input type="range" id="price-range" min="50" max="300" step="10" value="300" class="w-full accent-brand-accent cursor-pointer">
+                        <div class="flex justify-between text-xs text-gray-500 mt-1 font-mono">
+                            <span>$50</span>
+                            <span>$<span id="price-val">300</span></span>
+                        </div>
+                    </div>
+
+                    <!-- Sorting Dropdown -->
+                    <div>
+                        <h4 class="text-xs font-bold text-gray-500 uppercase tracking-wider mb-2">Sort By</h4>
+                        <select id="shop-sort-select" class="w-full text-xs p-2 border dark:border-gray-700 dark:bg-brand-dark rounded-lg focus:outline-none">
+                            <option value="newest">Newest Arrivals</option>
+                            <option value="low-high">Price: Low to High</option>
+                            <option value="high-low">Price: High to Low</option>
+                        </select>
+                    </div>
+                </aside>
+
+                <!-- Store Grid & Pagination -->
+                <div class="lg:col-span-3 space-y-8">
+                    <div id="shop-products-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <!-- Dynamic Store Items -->
+                    </div>
+
+                    <!-- Interactive Pagination -->
+                    <div id="pagination-container" class="flex justify-center space-x-2 pt-4">
+                        <!-- Injected via JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= RECENTLY VIEWED PRODUCTS ================= -->
+        <section id="wishlist-section" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 border-t border-gray-200 dark:border-gray-800">
+            <h3 class="text-xl font-bold font-serif text-brand-dark dark:text-white mb-6">Recently Viewed Items</h3>
+            <div id="recently-viewed-grid" class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+                <!-- Dynamic Injection -->
+            </div>
+        </section>
+
+        <!-- ================= NEWSLETTER SECTION ================= -->
+        <section class="bg-brand-dark text-white py-16 border-t border-white/10">
+            <div class="max-w-4xl mx-auto px-4 text-center space-y-4">
+                <h3 class="text-3xl font-serif font-bold">Join The Private Circle</h3>
+                <p class="text-gray-400 text-xs sm:text-sm">Subscribe to receive private sale invitations and exclusive capsule collection drops.</p>
+                <form data-action="subscribe-newsletter" class="flex flex-col sm:flex-row justify-center gap-3 max-w-md mx-auto pt-4">
+                    <input type="email" required placeholder="Enter your email address" class="px-5 py-3 rounded-xl bg-white/10 text-white placeholder-gray-400 border border-white/20 focus:outline-none focus:border-brand-accent flex-1 text-xs">
+                    <button type="submit" class="bg-brand-accent text-white px-6 py-3 rounded-xl text-xs font-bold uppercase tracking-wider hover:opacity-90 transition">Subscribe</button>
+                </form>
+            </div>
+        </section>
+
+        <!-- ================= ARCHITECTURE CASE STUDY ================= -->
+        <section id="portfolio-case-study" class="bg-white dark:bg-brand-surface py-20 border-t border-gray-200 dark:border-gray-800">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+                
+                <div class="text-center space-y-3">
+                    <span class="bg-brand-accent/10 text-brand-accent text-xs font-bold px-3 py-1 rounded-full uppercase tracking-widest">Engineering Case Study</span>
+                    <h2 class="text-3xl sm:text-5xl font-serif font-bold text-brand-dark dark:text-white">AURA Production Architecture</h2>
+                    <p class="text-gray-500 dark:text-gray-400 text-sm max-w-2xl mx-auto">An in-depth technical analysis of building a secure, accessible, zero-dependency modern fashion storefront.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="p-6 bg-gray-50 dark:bg-gray-800 rounded-2xl border border-gray-200 dark:border-gray-700">
+                        <h3 class="font-bold text-brand-dark dark:text-white text-base font-serif mb-2">The Security Model</h3>
+                        <p class="text-xs text-gray-600 dark:text-gray-400 leading-relaxed">XSS vectors eliminated via native DOM node synthesis. Storage quota exceptions caught gracefully via safe wrappers.</p>
+                    </div>
+                    <div class="p-6 bg-gray-50 dark:bg-gray-800 rounded-2xl border border-gray-200 dark:border-gray-700">
+                        <h3 class="font-bold text-brand-dark dark:text-white text-base font-serif mb-2">Accessibility (a11y)</h3>
+                        <p class="text-xs text-gray-600 dark:text-gray-400 leading-relaxed">WCAG 2.1 Level AA compliant with modal focus traps, screen reader live announcement regions, and reduced motion fallbacks.</p>
+                    </div>
+                    <div class="p-6 bg-gray-50 dark:bg-gray-800 rounded-2xl border border-gray-200 dark:border-gray-700">
+                        <h3 class="font-bold text-brand-dark dark:text-white text-base font-serif mb-2">Architecture</h3>
+                        <p class="text-xs text-gray-600 dark:text-gray-400 leading-relaxed">Encapsulated in an IIFE module pattern using event delegation, eliminating global namespace pollution and enabling strict CSP compliance.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="bg-brand-dark dark:bg-black text-gray-400 py-12 text-xs border-t border-white/10">
+        <div class="max-w-7xl mx-auto px-4 text-center space-y-4">
+            <a href="#" class="text-2xl font-bold tracking-widest text-white uppercase font-serif">AURA<span class="text-brand-accent">.</span></a>
+            <p>&copy; 2026 AURA Inc. Engineered for Exceptional Web Performance.</p>
+        </div>
+    </footer>
+
+    <!-- Back to Top Floating Button -->
+    <button id="back-to-top" data-action="back-to-top" class="fixed bottom-6 right-6 bg-brand-dark dark:bg-brand-accent text-white w-10 h-10 rounded-full shadow-2xl z-40 hidden items-center justify-center hover:opacity-90 transition" aria-label="Back to Top">
+        <i class="fa-solid fa-arrow-up text-sm"></i>
+    </button>
+
+    <!-- ================= QUICK VIEW MODAL ================= -->
+    <div id="quickview-modal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 hidden items-center justify-center p-4" aria-hidden="true" role="dialog" aria-modal="true">
+        <div class="bg-white dark:bg-brand-surface rounded-2xl max-w-3xl w-full p-6 relative overflow-hidden shadow-2xl border dark:border-gray-800">
+            <button data-action="close-quickview" class="absolute top-4 right-4 text-gray-400 hover:text-brand-dark dark:hover:text-white text-xl z-10" aria-label="Close Quick View"><i class="fa-solid fa-xmark"></i></button>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+                <img id="qv-image" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'%3E%3C/svg%3E" width="600" height="800" style="aspect-ratio: 3/4;" alt="Quick View Image" class="w-full h-80 object-cover rounded-xl bg-gray-100 dark:bg-gray-800">
+                <div class="space-y-4">
+                    <span id="qv-badge" class="text-[10px] font-bold bg-brand-accent text-white px-2.5 py-1 rounded-full uppercase tracking-wider">NEW</span>
+                    <h3 id="qv-title" class="text-2xl font-bold font-serif text-brand-dark dark:text-white"></h3>
+                    <p id="qv-price" class="text-xl font-bold text-brand-dark dark:text-white"></p>
+                    <p class="text-xs text-gray-500 dark:text-gray-400">Crafted from high-grade organic fabrics tailored for absolute comfort and longevity.</p>
+                    <button id="qv-add-btn" class="w-full bg-brand-dark dark:bg-brand-accent text-white py-3 rounded-xl font-semibold hover:opacity-90 transition text-xs uppercase tracking-wider">Add To Cart</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================= LIVE SEARCH MODAL ================= -->
+    <div id="search-modal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 hidden flex-col items-center pt-20 px-4" aria-hidden="true" role="dialog" aria-modal="true">
+        <div class="w-full max-w-2xl bg-white dark:bg-brand-surface rounded-2xl p-6 space-y-4 shadow-2xl border dark:border-gray-800">
+            <div class="flex justify-between items-center border-b pb-3 dark:border-gray-800">
+                <input type="text" id="search-input" placeholder="Search catalog by title or category..." class="w-full text-lg focus:outline-none bg-transparent text-brand-dark dark:text-white">
+                <button data-action="toggle-search-modal" aria-label="Close Search"><i class="fa-solid fa-xmark text-gray-400 text-xl"></i></button>
+            </div>
+            <div id="search-results" class="max-h-80 overflow-y-auto space-y-2">
+                <p class="text-xs text-gray-400">Type to search items...</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================= COMPARE DRAWER & MODAL ================= -->
+    <div id="compare-drawer" class="fixed bottom-0 left-0 right-0 bg-white dark:bg-brand-surface border-t-2 border-brand-accent shadow-2xl z-50 transform translate-y-full transition-transform duration-300 p-4">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <div class="flex items-center space-x-4">
+                <h4 class="text-xs font-bold uppercase tracking-wider text-brand-dark dark:text-white">Compare (<span id="compare-count">0</span>/3):</h4>
+                <div id="compare-items-container" class="flex space-x-2"></div>
+            </div>
+            <div class="flex items-center space-x-3">
+                <button data-action="open-compare-modal" class="bg-brand-accent text-white text-xs px-4 py-2 rounded-lg font-bold uppercase">Launch Matrix</button>
+                <button data-action="toggle-compare-drawer" class="text-xs text-gray-400 hover:text-black dark:hover:text-white" aria-label="Close Compare Drawer"><i class="fa-solid fa-xmark text-base"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <div id="compare-modal" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 hidden items-center justify-center p-4" aria-hidden="true" role="dialog" aria-modal="true">
+        <div class="bg-white dark:bg-brand-surface rounded-2xl max-w-4xl w-full p-6 relative overflow-hidden shadow-2xl border dark:border-gray-800">
+            <button data-action="close-compare-modal" class="absolute top-4 right-4 text-gray-400 hover:text-brand-dark dark:hover:text-white text-xl" aria-label="Close Compare Matrix"><i class="fa-solid fa-xmark"></i></button>
+            <h3 class="text-xl font-serif font-bold text-brand-dark dark:text-white mb-6">Product Comparison Matrix</h3>
+            <div id="compare-matrix-content" class="overflow-x-auto">
+                <!-- Injected Comparison Table -->
+            </div>
+        </div>
+    </div>
+
+    <!-- ================= SHOPPING CART DRAWER ================= -->
+    <div id="cart-drawer-overlay" data-action="toggle-cart-drawer" class="fixed inset-0 bg-black/50 z-50 opacity-0 pointer-events-none transition-opacity duration-300"></div>
+    <div id="cart-drawer" class="fixed top-0 right-0 h-full w-full sm:w-96 bg-white dark:bg-brand-surface z-50 shadow-2xl transform translate-x-full transition-transform duration-300 flex flex-col" aria-hidden="true" role="dialog" aria-modal="true">
+        <div class="p-5 border-b dark:border-gray-800 flex justify-between items-center">
+            <h3 class="text-lg font-bold text-brand-dark dark:text-white font-serif">Shopping Bag</h3>
+            <button data-action="toggle-cart-drawer" class="text-gray-400 hover:text-brand-dark dark:hover:text-white text-xl" aria-label="Close Shopping Bag"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+
+        <!-- Free Shipping Progress -->
+        <div class="bg-gray-50 dark:bg-gray-800/50 p-4 border-b border-gray-200 dark:border-gray-800">
+            <div class="flex justify-between text-xs font-bold text-brand-dark dark:text-white mb-1">
+                <span id="shipping-progress-text">Add $150 for Free Shipping</span>
+                <i class="fa-solid fa-truck text-brand-accent"></i>
+            </div>
+            <div class="w-full bg-gray-200 dark:bg-gray-700 h-2 rounded-full overflow-hidden">
+                <div id="shipping-progress-bar" class="bg-brand-accent h-full rounded-full transition-all duration-500" style="width: 0%;"></div>
+            </div>
+        </div>
+
+        <div id="cart-items" class="flex-1 overflow-y-auto p-5 space-y-4"></div>
+
+        <div class="p-5 border-t border-gray-200 dark:border-gray-800 space-y-3 bg-gray-50 dark:bg-gray-800/30">
+            <div class="flex gap-2">
+                <input type="text" id="coupon-input" placeholder="Coupon (e.g. SAVE20)" class="text-xs px-3 py-2 border dark:border-gray-700 dark:bg-brand-dark rounded-lg flex-1 focus:outline-none">
+                <button data-action="apply-coupon" class="bg-brand-dark dark:bg-brand-accent text-white text-xs px-3 py-2 rounded-lg font-bold uppercase">Apply</button>
+            </div>
+            <div class="flex justify-between font-bold text-brand-dark dark:text-white text-sm">
+                <span>Subtotal</span>
+                <span id="cart-subtotal">$0.00</span>
+            </div>
+            <button data-action="toggle-checkout-modal" class="w-full bg-brand-dark dark:bg-brand-accent text-white py-3.5 rounded-xl font-semibold hover:opacity-90 transition text-xs uppercase tracking-wider">Proceed To Checkout</button>
+        </div>
+    </div>
+
+    <!-- ================= CHECKOUT MODAL ================= -->
+    <div id="checkout-modal" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 hidden items-center justify-center p-4" aria-hidden="true" role="dialog" aria-modal="true">
+        <div class="bg-white dark:bg-brand-surface rounded-2xl max-w-lg w-full p-6 relative overflow-hidden shadow-2xl border dark:border-gray-800 space-y-4">
+            <button data-action="toggle-checkout-modal" class="absolute top-4 right-4 text-gray-400 hover:text-brand-dark text-xl" aria-label="Close Checkout"><i class="fa-solid fa-xmark"></i></button>
+            <h3 class="text-xl font-serif font-bold text-brand-dark dark:text-white">Express Checkout</h3>
+            <form data-action="handle-checkout" class="space-y-3 text-xs">
+                <div>
+                    <label for="checkout-name" class="block font-bold mb-1">Full Name</label>
+                    <input type="text" id="checkout-name" required class="w-full p-2.5 border dark:border-gray-700 dark:bg-brand-dark rounded-lg">
+                </div>
+                <div>
+                    <label for="checkout-address" class="block font-bold mb-1">Shipping Address</label>
+                    <input type="text" id="checkout-address" required class="w-full p-2.5 border dark:border-gray-700 dark:bg-brand-dark rounded-lg">
+                </div>
+                <div>
+                    <label for="checkout-card" class="block font-bold mb-1">Card Information</label>
+                    <input type="text" id="checkout-card" placeholder="4242 •••• •••• ••••" required class="w-full p-2.5 border dark:border-gray-700 dark:bg-brand-dark rounded-lg">
+                </div>
+                <button type="submit" class="w-full bg-brand-accent text-white py-3.5 rounded-xl font-bold uppercase tracking-wider mt-2">Complete Order</button>
             </form>
         </div>
     </div>
-</div>
 
-<!-- Toast Container -->
-<div class="toast-container" id="toastContainer"></div>
-
-<!-- Footer -->
-<footer style="background:var(--dark);color:#94a3b8;padding:2rem;text-align:center;font-size:0.9rem;margin-top:2rem;">
-    <p>© 2026 ShopEase Demo Store. Built by <a href="index.html" style="color:var(--secondary);text-decoration:none;font-weight:600;">RK WebCraft</a></p>
-    <p style="font-size:0.8rem;margin-top:0.5rem;opacity:0.7;">This is a demo e-commerce website showcasing front-end development skills</p>
-</footer>
-
-<script>
-// ===== DATA =====
-const products = [
-    { id: 1, name: 'Wireless Headphones', price: 59, category: 'Audio', rating: 4.5, img: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&h=300&fit=crop', features: ['Noise Cancellation', '30hr Battery', 'Bluetooth 5.0'] },
-    { id: 2, name: 'Smart Watch Pro', price: 120, category: 'Wearables', rating: 4.3, img: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400&h=300&fit=crop', features: ['Heart Rate Monitor', 'GPS Tracking', 'Water Resistant'] },
-    { id: 3, name: 'Bluetooth Speaker', price: 40, category: 'Audio', rating: 4.1, img: 'https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=400&h=300&fit=crop', features: ['360° Sound', 'Waterproof', '12hr Battery'] },
-    { id: 4, name: 'UltraBook Pro', price: 899, category: 'Computers', rating: 4.7, img: 'https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=400&h=300&fit=crop', features: ['Intel i7', '16GB RAM', '512GB SSD'] },
-    { id: 5, name: 'Gaming Mouse RGB', price: 35, category: 'Accessories', rating: 4.4, img: 'https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=400&h=300&fit=crop', features: ['12000 DPI', 'RGB Lighting', 'Programmable Buttons'] },
-    { id: 6, name: 'Mechanical Keyboard', price: 70, category: 'Accessories', rating: 4.6, img: 'https://images.unsplash.com/photo-1587829741301-dc798b83add3?w=400&h=300&fit=crop', features: ['Cherry MX Switches', 'RGB Backlight', 'USB-C'] },
-    { id: 7, name: 'Smartphone 5G', price: 699, category: 'Computers', rating: 4.5, img: 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=300&fit=crop', features: ['5G Connectivity', '128GB Storage', 'Triple Camera'] },
-    { id: 8, name: 'DSLR Camera', price: 499, category: 'Photography', rating: 4.8, img: 'https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=400&h=300&fit=crop', features: ['24MP Sensor', '4K Video', 'WiFi Enabled'] },
-    { id: 9, name: 'Wireless Earbuds', price: 45, category: 'Audio', rating: 4.2, img: 'https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=400&h=300&fit=crop', features: ['Touch Controls', '24hr Case Battery', 'IPX4 Water Resistant'] },
-    { id: 10, name: 'Fitness Tracker', price: 35, category: 'Wearables', rating: 4.0, img: 'https://images.unsplash.com/photo-1575311373937-040b8e1fd5b6?w=400&h=300&fit=crop', features: ['Sleep Tracking', 'Step Counter', '7 Day Battery'] },
-    { id: 11, name: 'USB-C Hub', price: 25, category: 'Accessories', rating: 4.3, img: 'https://images.unsplash.com/photo-1625766763788-95dcce9bf5ac?w=400&h=300&fit=crop', features: ['7-in-1 Ports', '4K HDMI', '100W PD'] },
-    { id: 12, name: 'Action Camera', price: 199, category: 'Photography', rating: 4.4, img: 'https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?w=400&h=300&fit=crop', features: ['4K 60fps', 'Waterproof', 'Stabilization'] }
-];
-
-// ===== STATE =====
-let cart = JSON.parse(localStorage.getItem('shopEase_cart')) || [];
-let wishlist = JSON.parse(localStorage.getItem('shopEase_wishlist')) || [];
-let currentCategory = 'all';
-let currentSort = 'default';
-let searchQuery = '';
-
-// ===== DOM ELEMENTS =====
-const productsContainer = document.getElementById('productsContainer');
-const cartModal = document.getElementById('cartModal');
-const productModal = document.getElementById('productModal');
-const wishlistModal = document.getElementById('wishlistModal');
-const cartBody = document.getElementById('cartBody');
-const cartFooter = document.getElementById('cartFooter');
-const cartTotal = document.getElementById('cartTotal');
-const searchInput = document.getElementById('searchInput');
-const sortSelect = document.getElementById('sortSelect');
-
-// ===== INITIALIZATION =====
-document.addEventListener('DOMContentLoaded', () => {
-    renderProducts();
-    updateCartUI();
-    updateWishlistUI();
-    setupEventListeners();
-});
-
-// ===== EVENT LISTENERS =====
-function setupEventListeners() {
-    // Search with debounce
-    let searchTimeout;
-    searchInput.addEventListener('input', (e) => {
-        clearTimeout(searchTimeout);
-        searchTimeout = setTimeout(() => {
-            searchQuery = e.target.value.toLowerCase().trim();
-            renderProducts();
-        }, 300);
-    });
-
-    // Sort
-    sortSelect.addEventListener('change', (e) => {
-        currentSort = e.target.value;
-        renderProducts();
-    });
-
-    // Category filters
-    document.querySelectorAll('.category-btn').forEach(btn => {
-        btn.addEventListener('click', () => {
-            document.querySelectorAll('.category-btn').forEach(b => b.classList.remove('category-btn--active'));
-            btn.classList.add('category-btn--active');
-            currentCategory = btn.dataset.category;
-            renderProducts();
-        });
-    });
-
-    // Close modals on overlay click
-    [cartModal, productModal, wishlistModal].forEach(modal => {
-        modal.addEventListener('click', (e) => {
-            if (e.target === modal) modal.classList.remove('modal-overlay--visible');
-        });
-    });
-
-    // Checkout modal close on overlay click
-    document.getElementById('checkoutModal').addEventListener('click', (e) => {
-        if (e.target === document.getElementById('checkoutModal')) closeCheckout();
-    });
-
-    // Escape key to close modals
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') {
-            closeCart();
-            closeProductModal();
-            closeWishlist();
-            closeCheckout();
-        }
-    });
-}
-
-// ===== PRODUCT RENDERING =====
-function getFilteredProducts() {
-    let filtered = [...products];
-
-    // Category filter
-    if (currentCategory !== 'all') {
-        filtered = filtered.filter(p => p.category === currentCategory);
-    }
-
-    // Search filter
-    if (searchQuery) {
-        filtered = filtered.filter(p =>
-            p.name.toLowerCase().includes(searchQuery) ||
-            p.category.toLowerCase().includes(searchQuery)
-        );
-    }
-
-    // Sort
-    switch (currentSort) {
-        case 'price-asc': filtered.sort((a, b) => a.price - b.price); break;
-        case 'price-desc': filtered.sort((a, b) => b.price - a.price); break;
-        case 'name-asc': filtered.sort((a, b) => a.name.localeCompare(b.name)); break;
-    }
-
-    return filtered;
-}
-
-function renderProducts() {
-    const filtered = getFilteredProducts();
-
-    if (filtered.length === 0) {
-        productsContainer.innerHTML = `
-            <div style="grid-column:1/-1;text-align:center;padding:60px;color:var(--text-muted);">
-                <i class="fas fa-search" style="font-size:48px;margin-bottom:16px;opacity:0.3;"></i>
-                <h3>No products found</h3>
-                <p>Try adjusting your search or filters</p>
-            </div>`;
-        return;
-    }
-
-    productsContainer.innerHTML = filtered.map(product => `
-        <article class="product-card">
-            <div class="product-card__image-wrap">
-                <img src="${product.img}" alt="${product.name}" class="product-card__image" loading="lazy">
-                <span class="product-card__badge">${product.category}</span>
-                <button class="product-card__wishlist ${isInWishlist(product.id) ? 'product-card__wishlist--active' : ''}"
-                        onclick="toggleWishlist(${product.id})" aria-label="${isInWishlist(product.id) ? 'Remove from' : 'Add to'} wishlist">
-                    <i class="${isInWishlist(product.id) ? 'fas' : 'far'} fa-heart"></i>
-                </button>
-            </div>
-            <div class="product-card__body">
-                <div class="product-card__category">${product.category}</div>
-                <h3 class="product-card__name">${product.name}</h3>
-                <div class="product-card__price">$${product.price}</div>
-                <div style="display:flex;align-items:center;gap:4px;margin-bottom:12px;color:var(--warning);font-size:14px;">
-                    ${renderStars(product.rating)}
-                    <span style="color:var(--text-muted);">(${product.rating})</span>
+    <!-- ================= USER AUTH MODAL ================= -->
+    <div id="auth-modal" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 hidden items-center justify-center p-4" aria-hidden="true" role="dialog" aria-modal="true">
+        <div class="bg-white dark:bg-brand-surface rounded-2xl max-w-sm w-full p-6 relative overflow-hidden shadow-2xl border dark:border-gray-800 space-y-4 text-center">
+            <button data-action="toggle-auth-modal" class="absolute top-4 right-4 text-gray-400 hover:text-brand-dark" aria-label="Close Auth Modal"><i class="fa-solid fa-xmark text-xl"></i></button>
+            <h3 class="text-xl font-serif font-bold text-brand-dark dark:text-white">Customer Login</h3>
+            <form data-action="handle-auth" class="space-y-3 text-xs text-left">
+                <div>
+                    <label for="auth-email" class="block font-bold mb-1">Email Address</label>
+                    <input type="email" id="auth-email" required class="w-full p-2.5 border dark:border-gray-700 dark:bg-brand-dark rounded-lg">
                 </div>
-                <div class="product-card__actions">
-                    <button class="btn btn--primary" onclick="addToCart(${product.id})" aria-label="Add ${product.name} to cart">
-                        <i class="fas fa-cart-plus"></i> Add
-                    </button>
-                    <button class="btn btn--outline" onclick="viewProduct(${product.id})" aria-label="View ${product.name} details">
-                        <i class="fas fa-eye"></i> View
-                    </button>
+                <div>
+                    <label for="auth-password" class="block font-bold mb-1">Password</label>
+                    <input type="password" id="auth-password" required class="w-full p-2.5 border dark:border-gray-700 dark:bg-brand-dark rounded-lg">
                 </div>
-            </div>
-        </article>
-    `).join('');
-}
-
-function renderStars(rating) {
-    let stars = '';
-    for (let i = 1; i <= 5; i++) {
-        if (i <= rating) stars += '<i class="fas fa-star"></i>';
-        else if (i - 0.5 <= rating) stars += '<i class="fas fa-star-half-alt"></i>';
-        else stars += '<i class="far fa-star"></i>';
-    }
-    return stars;
-}
-
-// ===== CART FUNCTIONS =====
-function addToCart(productId) {
-    const product = products.find(p => p.id === productId);
-    const existing = cart.find(item => item.id === productId);
-
-    if (existing) {
-        existing.qty++;
-    } else {
-        cart.push({ ...product, qty: 1 });
-    }
-
-    saveCart();
-    updateCartUI();
-    showToast(`${product.name} added to cart!`, 'success');
-}
-
-function removeFromCart(productId) {
-    cart = cart.filter(item => item.id !== productId);
-    saveCart();
-    updateCartUI();
-    renderCart();
-}
-
-function updateQty(productId, delta) {
-    const item = cart.find(item => item.id === productId);
-    if (!item) return;
-
-    item.qty += delta;
-    if (item.qty <= 0) {
-        removeFromCart(productId);
-        return;
-    }
-
-    saveCart();
-    updateCartUI();
-    renderCart();
-}
-
-function saveCart() {
-    localStorage.setItem('shopEase_cart', JSON.stringify(cart));
-}
-
-function updateCartUI() {
-    const count = cart.reduce((sum, item) => sum + item.qty, 0);
-    document.getElementById('cartCount').textContent = count;
-    document.getElementById('cartCount').style.display = count > 0 ? 'block' : 'none';
-}
-
-function getCartTotal() {
-    return cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
-}
-
-// ===== CART MODAL =====
-function openCart() {
-    renderCart();
-    cartModal.classList.add('modal-overlay--visible');
-    document.body.style.overflow = 'hidden';
-}
-
-function closeCart() {
-    cartModal.classList.remove('modal-overlay--visible');
-    document.body.style.overflow = '';
-}
-
-function renderCart() {
-    if (cart.length === 0) {
-        cartBody.innerHTML = `
-            <div class="cart-empty">
-                <i class="fas fa-shopping-basket"></i>
-                <h3>Your cart is empty</h3>
-                <p>Add some products to get started!</p>
-            </div>`;
-        cartFooter.style.display = 'none';
-        return;
-    }
-
-    cartBody.innerHTML = cart.map(item => `
-        <div class="cart-item">
-            <img src="${item.img}" alt="${item.name}" class="cart-item__image">
-            <div class="cart-item__info">
-                <div class="cart-item__name">${item.name}</div>
-                <div class="cart-item__price">$${item.price} each</div>
-                <div class="cart-item__qty">
-                    <button class="qty-btn" onclick="updateQty(${item.id}, -1)" aria-label="Decrease quantity">-</button>
-                    <span>${item.qty}</span>
-                    <button class="qty-btn" onclick="updateQty(${item.id}, 1)" aria-label="Increase quantity">+</button>
-                </div>
-            </div>
-            <div style="text-align:right;">
-                <div style="font-weight:700;margin-bottom:8px;">$${(item.price * item.qty).toFixed(2)}</div>
-                <button class="cart-item__remove" onclick="removeFromCart(${item.id})" aria-label="Remove ${item.name} from cart">
-                    <i class="fas fa-trash-alt"></i>
-                </button>
-            </div>
+                <button type="submit" class="w-full bg-brand-dark dark:bg-brand-accent text-white py-3 rounded-xl font-bold uppercase tracking-wider">Sign In</button>
+            </form>
         </div>
-    `).join('');
+    </div>
 
-    cartTotal.textContent = `Total: $${getCartTotal().toFixed(2)}`;
-    cartFooter.style.display = 'flex';
-}
+    <!-- Undo Toast Notification -->
+    <div id="toast" class="fixed bottom-20 right-5 bg-brand-dark dark:bg-brand-accent text-white px-5 py-3 rounded-xl shadow-2xl z-50 hidden flex items-center space-x-4 text-xs">
+        <span id="toast-message">Item removed.</span>
+        <button id="toast-undo-btn" class="text-brand-accent dark:text-white font-bold underline">Undo</button>
+    </div>
 
-function checkout() {
-    closeCart();
-    openCheckout();
-}
+    <!-- ================= ARCHITECTURE ENGINE (MODULE PATTERN) ================= -->
+    <script>
+        const AuraApp = (() => {
+            'use strict';
 
-function openCheckout() {
-    const total = getCartTotal();
-    document.getElementById('checkoutSubtotal').textContent = '$' + total.toFixed(2);
-    document.getElementById('checkoutTotal').textContent = '$' + total.toFixed(2);
-    document.getElementById('checkoutModal').classList.add('modal-overlay--visible');
-    document.body.style.overflow = 'hidden';
-}
+            // Master Dataset
+            const storeProducts = [
+                { id: 1, name: "Signature Heavyweight Hoodie", priceUSD: 120, badge: "BEST SELLER", img1: "https://images.unsplash.com/photo-1556905055-8f358a7a47b2?auto=format&fit=crop&w=800&q=80", img2: "https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=800&q=80", category: "Men" },
+                { id: 2, name: "Minimalist Linen Shirt", priceUSD: 65, badge: "NEW", img1: "https://images.unsplash.com/photo-1598033129183-c4f50c736f10?auto=format&fit=crop&w=800&q=80", img2: "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=800&q=80", category: "Men" },
+                { id: 3, name: "Tailored Wool Trench Coat", priceUSD: 210, badge: "LIMITED", img1: "https://images.unsplash.com/photo-1539533018447-63fcce2678e3?auto=format&fit=crop&w=800&q=80", img2: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=800&q=80", category: "Women" },
+                { id: 4, name: "Monochrome Leather Sneakers", priceUSD: 140, badge: "SALE", img1: "https://images.unsplash.com/photo-1549298916-b41d501d3772?auto=format&fit=crop&w=800&q=80", img2: "https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?auto=format&fit=crop&w=800&q=80", category: "Footwear" },
+                { id: 5, name: "Oversized Cashmere Sweater", priceUSD: 180, badge: "NEW", img1: "https://images.unsplash.com/photo-1576566588028-4147f3842f27?auto=format&fit=crop&w=800&q=80", img2: "https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?auto=format&fit=crop&w=800&q=80", category: "Women" },
+                { id: 6, name: "Slim Fit Chino Trousers", priceUSD: 85, badge: "POPULAR", img1: "https://images.unsplash.com/photo-1473966968600-fa801b869a1a?auto=format&fit=crop&w=800&q=80", img2: "https://images.unsplash.com/photo-1617137968427-85924c800a22?auto=format&fit=crop&w=800&q=80", category: "Men" }
+            ];
 
-function closeCheckout() {
-    document.getElementById('checkoutModal').classList.remove('modal-overlay--visible');
-    document.body.style.overflow = '';
-}
+            const currencyRates = { USD: 1.0, EUR: 0.92, GBP: 0.79, INR: 83.50 };
+            const currencySymbols = { USD: '$', EUR: '€', GBP: '£', INR: '₹' };
 
-function submitOrder(e) {
-    e.preventDefault();
-    showToast('Order placed successfully! Thank you for shopping.', 'success');
-    cart = [];
-    saveCart();
-    updateCartUI();
-    closeCheckout();
-}
+            // Private Application State
+            let currentCurrency = 'USD';
+            let cart = safeStorageRead('aura_cart', []);
+            let wishlist = safeStorageRead('aura_wishlist', []);
+            let compareList = safeStorageRead('aura_compare', []);
+            let recentlyViewed = safeStorageRead('aura_recent', []);
+            let lastRemovedItem = null;
+            let discountMultiplier = 1.0;
+            let selectedStudioColor = 'Obsidian Black';
+            let selectedStudioSize = 'M';
+            let currentPage = 1;
+            const itemsPerPage = 3;
+            let searchDebounceTimer = null;
+            let activeFocusTrapCloseFn = null;
 
-// ===== PRODUCT DETAIL MODAL =====
-function viewProduct(productId) {
-    const product = products.find(p => p.id === productId);
-    if (!product) return;
+            // Safe LocalStorage Wrappers
+            function safeStorageRead(key, fallback) {
+                try {
+                    const item = localStorage.getItem(key);
+                    return item ? JSON.parse(item) : fallback;
+                } catch (e) {
+                    console.warn(`Storage read error [${key}]:`, e);
+                    return fallback;
+                }
+            }
 
-    document.getElementById('productModalBody').innerHTML = `
-        <div class="product-detail">
-            <div>
-                <img src="${product.img}" alt="${product.name}" class="product-detail__image">
-            </div>
-            <div class="product-detail__info">
-                <div class="product-card__category">${product.category}</div>
-                <h2 class="product-detail__name">${product.name}</h2>
-                <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;color:var(--warning);">
-                    ${renderStars(product.rating)}
-                    <span style="color:var(--text-muted);">(${product.rating} / 5)</span>
-                </div>
-                <div class="product-detail__price">$${product.price}</div>
-                <p class="product-detail__desc">
-                    Experience premium quality with the ${product.name}. Designed for performance and style,
-                    this ${product.category.toLowerCase()} device delivers exceptional value. Perfect for both
-                    professionals and everyday users who demand the best.
-                </p>
-                <ul class="product-detail__features">
-                    ${product.features.map(f => `<li><i class="fas fa-check-circle"></i> ${f}</li>`).join('')}
-                </ul>
-                <div style="display:flex;gap:12px;">
-                    <button class="btn btn--primary" style="flex:1;padding:14px;" onclick="addToCart(${product.id}); closeProductModal();">
-                        <i class="fas fa-cart-plus"></i> Add to Cart
-                    </button>
-                    <button class="btn btn--outline" style="width:50px;" onclick="toggleWishlist(${product.id})" aria-label="Toggle wishlist">
-                        <i class="${isInWishlist(product.id) ? 'fas' : 'far'} fa-heart" style="color:${isInWishlist(product.id) ? 'var(--danger)' : 'inherit'};"></i>
-                    </button>
-                </div>
-            </div>
-        </div>
-    `;
+            function safeStorageWrite(key, value) {
+                try {
+                    localStorage.setItem(key, JSON.stringify(value));
+                } catch (e) {
+                    console.warn(`Storage write error [${key}]:`, e);
+                }
+            }
 
-    productModal.classList.add('modal-overlay--visible');
-    document.body.style.overflow = 'hidden';
-}
+            // WCAG Live Announcement Engine
+            function announceA11y(message) {
+                const announcer = document.getElementById('a11y-announcer');
+                if (announcer) announcer.textContent = message;
+            }
 
-function closeProductModal() {
-    productModal.classList.remove('modal-overlay--visible');
-    document.body.style.overflow = '';
-}
+            // Price Formatter
+            function formatPrice(usdAmount) {
+                const converted = usdAmount * currencyRates[currentCurrency];
+                return `${currencySymbols[currentCurrency]}${converted.toFixed(2)}`;
+            }
 
-// ===== WISHLIST =====
-function toggleWishlist(productId) {
-    const index = wishlist.indexOf(productId);
-    const product = products.find(p => p.id === productId);
+            function changeCurrency(val) {
+                currentCurrency = val;
+                document.getElementById('filter-price-symbol').innerText = currencySymbols[val];
+                renderFeaturedProducts();
+                renderShopProducts();
+                updateCartUI();
+                renderRecentlyViewed();
+                
+                document.querySelectorAll('.price-display').forEach(el => {
+                    const usd = parseFloat(el.getAttribute('data-usd'));
+                    el.innerText = formatPrice(usd);
+                });
+            }
 
-    if (index > -1) {
-        wishlist.splice(index, 1);
-        showToast(`${product.name} removed from wishlist`, 'info');
-    } else {
-        wishlist.push(productId);
-        showToast(`${product.name} added to wishlist!`, 'success');
-    }
+            // Dark Mode Handler
+            function toggleDarkMode() {
+                document.documentElement.classList.toggle('dark');
+                const icon = document.getElementById('theme-icon');
+                if (document.documentElement.classList.contains('dark')) {
+                    icon.classList.remove('fa-moon');
+                    icon.classList.add('fa-sun');
+                } else {
+                    icon.classList.remove('fa-sun');
+                    icon.classList.add('fa-moon');
+                }
+            }
 
-    localStorage.setItem('shopEase_wishlist', JSON.stringify(wishlist));
-    updateWishlistUI();
-    renderProducts(); // Re-render to update heart icons
-}
+            // Accessibility Modal Focus Trap Engine
+            function trapFocus(modalEl, closeTriggerFn) {
+                const focusables = modalEl.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
+                if (focusables.length === 0) return;
+                
+                const first = focusables[0];
+                const last = focusables[focusables.length - 1];
+                document.body.style.overflow = 'hidden';
+                modalEl.setAttribute('aria-hidden', 'false');
+                first.focus();
 
-function isInWishlist(productId) {
-    return wishlist.includes(productId);
-}
+                function handleKeyDown(e) {
+                    if (e.key === 'Escape') {
+                        closeTriggerFn();
+                        return;
+                    }
+                    if (e.key === 'Tab') {
+                        if (e.shiftKey && document.activeElement === first) {
+                            e.preventDefault();
+                            last.focus();
+                        } else if (!e.shiftKey && document.activeElement === last) {
+                            e.preventDefault();
+                            first.focus();
+                        }
+                    }
+                }
 
-function updateWishlistUI() {
-    const count = wishlist.length;
-    const badge = document.getElementById('wishlistCount');
-    badge.textContent = count;
-    badge.style.display = count > 0 ? 'inline-block' : 'none';
-}
+                modalEl.addEventListener('keydown', handleKeyDown);
+                return () => {
+                    modalEl.removeEventListener('keydown', handleKeyDown);
+                    modalEl.setAttribute('aria-hidden', 'true');
+                    document.body.style.overflow = '';
+                };
+            }
 
-function showWishlist() {
-    const wishlistProducts = products.filter(p => wishlist.includes(p.id));
+            // Announcement Slider
+            function initAnnouncementSlider() {
+                const track = document.getElementById('announcement-track');
+                let idx = 0;
+                setInterval(() => {
+                    idx = (idx + 1) % 3;
+                    track.style.transform = `translateX(-${idx * 100}%)`;
+                }, 4000);
+            }
 
-    if (wishlistProducts.length === 0) {
-        document.getElementById('wishlistBody').innerHTML = `
-            <div class="cart-empty">
-                <i class="fas fa-heart" style="color:var(--danger);"></i>
-                <h3>Your wishlist is empty</h3>
-                <p>Save items you love for later!</p>
-            </div>`;
-    } else {
-        document.getElementById('wishlistBody').innerHTML = wishlistProducts.map(p => `
-            <div class="cart-item">
-                <img src="${p.img}" alt="${p.name}" class="cart-item__image">
-                <div class="cart-item__info">
-                    <div class="cart-item__name">${p.name}</div>
-                    <div class="cart-item__price">$${p.price}</div>
-                </div>
-                <div style="display:flex;gap:8px;">
-                    <button class="btn btn--primary" style="padding:8px 16px;font-size:13px;" onclick="addToCart(${p.id}); toggleWishlist(${p.id});">
-                        <i class="fas fa-cart-plus"></i> Add
-                    </button>
-                    <button class="cart-item__remove" onclick="toggleWishlist(${p.id})" aria-label="Remove from wishlist">
-                        <i class="fas fa-trash-alt"></i>
-                    </button>
-                </div>
-            </div>
-        `).join('');
-    }
+            // Render Featured Products
+            function renderFeaturedProducts() {
+                const grid = document.getElementById('featured-grid');
+                grid.innerHTML = storeProducts.slice(0, 4).map(p => `
+                    <div class="bg-white dark:bg-brand-surface rounded-2xl overflow-hidden border border-gray-100 dark:border-gray-800 shadow-sm hover:shadow-xl transition duration-500 group flex flex-col justify-between">
+                        <div class="relative overflow-hidden h-80 bg-gray-100 dark:bg-gray-800">
+                            <span class="absolute top-3 left-3 z-10 text-[10px] font-bold bg-brand-dark dark:bg-brand-accent text-white px-2.5 py-1 rounded-full uppercase tracking-wider">${p.badge}</span>
+                            <img src="${p.img1}" width="600" height="800" style="aspect-ratio: 3/4;" alt="${p.name}" class="w-full h-full object-cover absolute inset-0 transition-opacity duration-500 group-hover:opacity-0">
+                            <img src="${p.img2}" width="600" height="800" style="aspect-ratio: 3/4;" alt="${p.name}" class="w-full h-full object-cover absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100">
+                            
+                            <div class="absolute bottom-3 left-3 right-3 flex gap-2 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
+                                <button data-action="open-quickview" data-id="${p.id}" class="flex-1 bg-white/90 dark:bg-brand-dark/90 backdrop-blur-md text-brand-dark dark:text-white text-xs py-2 rounded-lg font-semibold hover:bg-brand-dark hover:text-white transition">Quick View</button>
+                                <button data-action="add-to-compare" data-id="${p.id}" class="w-9 h-9 bg-white/90 dark:bg-brand-dark/90 backdrop-blur-md rounded-lg flex items-center justify-center text-brand-dark dark:text-white hover:text-brand-accent" aria-label="Compare Product"><i class="fa-solid fa-code-compare text-xs"></i></button>
+                                <button data-action="toggle-wishlist" data-name="${p.name}" data-price="${p.priceUSD}" class="w-9 h-9 bg-white/90 dark:bg-brand-dark/90 backdrop-blur-md rounded-lg flex items-center justify-center text-brand-dark dark:text-white hover:text-red-500" aria-label="Add to Wishlist"><i class="fa-regular fa-heart text-xs"></i></button>
+                            </div>
+                        </div>
+                        <div class="p-5">
+                            <h3 class="font-bold text-brand-dark dark:text-white text-sm font-serif">${p.name}</h3>
+                            <p class="text-brand-dark dark:text-gray-300 font-bold text-xs mt-1">${formatPrice(p.priceUSD)}</p>
+                            <button data-action="add-to-cart" data-name="${p.name}" data-price="${p.priceUSD}" data-img="${p.img1}" class="w-full mt-3 bg-brand-dark dark:bg-brand-accent text-white text-xs py-2 rounded-lg hover:opacity-90 transition uppercase tracking-wider">Add To Cart</button>
+                        </div>
+                    </div>
+                `).join('');
+            }
 
-    wishlistModal.classList.add('modal-overlay--visible');
-    document.body.style.overflow = 'hidden';
-}
+            // Secure XSS-Free Search Engine
+            function handleSearchInput() {
+                clearTimeout(searchDebounceTimer);
+                searchDebounceTimer = setTimeout(performSearch, 300);
+            }
 
-function closeWishlist() {
-    wishlistModal.classList.remove('modal-overlay--visible');
-    document.body.style.overflow = '';
-}
+            function performSearch() {
+                const query = document.getElementById('search-input').value.toLowerCase().trim();
+                const resultsBox = document.getElementById('search-results');
+                resultsBox.innerHTML = '';
 
-// ===== TOAST NOTIFICATIONS =====
-function showToast(message, type = 'success') {
-    const container = document.getElementById('toastContainer');
-    const toast = document.createElement('div');
-    toast.className = `toast toast--${type}`;
+                if (query === '') {
+                    const p = document.createElement('p');
+                    p.className = "text-xs text-gray-400";
+                    p.textContent = "Type to search items...";
+                    resultsBox.appendChild(p);
+                    return;
+                }
 
-    const icon = type === 'success' ? 'fa-check-circle' : type === 'error' ? 'fa-exclamation-circle' : 'fa-info-circle';
-    toast.innerHTML = `<i class="fas ${icon}"></i> ${message}`;
+                const matches = storeProducts.filter(p => p.name.toLowerCase().includes(query) || p.category.toLowerCase().includes(query));
+                if (matches.length === 0) {
+                    const p = document.createElement('p');
+                    p.className = "text-xs text-gray-400";
+                    p.textContent = `No products found matching "${query}".`;
+                    resultsBox.appendChild(p);
+                    return;
+                }
 
-    container.appendChild(toast);
+                matches.forEach(p => {
+                    const item = document.createElement('div');
+                    item.className = "flex items-center justify-between p-2 hover:bg-gray-50 dark:hover:bg-gray-800 rounded-lg cursor-pointer";
+                    item.setAttribute('data-action', 'open-quickview');
+                    item.setAttribute('data-id', p.id);
 
-    setTimeout(() => {
-        toast.remove();
-    }, 3000);
-}
+                    const subLeft = document.createElement('div');
+                    subLeft.className = "flex items-center space-x-3 pointer-events-none";
 
-// ===== UTILITIES =====
-function scrollToProducts() {
-    document.querySelector('.search-filter').scrollIntoView({ behavior: 'smooth' });
-}
-</script>
+                    const img = document.createElement('img');
+                    img.src = p.img1;
+                    img.width = 40;
+                    img.height = 40;
+                    img.className = "w-10 h-10 object-cover rounded";
+                    img.alt = p.name;
 
+                    const textDiv = document.createElement('div');
+                    const titleP = document.createElement('p');
+                    titleP.className = "text-xs font-semibold text-brand-dark dark:text-white";
+                    titleP.textContent = p.name;
+
+                    const metaP = document.createElement('p');
+                    metaP.className = "text-[10px] text-gray-400";
+                    metaP.textContent = `${p.category} • ${formatPrice(p.priceUSD)}`;
+
+                    textDiv.appendChild(titleP);
+                    textDiv.appendChild(metaP);
+                    subLeft.appendChild(img);
+                    subLeft.appendChild(textDiv);
+
+                    const actionSpan = document.createElement('span');
+                    actionSpan.className = "text-xs text-brand-accent font-bold pointer-events-none";
+                    actionSpan.textContent = "View";
+
+                    item.appendChild(subLeft);
+                    item.appendChild(actionSpan);
+                    resultsBox.appendChild(item);
+                });
+            }
+
+            function toggleSearchModal() {
+                const modal = document.getElementById('search-modal');
+                const isHidden = modal.classList.contains('hidden');
+                
+                if (isHidden) {
+                    modal.classList.remove('hidden');
+                    modal.classList.add('flex');
+                    document.getElementById('search-input').focus();
+                    activeFocusTrapCloseFn = trapFocus(modal, toggleSearchModal);
+                } else {
+                    modal.classList.add('hidden');
+                    modal.classList.remove('flex');
+                    if (activeFocusTrapCloseFn) activeFocusTrapCloseFn();
+                }
+            }
+
+            // Comparison Engine
+            function addToCompare(id) {
+                if (compareList.some(x => x.id === id)) return;
+                if (compareList.length >= 3) {
+                    alert("Maximum 3 items allowed in comparison.");
+                    return;
+                }
+                const p = storeProducts.find(x => x.id === id);
+                compareList.push(p);
+                safeStorageWrite('aura_compare', compareList);
+                updateCompareUI();
+                toggleCompareDrawer(true);
+                announceA11y(`${p.name} added to comparison matrix.`);
+            }
+
+            function removeFromCompare(id) {
+                compareList = compareList.filter(x => x.id !== id);
+                safeStorageWrite('aura_compare', compareList);
+                updateCompareUI();
+            }
+
+            function toggleCompareDrawer(forceOpen = false) {
+                const drawer = document.getElementById('compare-drawer');
+                if (forceOpen) drawer.classList.remove('translate-y-full');
+                else drawer.classList.toggle('translate-y-full');
+            }
+
+            function updateCompareUI() {
+                document.getElementById('compare-badge').innerText = compareList.length;
+                document.getElementById('compare-count').innerText = compareList.length;
+                const container = document.getElementById('compare-items-container');
+                
+                container.innerHTML = compareList.map(p => `
+                    <div class="relative bg-gray-100 dark:bg-gray-800 p-1 rounded-lg flex items-center space-x-2">
+                        <img src="${p.img1}" width="32" height="32" alt="${p.name}" class="w-8 h-8 object-cover rounded">
+                        <span class="text-[10px] font-bold dark:text-white max-w-[80px] truncate">${p.name}</span>
+                        <button data-action="remove-compare" data-id="${p.id}" class="text-red-500 text-xs px-1" aria-label="Remove item">&times;</button>
+                    </div>
+                `).join('');
+            }
+
+            function openCompareModal() {
+                if (compareList.length === 0) { alert("Add at least one item to compare."); return; }
+                const modal = document.getElementById('compare-modal');
+                const matrix = document.getElementById('compare-matrix-content');
+
+                matrix.innerHTML = `
+                    <table class="w-full text-xs text-left border-collapse">
+                        <thead>
+                            <tr class="border-b dark:border-gray-800">
+                                <th class="p-2">Feature</th>
+                                ${compareList.map(p => `<th class="p-2 text-brand-dark dark:text-white font-serif font-bold">${p.name}</th>`).join('')}
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="border-b dark:border-gray-800">
+                                <td class="p-2 font-bold text-gray-400">Price</td>
+                                ${compareList.map(p => `<td class="p-2 font-bold">${formatPrice(p.priceUSD)}</td>`).join('')}
+                            </tr>
+                            <tr class="border-b dark:border-gray-800">
+                                <td class="p-2 font-bold text-gray-400">Category</td>
+                                ${compareList.map(p => `<td class="p-2">${p.category}</td>`).join('')}
+                            </tr>
+                            <tr>
+                                <td class="p-2 font-bold text-gray-400">Fabric</td>
+                                ${compareList.map(() => `<td class="p-2">100% Organic French Terry</td>`).join('')}
+                            </tr>
+                        </tbody>
+                    </table>
+                `;
+                modal.classList.remove('hidden');
+                modal.classList.add('flex');
+                activeFocusTrapCloseFn = trapFocus(modal, closeCompareModal);
+            }
+
+            function closeCompareModal() {
+                const modal = document.getElementById('compare-modal');
+                modal.classList.add('hidden');
+                modal.classList.remove('flex');
+                if (activeFocusTrapCloseFn) activeFocusTrapCloseFn();
+            }
+
+            // Store Catalog Engine & Empty State Handler
+            function renderShopProducts() {
+                const grid = document.getElementById('shop-products-grid');
+                const maxPrice = parseFloat(document.getElementById('price-range').value);
+                const sortVal = document.getElementById('shop-sort-select').value;
+                const catFilters = Array.from(document.querySelectorAll('.shop-cat-filter:checked')).map(c => c.value);
+
+                let filtered = storeProducts.filter(p => {
+                    const matchPrice = p.priceUSD <= maxPrice;
+                    const matchCat = catFilters.length === 0 || catFilters.includes(p.category);
+                    return matchPrice && matchCat;
+                });
+
+                if (sortVal === 'low-high') filtered.sort((a,b) => a.priceUSD - b.priceUSD);
+                if (sortVal === 'high-low') filtered.sort((a,b) => b.priceUSD - a.priceUSD);
+
+                // Zero State Empty Filter Result
+                if (filtered.length === 0) {
+                    grid.innerHTML = `
+                        <div class="col-span-full text-center py-12 space-y-3">
+                            <i class="fa-solid fa-filter text-4xl text-gray-300 dark:text-gray-700"></i>
+                            <p class="text-sm font-semibold text-gray-500">No products match your active filters.</p>
+                            <button data-action="reset-filters" class="text-xs font-bold text-brand-accent underline uppercase">Clear All Filters</button>
+                        </div>
+                    `;
+                    document.getElementById('pagination-container').innerHTML = '';
+                    return;
+                }
+
+                const totalPages = Math.ceil(filtered.length / itemsPerPage) || 1;
+                currentPage = Math.min(currentPage, totalPages);
+                const start = (currentPage - 1) * itemsPerPage;
+                const pageItems = filtered.slice(start, start + itemsPerPage);
+
+                grid.innerHTML = pageItems.map(p => `
+                    <div class="bg-white dark:bg-brand-surface rounded-2xl p-4 border border-gray-100 dark:border-gray-800 shadow-sm flex flex-col justify-between">
+                        <div>
+                            <img src="${p.img1}" width="600" height="800" style="aspect-ratio: 3/4;" alt="${p.name}" class="w-full h-64 object-cover rounded-xl mb-3">
+                            <h4 class="font-bold text-brand-dark dark:text-white text-sm">${p.name}</h4>
+                            <p class="text-xs font-bold text-brand-dark dark:text-gray-300 mt-1">${formatPrice(p.priceUSD)}</p>
+                        </div>
+                        <button data-action="add-to-cart" data-name="${p.name}" data-price="${p.priceUSD}" data-img="${p.img1}" class="w-full mt-3 bg-brand-dark dark:bg-brand-accent text-white text-xs py-2 rounded-lg font-semibold uppercase tracking-wider">Add To Cart</button>
+                    </div>
+                `).join('');
+
+                const pagContainer = document.getElementById('pagination-container');
+                pagContainer.innerHTML = Array.from({length: totalPages}).map((_, i) => `
+                    <button data-action="set-page" data-page="${i + 1}" class="px-3 py-1.5 border dark:border-gray-700 rounded-lg text-xs font-semibold ${currentPage === i + 1 ? 'bg-brand-dark dark:bg-brand-accent text-white' : 'text-gray-600 dark:text-gray-400'}">${i + 1}</button>
+                `).join('');
+            }
+
+            function resetFilters() {
+                document.querySelectorAll('.shop-cat-filter').forEach(c => c.checked = false);
+                document.getElementById('price-range').value = 300;
+                document.getElementById('price-val').innerText = 300;
+                currentPage = 1;
+                renderShopProducts();
+            }
+
+            // Shopping Cart Engine
+            function toggleCartDrawer() {
+                const drawer = document.getElementById('cart-drawer');
+                const overlay = document.getElementById('cart-drawer-overlay');
+                const isClosed = drawer.classList.contains('translate-x-full');
+
+                if (isClosed) {
+                    drawer.classList.remove('translate-x-full');
+                    overlay.classList.remove('opacity-0', 'pointer-events-none');
+                    activeFocusTrapCloseFn = trapFocus(drawer, toggleCartDrawer);
+                } else {
+                    drawer.classList.add('translate-x-full');
+                    overlay.classList.add('opacity-0', 'pointer-events-none');
+                    if (activeFocusTrapCloseFn) activeFocusTrapCloseFn();
+                }
+            }
+
+            function addToCart(name, priceUSD, image, qty = 1) {
+                const existing = cart.find(i => i.name === name);
+                if (existing) existing.quantity += qty;
+                else cart.push({ id: crypto.randomUUID(), name, priceUSD, image, quantity: qty });
+                
+                safeStorageWrite('aura_cart', cart);
+                updateCartUI();
+                toggleCartDrawer();
+                announceA11y(`${name} added to shopping bag.`);
+            }
+
+            function updateCartQty(id, delta) {
+                const idx = cart.findIndex(i => i.id === id);
+                if (idx > -1) {
+                    cart[idx].quantity += delta;
+                    if (cart[idx].quantity <= 0) {
+                        lastRemovedItem = cart[idx];
+                        cart.splice(idx, 1);
+                        showUndoToast();
+                    }
+                    safeStorageWrite('aura_cart', cart);
+                    updateCartUI();
+                }
+            }
+
+            function updateCartUI() {
+                const container = document.getElementById('cart-items');
+                const badge = document.getElementById('cart-badge');
+                const subtotalEl = document.getElementById('cart-subtotal');
+                
+                badge.innerText = cart.reduce((acc, item) => acc + item.quantity, 0);
+
+                if (cart.length === 0) {
+                    container.innerHTML = `
+                        <div class="text-center py-12 space-y-3">
+                            <i class="fa-solid fa-bag-shopping text-4xl text-gray-300 dark:text-gray-700"></i>
+                            <p class="text-xs text-gray-400">Your shopping bag is empty.</p>
+                        </div>`;
+                    subtotalEl.innerText = formatPrice(0);
+                    updateShippingProgress(0);
+                    return;
+                }
+
+                let subtotalUSD = 0;
+                container.innerHTML = cart.map(item => {
+                    subtotalUSD += item.priceUSD * item.quantity;
+                    return `
+                        <div class="flex items-center gap-3 border-b dark:border-gray-800 pb-3">
+                            <img src="${item.image}" width="56" height="56" alt="${item.name}" class="w-14 h-14 object-cover rounded-lg">
+                            <div class="flex-1">
+                                <h4 class="text-xs font-bold text-brand-dark dark:text-white">${item.name}</h4>
+                                <p class="text-xs text-gray-500 dark:text-gray-400 font-semibold">${formatPrice(item.priceUSD)}</p>
+                                <div class="flex items-center space-x-2 mt-1">
+                                    <button data-action="update-cart-qty" data-id="${item.id}" data-delta="-1" class="w-5 h-5 bg-gray-100 dark:bg-gray-800 text-xs rounded font-bold dark:text-white">-</button>
+                                    <span class="text-xs font-bold dark:text-white">${item.quantity}</span>
+                                    <button data-action="update-cart-qty" data-id="${item.id}" data-delta="1" class="w-5 h-5 bg-gray-100 dark:bg-gray-800 text-xs rounded font-bold dark:text-white">+</button>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                }).join('');
+
+                const finalUSD = subtotalUSD * discountMultiplier;
+                subtotalEl.innerText = formatPrice(finalUSD);
+                updateShippingProgress(finalUSD);
+            }
+
+            function updateShippingProgress(subtotalUSD) {
+                const goalUSD = 150;
+                const bar = document.getElementById('shipping-progress-bar');
+                const text = document.getElementById('shipping-progress-text');
+                const pct = Math.min(100, (subtotalUSD / goalUSD) * 100);
+
+                bar.style.width = `${pct}%`;
+                if (subtotalUSD >= goalUSD) text.innerText = "You've unlocked Free Express Shipping!";
+                else text.innerText = `Add ${formatPrice(goalUSD - subtotalUSD)} more for Free Shipping`;
+            }
+
+            function applyCoupon() {
+                const val = document.getElementById('coupon-input').value.toUpperCase().trim();
+                if (val === 'SAVE20') { discountMultiplier = 0.8; alert("20% Discount Applied!"); updateCartUI(); }
+                else alert("Invalid Coupon Code.");
+            }
+
+            function showUndoToast() {
+                const toast = document.getElementById('toast');
+                toast.classList.remove('hidden');
+                document.getElementById('toast-undo-btn').onclick = () => {
+                    if (lastRemovedItem) {
+                        cart.push(lastRemovedItem);
+                        safeStorageWrite('aura_cart', cart);
+                        updateCartUI();
+                        toast.classList.add('hidden');
+                    }
+                };
+                setTimeout(() => toast.classList.add('hidden'), 4000);
+            }
+
+            // Quick View Engine
+            function openQuickView(id) {
+                const p = storeProducts.find(x => x.id === id);
+                document.getElementById('qv-image').src = p.img1;
+                document.getElementById('qv-title').innerText = p.name;
+                document.getElementById('qv-price').innerText = formatPrice(p.priceUSD);
+                document.getElementById('qv-badge').innerText = p.badge;
+                document.getElementById('qv-add-btn').onclick = () => { addToCart(p.name, p.priceUSD, p.img1); closeQuickView(); };
+                
+                const modal = document.getElementById('quickview-modal');
+                modal.classList.remove('hidden');
+                modal.classList.add('flex');
+                activeFocusTrapCloseFn = trapFocus(modal, closeQuickView);
+                recordRecentlyViewed(p);
+            }
+
+            function closeQuickView() {
+                const modal = document.getElementById('quickview-modal');
+                modal.classList.add('hidden');
+                modal.classList.remove('flex');
+                if (activeFocusTrapCloseFn) activeFocusTrapCloseFn();
+            }
+
+            // Recently Viewed Products
+            function recordRecentlyViewed(product) {
+                recentlyViewed = recentlyViewed.filter(x => x.id !== product.id);
+                recentlyViewed.unshift(product);
+                if (recentlyViewed.length > 4) recentlyViewed.pop();
+                safeStorageWrite('aura_recent', recentlyViewed);
+                renderRecentlyViewed();
+            }
+
+            function renderRecentlyViewed() {
+                const grid = document.getElementById('recently-viewed-grid');
+                if (recentlyViewed.length === 0) { grid.innerHTML = `<p class="text-xs text-gray-400 col-span-4">No recently viewed items.</p>`; return; }
+                grid.innerHTML = recentlyViewed.map(p => `
+                    <div data-action="open-quickview" data-id="${p.id}" class="flex items-center space-x-3 bg-white dark:bg-brand-surface p-2 rounded-xl border border-gray-100 dark:border-gray-800 cursor-pointer">
+                        <img src="${p.img1}" width="48" height="48" alt="${p.name}" class="w-12 h-12 object-cover rounded-lg">
+                        <div>
+                            <h4 class="text-xs font-bold text-brand-dark dark:text-white truncate max-w-[100px]">${p.name}</h4>
+                            <p class="text-[10px] text-gray-500 font-semibold">${formatPrice(p.priceUSD)}</p>
+                        </div>
+                    </div>
+                `).join('');
+            }
+
+            // Wishlist Engine
+            function toggleWishlist(name, priceUSD) {
+                const heart = document.getElementById('nav-heart-icon');
+                heart.classList.add('text-red-500');
+
+                const idx = wishlist.findIndex(i => i.name === name);
+                if (idx > -1) wishlist.splice(idx, 1);
+                else wishlist.push({ name, priceUSD });
+                
+                safeStorageWrite('aura_wishlist', wishlist);
+                updateWishlistUI();
+                announceA11y(`${name} wishlist status updated.`);
+            }
+
+            function updateWishlistUI() {
+                const badge = document.getElementById('wishlist-badge');
+                badge.innerText = wishlist.length;
+                if (wishlist.length > 0) badge.classList.remove('hidden');
+                else badge.classList.add('hidden');
+            }
+
+            // Product Studio Studio Controls
+            function switchDetailMedia(type, src) {
+                const img = document.getElementById('detail-main-img');
+                const videoBox = document.getElementById('studio-video-container');
+                const video = document.getElementById('studio-video');
+
+                if (type === 'video') {
+                    videoBox.classList.remove('hidden');
+                    video.play();
+                } else {
+                    videoBox.classList.add('hidden');
+                    video.pause();
+                    img.src = src;
+                }
+            }
+
+            function addDetailToCart() {
+                const sizeError = document.getElementById('size-error');
+                if (!selectedStudioSize) {
+                    sizeError.classList.remove('hidden');
+                    return;
+                }
+                sizeError.classList.add('hidden');
+                const title = document.getElementById('studio-product-title').innerText;
+                addToCart(`${title} (${selectedStudioColor} / ${selectedStudioSize})`, 120, 'https://images.unsplash.com/photo-1556905055-8f358a7a47b2?auto=format&fit=crop&w=600&q=80');
+            }
+
+            // ZIP Delivery Estimator
+            function checkDelivery() {
+                const zip = document.getElementById('zip-input').value.trim();
+                const res = document.getElementById('delivery-result');
+                const msg = document.getElementById('delivery-msg');
+
+                if (zip.length >= 4) {
+                    res.classList.remove('hidden');
+                    msg.innerText = `Eligible for Express Delivery to ${zip} by Tomorrow!`;
+                } else {
+                    alert("Please enter a valid postal or ZIP code.");
+                }
+            }
+
+            // Modals Logic
+            function toggleCheckoutModal() {
+                if (cart.length === 0) { alert("Cart is empty!"); return; }
+                const modal = document.getElementById('checkout-modal');
+                const isHidden = modal.classList.contains('hidden');
+                
+                if (isHidden) {
+                    modal.classList.remove('hidden');
+                    modal.classList.add('flex');
+                    activeFocusTrapCloseFn = trapFocus(modal, toggleCheckoutModal);
+                } else {
+                    modal.classList.add('hidden');
+                    modal.classList.remove('flex');
+                    if (activeFocusTrapCloseFn) activeFocusTrapCloseFn();
+                }
+            }
+
+            function toggleAuthModal() {
+                const modal = document.getElementById('auth-modal');
+                const isHidden = modal.classList.contains('hidden');
+                
+                if (isHidden) {
+                    modal.classList.remove('hidden');
+                    modal.classList.add('flex');
+                    activeFocusTrapCloseFn = trapFocus(modal, toggleAuthModal);
+                } else {
+                    modal.classList.add('hidden');
+                    modal.classList.remove('flex');
+                    if (activeFocusTrapCloseFn) activeFocusTrapCloseFn();
+                }
+            }
+
+            function toggleMobileMenu() {
+                const drawer = document.getElementById('mobile-drawer');
+                const content = document.getElementById('mobile-drawer-content');
+                if (drawer.classList.contains('opacity-0')) {
+                    drawer.classList.remove('opacity-0', 'pointer-events-none');
+                    content.classList.remove('-translate-x-full');
+                } else {
+                    drawer.classList.add('opacity-0', 'pointer-events-none');
+                    content.classList.add('-translate-x-full');
+                }
+            }
+
+            // Real Fixed Deadline Countdown Timer
+            function startDeadlineCountdown() {
+                const deadline = new Date();
+                deadline.setHours(deadline.getHours() + 2);
+
+                function updateTimer() {
+                    const diff = deadline - Date.now();
+                    if (diff <= 0) return;
+                    const h = Math.floor(diff / (1000 * 60 * 60));
+                    const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+                    const s = Math.floor((diff % (1000 * 60)) / 1000);
+
+                    document.getElementById('timer-hours').innerText = String(h).padStart(2, '0');
+                    document.getElementById('timer-minutes').innerText = String(m).padStart(2, '0');
+                    document.getElementById('timer-seconds').innerText = String(s).padStart(2, '0');
+                }
+                updateTimer();
+                setInterval(updateTimer, 1000);
+            }
+
+            // Event Delegation Router Engine
+            function initEventDelegation() {
+                document.addEventListener('click', (e) => {
+                    const actionBtn = e.target.closest('[data-action]');
+                    if (!actionBtn) return;
+
+                    const action = actionBtn.dataset.action;
+                    if (action === 'toggle-mobile-menu') toggleMobileMenu();
+                    if (action === 'toggle-dark-mode') toggleDarkMode();
+                    if (action === 'toggle-search-modal') toggleSearchModal();
+                    if (action === 'toggle-compare-drawer') toggleCompareDrawer();
+                    if (action === 'scroll-to-wishlist') document.getElementById('wishlist-section').scrollIntoView({ behavior: 'smooth' });
+                    if (action === 'toggle-cart-drawer') toggleCartDrawer();
+                    if (action === 'toggle-auth-modal') toggleAuthModal();
+                    if (action === 'toggle-checkout-modal') toggleCheckoutModal();
+                    if (action === 'open-quickview') openQuickView(parseInt(actionBtn.dataset.id));
+                    if (action === 'close-quickview') closeQuickView();
+                    if (action === 'add-to-compare') addToCompare(parseInt(actionBtn.dataset.id));
+                    if (action === 'remove-compare') removeFromCompare(parseInt(actionBtn.dataset.id));
+                    if (action === 'open-compare-modal') openCompareModal();
+                    if (action === 'close-compare-modal') closeCompareModal();
+                    if (action === 'add-to-cart') addToCart(actionBtn.dataset.name, parseFloat(actionBtn.dataset.price), actionBtn.dataset.img);
+                    if (action === 'update-cart-qty') updateCartQty(actionBtn.dataset.id, parseInt(actionBtn.dataset.delta));
+                    if (action === 'toggle-wishlist') toggleWishlist(actionBtn.dataset.name, parseFloat(actionBtn.dataset.price));
+                    if (action === 'toggle-wishlist-detail') toggleWishlist('Signature Heavyweight Hoodie', 120);
+                    if (action === 'add-detail-to-cart') addDetailToCart();
+                    if (action === 'check-delivery') checkDelivery();
+                    if (action === 'apply-coupon') applyCoupon();
+                    if (action === 'reset-filters') resetFilters();
+                    if (action === 'set-page') { currentPage = parseInt(actionBtn.dataset.page); renderShopProducts(); }
+                    if (action === 'back-to-top') window.scrollTo({ top: 0, behavior: 'smooth' });
+                    
+                    if (action === 'select-detail-color') {
+                        selectedStudioColor = actionBtn.dataset.color;
+                        document.getElementById('detail-color-text').innerText = actionBtn.dataset.color;
+                        document.getElementById('detail-main-img').src = actionBtn.dataset.img;
+                    }
+
+                    if (action === 'select-size') {
+                        document.querySelectorAll('.size-btn').forEach(b => {
+                            b.classList.remove('border-brand-dark', 'bg-brand-dark', 'text-white', 'dark:bg-brand-accent', 'dark:border-brand-accent');
+                        });
+                        actionBtn.classList.add('border-brand-dark', 'bg-brand-dark', 'text-white', 'dark:bg-brand-accent', 'dark:border-brand-accent');
+                        selectedStudioSize = actionBtn.dataset.size;
+                        document.getElementById('selected-size-label').innerText = selectedStudioSize;
+                        document.getElementById('size-error').classList.add('hidden');
+                    }
+
+                    if (action === 'switch-detail-media') {
+                        switchDetailMedia(actionBtn.dataset.mediaType, actionBtn.dataset.src);
+                    }
+                });
+
+                // Change events & Search Inputs
+                document.getElementById('currency-select').addEventListener('change', (e) => changeCurrency(e.target.value));
+                document.getElementById('search-input').addEventListener('input', handleSearchInput);
+                document.getElementById('price-range').addEventListener('input', (e) => {
+                    document.getElementById('price-val').innerText = e.target.value;
+                    currentPage = 1;
+                    renderShopProducts();
+                });
+                document.getElementById('shop-sort-select').addEventListener('change', () => { currentPage = 1; renderShopProducts(); });
+
+                // Form submissions
+                document.addEventListener('submit', (e) => {
+                    const formAction = e.target.dataset.action;
+                    if (formAction === 'handle-checkout') {
+                        e.preventDefault();
+                        alert("Thank you! Order successfully placed.");
+                        cart = []; safeStorageWrite('aura_cart', cart); updateCartUI(); toggleCheckoutModal(); toggleCartDrawer();
+                    }
+                    if (formAction === 'handle-auth') {
+                        e.preventDefault();
+                        alert("Logged in successfully!");
+                        toggleAuthModal();
+                    }
+                    if (formAction === 'subscribe-newsletter') {
+                        e.preventDefault();
+                        alert("Thank you for joining the AURA Private Circle!");
+                        e.target.reset();
+                    }
+                });
+
+                window.addEventListener('scroll', () => {
+                    const btn = document.getElementById('back-to-top');
+                    if (window.scrollY > 400) btn.classList.remove('hidden'), btn.classList.add('flex');
+                    else btn.classList.add('hidden'), btn.classList.remove('flex');
+                });
+            }
+
+            // Application Initialization Loop
+            function init() {
+                initAnnouncementSlider();
+                renderFeaturedProducts();
+                renderShopProducts();
+                updateCartUI();
+                updateWishlistUI();
+                updateCompareUI();
+                renderRecentlyViewed();
+                startDeadlineCountdown();
+                initEventDelegation();
+            }
+
+            return { init };
+        })();
+
+        document.addEventListener('DOMContentLoaded', AuraApp.init);
+    </script>
 </body>
 </html>

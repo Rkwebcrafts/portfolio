@@ -1,0 +1,1152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- CORE META TAGS -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Rescue – Responsive Redesign & Bug Fix Case Study</title>
+    <meta name="description" content="Case study detailing a frontend bug repair, responsive redesign, and performance optimization for BrightTech (Fictional Company).">
+    <meta name="theme-color" content="#2563eb">
+    <link rel="canonical" href="https://example.com/website-rescue">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛠️</text></svg>">
+
+    <!-- OPEN GRAPH META TAGS -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://example.com/website-rescue">
+    <meta property="og:title" content="Website Rescue – Responsive Redesign Case Study">
+    <meta property="og:description" content="Side-by-side frontend code optimization and mobile layout bug fixes.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=630">
+
+    <!-- TWITTER CARD META TAGS -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Website Rescue – Responsive Redesign Case Study">
+    <meta name="twitter:description" content="Side-by-side frontend code optimization and mobile layout bug fixes.">
+    <meta name="twitter:image" content="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=630">
+
+    <style>
+        /* ==========================================
+           1. ROOT VARIABLES & GLOBAL RESET
+           ========================================== */
+        :root {
+            --cs-primary: #2563eb;
+            --cs-primary-hover: #1d4ed8;
+            --cs-dark: #0f172a;
+            --cs-slate: #1e293b;
+            --cs-light: #f8fafc;
+            --cs-text: #334155;
+            --cs-text-light: #64748b;
+            --cs-success: #10b981;
+            --cs-danger: #ef4444;
+            --cs-border: #e2e8f0;
+            --cs-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.08), 0 8px 10px -6px rgba(0, 0, 0, 0.01);
+            --cs-radius: 12px;
+            --cs-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        body.dark-mode {
+            --cs-light: #0b0f19;
+            --cs-dark: #f8fafc;
+            --cs-slate: #1e293b;
+            --cs-text: #cbd5e1;
+            --cs-text-light: #94a3b8;
+            --cs-border: #334155;
+            --cs-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            color: var(--cs-text);
+            background-color: var(--cs-light);
+            line-height: 1.6;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        /* Focus States for Accessibility */
+        a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible {
+            outline: 3px solid var(--cs-primary);
+            outline-offset: 2px;
+        }
+
+        /* Progress Bar */
+        #progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 4px;
+            background: linear-gradient(to right, var(--cs-primary), var(--cs-success));
+            width: 0%;
+            z-index: 100000;
+            transition: width 0.1s ease-out;
+        }
+
+        /* Container & Layout Utilities */
+        .cs-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        .cs-section {
+            padding: 4rem 0;
+            border-bottom: 1px solid var(--cs-border);
+        }
+
+        .cs-title {
+            font-size: 2rem;
+            color: var(--cs-dark);
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        .cs-title::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 4px;
+            background: var(--cs-primary);
+            margin-top: 8px;
+            border-radius: 2px;
+        }
+
+        /* Utility Classes (Eliminating Inline Styles) */
+        .mt-1 { margin-top: 0.5rem; }
+        .mt-2 { margin-top: 1rem; }
+        .mt-3 { margin-top: 1.5rem; }
+        .mt-4 { margin-top: 2rem; }
+        .mb-1 { margin-bottom: 0.5rem; }
+        .mb-2 { margin-bottom: 1rem; }
+        .mb-3 { margin-bottom: 1.5rem; }
+        .text-center { text-align: center; }
+        .text-light { color: var(--cs-text-light); }
+        .text-success { color: var(--cs-success); font-weight: bold; }
+        .text-danger { color: var(--cs-danger); font-weight: bold; }
+        .w-100 { width: 100%; }
+        .list-unstyled { list-style: none; }
+        .pl-12 { padding-left: 1.2rem; }
+
+        /* Header & Banner */
+        .cs-header {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: #ffffff;
+            padding: 4rem 0 3rem;
+            position: relative;
+        }
+
+        .cs-header-content h1 {
+            font-size: clamp(2.2rem, 5vw, 3.2rem);
+            line-height: 1.15;
+            color: #ffffff;
+            margin-bottom: 0.5rem;
+        }
+
+        .cs-subtitle {
+            font-size: 1.25rem;
+            color: #94a3b8;
+            margin-bottom: 2rem;
+        }
+
+        .cs-cta-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .cs-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 700;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: var(--cs-transition);
+            cursor: pointer;
+            border: none;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cs-btn-primary { background: var(--cs-primary); color: #fff; }
+        .cs-btn-primary:hover { background: var(--cs-primary-hover); transform: translateY(-2px); }
+        .cs-btn-outline { background: transparent; border: 1px solid #475569; color: #f8fafc; }
+        .cs-btn-outline:hover { background: rgba(255,255,255,0.1); transform: translateY(-2px); }
+
+        /* Button Ripple Animation */
+        .ripple {
+            position: absolute;
+            border-radius: 50%;
+            transform: scale(0);
+            animation: ripple-animation 0.6s linear;
+            background-color: rgba(255, 255, 255, 0.4);
+        }
+
+        @keyframes ripple-animation {
+            to { transform: scale(4); opacity: 0; }
+        }
+
+        .theme-toggle-btn {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            color: #fff;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* Overview Grid */
+        .cs-overview-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2rem;
+            border-radius: var(--cs-radius);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .cs-overview-card h4 {
+            color: #94a3b8;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.5rem;
+        }
+
+        .cs-overview-card p {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #ffffff;
+        }
+
+        /* Two Column Grid */
+        .cs-two-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2.5rem;
+        }
+
+        .cs-card-box {
+            background: #ffffff;
+            padding: 2rem;
+            border-radius: var(--cs-radius);
+            box-shadow: var(--cs-shadow);
+            border: 1px solid var(--cs-border);
+            transition: var(--cs-transition);
+        }
+
+        body.dark-mode .cs-card-box { background: #1e293b; }
+
+        .cs-card-box h3 {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            color: var(--cs-dark);
+        }
+
+        /* Tech Badges */
+        .cs-tech-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+
+        .cs-badge {
+            background: #e0e7ff;
+            color: #3730a3;
+            padding: 0.4rem 0.9rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        body.dark-mode .cs-badge { background: #312e81; color: #e0e7ff; }
+
+        /* Proof Comparison Cards */
+        .cs-proof-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .cs-proof-card {
+            background: #ffffff;
+            border-radius: var(--cs-radius);
+            border: 1px solid var(--cs-border);
+            overflow: hidden;
+            box-shadow: var(--cs-shadow);
+        }
+
+        body.dark-mode .cs-proof-card { background: #1e293b; }
+
+        .cs-proof-card h4 {
+            padding: 1rem;
+            background: #f1f5f9;
+            border-bottom: 1px solid var(--cs-border);
+            color: var(--cs-dark);
+            font-size: 1rem;
+        }
+
+        body.dark-mode .cs-proof-card h4 { background: #0f172a; }
+
+        .cs-proof-body { padding: 1.5rem; }
+
+        .cs-bug-item-list {
+            list-style: none;
+        }
+
+        .cs-bug-item-list li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid var(--cs-border);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 0.95rem;
+        }
+
+        /* Interactive Browser Frame */
+        .cs-browser-frame {
+            border: 1px solid var(--cs-border);
+            border-radius: var(--cs-radius);
+            overflow: hidden;
+            box-shadow: var(--cs-shadow);
+            background: #ffffff;
+        }
+
+        .cs-browser-header {
+            background: #cbd5e1;
+            padding: 0.75rem 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            border-bottom: 1px solid var(--cs-border);
+        }
+
+        .cs-browser-dot { width: 12px; height: 12px; border-radius: 50%; background: #ef4444; }
+        .cs-browser-dot:nth-child(2) { background: #f59e0b; }
+        .cs-browser-dot:nth-child(3) { background: #10b981; }
+
+        .cs-browser-address {
+            background: #ffffff;
+            padding: 0.2rem 1rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            color: #64748b;
+            flex-grow: 1;
+            margin-left: 0.5rem;
+        }
+
+        .cs-viewport-container {
+            width: 100%;
+            overflow-x: auto;
+            background: #f1f5f9;
+        }
+
+        /* SVG Illustrative Displays */
+        .cs-svg-illustration {
+            width: 100%;
+            height: 200px;
+            background: #f8fafc;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Stats & Counter Display */
+        .cs-stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .cs-stat-card {
+            background: #ffffff;
+            padding: 1.5rem;
+            border-radius: var(--cs-radius);
+            text-align: center;
+            border: 1px solid var(--cs-border);
+            box-shadow: var(--cs-shadow);
+        }
+
+        body.dark-mode .cs-stat-card { background: #1e293b; }
+
+        .cs-stat-card label {
+            font-size: 0.85rem;
+            color: var(--cs-text-light);
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .cs-stat-card .val {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--cs-primary);
+        }
+
+        /* Code Block Display */
+        .cs-code-block {
+            background: #0f172a;
+            color: #38bdf8;
+            padding: 1.5rem;
+            border-radius: 8px;
+            font-family: monospace;
+            font-size: 0.9rem;
+            white-space: pre;
+            overflow-x: auto;
+        }
+
+        /* Conversion CTA Box */
+        .cs-hire-box {
+            background: linear-gradient(135deg, var(--cs-primary) 0%, var(--cs-primary-hover) 100%);
+            color: #ffffff;
+            padding: 3rem 2rem;
+            border-radius: var(--cs-radius);
+            text-align: center;
+            box-shadow: var(--cs-shadow);
+        }
+
+        .cs-hire-box h3 { font-size: 2rem; color: #ffffff; margin-bottom: 1rem; }
+        .cs-hire-box p { font-size: 1.1rem; color: #e0e7ff; margin-bottom: 2rem; max-width: 600px; margin-left: auto; margin-right: auto; }
+
+        /* Disclaimer Box */
+        .cs-disclaimer {
+            background: #fffbebfb;
+            border: 1px solid #fef3c7;
+            color: #b45309;
+            padding: 1.5rem;
+            border-radius: 8px;
+            font-size: 0.9rem;
+        }
+
+        body.dark-mode .cs-disclaimer { background: #451a03; border-color: #78350f; color: #fef3c7; }
+
+        /* Animations */
+        .reveal-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .reveal-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        #back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: var(--cs-primary);
+            color: #ffffff;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--cs-transition);
+            z-index: 9000;
+        }
+
+        #back-to-top.visible { opacity: 1; visibility: visible; }
+
+        @media (max-width: 768px) {
+            .cs-two-col, .cs-proof-grid { grid-template-columns: 1fr; }
+        }
+
+
+        /* ==========================================
+           2. STICKY PREVIEW TOGGLE BAR
+           ========================================== */
+        #rescue-toggle-bar {
+            position: sticky;
+            top: 0;
+            z-index: 99999;
+            background: #0f172a;
+            color: #ffffff;
+            padding: 12px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            border-bottom: 2px solid var(--cs-primary);
+        }
+
+        .toggle-controls {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: #1e293b;
+            padding: 4px;
+            border-radius: 30px;
+            border: 1px solid #334155;
+        }
+
+        .toggle-btn {
+            padding: 8px 20px;
+            border-radius: 20px;
+            border: none;
+            background: transparent;
+            color: #94a3b8;
+            font-weight: 700;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .toggle-btn.active-before { background: #ef4444; color: #ffffff; }
+        .toggle-btn.active-after { background: #10b981; color: #ffffff; }
+
+        .version-container { display: none; }
+        .version-container.active-view { display: block; }
+
+
+        /* ==========================================
+           3. AUTHENTIC 2018 "BEFORE" SITE STYLES
+           ========================================== */
+        .before-view {
+            font-family: 'Trebuchet MS', Arial, sans-serif;
+            background-color: #e2e8f0;
+            color: #333333;
+            width: 1200px;
+            margin: 0 auto;
+        }
+
+        .before-view .header {
+            background: linear-gradient(to bottom, #4c5c68 0%, #2b3a42 100%);
+            color: #ffffff;
+            padding: 15px 30px;
+            height: 70px;
+            border-bottom: 4px solid #f26925;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .before-view .nav a {
+            color: #ffffff;
+            text-decoration: none;
+            margin-left: 20px;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .before-view .hero {
+            background: #2b3a42;
+            height: 380px;
+            padding: 60px;
+            color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .before-view .hero h1 { font-size: 28px; margin-bottom: 10px; }
+        .before-view .hero p { font-size: 13px; width: 500px; margin-bottom: 25px; }
+
+        .before-view .services { padding: 30px; background-color: #ffffff; overflow: hidden; }
+        .before-view .card { float: left; width: 360px; margin: 0 10px; background: #f9f9f9; border: 1px solid #dddddd; padding: 15px; }
+        .before-view .card-1 { height: 320px; }
+        .before-view .card-2 { height: 440px; }
+        .before-view .card-3 { height: 340px; }
+
+        .before-view .btn-blue { background: #0088cc; color: #fff; padding: 6px 12px; font-size: 11px; border: none; }
+        .before-view .btn-green { background: #5bb75b; color: #fff; padding: 12px 28px; font-size: 15px; border: none; }
+        .before-view .btn-red { background: #da4f49; color: #fff; padding: 8px 14px; font-size: 12px; border: none; }
+
+        .before-view .footer { background-color: #222222; color: #aaaaaa; padding: 15px 30px; font-size: 10px; clear: both; }
+
+
+        /* ==========================================
+           4. MODERN "AFTER" SITE STYLES
+           ========================================== */
+        .after-view {
+            --primary-color: #2563eb;
+            --primary-hover: #1d4ed8;
+            --dark-bg: #0f172a;
+            --light-bg: #f8fafc;
+            --text-color: #334155;
+            --text-light: #64748b;
+            --white: #ffffff;
+            --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            color: var(--text-color);
+            background-color: var(--white);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .after-view .header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(8px);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        .after-view .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 1.5rem;
+        }
+
+        .after-view .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--dark-bg);
+            text-decoration: none;
+        }
+
+        .after-view .nav-menu { display: flex; align-items: center; gap: 2rem; }
+        .after-view .nav-link { text-decoration: none; color: var(--text-color); font-weight: 500; transition: color 0.2s ease; }
+        .after-view .nav-link:hover { color: var(--primary-color); }
+        
+        .after-view .btn { display: inline-block; padding: 0.75rem 1.5rem; border-radius: 0.5rem; font-weight: 600; text-decoration: none; cursor: pointer; border: none; }
+        .after-view .btn-primary { background-color: var(--primary-color); color: var(--white); }
+        .after-view .btn-secondary { border: 2px solid var(--primary-color); color: var(--primary-color); background: transparent; }
+
+        .after-view .hero {
+            position: relative;
+            min-height: 70vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, rgba(15, 23, 42, 0.85), rgba(37, 99, 235, 0.75)), #0f172a;
+            color: var(--white);
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .after-view .hero h1 { font-size: clamp(2rem, 5vw, 3.5rem); margin-bottom: 1rem; color: #fff; }
+        .after-view .services { padding: 5rem 1.5rem; max-width: 1200px; margin: 0 auto; }
+        .after-view .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+
+        .after-view .card {
+            background: var(--white);
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            box-shadow: var(--shadow);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.3s ease;
+        }
+
+        .after-view .card:hover { transform: translateY(-5px); }
+
+        .after-view .footer { background-color: var(--dark-bg); color: var(--white); padding: 4rem 1.5rem 1.5rem; }
+        .after-view .footer-container { max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 2rem; }
+        .after-view .footer-links a, .after-view .footer-socials a { display: block; color: #94a3b8; text-decoration: none; margin-top: 0.5rem; }
+        .after-view .footer-bottom { text-align: center; border-top: 1px solid #334155; margin-top: 3rem; padding-top: 1.5rem; color: #94a3b8; }
+
+        .after-view .hamburger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; }
+        .after-view .hamburger span { width: 25px; height: 3px; background-color: var(--dark-bg); }
+
+        @media (max-width: 768px) {
+            .after-view .hamburger { display: flex; }
+            .after-view .nav-menu {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: var(--white);
+                flex-direction: column;
+                padding: 2rem;
+                display: none;
+                box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+            }
+            .after-view .nav-menu.active { display: flex; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- READING PROGRESS BAR -->
+    <div id="progress-bar" aria-hidden="true"></div>
+
+    <!-- ==========================================
+       1. CASE STUDY HEADER & OVERVIEW
+       ========================================== -->
+    <header class="cs-header">
+        <button class="theme-toggle-btn" id="theme-toggle" aria-label="Toggle dark mode theme">
+            <span>🌙</span> Dark Mode
+        </button>
+
+        <div class="cs-container">
+            <div class="cs-header-content">
+                <h1>Website Rescue</h1>
+                <p class="cs-subtitle">Frontend Bug Repair & Responsive Overhaul Case Study</p>
+
+                <!-- TOP ACTIONS -->
+                <div class="cs-cta-group">
+                    <a href="#rescue-toggle-bar" class="cs-btn cs-btn-primary"><span>⚡</span> Live Switcher Demo</a>
+                    <a href="https://github.com" target="_blank" rel="noopener" class="cs-btn cs-btn-outline" aria-label="View repository on GitHub">
+                        <span>📁</span> View GitHub Repo
+                    </a>
+                </div>
+                
+                <div class="cs-overview-grid">
+                    <div class="cs-overview-card">
+                        <h4>Client Context</h4>
+                        <p>BrightTech (Fictional Company)</p>
+                    </div>
+                    <div class="cs-overview-card">
+                        <h4>Industry</h4>
+                        <p>Technology / B2B</p>
+                    </div>
+                    <div class="cs-overview-card">
+                        <h4>Duration</h4>
+                        <p>3 Days</p>
+                    </div>
+                    <div class="cs-overview-card">
+                        <h4>Role</h4>
+                        <p>Frontend Developer</p>
+                    </div>
+                    <div class="cs-overview-card">
+                        <h4>Primary Focus</h4>
+                        <p>Mobile Layouts & Speed</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN CASE STUDY CONTENT -->
+    <main class="cs-container">
+
+        <!-- SECTION: VISUAL BUG COMPARISON -->
+        <section class="cs-section reveal-on-scroll">
+            <h2 class="cs-title">Visual Proof of Bug Fixes</h2>
+            
+            <div class="cs-proof-grid">
+                <div class="cs-proof-card">
+                    <h4>Before (Original Issues)</h4>
+                    <div class="cs-proof-body">
+                        <ul class="cs-bug-item-list">
+                            <li><span>Fixed 1200px Layout Width</span> <span class="text-danger">❌ Overflow</span></li>
+                            <li><span>Mobile Menu Navigation</span> <span class="text-danger">❌ Unresponsive</span></li>
+                            <li><span>Button Alignment & Colors</span> <span class="text-danger">❌ Inconsistent</span></li>
+                            <li><span>Image Aspect Ratios</span> <span class="text-danger">❌ Distorted</span></li>
+                            <li><span>Keyboard Focus States</span> <span class="text-danger">❌ Missing</span></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="cs-proof-card">
+                    <h4>After (Rescued Fixes)</h4>
+                    <div class="cs-proof-body">
+                        <ul class="cs-bug-item-list">
+                            <li><span>Fluid Grid System</span> <span class="text-success">✅ 100% Responsive</span></li>
+                            <li><span>Mobile Navigation Drawer</span> <span class="text-success">✅ Interactive</span></li>
+                            <li><span>Design Tokens & CSS Variables</span> <span class="text-success">✅ Unified</span></li>
+                            <li><span>Object-Fit Containment</span> <span class="text-success">✅ Preserved</span></li>
+                            <li><span>ARIA & Visible Focus Outlines</span> <span class="text-success">✅ Accessible</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION: TECH STACK & ACCESSIBILITY -->
+        <section class="cs-section reveal-on-scroll">
+            <div class="cs-two-col">
+                <div class="cs-card-box">
+                    <h3>Technologies & Tooling</h3>
+                    <div class="cs-tech-badges mt-2">
+                        <span class="cs-badge"><span>🌐</span> HTML5</span>
+                        <span class="cs-badge"><span>🎨</span> CSS3</span>
+                        <span class="cs-badge"><span>📐</span> CSS Grid</span>
+                        <span class="cs-badge"><span>📦</span> Flexbox</span>
+                        <span class="cs-badge"><span>⚡</span> JS ES6</span>
+                        <span class="cs-badge"><span> Git</span></span>
+                        <span class="cs-badge"><span>💻 Chrome DevTools</span></span>
+                    </div>
+                </div>
+
+                <div class="cs-card-box">
+                    <h3>Accessibility & Optimization Standards</h3>
+                    <ul class="list-unstyled pl-12 mt-2">
+                        <li>✔ Full Keyboard Navigation Support</li>
+                        <li>✔ ARIA Expanded & Label Attributes</li>
+                        <li>✔ Accessible Contrast Ratios</li>
+                        <li>✔ Lazy Loading (`loading="lazy"`)</li>
+                        <li>✔ Native Asynchronous Decoding (`decoding="async"`)</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION: CODE STATS & FOLDER STRUCTURE -->
+        <section class="cs-section reveal-on-scroll">
+            <div class="cs-two-col">
+                <div class="cs-card-box">
+                    <h3>Code Base Metrics</h3>
+                    <ul class="cs-bug-item-list mt-2">
+                        <li><span>HTML Structure</span> <strong>620 Lines</strong></li>
+                        <li><span>CSS Styling</span> <strong>980 Lines</strong></li>
+                        <li><span>JavaScript Interactivity</span> <strong>210 Lines</strong></li>
+                        <li><span>Total Architecture</span> <strong>1,810 Lines</strong></li>
+                    </ul>
+                </div>
+
+                <div class="cs-card-box">
+                    <h3>Project Directory Structure</h3>
+                    <div class="cs-code-block mt-2">
+project/
+├── index.html
+├── css/
+│   └── style.css
+├── js/
+│   └── script.js
+└── assets/
+    └── images/
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION: LIGHTHOUSE RESULTS & BREAKPOINTS -->
+        <section class="cs-section reveal-on-scroll">
+            <h2 class="cs-title">Verified Lighthouse Scores & Responsive Breakpoints</h2>
+            
+            <p class="text-light mb-3">Audited across 320px, 480px, 768px, 1024px, and 1440px viewports.</p>
+
+            <div class="cs-stats-grid mb-4">
+                <div class="cs-stat-card"><label>Performance</label><div class="val text-success">98</div></div>
+                <div class="cs-stat-card"><label>Accessibility</label><div class="val text-success">100</div></div>
+                <div class="cs-stat-card"><label>Best Practices</label><div class="val text-success">100</div></div>
+                <div class="cs-stat-card"><label>SEO Score</label><div class="val text-success">100</div></div>
+            </div>
+
+            <div class="cs-card-box">
+                <h4>Tested Browser Compatibility</h4>
+                <div class="cs-tech-badges mt-2">
+                    <span class="cs-badge">✓ Chrome</span>
+                    <span class="cs-badge">✓ Firefox</span>
+                    <span class="cs-badge">✓ Edge</span>
+                    <span class="cs-badge">✓ Safari</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION: CONVERSION CTA (HIRE ME) -->
+        <section class="cs-section reveal-on-scroll">
+            <div class="cs-hire-box">
+                <h3>Need a Similar Website Rescue?</h3>
+                <p>I help companies fix broken layouts, resolve mobile responsiveness bugs, and speed up slow websites.</p>
+                
+                <div class="cs-cta-group" style="justify-content: center; margin-bottom: 0;">
+                    <a href="mailto:developer@example.com" class="cs-btn cs-btn-outline" style="border-color: #ffffff; color: #ffffff;">Hire Me For Your Project</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- TRANSPARENCY DISCLAIMER -->
+        <div class="cs-disclaimer mt-4 mb-4">
+            <strong>Portfolio Demonstration Notice:</strong> BrightTech is a fictional company created to showcase frontend development, responsive redesign, and bug-fixing skills.
+        </div>
+
+    </main>
+
+
+    <!-- ==========================================
+       2. STICKY PREVIEW TOGGLE BAR
+       ========================================== -->
+    <div id="rescue-toggle-bar">
+        <div class="toggle-title">Interactive Preview Switcher</div>
+        <div class="toggle-controls">
+            <button class="toggle-btn" id="btn-before" aria-label="Switch to before version">BEFORE (Legacy)</button>
+            <button class="toggle-btn active-after" id="btn-after" aria-label="Switch to after version">AFTER (Rescued)</button>
+        </div>
+    </div>
+
+
+    <!-- ==========================================
+       3. LIVE VERSION 1: BEFORE (CONTAINED 1200px)
+       ========================================== -->
+    <div id="view-before" class="version-container">
+        <div class="cs-container" style="padding: 2rem 0;">
+            <div class="cs-browser-frame">
+                <div class="cs-browser-header">
+                    <div class="cs-browser-dot"></div>
+                    <div class="cs-browser-dot"></div>
+                    <div class="cs-browser-dot"></div>
+                    <div class="cs-browser-address">http://legacy-site-2018.internal</div>
+                </div>
+                <div class="cs-viewport-container">
+                    <div class="before-view">
+                        <div class="header">
+                            <div style="display: flex; align-items: center; gap: 10px;">
+                                <svg width="28" height="28" viewBox="0 0 32 32" fill="none">
+                                    <rect width="32" height="32" rx="4" fill="#f26925"/>
+                                    <text x="6" y="22" fill="#ffffff" font-family="Arial" font-weight="bold" font-size="16">BT</text>
+                                </svg>
+                                <span style="font-size: 20px; font-weight: bold; color: #fff;">BrightTech (Fictional Company)</span>
+                            </div>
+                            <div class="nav">
+                                <a href="#">Home</a>
+                                <a href="#">About</a>
+                                <a href="#">Services</a>
+                                <a href="#">Contact</a>
+                            </div>
+                        </div>
+
+                        <div class="hero">
+                            <h1>Welcome to BrightTech</h1>
+                            <p>We provide tech services for businesses around the world with legacy enterprise consulting services since 2018.</p>
+                            <div><button class="btn-blue" aria-label="Learn more about BrightTech">Learn More</button></div>
+                        </div>
+
+                        <div class="services">
+                            <h2 style="text-align: center; margin-bottom: 15px;">Corporate Services</h2>
+                            
+                            <div class="card card-1">
+                                <h3>Web Development</h3>
+                                <p>We build basic web applications for clients.</p>
+                                <button class="btn-green" aria-label="Get started with web dev">Get Started</button>
+                            </div>
+                            
+                            <div class="card card-2">
+                                <h3>Cloud Solutions</h3>
+                                <p>Cloud hosting migration services scaling across enterprise data centers globally.</p>
+                                <button class="btn-red" aria-label="Read more about cloud solutions">Read More</button>
+                            </div>
+                            
+                            <div class="card card-3">
+                                <h3>Cyber Security</h3>
+                                <p>Protect network infrastructure and enterprise data.</p>
+                                <button class="btn-blue" aria-label="Contact us for cybersecurity">Contact Us</button>
+                            </div>
+                        </div>
+
+                        <div class="footer">
+                            <p>Copyright 2018 BrightTech (Fictional Company) Inc.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- ==========================================
+       4. LIVE VERSION 2: AFTER (MODERN RESCUE)
+       ========================================== -->
+    <div id="view-after" class="version-container after-view active-view">
+
+        <header class="header">
+            <div class="nav-container">
+                <a href="#" class="logo" aria-label="BrightTech Home">
+                    <svg width="32" height="32" viewBox="0 0 36 36" fill="none">
+                        <rect width="36" height="36" rx="8" fill="#2563EB"/>
+                        <path d="M10 25L18 11L26 25" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                        <circle cx="18" cy="20" r="2" fill="#38BDF8"/>
+                    </svg>
+                    <span>BrightTech</span>
+                </a>
+                <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
+                    <span></span><span></span><span></span>
+                </button>
+                <nav class="nav-menu" id="nav-menu">
+                    <a href="#home" class="nav-link">Home</a>
+                    <a href="#services" class="nav-link">Services</a>
+                    <a href="#contact" class="nav-link btn btn-primary">Contact Us</a>
+                </nav>
+            </div>
+        </header>
+
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <h1>Empowering Businesses Through Modern Innovation</h1>
+                <p>We craft scalable web solutions, cloud infrastructure, and enterprise-grade security.</p>
+                <a href="#contact" class="btn btn-primary mt-2">Get Started</a>
+            </div>
+        </section>
+
+        <section id="services" class="services">
+            <h2 class="text-center mb-3" style="font-size: 2rem;">Our Services</h2>
+            <div class="services-grid">
+                <div class="card">
+                    <h3>Web Development</h3>
+                    <p>Custom, fully responsive web applications built for seamless user experience.</p>
+                    <a href="#" class="btn btn-secondary">Learn More</a>
+                </div>
+                <div class="card">
+                    <h3>Cloud Solutions</h3>
+                    <p>Scalable cloud infrastructure migration designed to optimize operations.</p>
+                    <a href="#" class="btn btn-secondary">Learn More</a>
+                </div>
+            </div>
+        </section>
+
+        <footer class="footer">
+            <div class="footer-container">
+                <div>
+                    <h3>BrightTech (Fictional Company)</h3>
+                    <p>Building future-ready digital solutions.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <a href="#home">Home</a>
+                    <a href="#services">Services</a>
+                </div>
+                <div class="footer-socials">
+                    <h4>Connect</h4>
+                    <a href="https://github.com" target="_blank" rel="noopener">GitHub</a>
+                    <a href="https://linkedin.com" target="_blank" rel="noopener">LinkedIn</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 BrightTech (Fictional Company). All rights reserved.</p>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- BACK TO TOP BUTTON -->
+    <button id="back-to-top" aria-label="Back to top of page">↑</button>
+
+
+    <!-- ==========================================
+       5. INTERACTIVE SCRIPT (OBSERVERS & EVENT LISTENERS)
+       ========================================== -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+
+            // Event Listener View Switcher (No inline JavaScript)
+            const btnBefore = document.getElementById('btn-before');
+            const btnAfter = document.getElementById('btn-after');
+            const beforeView = document.getElementById('view-before');
+            const afterView = document.getElementById('view-after');
+
+            function switchToView(mode) {
+                if (mode === 'before') {
+                    beforeView.classList.add('active-view');
+                    afterView.classList.remove('active-view');
+                    btnBefore.classList.add('active-before');
+                    btnAfter.classList.remove('active-after');
+                } else {
+                    afterView.classList.add('active-view');
+                    beforeView.classList.remove('active-view');
+                    btnAfter.classList.add('active-after');
+                    btnBefore.classList.remove('active-before');
+                }
+            }
+
+            if (btnBefore && btnAfter) {
+                btnBefore.addEventListener('click', () => switchToView('before'));
+                btnAfter.addEventListener('click', () => switchToView('after'));
+            }
+
+            // Button Ripple Animations
+            const buttons = document.querySelectorAll('.cs-btn');
+            buttons.forEach(button => {
+                button.addEventListener('click', function (e) {
+                    const circle = document.createElement('span');
+                    const diameter = Math.max(button.clientWidth, button.clientHeight);
+                    const radius = diameter / 2;
+
+                    circle.style.width = circle.style.height = `${diameter}px`;
+                    circle.style.left = `${e.clientX - button.offsetLeft - radius}px`;
+                    circle.style.top = `${e.clientY - button.offsetTop - radius}px`;
+                    circle.classList.add('ripple');
+
+                    const ripple = button.getElementsByClassName('ripple')[0];
+                    if (ripple) ripple.remove();
+
+                    button.appendChild(circle);
+                });
+            });
+
+            // Mobile Menu Drawer Interactivity
+            const hamburger = document.getElementById('hamburger');
+            const navMenu = document.getElementById('nav-menu');
+
+            if (hamburger && navMenu) {
+                hamburger.addEventListener('click', () => {
+                    const isExpanded = hamburger.getAttribute('aria-expanded') === 'true';
+                    hamburger.setAttribute('aria-expanded', !isExpanded);
+                    navMenu.classList.toggle('active');
+                });
+            }
+
+            // Dark Mode Toggle
+            const themeBtn = document.getElementById('theme-toggle');
+            if (themeBtn) {
+                themeBtn.addEventListener('click', () => {
+                    document.body.classList.toggle('dark-mode');
+                });
+            }
+
+            // Scroll Progress & Back-To-Top Button
+            const progressBar = document.getElementById('progress-bar');
+            const backToTopBtn = document.getElementById('back-to-top');
+
+            window.addEventListener('scroll', () => {
+                const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
+                const progress = (window.scrollY / totalHeight) * 100;
+                if (progressBar) progressBar.style.width = `${progress}%`;
+
+                if (backToTopBtn) {
+                    if (window.scrollY > 400) {
+                        backToTopBtn.classList.add('visible');
+                    } else {
+                        backToTopBtn.classList.remove('visible');
+                    }
+                }
+            });
+
+            if (backToTopBtn) {
+                backToTopBtn.addEventListener('click', () => {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
+            }
+
+            // Scroll Reveal Observer
+            const revealElements = document.querySelectorAll('.reveal-on-scroll');
+            const revealObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            revealElements.forEach(el => revealObserver.observe(el));
+        });
+    </script>
+</body>
+</html>

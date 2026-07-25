@@ -1,887 +1,570 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="GreenLeaf Organics - Fresh organic groceries delivered to your doorstep in Thiruvannamalai. Farm-fresh vegetables, fruits, and dairy products.">
-  <title>GreenLeaf Organics | Fresh Organic Groceries</title>
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NexusAI — Next-Gen SaaS Startup Landing Page</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root {
-      --primary: #16a34a;
-      --primary-dark: #15803d;
-      --accent: #84cc16;
-      --dark: #0f172a;
-      --gray: #64748b;
-      --light: #f8fafc;
-      --white: #ffffff;
-      --shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
-      --shadow-lg: 0 20px 25px -5px rgba(0,0,0,0.1);
-      --radius: 12px;
-      --transition: all 0.3s ease;
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: 'Inter', -apple-system, sans-serif;
-      line-height: 1.6;
-      color: var(--dark);
-      background: var(--light);
-      -webkit-font-smoothing: antialiased;
-    }
-
-    /* ===== NAVIGATION ===== */
-    nav {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      background: rgba(255,255,255,0.95);
-      backdrop-filter: blur(10px);
-      padding: 1rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      z-index: 1000;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-    }
-
-    .nav-logo {
-      font-weight: 800;
-      font-size: 1.5rem;
-      color: var(--primary);
-      letter-spacing: -0.5px;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    .nav-logo::before {
-      content: '🌿';
-      font-size: 1.75rem;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 2.5rem;
-      list-style: none;
-    }
-
-    .nav-links a {
-      color: var(--gray);
-      font-weight: 500;
-      font-size: 0.95rem;
-      transition: var(--transition);
-      position: relative;
-      text-decoration: none;
-    }
-
-    .nav-links a:hover {
-      color: var(--primary);
-    }
-
-    .nav-links a::after {
-      content: '';
-      position: absolute;
-      bottom: -4px;
-      left: 0;
-      width: 0;
-      height: 2px;
-      background: var(--primary);
-      transition: var(--transition);
-    }
-
-    .nav-links a:hover::after {
-      width: 100%;
-    }
-
-    .mobile-menu-btn {
-      display: none;
-      background: none;
-      border: none;
-      font-size: 1.5rem;
-      cursor: pointer;
-      color: var(--dark);
-    }
-
-    /* ===== HERO ===== */
-    .hero {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
-      color: var(--white);
-      text-align: center;
-      padding: 8rem 2rem 4rem;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-    }
-
-    .hero-content {
-      position: relative;
-      z-index: 1;
-      max-width: 800px;
-    }
-
-    .hero-badge {
-      display: inline-block;
-      background: rgba(255,255,255,0.15);
-      backdrop-filter: blur(10px);
-      padding: 0.5rem 1.25rem;
-      border-radius: 50px;
-      font-size: 0.875rem;
-      font-weight: 500;
-      margin-bottom: 1.5rem;
-      border: 1px solid rgba(255,255,255,0.2);
-    }
-
-    .hero h1 {
-      font-size: clamp(2.5rem, 6vw, 4rem);
-      font-weight: 800;
-      line-height: 1.1;
-      margin-bottom: 1.5rem;
-      letter-spacing: -0.02em;
-    }
-
-    .hero p {
-      font-size: clamp(1.1rem, 2.5vw, 1.35rem);
-      opacity: 0.9;
-      margin-bottom: 2.5rem;
-      max-width: 600px;
-      margin-left: auto;
-      margin-right: auto;
-      font-weight: 400;
-    }
-
-    .hero-buttons {
-      display: flex;
-      gap: 1rem;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 1rem 2.5rem;
-      border-radius: 50px;
-      font-weight: 600;
-      font-size: 1rem;
-      transition: var(--transition);
-      cursor: pointer;
-      border: none;
-      text-decoration: none;
-    }
-
-    .btn-white {
-      background: var(--white);
-      color: var(--primary);
-      box-shadow: var(--shadow-lg);
-    }
-
-    .btn-white:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 25px 30px -5px rgba(0,0,0,0.15);
-    }
-
-    .btn-outline {
-      background: transparent;
-      color: var(--white);
-      border: 2px solid rgba(255,255,255,0.4);
-    }
-
-    .btn-outline:hover {
-      background: rgba(255,255,255,0.1);
-      border-color: var(--white);
-    }
-
-    .scroll-indicator {
-      position: absolute;
-      bottom: 2rem;
-      left: 50%;
-      transform: translateX(-50%);
-      animation: bounce 2s infinite;
-      opacity: 0.7;
-    }
-
-    @keyframes bounce {
-      0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
-      40% { transform: translateX(-50%) translateY(-10px); }
-      60% { transform: translateX(-50%) translateY(-5px); }
-    }
-
-    /* ===== SECTIONS COMMON ===== */
-    section {
-      padding: clamp(4rem, 10vw, 6rem) 2rem;
-    }
-
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .section-header {
-      text-align: center;
-      margin-bottom: 3.5rem;
-    }
-
-    .section-header h2 {
-      font-size: clamp(1.75rem, 4vw, 2.5rem);
-      font-weight: 700;
-      color: var(--dark);
-      margin-bottom: 1rem;
-    }
-
-    .section-header p {
-      color: var(--gray);
-      font-size: 1.1rem;
-      max-width: 600px;
-      margin: 0 auto;
-    }
-
-    /* ===== FEATURES ===== */
-    .features {
-      background: var(--white);
-    }
-
-    .features-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
-      gap: 2rem;
-    }
-
-    .feature-card {
-      padding: 2.5rem;
-      border-radius: var(--radius);
-      background: var(--light);
-      transition: var(--transition);
-      border: 1px solid transparent;
-    }
-
-    .feature-card:hover {
-      transform: translateY(-5px);
-      box-shadow: var(--shadow-lg);
-      border-color: #e2e8f0;
-      background: var(--white);
-    }
-
-    .feature-icon {
-      width: 56px;
-      height: 56px;
-      background: linear-gradient(135deg, var(--primary), var(--accent));
-      border-radius: 14px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.75rem;
-      margin-bottom: 1.5rem;
-      box-shadow: 0 10px 15px -3px rgba(22,163,74,0.3);
-    }
-
-    .feature-card h3 {
-      font-size: 1.25rem;
-      font-weight: 600;
-      margin-bottom: 0.75rem;
-      color: var(--dark);
-    }
-
-    .feature-card p {
-      color: var(--gray);
-      font-size: 0.95rem;
-      line-height: 1.7;
-    }
-
-    /* ===== HOW IT WORKS ===== */
-    .steps {
-      background: var(--light);
-    }
-
-    .steps-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr));
-      gap: 2rem;
-    }
-
-    .step-card {
-      background: var(--white);
-      padding: 2rem;
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      position: relative;
-      text-align: center;
-      transition: var(--transition);
-    }
-
-    .step-card:hover {
-      transform: translateY(-5px);
-      box-shadow: var(--shadow-lg);
-    }
-
-    .step-number {
-      width: 48px;
-      height: 48px;
-      background: linear-gradient(135deg, var(--primary), var(--accent));
-      color: var(--white);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 700;
-      font-size: 1.25rem;
-      margin: 0 auto 1.5rem;
-    }
-
-    .step-card h3 {
-      font-size: 1.15rem;
-      font-weight: 600;
-      margin-bottom: 0.5rem;
-    }
-
-    .step-card p {
-      color: var(--gray);
-      font-size: 0.9rem;
-    }
-
-    /* ===== PRICING ===== */
-    .pricing {
-      background: var(--white);
-    }
-
-    .pricing-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
-      gap: 2rem;
-      max-width: 900px;
-      margin: 0 auto;
-    }
-
-    .pricing-card {
-      background: var(--light);
-      padding: 2.5rem;
-      border-radius: var(--radius);
-      text-align: center;
-      border: 2px solid transparent;
-      transition: var(--transition);
-    }
-
-    .pricing-card.featured {
-      background: linear-gradient(135deg, var(--primary), var(--accent));
-      color: var(--white);
-      transform: scale(1.05);
-      box-shadow: var(--shadow-lg);
-    }
-
-    .pricing-card:hover {
-      border-color: var(--primary);
-    }
-
-    .pricing-card.featured:hover {
-      border-color: transparent;
-      transform: scale(1.08);
-    }
-
-    .pricing-name {
-      font-size: 1.25rem;
-      font-weight: 600;
-      margin-bottom: 0.5rem;
-    }
-
-    .pricing-price {
-      font-size: 3rem;
-      font-weight: 800;
-      margin: 1rem 0;
-      letter-spacing: -0.02em;
-    }
-
-    .pricing-price span {
-      font-size: 1rem;
-      font-weight: 400;
-      opacity: 0.8;
-    }
-
-    .pricing-features {
-      list-style: none;
-      margin: 2rem 0;
-      text-align: left;
-    }
-
-    .pricing-features li {
-      padding: 0.5rem 0;
-      font-size: 0.95rem;
-    }
-
-    .pricing-features li::before {
-      content: '✓';
-      margin-right: 0.5rem;
-      font-weight: 700;
-    }
-
-    .pricing-card.featured .pricing-features li::before {
-      color: #dcfce7;
-    }
-
-    .pricing-card:not(.featured) .pricing-features li::before {
-      color: var(--primary);
-    }
-
-    /* ===== CONTACT FORM ===== */
-    .contact {
-      background: linear-gradient(135deg, var(--dark) 0%, #1e293b 100%);
-      color: var(--white);
-      text-align: center;
-    }
-
-    .contact h2 {
-      color: var(--white);
-    }
-
-    .contact-form-wrapper {
-      max-width: 600px;
-      margin: 3rem auto 0;
-      text-align: left;
-    }
-
-    .form-group {
-      margin-bottom: 1.5rem;
-    }
-
-    .form-group label {
-      display: block;
-      font-size: 0.875rem;
-      font-weight: 500;
-      margin-bottom: 0.5rem;
-      color: #94a3b8;
-    }
-
-    .form-group input,
-    .form-group textarea {
-      width: 100%;
-      padding: 0.875rem 1rem;
-      border-radius: var(--radius);
-      border: 1px solid rgba(255,255,255,0.1);
-      background: rgba(255,255,255,0.05);
-      color: var(--white);
-      font-family: inherit;
-      font-size: 1rem;
-      transition: var(--transition);
-    }
-
-    .form-group input:focus,
-    .form-group textarea:focus {
-      outline: none;
-      border-color: var(--primary);
-      background: rgba(255,255,255,0.08);
-    }
-
-    .form-group input::placeholder,
-    .form-group textarea::placeholder {
-      color: #64748b;
-    }
-
-    .form-group textarea {
-      min-height: 120px;
-      resize: vertical;
-    }
-
-    .form-submit {
-      width: 100%;
-      padding: 1rem;
-      background: linear-gradient(135deg, var(--primary), var(--accent));
-      color: var(--white);
-      border: none;
-      border-radius: var(--radius);
-      font-weight: 600;
-      font-size: 1rem;
-      cursor: pointer;
-      transition: var(--transition);
-    }
-
-    .form-submit:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 10px 20px -5px rgba(22,163,74,0.4);
-    }
-
-    .contact-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr));
-      gap: 2rem;
-      max-width: 800px;
-      margin: 3rem auto;
-    }
-
-    .contact-card {
-      background: rgba(255,255,255,0.05);
-      padding: 2rem;
-      border-radius: var(--radius);
-      border: 1px solid rgba(255,255,255,0.1);
-      transition: var(--transition);
-    }
-
-    .contact-card:hover {
-      background: rgba(255,255,255,0.1);
-      transform: translateY(-3px);
-    }
-
-    .contact-icon {
-      font-size: 2rem;
-      margin-bottom: 1rem;
-    }
-
-    .contact-card h3 {
-      font-size: 1.1rem;
-      font-weight: 600;
-      margin-bottom: 0.5rem;
-    }
-
-    .contact-card a,
-    .contact-card p {
-      color: #94a3b8;
-      font-size: 0.95rem;
-      transition: var(--transition);
-      text-decoration: none;
-    }
-
-    .contact-card a:hover {
-      color: var(--accent);
-    }
-
-    /* ===== BACK TO PORTFOLIO ===== */
-    .portfolio-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      margin-top: 3rem;
-      padding: 1rem 2rem;
-      background: rgba(255,255,255,0.1);
-      color: var(--white);
-      border-radius: 50px;
-      font-weight: 500;
-      transition: var(--transition);
-      border: 1px solid rgba(255,255,255,0.2);
-      text-decoration: none;
-    }
-
-    .portfolio-link:hover {
-      background: rgba(255,255,255,0.2);
-      transform: translateY(-2px);
-    }
-
-    /* ===== FOOTER ===== */
-    footer {
-      background: #020617;
-      color: #475569;
-      text-align: center;
-      padding: 2rem;
-      font-size: 0.9rem;
-    }
-
-    footer a {
-      color: var(--accent);
-      text-decoration: none;
-    }
-
-    /* ===== RESPONSIVE ===== */
-    @media (max-width: 768px) {
-      .nav-links {
-        display: none;
-      }
-
-      .mobile-menu-btn {
-        display: block;
-      }
-
-      .hero {
-        padding-top: 6rem;
-      }
-
-      .hero h1 {
-        font-size: 2.25rem;
-      }
-
-      .pricing-card.featured {
-        transform: none;
-      }
-
-      .pricing-card.featured:hover {
-        transform: translateY(-5px);
-      }
-    }
+  --bg: #090a0f;
+  --bg-card: rgba(18, 20, 29, 0.75);
+  --border: rgba(255, 255, 255, 0.08);
+  --text: #f3f4f6;
+  --text-muted: #94a3b8;
+  --primary: #2563eb;
+  --accent-purple: #8b5cf6;
+  --accent-green: #10b981;
+}
+
+[data-theme="light"] {
+  --bg: #f8fafc;
+  --bg-card: #ffffff;
+  --border: rgba(0, 0, 0, 0.08);
+  --text: #0f172a;
+  --text-muted: #64748b;
+  --primary: #2563eb;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; scroll-behavior: smooth; }
+body { background: var(--bg); color: var(--text); font-family: 'Plus Jakarta Sans', sans-serif; line-height: 1.6; transition: background 0.3s, color 0.3s; overflow-x: hidden; }
+
+/* Ambient Background Glows */
+.glow-sphere { position: absolute; border-radius: 50%; filter: blur(120px); z-index: -1; opacity: 0.3; pointer-events: none; }
+.glow-1 { width: 450px; height: 450px; background: var(--accent-purple); top: -100px; left: 50%; transform: translateX(-50%); }
+.glow-2 { width: 350px; height: 350px; background: var(--primary); top: 500px; right: -50px; }
+
+/* Navbar */
+.navbar { display: flex; justify-content: space-between; align-items: center; padding: 18px 8%; background: rgba(9, 10, 15, 0.8); backdrop-filter: blur(12px); position: sticky; top: 0; z-index: 100; border-bottom: 1px solid var(--border); }
+.logo { font-size: 1.25rem; font-weight: 800; }
+.brand-accent { color: var(--primary); }
+.nav-links { display: flex; gap: 24px; }
+.nav-links a { color: var(--text-muted); text-decoration: none; font-size: 0.9rem; font-weight: 600; }
+.nav-actions { display: flex; align-items: center; gap: 12px; }
+.theme-toggle-btn { background: none; border: 1px solid var(--border); color: var(--text); padding: 6px 10px; border-radius: 8px; cursor: pointer; }
+.nav-cta { background: var(--primary); color: #fff; text-decoration: none; padding: 8px 16px; border-radius: 8px; font-weight: 700; font-size: 0.9rem; }
+
+/* Hero & Split Mockup */
+.hero { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; max-width: 1200px; margin: 0 auto; padding: 80px 20px 60px; }
+.badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(16, 185, 129, 0.1); border: 1px solid var(--accent-green); padding: 4px 12px; border-radius: 20px; font-size: 0.75rem; color: var(--accent-green); font-weight: 800; margin-bottom: 20px; }
+.badge-dot { width: 6px; height: 6px; background: var(--accent-green); border-radius: 50%; }
+.hero h1 { font-size: 3rem; font-weight: 800; line-height: 1.15; margin-bottom: 16px; }
+.gradient-text { background: linear-gradient(135deg, #60a5fa, #c084fc); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+.subtitle { color: var(--text-muted); margin-bottom: 24px; font-size: 1.05rem; }
+
+/* Form */
+.waitlist-form { display: flex; gap: 8px; background: var(--bg-card); border: 1px solid var(--border); padding: 6px; border-radius: 12px; max-width: 440px; }
+.waitlist-form input { flex: 1; background: transparent; border: none; padding: 10px; color: var(--text); outline: none; }
+.waitlist-form button { background: var(--primary); color: #fff; border: none; padding: 10px 18px; border-radius: 8px; font-weight: 700; cursor: pointer; }
+.form-feedback { font-size: 0.85rem; margin-top: 8px; }
+.social-proof-strip { display: flex; align-items: center; gap: 12px; margin-top: 24px; font-size: 0.85rem; color: var(--text-muted); }
+
+/* Mockup Design */
+.hero-mockup { perspective: 1000px; }
+.mockup-window { background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; box-shadow: 0 20px 50px rgba(0,0,0,0.5); transform: rotateY(-8deg) rotateX(4deg); transition: transform 0.3s; }
+.mockup-window:hover { transform: rotateY(0deg) rotateX(0deg); }
+.mockup-header { display: flex; align-items: center; gap: 6px; padding: 12px; border-bottom: 1px solid var(--border); }
+.dot { width: 10px; height: 10px; border-radius: 50%; }
+.dot.red { background: #ef4444; } .dot.yellow { background: #f59e0b; } .dot.green { background: #10b981; }
+.mockup-title { font-size: 0.75rem; color: var(--text-muted); margin-left: auto; margin-right: auto; }
+.mockup-body { display: flex; padding: 20px; gap: 16px; }
+.mockup-sidebar { display: flex; flex-direction: column; gap: 8px; width: 40px; }
+.bar-item { height: 10px; background: var(--border); border-radius: 4px; }
+.bar-item.active { background: var(--primary); }
+.mockup-main { flex: 1; background: rgba(0,0,0,0.2); border-radius: 8px; padding: 16px; }
+.chart-header { display: flex; justify-content: space-between; font-size: 0.8rem; margin-bottom: 12px; }
+.badge-green { color: var(--accent-green); font-weight: bold; }
+.chart-visual { display: flex; align-items: flex-end; gap: 8px; height: 100px; }
+.chart-bar { flex: 1; background: var(--primary); opacity: 0.4; border-radius: 4px; }
+.chart-bar.highlight { opacity: 1; background: var(--accent-purple); }
+
+/* Logos Section */
+.logos-section { text-align: center; padding: 40px 20px; border-y: 1px solid var(--border); }
+.logos-title { font-size: 0.75rem; font-weight: 800; color: var(--text-muted); letter-spacing: 1px; margin-bottom: 20px; }
+.logos-grid { display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; opacity: 0.6; font-weight: 800; font-size: 1.1rem; }
+
+/* Metrics, Features, Steps Section */
+.metrics-section { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 20px; max-width: 1000px; margin: 60px auto; padding: 0 20px; text-align: center; }
+.metric-card { background: var(--bg-card); border: 1px solid var(--border); padding: 20px; border-radius: 12px; }
+.metric-num { font-size: 2rem; font-weight: 800; color: var(--primary); }
+
+.section { max-width: 1000px; margin: 80px auto; padding: 0 20px; }
+.section-header { text-align: center; margin-bottom: 40px; }
+.section-header h2 { font-size: 2rem; font-weight: 800; margin-bottom: 8px; }
+.section-header p { color: var(--text-muted); }
+
+.steps-grid, .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; }
+.step-card, .feature-card, .price-card, .testimonial-card { background: var(--bg-card); border: 1px solid var(--border); padding: 24px; border-radius: 16px; }
+.step-num { font-size: 1.5rem; font-weight: 800; color: var(--accent-purple); margin-bottom: 8px; }
+
+/* Pricing Toggle */
+.pricing-toggle-wrapper { display: flex; align-items: center; justify-content: center; gap: 12px; margin-top: 16px; font-weight: 600; }
+.discount-badge { background: var(--accent-green); color: #fff; font-size: 0.7rem; padding: 2px 6px; border-radius: 6px; }
+.switch { position: relative; display: inline-block; width: 44px; height: 24px; }
+.switch input { opacity: 0; width: 0; height: 0; }
+.slider { position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: #333; transition: .4s; border-radius: 24px; }
+.slider:before { position: absolute; content: ""; height: 18px; width: 18px; left: 3px; bottom: 3px; background-color: white; transition: .4s; border-radius: 50%; }
+input:checked + .slider { background-color: var(--primary); }
+input:checked + .slider:before { transform: translateX(20px); }
+
+.pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-top: 30px; }
+.price-card.featured { border-color: var(--primary); position: relative; }
+.popular-tag { position: absolute; top: -12px; right: 20px; background: var(--primary); color: #fff; font-size: 0.65rem; font-weight: 800; padding: 4px 8px; border-radius: 6px; }
+.price { font-size: 2.2rem; font-weight: 800; margin: 12px 0; }
+.price-features { list-style: none; margin: 20px 0; font-size: 0.9rem; color: var(--text-muted); }
+.price-features li { margin-bottom: 8px; }
+.btn-primary, .btn-secondary { display: block; text-align: center; padding: 12px; border-radius: 8px; font-weight: 700; text-decoration: none; }
+.btn-primary { background: var(--primary); color: #fff; }
+.btn-secondary { background: rgba(255,255,255,0.05); color: var(--text); border: 1px solid var(--border); }
+
+/* FAQ Accordion */
+.faq-accordion { display: flex; flex-direction: column; gap: 12px; }
+.faq-item { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; }
+.faq-question { width: 100%; text-align: left; padding: 18px; background: none; border: none; color: var(--text); font-size: 1rem; font-weight: 700; display: flex; justify-content: space-between; cursor: pointer; }
+.faq-answer { padding: 0 18px 18px; display: none; color: var(--text-muted); font-size: 0.9rem; }
+.faq-item.active .faq-answer { display: block; }
+
+/* Final CTA & Footer */
+.final-cta { text-align: center; padding: 80px 20px; background: linear-gradient(180deg, transparent, rgba(37,99,235,0.1)); }
+.final-cta h2 { font-size: 2.2rem; margin-bottom: 12px; }
+.final-cta p { color: var(--text-muted); margin-bottom: 24px; }
+.footer { border-top: 1px solid var(--border); padding: 40px 8%; font-size: 0.85rem; color: var(--text-muted); }
+.footer-content { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+.footer-links a { color: var(--text-muted); margin-left: 16px; text-decoration: none; }
+
+/* Chatbot Widget */
+.chat-trigger { position: fixed; bottom: 24px; right: 24px; width: 52px; height: 52px; border-radius: 50%; background: var(--primary); border: none; font-size: 1.4rem; cursor: pointer; box-shadow: 0 8px 24px rgba(37, 99, 235, 0.4); z-index: 99; }
+.chat-widget { position: fixed; bottom: 90px; right: 24px; width: 320px; background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; box-shadow: 0 20px 50px rgba(0,0,0,0.6); display: none; flex-direction: column; z-index: 100; overflow: hidden; }
+.chat-widget.active { display: flex; }
+.chat-header { background: rgba(0,0,0,0.2); padding: 12px; display: flex; justify-content: space-between; border-bottom: 1px solid var(--border); }
+.online-indicator { width: 8px; height: 8px; background: var(--accent-green); border-radius: 50%; display: inline-block; margin-right: 6px; }
+.chat-close { background: none; border: none; color: var(--text-muted); font-size: 1.2rem; cursor: pointer; }
+.chat-body { padding: 14px; height: 180px; overflow-y: auto; display: flex; flex-direction: column; gap: 8px; font-size: 0.85rem; }
+.msg { padding: 8px 12px; border-radius: 10px; max-width: 85%; }
+.bot-msg { background: rgba(255,255,255,0.08); align-self: flex-start; }
+.user-msg { background: var(--primary); color: #fff; align-self: flex-end; }
+.quick-replies { display: flex; gap: 6px; padding: 0 12px 8px; }
+.quick-replies button { background: rgba(255,255,255,0.05); border: 1px solid var(--border); color: var(--text); padding: 4px 8px; border-radius: 6px; font-size: 0.75rem; cursor: pointer; }
+.chat-footer { padding: 10px; border-top: 1px solid var(--border); display: flex; gap: 6px; }
+.chat-footer input { flex: 1; background: rgba(0,0,0,0.2); border: 1px solid var(--border); border-radius: 6px; padding: 6px 10px; color: var(--text); outline: none; }
+.chat-footer button { background: var(--primary); border: none; color: #fff; padding: 6px 12px; border-radius: 6px; cursor: pointer; }
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .hero { grid-template-columns: 1fr; text-align: center; }
+  .waitlist-form { margin: 0 auto; }
+  .social-proof-strip { justify-content: center; }
+  .nav-links { display: none; }
+}
   </style>
-<base target="_blank">
 </head>
 <body>
 
-  <!-- Navigation -->
-  <nav>
-    <div class="nav-logo">GreenLeaf Organics</div>
-    <ul class="nav-links">
-      <li><a href="#features">Features</a></li>
-      <li><a href="#steps">How It Works</a></li>
-      <li><a href="#pricing">Pricing</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-    <button class="mobile-menu-btn">☰</button>
+  <!-- Background Ambient Glows -->
+  <div class="glow-sphere glow-1"></div>
+  <div class="glow-sphere glow-2"></div>
+
+  <!-- 1. Navbar with Theme Toggle -->
+  <nav class="navbar">
+    <div class="logo">
+      <span class="logo-icon">⚡</span> Nexus<span class="brand-accent">AI</span>
+    </div>
+    <div class="nav-links">
+      <a href="#how-it-works">How It Works</a>
+      <a href="#features">Features</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#faq">FAQ</a>
+    </div>
+    <div class="nav-actions">
+      <button class="theme-toggle-btn" id="themeToggle" onclick="toggleTheme()" aria-label="Toggle Theme">🌙</button>
+      <a href="#waitlist" class="nav-cta">Join Waitlist</a>
+    </div>
   </nav>
 
-  <!-- Hero -->
-  <header class="hero">
+  <!-- 2. Hero Section with Split 3D Mockup -->
+  <section class="hero">
     <div class="hero-content">
-      <div class="hero-badge">🌿 Farm-Fresh Delivered Daily</div>
-      <h1>Organic Groceries at Your Doorstep</h1>
-      <p>Fresh vegetables, fruits, and dairy products sourced directly from local farms in Thiruvannamalai. Healthy food for your family, delivered within 2 hours.</p>
-      <div class="hero-buttons">
-        <a href="#contact" class="btn btn-white">Order Now</a>
-        <a href="#features" class="btn btn-outline">Learn More</a>
-      </div>
-    </div>
-    <div class="scroll-indicator">
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-        <path d="M12 5v14M19 12l-7 7-7-7"/>
-      </svg>
-    </div>
-  </header>
+      <div class="badge"><span class="badge-dot"></span> STARTS AT $99 &bull; AI LANDING PAGE</div>
+      <h1>Engineered for <span class="gradient-text">Sub-Second</span> Conversions</h1>
+      <p class="subtitle">NexusAI delivers a mobile-first dark theme UI with embedded AI assistants, instant form validation, and sub-second load times.</p>
+      
+      <!-- Interactive Waitlist Form -->
+      <form class="waitlist-form" id="waitlistForm" onsubmit="handleWaitlist(event)">
+        <input type="email" id="emailInput" placeholder="Enter your work email..." required />
+        <button type="submit" id="submitBtn">
+          <span class="btn-text">Get Access</span>
+          <span class="btn-loader" style="display:none;">⏳</span>
+        </button>
+      </form>
+      <p class="form-feedback" id="formFeedback"></p>
 
-  <!-- Features -->
-  <section id="features" class="features">
-    <div class="container">
-      <div class="section-header">
-        <h2>Why Choose GreenLeaf?</h2>
-        <p>We bring the farm to your table with quality you can taste and trust.</p>
+      <!-- Rating & Social Proof -->
+      <div class="social-proof-strip">
+        <div class="stars">⭐⭐⭐⭐⭐ <strong>4.9/5</strong> Customer Rating</div>
+        <div class="proof-divider">•</div>
+        <div><strong>10,000+</strong> Active Users</div>
       </div>
-      <div class="features-grid">
-        <div class="feature-card">
-          <div class="feature-icon">🥬</div>
-          <h3>100% Organic</h3>
-          <p>All our produce is certified organic, grown without harmful pesticides or chemicals. Pure, natural food for your family.</p>
+    </div>
+
+    <!-- 3D Dashboard Mockup Graphic -->
+    <div class="hero-mockup">
+      <div class="mockup-window">
+        <div class="mockup-header">
+          <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+          <span class="mockup-title">nexus-dashboard.ai</span>
         </div>
-        <div class="feature-card">
-          <div class="feature-icon">⚡</div>
-          <h3>2-Hour Delivery</h3>
-          <p>Order before 6 PM and get same-day delivery. Freshness guaranteed — if it's not fresh, we replace it free.</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon">🚜</div>
-          <h3>Direct from Farms</h3>
-          <p>We partner with 15+ local farms in Tamil Nadu. No middlemen means better prices for you and fair pay for farmers.</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon">♻️</div>
-          <h3>Eco-Friendly Packaging</h3>
-          <p>All deliveries use biodegradable packaging. Reduce plastic waste while eating healthy — it's a win-win.</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon">💰</div>
-          <h3>Subscription Savings</h3>
-          <p>Subscribe to weekly or monthly boxes and save up to 20%. Customize your box anytime — no lock-in contracts.</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon">📱</div>
-          <h3>Easy Ordering</h3>
-          <p>Order via WhatsApp, phone, or our simple website. No app downloads needed. We keep it simple so you save time.</p>
+        <div class="mockup-body">
+          <div class="mockup-sidebar">
+            <div class="bar-item active"></div><div class="bar-item"></div><div class="bar-item"></div>
+          </div>
+          <div class="mockup-main">
+            <div class="chart-header">
+              <span class="chart-title">Real-time Conversions</span>
+              <span class="badge-green">+148%</span>
+            </div>
+            <div class="chart-visual">
+              <div class="chart-bar" style="height: 40%"></div>
+              <div class="chart-bar" style="height: 65%"></div>
+              <div class="chart-bar" style="height: 50%"></div>
+              <div class="chart-bar" style="height: 85%"></div>
+              <div class="chart-bar highlight" style="height: 100%"></div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- How It Works -->
-  <section id="steps" class="steps">
-    <div class="container">
-      <div class="section-header">
-        <h2>How It Works</h2>
-        <p>Fresh groceries delivered in 3 simple steps.</p>
+  <!-- 3. Company Logos Section -->
+  <section class="logos-section">
+    <p class="logos-title">TRUSTED BY INNOVATIVE TEAMS WORLDWIDE</p>
+    <div class="logos-grid">
+      <span class="company-logo">AcmeCorp</span>
+      <span class="company-logo">PulseData</span>
+      <span class="company-logo">HyperScale</span>
+      <span class="company-logo">VortexAI</span>
+      <span class="company-logo">CloudSync</span>
+    </div>
+  </section>
+
+  <!-- 4. Key Metrics Grid -->
+  <section class="metrics-section">
+    <div class="metric-card">
+      <div class="metric-num">99/100</div>
+      <div class="metric-desc">PageSpeed Score</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-num">&lt; 0.4s</div>
+      <div class="metric-desc">Global Latency</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-num">250+</div>
+      <div class="metric-desc">Startups Launched</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-num">99.9%</div>
+      <div class="metric-desc">Guaranteed Uptime</div>
+    </div>
+  </section>
+
+  <!-- 5. How It Works -->
+  <section class="section" id="how-it-works">
+    <div class="section-header">
+      <h2>How NexusAI Works</h2>
+      <p>Launch high-converting landing pages in 3 simple steps</p>
+    </div>
+    <div class="steps-grid">
+      <div class="step-card">
+        <div class="step-num">01</div>
+        <h3>Select Template</h3>
+        <p>Pick a mobile-first, high-converting layout optimized for SaaS conversion metrics.</p>
       </div>
-      <div class="steps-grid">
-        <div class="step-card">
-          <div class="step-number">1</div>
-          <h3>Browse & Select</h3>
-          <p>Choose from our wide range of organic vegetables, fruits, dairy, and pantry items. Mix and match as you like.</p>
+      <div class="step-card">
+        <div class="step-num">02</div>
+        <h3>Connect AI Widget</h3>
+        <p>Embed your AI chatbot assistant with zero code required in under 2 minutes.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">03</div>
+        <h3>Publish & Convert</h3>
+        <p>Deploy instantly with sub-second speeds and watch waitlist conversions surge.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. Features Grid -->
+  <section class="section" id="features">
+    <div class="section-header">
+      <h2>Built for Speed & Conversions</h2>
+      <p>Packed with modern features to impress your leads and scale your signup list.</p>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">⚡</div>
+        <h3>Sub-Second Speeds</h3>
+        <p>Zero heavyweight frameworks. Pure performance built for high PageSpeed scores.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🤖</div>
+        <h3>Interactive AI Bot</h3>
+        <p>Convert leads 24/7 with a built-in customizable AI chatbot popup widget.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">📱</div>
+        <h3>100% Mobile Ready</h3>
+        <p>Flawless responsiveness across iPhones, Androids, tablets, and desktops.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. Pricing Toggle & Cards -->
+  <section class="section" id="pricing">
+    <div class="section-header">
+      <h2>Simple, Transparent Pricing</h2>
+      <div class="pricing-toggle-wrapper">
+        <span>Monthly</span>
+        <label class="switch">
+          <input type="checkbox" id="pricingToggle" onchange="togglePricing()">
+          <span class="slider round"></span>
+        </label>
+        <span>Yearly <span class="discount-badge">Save 20%</span></span>
+      </div>
+    </div>
+
+    <div class="pricing-grid">
+      <div class="price-card">
+        <h3>Starter</h3>
+        <div class="price"><span class="amount" id="starterPrice">$99</span><span class="period">/one-time</span></div>
+        <p>Ideal for early startups and validation projects.</p>
+        <ul class="price-features">
+          <li>✓ Single Landing Page</li>
+          <li>✓ 99/100 PageSpeed Rating</li>
+          <li>✓ Basic AI Chatbot Embed</li>
+        </ul>
+        <a href="#waitlist" class="btn-secondary">Choose Starter</a>
+      </div>
+
+      <div class="price-card featured">
+        <div class="popular-tag">MOST POPULAR</div>
+        <h3>Pro Scale</h3>
+        <div class="price"><span class="amount" id="proPrice">$199</span><span class="period">/one-time</span></div>
+        <p>For growing SaaS tools wanting maximum conversion.</p>
+        <ul class="price-features">
+          <li>✓ Everything in Starter</li>
+          <li>✓ Advanced Interactive Chatbot</li>
+          <li>✓ Analytics & Form Validation</li>
+          <li>✓ Custom Domain Setup</li>
+        </ul>
+        <a href="#waitlist" class="btn-primary">Get Pro Access</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. Testimonials -->
+  <section class="section">
+    <div class="section-header">
+      <h2>Loved by Founders</h2>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testimonial-card">
+        <p>"NexusAI doubled our waitlist conversion rate within 48 hours of launching."</p>
+        <div class="author">
+          <strong>Alex Rivera</strong>
+          <span>Founder, DataPulse</span>
         </div>
-        <div class="step-card">
-          <div class="step-number">2</div>
-          <h3>Place Your Order</h3>
-          <p>Order online or message us on WhatsApp. Pay securely via UPI, cash on delivery, or card.</p>
-        </div>
-        <div class="step-card">
-          <div class="step-number">3</div>
-          <h3>Enjoy Fresh Delivery</h3>
-          <p>We pack and deliver within 2 hours. Unpack, cook, and enjoy farm-fresh organic food with your family.</p>
+      </div>
+      <div class="testimonial-card">
+        <p>"The sub-second loading speed combined with the embedded AI bot is unmatched."</p>
+        <div class="author">
+          <strong>Sarah Chen</strong>
+          <span>CTO, AutomateFlow</span>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Pricing -->
-  <section id="pricing" class="pricing">
-    <div class="container">
-      <div class="section-header">
-        <h2>Subscription Plans</h2>
-        <p>Choose a plan that fits your family's needs. Cancel anytime.</p>
+  <!-- 9. FAQ Accordion -->
+  <section class="section" id="faq">
+    <div class="section-header">
+      <h2>Frequently Asked Questions</h2>
+    </div>
+    <div class="faq-accordion">
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">How fast does this landing page load? <span class="faq-icon">+</span></button>
+        <div class="faq-answer">
+          <p>It scores 99/100 on Google PageSpeed because it uses ultra-lean CSS and native JavaScript with zero bloated dependencies.</p>
+        </div>
       </div>
-      <div class="pricing-grid">
-        <div class="pricing-card">
-          <div class="pricing-name">Starter Box</div>
-          <div class="pricing-price">₹499<span>/week</span></div>
-          <ul class="pricing-features">
-            <li>5kg mixed vegetables</li>
-            <li>2kg seasonal fruits</li>
-            <li>Free delivery</li>
-            <li>Weekly delivery</li>
-            <li>Pause anytime</li>
-          </ul>
-          <a href="#contact" class="btn btn-white" style="width: 100%; justify-content: center;">Get Started</a>
-        </div>
-        <div class="pricing-card featured">
-          <div class="pricing-name">Family Box</div>
-          <div class="pricing-price">₹999<span>/week</span></div>
-          <ul class="pricing-features">
-            <li>10kg mixed vegetables</li>
-            <li>5kg seasonal fruits</li>
-            <li>2L organic milk</li>
-            <li>Free delivery</li>
-            <li>Weekly delivery</li>
-            <li>Priority support</li>
-          </ul>
-          <a href="#contact" class="btn btn-white" style="width: 100%; justify-content: center; background: var(--white); color: var(--primary);">Most Popular</a>
-        </div>
-        <div class="pricing-card">
-          <div class="pricing-name">Premium Box</div>
-          <div class="pricing-price">₹1,499<span>/week</span></div>
-          <ul class="pricing-features">
-            <li>15kg mixed vegetables</li>
-            <li>8kg seasonal fruits</li>
-            <li>5L organic milk</li>
-            <li>Free delivery</li>
-            <li>Twice weekly delivery</li>
-            <li>Custom box option</li>
-          </ul>
-          <a href="#contact" class="btn btn-white" style="width: 100%; justify-content: center;">Get Started</a>
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">Can I integrate the waitlist with my CRM? <span class="faq-icon">+</span></button>
+        <div class="faq-answer">
+          <p>Yes, you can easily connect the HTML form to Supabase, Formspree, Mailchimp, or any custom API backend.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Contact -->
-  <section id="contact" class="contact">
-    <div class="container">
-      <div class="section-header">
-        <h2>Order Fresh Today</h2>
-        <p>Fill out the form below and we'll confirm your first delivery within 30 minutes.</p>
-      </div>
-
-      <div class="contact-form-wrapper">
-        <form id="orderForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-          <div class="form-group">
-            <label for="name">Your Name</label>
-            <input type="text" id="name" name="name" placeholder="Enter your full name" required>
-          </div>
-          <div class="form-group">
-            <label for="phone">Phone Number</label>
-            <input type="tel" id="phone" name="phone" placeholder="+91 98765 43210" required>
-          </div>
-          <div class="form-group">
-            <label for="address">Delivery Address</label>
-            <textarea id="address" name="address" placeholder="Your complete address in Thiruvannamalai" required></textarea>
-          </div>
-          <div class="form-group">
-            <label for="plan">Select Plan</label>
-            <input type="text" id="plan" name="plan" placeholder="Starter Box / Family Box / Premium Box / Custom" required>
-          </div>
-          <button type="submit" class="form-submit">Place Order</button>
-        </form>
-      </div>
-
-      <div class="contact-grid">
-        <div class="contact-card">
-          <div class="contact-icon">📧</div>
-          <h3>Email</h3>
-          <a href="mailto:rkwebcrafts@gmail.com">rkwebcrafts@gmail.com</a>
-        </div>
-        <div class="contact-card">
-          <div class="contact-icon">📱</div>
-          <h3>WhatsApp</h3>
-          <a href="https://wa.me/918072427088">+91 80724 27088</a>
-        </div>
-        <div class="contact-card">
-          <div class="contact-icon">📍</div>
-          <h3>Delivery Area</h3>
-          <p>Thiruvannamalai & 15km radius</p>
-        </div>
-      </div>
-
-      <a href="index.html" class="portfolio-link">
-        ← Back to RK WebCraft Portfolio
-      </a>
-    </div>
+  <!-- 10. Final Call to Action -->
+  <section class="final-cta">
+    <h2>Ready to Launch Your SaaS Page?</h2>
+    <p>Join over 10,000+ creators building fast, high-converting landing pages today.</p>
+    <a href="#waitlist" class="btn-primary">Claim Your Template ($99)</a>
   </section>
 
-  <!-- Footer -->
-  <footer>
-    <p>© 2026 GreenLeaf Organics. Built by <a href="index.html">RK WebCraft</a></p>
+  <!-- 11. Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="logo">⚡ Nexus<span class="brand-accent">AI</span></div>
+      <p>© 2026 NexusAI Inc. All rights reserved.</p>
+      <div class="footer-links">
+        <a href="#">Privacy</a>
+        <a href="#">Terms</a>
+        <a href="#">Contact</a>
+      </div>
+    </div>
   </footer>
 
+  <!-- 12. Smart Interactive AI Chatbot Widget -->
+  <div class="chat-widget" id="chatWidget">
+    <div class="chat-header">
+      <div class="chat-user">
+        <span class="online-indicator"></span>
+        <strong>Nexus Assistant</strong>
+      </div>
+      <button class="chat-close" onclick="toggleChat()">×</button>
+    </div>
+    <div class="chat-body" id="chatBody">
+      <div class="msg bot-msg">Hi there! 👋 Welcome to NexusAI. How can I help you today?</div>
+    </div>
+    <div class="quick-replies">
+      <button onclick="sendQuickReply('How much does it cost?')">💰 Pricing</button>
+      <button onclick="sendQuickReply('How fast is it?')">⚡ Speed</button>
+    </div>
+    <div class="chat-footer">
+      <input type="text" id="chatInput" placeholder="Type a message..." onkeypress="handleChatKey(event)" />
+      <button onclick="sendChatMessage()">Send</button>
+    </div>
+  </div>
+
+  <button class="chat-trigger" onclick="toggleChat()" aria-label="Open Chat">💬</button>
+
   <script>
-    // Mobile menu toggle
-    document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
-      const nav = document.querySelector('.nav-links');
-      if (nav.style.display === 'flex') {
-        nav.style.display = 'none';
-      } else {
-        nav.style.display = 'flex';
-        nav.style.position = 'absolute';
-        nav.style.top = '100%';
-        nav.style.left = '0';
-        nav.style.right = '0';
-        nav.style.background = 'var(--white)';
-        nav.style.flexDirection = 'column';
-        nav.style.padding = '1rem 2rem';
-        nav.style.boxShadow = 'var(--shadow)';
-        nav.style.gap = '1rem';
-      }
-    });
+    // 1. Light/Dark Mode Toggle
+function toggleTheme() {
+  const html = document.documentElement;
+  const btn = document.getElementById('themeToggle');
+  if (html.getAttribute('data-theme') === 'dark') {
+    html.setAttribute('data-theme', 'light');
+    btn.innerText = '☀️';
+  } else {
+    html.setAttribute('data-theme', 'dark');
+    btn.innerText = '🌙';
+  }
+}
 
-    // Smooth scroll for nav links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function(e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-      });
-    });
+// 2. Real Waitlist Form Validation
+const submittedEmails = new Set();
 
-    // Form submission feedback
-    document.getElementById('orderForm').addEventListener('submit', function(e) {
-      const btn = this.querySelector('.form-submit');
-      btn.textContent = 'Sending...';
-      btn.disabled = true;
+function handleWaitlist(e) {
+  e.preventDefault();
+  const emailInput = document.getElementById('emailInput');
+  const submitBtn = document.getElementById('submitBtn');
+  const feedback = document.getElementById('formFeedback');
+  const email = emailInput.value.trim();
 
-      // Note: Replace YOUR_FORM_ID with your actual Formspree form ID
-      // Get one free at https://formspree.io
-    });
+  // Basic Duplicate Prevention
+  if (submittedEmails.has(email)) {
+    feedback.innerText = "⚠️ This email is already on the waitlist!";
+    feedback.style.color = "#f59e0b";
+    return;
+  }
+
+  // Show Loading State
+  submitBtn.querySelector('.btn-text').style.display = 'none';
+  submitBtn.querySelector('.btn-loader').style.display = 'inline';
+  submitBtn.disabled = true;
+
+  setTimeout(() => {
+    submittedEmails.add(email);
+    submitBtn.querySelector('.btn-text').innerText = "✓ Added";
+    submitBtn.querySelector('.btn-text').style.display = 'inline';
+    submitBtn.querySelector('.btn-loader').style.display = 'none';
+    
+    feedback.innerText = "🎉 Success! You're officially on the early access list.";
+    feedback.style.color = "#10b981";
+    emailInput.value = "";
+    submitBtn.disabled = false;
+  }, 1000);
+}
+
+// 3. Pricing Toggle Switch
+function togglePricing() {
+  const isYearly = document.getElementById('pricingToggle').checked;
+  document.getElementById('starterPrice').innerText = isYearly ? "$79" : "$99";
+  document.getElementById('proPrice').innerText = isYearly ? "$159" : "$199";
+}
+
+// 4. FAQ Accordion Toggle
+function toggleFaq(button) {
+  const item = button.parentElement;
+  item.classList.toggle('active');
+  const icon = button.querySelector('.faq-icon');
+  icon.innerText = item.classList.contains('active') ? '−' : '+';
+}
+
+// 5. Intelligent Chatbot Widget
+function toggleChat() {
+  document.getElementById('chatWidget').classList.toggle('active');
+}
+
+function sendChatMessage() {
+  const input = document.getElementById('chatInput');
+  const text = input.value.trim();
+  if (text) {
+    appendMessage(text, 'user-msg');
+    input.value = '';
+    simulateBotReply(text);
+  }
+}
+
+function sendQuickReply(text) {
+  appendMessage(text, 'user-msg');
+  simulateBotReply(text);
+}
+
+function handleChatKey(e) {
+  if (e.key === 'Enter') sendChatMessage();
+}
+
+function appendMessage(text, className) {
+  const chatBody = document.getElementById('chatBody');
+  const msg = document.createElement('div');
+  msg.className = `msg ${className}`;
+  msg.innerText = text;
+  chatBody.appendChild(msg);
+  chatBody.scrollTop = chatBody.scrollHeight;
+}
+
+function simulateBotReply(query) {
+  const chatBody = document.getElementById('chatBody');
+  
+  // Typing Animation Simulation
+  const typing = document.createElement('div');
+  typing.className = 'msg bot-msg';
+  typing.innerText = 'Typing...';
+  chatBody.appendChild(typing);
+
+  setTimeout(() => {
+    typing.remove();
+    let reply = "NexusAI pages deliver <0.4s load times and 99/100 Google PageSpeed scores out of the box.";
+    if (query.toLowerCase().includes('cost') || query.toLowerCase().includes('price')) {
+      reply = "Our Starter plan begins at $99 one-time, or $79/mo billed yearly.";
+    }
+    appendMessage(reply, 'bot-msg');
+  }, 800);
+}
   </script>
-
 </body>
 </html>

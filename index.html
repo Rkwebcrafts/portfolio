@@ -6,25 +6,25 @@
 
   <!-- SEO Meta Tags -->
   <title>RK Webcrafts | Frontend Web Developer Portfolio</title>
-  <meta name="description" content="RK Webcrafts is a frontend web development portfolio by Arun Raja, showcasing modern landing pages, dashboards, e-commerce websites, and responsive web design for small businesses in India.">
-  <meta name="keywords" content="RK Webcrafts, Web Developer, Frontend Developer, HTML, CSS, JavaScript, React, Landing Page, Dashboard, Portfolio, Thiruvannamalai, Tamil Nadu">
-  <meta name="author" content="Arun Raja">
+  <meta name="description" content="Frontend Web Developer & AI Solutions Specialist. Building high-converting landing pages, custom dashboards, and responsive web applications for startups and businesses worldwide.">
+  <meta name="keywords" content="RK Webcrafts, Frontend Developer, React, JavaScript, AI Landing Pages, Dashboard UI, Freelancer, Fiverr, Contra">
+  <meta name="author" content="Arun R">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://rkwebcrafts.github.io/portfolio/">
 
   <!-- Open Graph / Social Sharing -->
-  <meta property="og:title" content="RK Webcrafts | Frontend Web Developer Portfolio">
-  <meta property="og:description" content="Professional frontend web developer building responsive websites, landing pages, and dashboards for small businesses across India.">
+  <meta property="og:title" content="RK Webcrafts | Frontend Developer & UI Specialist">
+  <meta property="og:description" content="I build high-converting landing pages, modern dashboards, and responsive web experiences. Available for freelance on Fiverr and Contra.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://rkwebcrafts.github.io/portfolio/">
   <meta property="og:image" content="https://rkwebcrafts.github.io/portfolio/images/preview.png">
   <meta property="og:site_name" content="RK Webcrafts">
-  <meta property="og:locale" content="en_IN">
+  <meta property="og:locale" content="en_US">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="RK Webcrafts | Frontend Web Developer Portfolio">
-  <meta name="twitter:description" content="Professional frontend web developer building responsive websites, landing pages, and dashboards for small businesses across India.">
+  <meta name="twitter:description" content="High-performing websites, dashboards, and AI integrations built for startups and businesses.">
   <meta name="twitter:image" content="https://rkwebcrafts.github.io/portfolio/images/preview.png">
 
   <!-- Favicon (inline SVG) -->
@@ -100,6 +100,7 @@
     .reveal-delay-4 { transition-delay: 0.4s; }
     .skip-link { position: absolute; top: -40px; left: 0; background: var(--color-primary); color: var(--color-surface); padding: 8px 16px; z-index: 100; transition: top var(--transition-fast); text-decoration: none; font-weight: 600; border-radius: 0 0 var(--radius-sm) 0; }
     .skip-link:focus { top: 0; }
+    
     header {
       background: color-mix(in srgb, var(--color-surface) 85%, transparent);
       backdrop-filter: blur(16px) saturate(180%); -webkit-backdrop-filter: blur(16px) saturate(180%);
@@ -127,13 +128,15 @@
     .nav-links a:hover, .nav-links a:focus-visible { color: var(--color-text); background: var(--color-gray-bg); outline: none; }
     .nav-links a:hover::after, .nav-links a:focus-visible::after { width: 20px; }
     .nav-links a:focus-visible { box-shadow: 0 0 0 2px var(--color-accent-soft); }
+    
     .theme-toggle { background: var(--color-gray-bg); border: 1px solid var(--color-border); color: var(--color-text); cursor: pointer; padding: 8px; border-radius: var(--radius-sm); transition: all var(--transition-fast); width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; margin-left: 8px; }
     .theme-toggle:hover { background: var(--color-primary); color: var(--color-surface); border-color: var(--color-primary); transform: rotate(15deg); }
     .menu-toggle { display: none; background: none; border: 1px solid var(--color-border); color: var(--color-text); cursor: pointer; padding: 8px; border-radius: var(--radius-sm); transition: all var(--transition-fast); width: 36px; height: 36px; align-items: center; justify-content: center; }
     .menu-toggle:hover { background: var(--color-gray-bg); border-color: var(--color-gray-light); }
     .menu-toggle:focus-visible { box-shadow: 0 0 0 2px var(--color-accent); outline: none; }
+    
     .hero { padding: clamp(4rem, 10vw, 7rem) 2rem clamp(3rem, 6vw, 5rem); max-width: var(--container-max); margin: 0 auto; position: relative; }
-    .hero-content { max-width: 680px; position: relative; z-index: 2; }
+    .hero-content { max-width: 720px; position: relative; z-index: 2; }
     .hero-badge { display: inline-flex; align-items: center; gap: 8px; background: var(--color-accent-soft); color: var(--color-accent); padding: 6px 16px; border-radius: var(--radius-full); font-size: 13px; font-weight: 600; margin-bottom: 28px; border: 1px solid color-mix(in srgb, var(--color-accent) 20%, transparent); backdrop-filter: blur(8px); animation: fadeInUp 0.6s ease-out 0.2s both; }
     .hero-badge::before { content: ''; width: 7px; height: 7px; border-radius: 50%; background: var(--color-success); animation: pulse 2.5s ease-in-out infinite; box-shadow: 0 0 8px var(--color-success); }
     @keyframes pulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.5; transform: scale(0.85); } }
@@ -141,10 +144,11 @@
     .hero h1 { font-size: clamp(2.4rem, 5.5vw, 3.8rem); margin-bottom: 24px; letter-spacing: -1.8px; color: var(--color-text); font-weight: 700; animation: fadeInUp 0.7s ease-out 0.3s both; }
     .hero h1 span { color: var(--color-accent); position: relative; display: inline-block; }
     .hero h1 span::after { content: ''; position: absolute; bottom: 2px; left: 0; right: 0; height: 8px; background: var(--color-accent-soft); border-radius: 4px; z-index: -1; }
-    .hero p { font-size: clamp(1.05rem, 2vw, 1.2rem); color: var(--color-text-secondary); margin-bottom: 36px; max-width: 540px; line-height: 1.75; animation: fadeInUp 0.7s ease-out 0.45s both; }
+    .hero p { font-size: clamp(1.05rem, 2vw, 1.2rem); color: var(--color-text-secondary); margin-bottom: 36px; max-width: 600px; line-height: 1.75; animation: fadeInUp 0.7s ease-out 0.45s both; }
     .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; animation: fadeInUp 0.7s ease-out 0.6s both; }
     .hero-blob { position: absolute; top: -60px; right: -80px; width: 500px; height: 500px; background: radial-gradient(circle, color-mix(in srgb, var(--color-accent) 12%, transparent) 0%, transparent 70%); border-radius: 50%; pointer-events: none; z-index: 0; animation: blobFloat 8s ease-in-out infinite; }
     @keyframes blobFloat { 0%, 100% { transform: translate(0, 0) scale(1); } 50% { transform: translate(-20px, 20px) scale(1.05); } }
+    
     .btn { display: inline-flex; align-items: center; gap: 8px; padding: 13px 28px; background: var(--color-primary); color: var(--color-surface); text-decoration: none; border-radius: var(--radius); font-weight: 600; font-size: 14px; transition: all var(--transition); border: 1.5px solid transparent; cursor: pointer; position: relative; overflow: hidden; box-shadow: var(--shadow-md); }
     .btn::before { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, transparent 50%); opacity: 0; transition: opacity var(--transition); }
     .btn:hover { background: var(--color-primary-light); transform: translateY(-3px); box-shadow: var(--shadow-xl), var(--shadow-glow); }
@@ -155,31 +159,30 @@
     .btn-outline:hover { background: var(--color-gray-bg); border-color: var(--color-gray-light); color: var(--color-text); box-shadow: var(--shadow-md); }
     .btn-accent { background: linear-gradient(135deg, var(--color-accent) 0%, #0052cc 100%); color: var(--color-surface); border: none; }
     .btn-accent:hover { background: linear-gradient(135deg, #0052cc 0%, #0044a8 100%); box-shadow: var(--shadow-xl), var(--shadow-glow); }
-    .btn-sm { display: inline-flex; align-items: center; gap: 6px; padding: 8px 18px; background: var(--color-gray-bg); color: var(--color-text); text-decoration: none; border-radius: var(--radius-sm); font-weight: 500; font-size: 13px; transition: all var(--transition-fast); border: 1px solid var(--color-border); cursor: pointer; }
-    .btn-sm:hover { background: var(--color-primary); color: var(--color-surface); border-color: var(--color-primary); transform: translateY(-1px); }
+    
     section { padding: var(--section-padding) 2rem; max-width: var(--container-max); margin: 0 auto; position: relative; }
     .section-header { margin-bottom: 48px; }
     section h2 { font-size: clamp(1.6rem, 3.5vw, 2.2rem); color: var(--color-text); margin-bottom: 12px; letter-spacing: -0.6px; font-weight: 700; }
-    .section-subtitle { color: var(--color-text-muted); font-size: 1.05rem; max-width: 520px; line-height: 1.65; }
+    .section-subtitle { color: var(--color-text-muted); font-size: 1.05rem; max-width: 600px; line-height: 1.65; }
     .section-label { display: inline-block; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; color: var(--color-accent); margin-bottom: 12px; }
+    
+    /* ABOUT & SKILLS */
     #about { background: var(--color-light); border-radius: var(--radius-lg); margin-top: -2rem; position: relative; z-index: 10; border: 1px solid var(--color-border); }
-    .about-grid { display: grid; grid-template-columns: 1fr 320px; gap: 56px; align-items: start; }
+    .about-grid { display: grid; grid-template-columns: 1fr 340px; gap: 56px; align-items: start; }
     .about-text { font-size: 1rem; color: var(--color-text-secondary); line-height: 1.8; }
     .about-text p + p { margin-top: 18px; }
     .about-text strong { color: var(--color-text); font-weight: 600; }
-    .about-photo-wrap { display: flex; flex-direction: column; align-items: center; gap: 16px; }
-    .about-photo {
-      width: 160px; height: 160px; border-radius: 50%;
-      background: linear-gradient(135deg, var(--color-accent) 0%, #0052cc 100%);
-      display: flex; align-items: center; justify-content: center;
-      font-family: 'Poppins', sans-serif; font-size: 56px; font-weight: 700;
-      color: var(--color-white); box-shadow: var(--shadow-lg), var(--shadow-glow);
-      border: 4px solid var(--color-surface);
-    }
-    .about-photo-label { font-size: 13px; color: var(--color-text-muted); font-weight: 500; }
-    .skills { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 32px; }
-    .skill-tag { background: var(--color-surface); color: var(--color-text-muted); padding: 7px 16px; border-radius: var(--radius-sm); font-size: 13px; font-weight: 500; border: 1px solid var(--color-border); transition: all var(--transition-fast); cursor: default; }
-    .skill-tag:hover { border-color: var(--color-accent); color: var(--color-accent); transform: translateY(-2px); box-shadow: var(--shadow-md); }
+    
+    .skills-container { margin-top: 32px; display: flex; flex-direction: column; gap: 16px; }
+    .skill-bar-group { display: flex; flex-direction: column; gap: 6px; }
+    .skill-bar-header { display: flex; justify-content: space-between; font-size: 13px; font-weight: 600; color: var(--color-text); }
+    .skill-bar-bg { width: 100%; height: 8px; background: var(--color-gray-lighter); border-radius: var(--radius-full); overflow: hidden; }
+    .skill-bar-fill { height: 100%; background: linear-gradient(90deg, var(--color-accent) 0%, #0052cc 100%); border-radius: var(--radius-full); transition: width 1s ease-in-out; }
+    
+    .tech-icons-grid { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px; }
+    .tech-pill { display: inline-flex; align-items: center; gap: 6px; background: var(--color-surface); color: var(--color-text-muted); padding: 8px 14px; border-radius: var(--radius-sm); font-size: 13px; font-weight: 500; border: 1px solid var(--color-border); transition: all var(--transition-fast); }
+    .tech-pill:hover { border-color: var(--color-accent); color: var(--color-accent); transform: translateY(-2px); box-shadow: var(--shadow-md); }
+    
     .stats-card { background: var(--color-surface); border-radius: var(--radius); padding: 28px; border: 1px solid var(--color-border); box-shadow: var(--shadow-sm); position: sticky; top: calc(var(--header-height) + 20px); }
     .stat-row { display: flex; justify-content: space-between; align-items: center; padding: 14px 0; border-bottom: 1px solid var(--color-border-subtle); transition: all var(--transition-fast); }
     .stat-row:hover { padding-left: 8px; }
@@ -187,24 +190,43 @@
     .stat-label { font-size: 13px; color: var(--color-text-muted); font-weight: 500; }
     .stat-value { font-family: 'Poppins', sans-serif; font-size: 15px; font-weight: 700; color: var(--color-text); transition: color var(--transition-fast); }
     .stat-row:hover .stat-value { color: var(--color-accent); }
-    .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-    .service-card { background: var(--color-surface); border-radius: var(--radius); padding: 32px; border: 1px solid var(--color-border); transition: all var(--transition); position: relative; overflow: hidden; }
-    .service-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-xl); border-color: var(--color-accent); }
-    .service-card.featured { border-color: var(--color-accent); background: linear-gradient(180deg, var(--color-surface) 0%, var(--color-light) 100%); box-shadow: var(--shadow-lg), var(--shadow-glow); }
-    .service-card.featured::before { content: 'Most popular'; position: absolute; top: 0; right: 0; background: linear-gradient(135deg, var(--color-accent) 0%, #0052cc 100%); color: var(--color-surface); font-size: 10px; font-weight: 700; padding: 5px 14px; border-radius: 0 0 0 var(--radius-sm); text-transform: uppercase; letter-spacing: 0.8px; }
-    .service-icon { width: 48px; height: 48px; border-radius: 12px; background: var(--color-gray-bg); display: flex; align-items: center; justify-content: center; color: var(--color-accent); margin-bottom: 20px; font-size: 20px; transition: all var(--transition); }
-    .service-card:hover .service-icon { background: var(--color-accent); color: var(--color-surface); transform: scale(1.1) rotate(-5deg); }
-    .service-card h3 { font-size: 1.15rem; color: var(--color-text); margin-bottom: 12px; font-weight: 600; }
-    .service-card p { color: var(--color-text-muted); font-size: 0.92rem; line-height: 1.65; margin-bottom: 20px; }
-    .service-features { list-style: none; margin-bottom: 24px; }
-    .service-features li { display: flex; align-items: center; gap: 10px; font-size: 13px; color: var(--color-text-muted); margin-bottom: 10px; transition: all var(--transition-fast); }
-    .service-features li:hover { color: var(--color-text); transform: translateX(4px); }
-    .service-features li::before { content: '✓'; color: var(--color-success); font-weight: 700; font-size: 12px; flex-shrink: 0; width: 20px; height: 20px; background: color-mix(in srgb, var(--color-success) 12%, transparent); border-radius: 50%; display: flex; align-items: center; justify-content: center; }
-    .service-price { font-family: 'Poppins', sans-serif; font-size: 1.5rem; font-weight: 700; color: var(--color-text); }
-    .service-price span { font-size: 0.85rem; font-weight: 400; color: var(--color-gray-light); }
-    .service-scope { margin-top: 12px; padding-top: 12px; border-top: 1px dashed var(--color-border); }
-    .service-scope-title { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.8px; color: var(--color-text-muted); margin-bottom: 6px; }
-    .service-scope-item { font-size: 12px; color: var(--color-text-secondary); display: flex; justify-content: space-between; padding: 3px 0; }
+
+    /* UNIFIED SERVICES & WORK GRID */
+    .project-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .project-card { background: var(--color-surface); border-radius: var(--radius); border: 1px solid var(--color-border); padding: 20px; transition: all var(--transition); display: flex; flex-direction: column; }
+    .project-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-xl); border-color: var(--color-accent); }
+    
+    .card-img-wrap {
+      position: relative;
+      overflow: hidden;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--color-border);
+      margin-bottom: 16px;
+      height: 210px;
+      background: var(--color-gray-bg);
+    }
+    .card-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.3s ease;
+    }
+    .project-card:hover .card-img-wrap img {
+      transform: scale(1.05);
+    }
+
+    /* WHY CHOOSE ME & INDUSTRIES */
+    .trust-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 32px; }
+    .trust-box { background: var(--color-surface); padding: 20px; border-radius: var(--radius); border: 1px solid var(--color-border); display: flex; align-items: center; gap: 14px; }
+    .trust-icon { font-size: 24px; flex-shrink: 0; }
+    .trust-text h4 { font-size: 14px; font-weight: 600; color: var(--color-text); margin-bottom: 2px; }
+    .trust-text p { font-size: 12px; color: var(--color-text-muted); margin: 0; }
+
+    .industries-pills { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-top: 20px; }
+    .industry-pill { background: var(--color-surface); border: 1px solid var(--color-border); padding: 8px 18px; border-radius: var(--radius-full); font-size: 13px; font-weight: 500; color: var(--color-text-secondary); }
+
+    /* PROCESS */
     .process-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px; }
     .process-step { text-align: center; padding: 28px 14px; position: relative; background: var(--color-surface); border-radius: var(--radius); border: 1px solid var(--color-border); transition: all var(--transition); }
     .process-step:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); border-color: var(--color-accent); }
@@ -213,44 +235,8 @@
     .process-step:hover .process-num { background: var(--color-accent); border-color: var(--color-accent); color: var(--color-surface); transform: scale(1.15); box-shadow: 0 4px 12px color-mix(in srgb, var(--color-accent) 30%, transparent); }
     .process-step h3 { font-size: 14px; color: var(--color-text); margin-bottom: 8px; font-weight: 600; }
     .process-step p { font-size: 12px; color: var(--color-text-muted); line-height: 1.6; }
-    .process-timeline { font-size: 11px; color: var(--color-accent); font-weight: 600; margin-top: 8px; display: inline-block; background: var(--color-accent-soft); padding: 2px 10px; border-radius: var(--radius-full); }
-    .project-tabs { display: flex; gap: 10px; margin-bottom: 32px; flex-wrap: wrap; }
-    .project-tab { padding: 10px 20px; border-radius: var(--radius-sm); border: 1px solid var(--color-border); background: var(--color-surface); color: var(--color-text-muted); font-size: 14px; font-weight: 500; cursor: pointer; transition: all var(--transition-fast); }
-    .project-tab:hover { border-color: var(--color-accent); color: var(--color-accent); transform: translateY(-1px); }
-    .project-tab.active { background: var(--color-primary); color: var(--color-surface); border-color: var(--color-primary); box-shadow: var(--shadow-md); }
-    .project-tab:focus-visible { box-shadow: 0 0 0 2px var(--color-accent); outline: none; }
-    .project-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-    .project-card { background: var(--color-surface); border-radius: var(--radius); overflow: hidden; border: 1px solid var(--color-border); transition: all var(--transition); text-decoration: none; color: inherit; display: flex; flex-direction: column; height: 100%; position: relative; }
-    .project-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-xl), var(--shadow-glow); border-color: var(--color-accent); }
-    .project-card:focus-visible { box-shadow: 0 0 0 3px var(--color-accent-soft), var(--shadow-xl); outline: none; }
-    .project-image { height: 200px; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; flex-shrink: 0; }
-    .project-image-pattern { position: absolute; inset: 0; }
-    .project-image-icon { position: relative; z-index: 1; font-size: 2.8rem; transition: all var(--transition); filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2)); }
-    .project-card:hover .project-image-icon { transform: scale(1.15) rotate(-5deg); }
-    .project-image-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.55), transparent 50%); opacity: 0; transition: opacity var(--transition); display: flex; align-items: flex-end; justify-content: center; padding-bottom: 20px; }
-    .project-card:hover .project-image-overlay { opacity: 1; }
-    .project-image-overlay span { color: var(--color-white); font-size: 13px; font-weight: 600; display: flex; align-items: center; gap: 6px; transform: translateY(10px); transition: transform var(--transition); }
-    .project-card:hover .project-image-overlay span { transform: translateY(0); }
-    .project-content { padding: 24px; display: flex; flex-direction: column; flex-grow: 1; }
-    .project-meta { display: flex; gap: 6px; margin-bottom: 12px; flex-wrap: wrap; }
-    .project-tag { padding: 4px 12px; border-radius: 6px; background: var(--color-gray-bg); color: var(--color-text-muted); font-size: 11px; font-weight: 500; border: 1px solid var(--color-border); transition: all var(--transition-fast); }
-    .project-card:hover .project-tag { border-color: var(--color-accent); color: var(--color-accent); }
-    .project-card h3 { font-size: 1.1rem; margin-bottom: 10px; color: var(--color-text); font-weight: 600; }
-    .project-card p { color: var(--color-text-muted); font-size: 0.9rem; line-height: 1.65; flex-grow: 1; }
-    .project-links { display: flex; gap: 10px; margin-top: 20px; flex-wrap: wrap; }
-    .project-status { position: absolute; top: 12px; left: 12px; background: rgba(0,0,0,0.6); color: #fff; font-size: 10px; font-weight: 600; padding: 4px 10px; border-radius: var(--radius-sm); backdrop-filter: blur(4px); z-index: 2; text-transform: uppercase; letter-spacing: 0.5px; }
-    .project-status.live { background: rgba(16,185,129,0.85); }
-    .project-status.github { background: rgba(0,102,255,0.85); }
-    .project-status.coming { background: rgba(245,158,11,0.85); }
-    .testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-    .testimonial-card { background: var(--color-surface); border-radius: var(--radius); padding: 28px; border: 1px solid var(--color-border); transition: all var(--transition); position: relative; }
-    .testimonial-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); border-color: var(--color-accent); }
-    .testimonial-stars { color: #f59e0b; font-size: 16px; margin-bottom: 14px; letter-spacing: 2px; }
-    .testimonial-text { font-size: 0.95rem; color: var(--color-text-secondary); line-height: 1.7; margin-bottom: 20px; font-style: italic; }
-    .testimonial-author { display: flex; align-items: center; gap: 12px; }
-    .testimonial-avatar { width: 44px; height: 44px; border-radius: 50%; background: linear-gradient(135deg, var(--color-accent), #0052cc); display: flex; align-items: center; justify-content: center; color: #fff; font-family: 'Poppins'; font-weight: 700; font-size: 16px; }
-    .testimonial-name { font-weight: 600; font-size: 14px; color: var(--color-text); }
-    .testimonial-role { font-size: 12px; color: var(--color-text-muted); }
+
+    /* FAQ */
     .faq-list { max-width: 720px; margin: 0 auto; }
     .faq-item { border: 1px solid var(--color-border); border-radius: var(--radius); margin-bottom: 12px; overflow: hidden; background: var(--color-surface); transition: all var(--transition-fast); }
     .faq-item:hover { border-color: var(--color-accent); }
@@ -261,21 +247,23 @@
     .faq-answer { max-height: 0; overflow: hidden; transition: max-height var(--transition-slow), padding var(--transition-slow); }
     .faq-item.active .faq-answer { max-height: 300px; padding: 0 24px 18px; }
     .faq-answer p { color: var(--color-text-secondary); font-size: 14px; line-height: 1.7; }
+
+    /* HIRE CTA BANNER */
     #hire { text-align: center; padding: 72px 2rem; background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%); color: #ffffff; border-radius: var(--radius-lg); margin: 0 auto 3rem; max-width: var(--container-max); position: relative; overflow: hidden; border: 1px solid rgba(255,255,255,0.06); }
     #hire::before { content: ''; position: absolute; inset: 0; background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"); }
-    #hire::after { content: ''; position: absolute; top: -50%; right: -20%; width: 400px; height: 400px; background: radial-gradient(circle, rgba(0,102,255,0.15) 0%, transparent 70%); border-radius: 50%; pointer-events: none; }
-    #hire h2 { color: #ffffff; margin-bottom: 14px; position: relative; font-size: clamp(1.6rem, 3.5vw, 2.2rem); font-weight: 700; text-shadow: 0 2px 10px rgba(0,0,0,0.3); }
-    #hire > p { color: rgba(255,255,255,0.75); margin-bottom: 32px; max-width: 500px; margin-left: auto; margin-right: auto; position: relative; font-size: 1.05rem; line-height: 1.7; }
+    #hire h2 { color: #ffffff; margin-bottom: 14px; position: relative; font-size: clamp(1.6rem, 3.5vw, 2.2rem); font-weight: 700; }
+    #hire > p { color: rgba(255,255,255,0.75); margin-bottom: 32px; max-width: 520px; margin-left: auto; margin-right: auto; position: relative; font-size: 1.05rem; line-height: 1.7; }
     #hire .btn { background: #ffffff; color: #0a0a0a; position: relative; font-weight: 700; box-shadow: 0 4px 20px rgba(0,0,0,0.3); }
-    #hire .btn:hover { background: #f0f0f0; transform: translateY(-3px); box-shadow: 0 8px 30px rgba(0,0,0,0.4), 0 0 30px rgba(0,102,255,0.2); }
+    #hire .btn:hover { background: #f0f0f0; transform: translateY(-3px); box-shadow: 0 8px 30px rgba(0,0,0,0.4); }
+
+    /* CONTACT SECTION */
     #contact { background: var(--color-light); border-radius: var(--radius-lg); margin-bottom: 3rem; border: 1px solid var(--color-border); }
     .contact-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-bottom: 36px; }
     .contact-item { display: flex; align-items: flex-start; gap: 16px; padding: 24px; border-radius: var(--radius); background: var(--color-surface); border: 1px solid var(--color-border); transition: all var(--transition-fast); }
     .contact-item:hover { border-color: var(--color-accent); box-shadow: var(--shadow-lg); transform: translateY(-3px); }
-    .contact-icon { width: 44px; height: 44px; border-radius: 12px; background: var(--color-gray-bg); display: flex; align-items: center; justify-content: center; color: var(--color-accent); font-size: 18px; flex-shrink: 0; transition: all var(--transition-fast); }
-    .contact-item:hover .contact-icon { background: var(--color-accent); color: var(--color-surface); transform: scale(1.1); }
+    .contact-icon { width: 44px; height: 44px; border-radius: 12px; background: var(--color-gray-bg); display: flex; align-items: center; justify-content: center; color: var(--color-accent); font-size: 18px; flex-shrink: 0; }
     .contact-info h4 { font-size: 11px; color: var(--color-gray-light); font-weight: 600; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.8px; }
-    .contact-info p, .contact-info a { color: var(--color-text); font-weight: 600; text-decoration: none; transition: color var(--transition-fast); word-break: break-word; font-size: 14px; }
+    .contact-info p, .contact-info a { color: var(--color-text); font-weight: 600; text-decoration: none; word-break: break-word; font-size: 14px; }
     .contact-info a:hover { color: var(--color-accent); }
     .contact-form-wrap { max-width: 600px; margin: 0 auto 40px; }
     .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
@@ -294,16 +282,17 @@
     .form-status { text-align: center; padding: 12px; border-radius: var(--radius-sm); font-size: 14px; font-weight: 500; margin-top: 16px; display: none; }
     .form-status.success { display: block; background: color-mix(in srgb, var(--color-success) 12%, transparent); color: var(--color-success); border: 1px solid color-mix(in srgb, var(--color-success) 30%, transparent); }
     .form-status.error { display: block; background: color-mix(in srgb, #ef4444 12%, transparent); color: #ef4444; border: 1px solid color-mix(in srgb, #ef4444 30%, transparent); }
+    
     .social-links { display: flex; gap: 14px; justify-content: center; }
     .social-link { width: 48px; height: 48px; background: var(--color-surface); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: var(--color-text-muted); font-size: 18px; transition: all var(--transition); text-decoration: none; border: 1px solid var(--color-border); }
-    .social-link:hover { background: var(--color-accent); color: var(--color-surface); border-color: var(--color-accent); transform: translateY(-4px) scale(1.05); box-shadow: var(--shadow-lg), 0 0 20px color-mix(in srgb, var(--color-accent) 25%, transparent); }
-    .social-link:focus-visible { box-shadow: 0 0 0 3px var(--color-accent-soft); outline: none; }
+    .social-link:hover { background: var(--color-accent); color: var(--color-surface); border-color: var(--color-accent); transform: translateY(-4px) scale(1.05); box-shadow: var(--shadow-lg); }
+
+    /* FOOTER */
     footer { background: var(--color-darker); color: var(--color-white); padding: 48px 2rem 24px; }
     .footer-content { max-width: var(--container-max); margin: 0 auto; }
     .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 40px; }
     .footer-brand { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
-    .footer-logo { width: 40px; height: 40px; border-radius: 10px; background: linear-gradient(135deg, var(--color-primary-light) 0%, var(--color-primary) 100%); display: flex; align-items: center; justify-content: center; font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 16px; color: var(--color-white); transition: all var(--transition); box-shadow: 0 4px 16px rgba(0,0,0,0.3); }
-    .footer-logo:hover { transform: scale(1.1) rotate(-5deg); box-shadow: 0 8px 24px rgba(0,0,0,0.4); }
+    .footer-logo { width: 40px; height: 40px; border-radius: 10px; background: linear-gradient(135deg, var(--color-primary-light) 0%, var(--color-primary) 100%); display: flex; align-items: center; justify-content: center; font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 16px; color: var(--color-white); }
     .footer-desc { color: var(--color-gray-light); font-size: 13px; line-height: 1.7; max-width: 280px; }
     .footer-title { font-family: 'Poppins', sans-serif; font-size: 13px; font-weight: 600; color: var(--color-white); margin-bottom: 16px; text-transform: uppercase; letter-spacing: 1px; }
     .footer-links { list-style: none; }
@@ -312,21 +301,15 @@
     .footer-links a:hover { color: var(--color-accent); transform: translateX(4px); }
     .footer-bottom { border-top: 1px solid rgba(255,255,255,0.08); padding-top: 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
     .footer-bottom p { color: var(--color-gray-light); font-size: 12px; }
-    .footer-built { display: inline-flex; align-items: center; gap: 6px; color: var(--color-gray-light); font-size: 12px; }
-    .footer-built span { background: rgba(255,255,255,0.08); padding: 3px 10px; border-radius: 4px; font-size: 11px; }
-    ::-webkit-scrollbar { width: 8px; }
-    ::-webkit-scrollbar-track { background: var(--color-light); }
-    ::-webkit-scrollbar-thumb { background: var(--color-gray-light); border-radius: 4px; }
-    ::-webkit-scrollbar-thumb:hover { background: var(--color-gray); }
+
+    /* RESPONSIVE MEDIA QUERIES */
     @media (max-width: 900px) {
       .about-grid { grid-template-columns: 1fr; }
-      .about-photo-wrap { align-items: flex-start; }
-      .services-grid { grid-template-columns: 1fr; }
+      .trust-grid { grid-template-columns: 1fr; }
       .process-grid { grid-template-columns: repeat(2, 1fr); }
       .process-step:nth-child(2)::after, .process-step:nth-child(4)::after { display: none; }
       .project-grid { grid-template-columns: repeat(2, 1fr); }
       .contact-grid { grid-template-columns: repeat(2, 1fr); }
-      .testimonials-grid { grid-template-columns: 1fr; }
       .footer-grid { grid-template-columns: 1fr 1fr; }
       .hero-blob { display: none; }
       .form-row { grid-template-columns: 1fr; }
@@ -336,10 +319,8 @@
       :root { --header-height: 60px; }
       .menu-toggle { display: flex; }
       .nav-links { display: none; }
-      .nav-links.active { display: flex; position: absolute; top: 100%; left: 0; right: 0; background: var(--color-surface); flex-direction: column; padding: 20px 24px 28px; gap: 0; box-shadow: var(--shadow-lg); border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border); animation: slideDown 0.3s ease-out; }
-      @keyframes slideDown { from { opacity: 0; transform: translateY(-12px); } to { opacity: 1; transform: translateY(0); } }
+      .nav-links.active { display: flex; position: absolute; top: 100%; left: 0; right: 0; background: var(--color-surface); flex-direction: column; padding: 20px 24px 28px; gap: 0; box-shadow: var(--shadow-lg); border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border); }
       .nav-links li { padding: 12px 0; border-bottom: 1px solid var(--color-border-subtle); }
-      .nav-links li:last-child { border-bottom: none; }
       .hero-actions { flex-direction: column; }
       .btn { width: 100%; justify-content: center; }
       .process-grid { grid-template-columns: 1fr; }
@@ -352,34 +333,33 @@
       .footer-grid { grid-template-columns: 1fr; }
       .footer-bottom { flex-direction: column; text-align: center; }
     }
-    @media print {
-      header, .hero, .social-links, .menu-toggle, #hire, .bg-dots { display: none; }
-      section { padding: 2rem 0; page-break-inside: avoid; }
-      a[href]::after { content: " (" attr(href) ")"; font-size: 0.8em; color: var(--color-gray); }
-    }
   </style>
   <base target="_blank">
-<base target="_blank">
 </head>
 <body>
   <div class="bg-dots" aria-hidden="true"></div>
   <a href="#main-content" class="skip-link">Skip to main content</a>
+  
+  <!-- HEADER NAVIGATION -->
   <header>
     <nav aria-label="Main navigation">
-      <a href="#" class="logo" aria-label="RK WebCraft Home">
-        <div class="logo-mark" style="background:linear-gradient(135deg,#0066ff 0%,#0052cc 100%);font-family:'Poppins',sans-serif;font-weight:800;font-size:15px;letter-spacing:-1px;"><img src="logo.png" alt="RK Webcrafts logo" style="width:38px;height:38px;"></div>
-        <div class="logo-text"><div class="logo-name">RK WebCraft</div><div class="logo-tag">Front-end developer</div></div>
+      <a href="#" class="logo" aria-label="RK Webcrafts Home" target="_self">
+        <div class="logo-mark">RK</div>
+        <div class="logo-text">
+          <div class="logo-name">RK Webcrafts</div>
+          <div class="logo-tag">Frontend & AI Web Specialist</div>
+        </div>
       </a>
       <div style="display:flex;align-items:center;gap:4px;">
         <ul class="nav-links" id="navLinks" role="menubar">
-          <li role="none"><a href="#about" role="menuitem">About</a></li>
-          <li role="none"><a href="#services" role="menuitem">Services</a></li>
-          <li role="none"><a href="#projects" role="menuitem">Projects</a></li>
-          <li role="none"><a href="#process" role="menuitem">Process</a></li>
-                    <li role="none"><a href="#faq" role="menuitem">FAQ</a></li>
-          <li role="none"><a href="#contact" role="menuitem">Contact</a></li>
+          <li role="none"><a href="#about" role="menuitem" target="_self">About</a></li>
+          <li role="none"><a href="#services-work" role="menuitem" target="_self">Services & Work</a></li>
+          <li role="none"><a href="#why-me" role="menuitem" target="_self">Why Hire Me</a></li>
+          <li role="none"><a href="#process" role="menuitem" target="_self">Process</a></li>
+          <li role="none"><a href="#faq" role="menuitem" target="_self">FAQ</a></li>
+          <li role="none"><a href="#contact" role="menuitem" target="_self">Contact</a></li>
         </ul>
-        <a href="#contact" class="btn btn-accent" style="padding:8px 18px;font-size:13px;margin-left:8px;" id="navCta">Get quote</a>
+        <a href="#contact" class="btn btn-accent" style="padding:8px 18px;font-size:13px;margin-left:8px;" id="navCta" target="_self">Start Project</a>
         <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode" title="Toggle theme">
           <svg id="themeIcon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
         </button>
@@ -391,390 +371,498 @@
   </header>
 
   <main id="main-content">
+    <!-- HERO SECTION -->
     <section class="hero" aria-label="Introduction">
       <div class="hero-blob" aria-hidden="true"></div>
       <div class="hero-content">
-        <span class="hero-badge"><span aria-hidden="true"></span> Available for freelance work</span>
-        <h1>Front-end developer for <span>small businesses</span></h1>
-        <p>I build fast, responsive websites that help local businesses get more customers online. Based in Thiruvannamalai, Tamil Nadu — working with clients across India.</p>
+        <span class="hero-badge"><span aria-hidden="true"></span> Available for Freelance & Contract Work</span>
+        <h1>I create fast, conversion-focused websites that help <span>businesses grow</span></h1>
+        <p>I build modern landing pages, dashboard UIs, and responsive web applications using HTML, CSS, JavaScript, React, and AI tools. Delivering pixel-perfect frontend experiences for startups, agencies, and businesses worldwide.</p>
         <div class="hero-actions">
-          <a href="#projects" class="btn btn-accent">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right:4px"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-            View projects
+          <a href="#contact" class="btn btn-accent" target="_self">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+            Let's Build Your Website
           </a>
-          <a href="#contact" class="btn btn-outline">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right:4px"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
-            Get a quote
+          <a href="#services-work" class="btn btn-outline" target="_self">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+            Explore Services & Work
           </a>
         </div>
       </div>
     </section>
 
+    <!-- ABOUT SECTION -->
     <section id="about" aria-labelledby="about-heading" class="reveal">
       <div class="section-header">
-        <span class="section-label">About</span>
-        <h2 id="about-heading">About me</h2>
-        <p class="section-subtitle">Clean code, clear communication, and delivering on time.</p>
+        <span class="section-label">About Me</span>
+        <h2 id="about-heading">Engineering clean, performant web experiences</h2>
+        <p class="section-subtitle">Passionate Frontend Developer continuously building modern web applications, conversion-driven UIs, and seamless user experiences.</p>
       </div>
       <div class="about-grid">
         <div class="about-text">
-          <p>I am <strong>Arun R</strong>, a front-end developer based in <strong>Thiruvannamalai, Tamil Nadu</strong>. I help small businesses and local shops create their online presence without spending too much.</p>
-          <p>I specialize in building <strong>responsive websites, landing pages, and admin dashboards</strong> using HTML, CSS, JavaScript, and React. Every site I make is mobile-friendly, loads fast, and looks professional — because most of your customers are browsing on their phones.</p>
-          <p>Whether you need a simple business website, a product landing page to get leads, or a dashboard to manage your data, I can build it. I focus on clean code, clear communication, and delivering on time.</p>
-          <div class="skills" role="list" aria-label="Technical skills">
-            <span class="skill-tag" role="listitem">HTML5</span>
-            <span class="skill-tag" role="listitem">CSS3</span>
-            <span class="skill-tag" role="listitem">JavaScript</span>
-            <span class="skill-tag" role="listitem">React.js</span>
-            <span class="skill-tag" role="listitem">Tailwind CSS</span>
-            <span class="skill-tag" role="listitem">Bootstrap</span>
-            <span class="skill-tag" role="listitem">Responsive design</span>
-            <span class="skill-tag" role="listitem">UI/UX</span>
-            <span class="skill-tag" role="listitem">Git</span>
-            <span class="skill-tag" role="listitem">REST APIs</span>
+          <p>I am <strong>Arun R</strong>, a Frontend Web Developer & AI Solutions Specialist. I turn client requirements and modern design concepts into fast, responsive, and production-ready web interfaces.</p>
+          <p>I specialize in building <strong>interactive React single-page apps, intuitive admin dashboards, conversion-focused startup landing pages, custom e-commerce interfaces, and integrating AI features</strong>. Every site I build is mobile-first, optimized for Google PageSpeed, and engineered to convert site visitors into paying customers.</p>
+          
+          <!-- SKILL VISUALIZATION BARS -->
+          <div class="skills-container" aria-label="Technical Proficiency">
+            <div class="skill-bar-group">
+              <div class="skill-bar-header"><span>HTML5 & Semantic Markup</span><span>100%</span></div>
+              <div class="skill-bar-bg"><div class="skill-bar-fill" style="width: 100%;"></div></div>
+            </div>
+            <div class="skill-bar-group">
+              <div class="skill-bar-header"><span>CSS3 / Tailwind / Responsive UI</span><span>95%</span></div>
+              <div class="skill-bar-bg"><div class="skill-bar-fill" style="width: 95%;"></div></div>
+            </div>
+            <div class="skill-bar-group">
+              <div class="skill-bar-header"><span>JavaScript (ES6+)</span><span>85%</span></div>
+              <div class="skill-bar-bg"><div class="skill-bar-fill" style="width: 85%;"></div></div>
+            </div>
+            <div class="skill-bar-group">
+              <div class="skill-bar-header"><span>React.js & State Management</span><span>80%</span></div>
+              <div class="skill-bar-bg"><div class="skill-bar-fill" style="width: 80%;"></div></div>
+            </div>
+            <div class="skill-bar-group">
+              <div class="skill-bar-header"><span>Responsive Design & Mobile Optimization</span><span>95%</span></div>
+              <div class="skill-bar-bg"><div class="skill-bar-fill" style="width: 95%;"></div></div>
+            </div>
+          </div>
+
+          <!-- TECH STACK PILLS -->
+          <div class="tech-icons-grid" role="list" aria-label="Tools and Technologies">
+            <span class="tech-pill" role="listitem">🌐 HTML5</span>
+            <span class="tech-pill" role="listitem">🎨 CSS3</span>
+            <span class="tech-pill" role="listitem">⚡ JavaScript (ES6+)</span>
+            <span class="tech-pill" role="listitem">⚛️ React.js</span>
+            <span class="tech-pill" role="listitem">💨 Tailwind CSS</span>
+            <span class="tech-pill" role="listitem">🐙 Git / GitHub</span>
+            <span class="tech-pill" role="listitem">🤖 AI Tools & Integrations</span>
+            <span class="tech-pill" role="listitem">🚀 REST APIs</span>
           </div>
         </div>
+
         <div class="stats-card reveal reveal-delay-2">
           <div style="padding-top:8px;">
-            <div class="stat-row"><span class="stat-label">Experience</span><span class="stat-value">1+ years</span></div>
-            <div class="stat-row"><span class="stat-label">Projects delivered</span><span class="stat-value">10+</span></div>
-            <div class="stat-row"><span class="stat-label">Response time</span><span class="stat-value">Under 24h</span></div>
-            <div class="stat-row"><span class="stat-label">Client satisfaction</span><span class="stat-value">100%</span></div>
+            <div class="stat-row"><span class="stat-label">Core Specialization</span><span class="stat-value">Frontend UI & React</span></div>
+            <div class="stat-row"><span class="stat-label">Code Quality</span><span class="stat-value">Clean & Reusable</span></div>
+            <div class="stat-row"><span class="stat-label">Typical Delivery</span><span class="stat-value">3–7 Days</span></div>
+            <div class="stat-row"><span class="stat-label">Support Window</span><span class="stat-value">Mon–Sat</span></div>
+            <div class="stat-row"><span class="stat-label">Freelance Outlets</span><span class="stat-value">Fiverr & Contra</span></div>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="services" aria-labelledby="services-heading" class="reveal">
+    <!-- UNIFIED SERVICES & FEATURED PORTFOLIO SECTION -->
+    <section id="services-work" aria-labelledby="services-work-heading" class="reveal">
       <div class="section-header">
-        <span class="section-label">Services</span>
-        <h2 id="services-heading">Services & pricing</h2>
-        <p class="section-subtitle">Clear pricing, no hidden costs. Choose what fits your business needs.</p>
+        <span class="section-label">Services & Selected Work</span>
+        <h2 id="services-work-heading">High-Demand Solutions & Live Projects</h2>
+        <p class="section-subtitle">Real-world case studies formatted as Problem $\rightarrow$ Solution $\rightarrow$ Result, complete with code inspection and live working demos.</p>
       </div>
-      <div class="services-grid">
-        <div class="service-card reveal reveal-delay-1">
-          <div class="service-icon">⚡</div>
-          <h3>Landing page</h3>
-          <p>A single-page website designed to convert visitors into customers. Perfect for product launches, service promotions, or lead generation.</p>
-          <ul class="service-features"><li>Mobile-friendly design</li><li>Contact form integration</li><li>Fast loading speed</li><li>1 round of revisions</li></ul>
-          <div class="service-price">₹5,000 <span>starting price</span></div>
-          <div class="service-scope">
-            <div class="service-scope-title">What is included</div>
-            <div class="service-scope-item"><span>Design + Development</span><span>✓</span></div>
-            <div class="service-scope-item"><span>1 round of revisions</span><span>✓</span></div>
-            <div class="service-scope-item"><span>Extra pages</span><span>₹1,500 each</span></div>
-            <div class="service-scope-item"><span>Delivery time</span><span>3–5 days</span></div>
-          </div>
-        </div>
-        <div class="service-card featured reveal reveal-delay-2">
-          <div class="service-icon">🏢</div>
-          <h3>Business website</h3>
-          <p>A complete multi-page website for your business. Home, About, Services, Contact, and more — everything you need to look professional online.</p>
-          <ul class="service-features"><li>Up to 5 pages</li><li>SEO-friendly structure</li><li>Google Maps integration</li><li>2 rounds of revisions</li></ul>
-          <div class="service-price">₹12,000 <span>starting price</span></div>
-          <div class="service-scope">
-            <div class="service-scope-title">What is included</div>
-            <div class="service-scope-item"><span>Design + Development</span><span>✓</span></div>
-            <div class="service-scope-item"><span>2 rounds of revisions</span><span>✓</span></div>
-            <div class="service-scope-item"><span>Extra pages</span><span>₹2,000 each</span></div>
-            <div class="service-scope-item"><span>Delivery time</span><span>7–10 days</span></div>
-          </div>
-        </div>
-        <div class="service-card reveal reveal-delay-3">
-          <div class="service-icon">🔧</div>
-          <h3>Website maintenance</h3>
-          <p>Keep your website running smoothly with regular updates, security checks, and content changes. No technical headaches for you.</p>
-          <ul class="service-features"><li>Monthly backups</li><li>Security updates</li><li>Content updates (up to 5/month)</li><li>Priority support</li></ul>
-          <div class="service-price">₹2,000 <span>/month</span></div>
-          <div class="service-scope">
-            <div class="service-scope-title">What is included</div>
-            <div class="service-scope-item"><span>Monthly backups</span><span>✓</span></div>
-            <div class="service-scope-item"><span>Content updates</span><span>Up to 5/mo</span></div>
-            <div class="service-scope-item"><span>Extra updates</span><span>₹300 each</span></div>
-            <div class="service-scope-item"><span>Response time</span><span>Within 24h</span></div>
-          </div>
-        </div>
-      </div>
-    </section>
 
-    <section id="process" aria-labelledby="process-heading" class="reveal">
-      <div class="section-header">
-        <span class="section-label">Process</span>
-        <h2 id="process-heading">How I work</h2>
-        <p class="section-subtitle">A simple, transparent process from first message to live website.</p>
-      </div>
-      <div class="process-grid">
-        <div class="process-step reveal reveal-delay-1"><div class="process-num">1</div><h3>Free consultation</h3><p>Tell me about your business and what you need. I will suggest the best solution for your budget.</p><span class="process-timeline">1–2 days</span></div>
-        <div class="process-step reveal reveal-delay-2"><div class="process-num">2</div><h3>Clear proposal</h3><p>I send you a detailed quote with timeline, deliverables, and price — no surprises later.</p><span class="process-timeline">2–3 days</span></div>
-        <div class="process-step reveal reveal-delay-3"><div class="process-num">3</div><h3>Build & review</h3><p>I build your site with weekly updates. You review and give feedback at each stage.</p><span class="process-timeline">3–10 days</span></div>
-        <div class="process-step reveal reveal-delay-4"><div class="process-num">4</div><h3>Launch & handover</h3><p>Your site goes live! I provide a simple guide so you can make basic updates yourself.</p><span class="process-timeline">1 day</span></div>
-        <div class="process-step reveal"><div class="process-num">5</div><h3>Ongoing support</h3><p>Optional monthly maintenance to keep your site secure, fast, and up-to-date.</p><span class="process-timeline">Monthly</span></div>
-      </div>
-    </section>
-
-    <section id="projects" aria-labelledby="projects-heading" class="reveal">
-      <div class="section-header">
-        <span class="section-label">Portfolio</span>
-        <h2 id="projects-heading">Featured projects</h2>
-        <p class="section-subtitle">Real projects I have built to solve real problems. Click to view the live demo.</p>
-      </div>
-      <div class="project-tabs" role="tablist" aria-label="Filter projects by category">
-        <button class="project-tab active" role="tab" aria-selected="true" data-filter="all" onclick="filterProjects('all', this)">All</button>
-        <button class="project-tab" role="tab" aria-selected="false" data-filter="landing" onclick="filterProjects('landing', this)">Landing pages</button>
-        <button class="project-tab" role="tab" aria-selected="false" data-filter="dashboard" onclick="filterProjects('dashboard', this)">Dashboards</button>
-        <button class="project-tab" role="tab" aria-selected="false" data-filter="ecommerce" onclick="filterProjects('ecommerce', this)">E-commerce</button>
-      </div>
       <div class="project-grid" id="projectGrid">
 
-        <a href="https://rkwebcrafts.github.io/portfolio/demo/business-landing/" class="project-card reveal" data-category="landing" target="_blank" rel="noopener noreferrer">
-          <div class="project-image" style="background: linear-gradient(135deg, #1e3a5f 0%, #2d5a87 100%);">
-            <span class="project-status live">Live Demo</span>
-            <svg class="project-image-pattern" width="100%" height="100%" viewBox="0 0 400 180" preserveAspectRatio="none"><rect width="400" height="180" fill="white" opacity="0.03"/><circle cx="320" cy="40" r="80" fill="white" opacity="0.04"/></svg>
-            <span class="project-image-icon">🏢</span>
-            <div class="project-image-overlay"><span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>View live demo</span></div>
+        <!-- CARD 1: AI-POWERED LANDING PAGE -->
+        <div class="project-card reveal">
+          <div class="card-img-wrap">
+            <span style="position: absolute; top: 12px; left: 12px; background: rgba(16,185,129,0.95); color: #fff; font-size: 11px; font-weight: 700; padding: 4px 10px; border-radius: var(--radius-sm); z-index: 2;">STARTS AT $99</span>
+            <span style="position: absolute; top: 12px; right: 12px; background: rgba(0,102,255,0.9); color: #fff; font-size: 10px; font-weight: 700; padding: 4px 8px; border-radius: 4px; z-index: 2; text-transform: uppercase;">AI Landing Page</span>
+            <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80" alt="NexusAI SaaS Landing Page Screenshot" onerror="this.onerror=null; this.src='images/projects/nexus-ai-desktop.png';">
           </div>
+          
           <div class="project-content">
-            <div class="project-meta"><span class="project-tag">HTML</span><span class="project-tag">CSS</span><span class="project-tag">JavaScript</span></div>
-            <h3>Business landing page</h3>
-            <p>A professional landing page for a local service business. Features hero section with trust badges, services grid, client testimonials carousel, pricing cards, and a working contact form with validation. Mobile-first, loads under 2 seconds.</p>
-            <div class="project-links"><span class="btn-sm"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right:4px"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>View live demo</span></div>
-          </div>
-        </a>
+            <h3 style="font-size: 1.15rem; font-weight: 700; margin-bottom: 8px;">NexusAI — SaaS Startup Landing Page</h3>
+            
+            <p style="font-size: 0.88rem; color: var(--color-text-muted); line-height: 1.6; margin-bottom: 12px;">
+              <strong>Problem:</strong> AI startup needed a high-converting landing page with sub-second loading speeds to capture early waitlist signups.<br>
+              <strong>Solution:</strong> Built a lightweight, mobile-first dark theme UI with embedded AI chatbot widget and instant form validation.<br>
+              <strong>Result:</strong> Achieved a 99/100 Google PageSpeed score and 100% mobile responsiveness.
+            </p>
 
-        <a href="https://rkwebcrafts.github.io/portfolio/demo/product-landing/" class="project-card reveal reveal-delay-1" data-category="landing" target="_blank" rel="noopener noreferrer">
-          <div class="project-image" style="background: linear-gradient(135deg, #7c3aed 0%, #a855f7 100%);">
-            <span class="project-status live">Live Demo</span>
-            <svg class="project-image-pattern" width="100%" height="100%" viewBox="0 0 400 180" preserveAspectRatio="none"><rect width="400" height="180" fill="white" opacity="0.03"/><circle cx="80" cy="140" r="60" fill="white" opacity="0.04"/></svg>
-            <span class="project-image-icon">📦</span>
-            <div class="project-image-overlay"><span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>View live demo</span></div>
-          </div>
-          <div class="project-content">
-            <div class="project-meta"><span class="project-tag">HTML</span><span class="project-tag">CSS</span><span class="project-tag">JavaScript</span></div>
-            <h3>Product landing page</h3>
-            <p>A high-converting product launch page with feature highlights, image gallery with zoom, pricing tiers with toggle, FAQ accordion, and countdown timer for limited offers. Built for a fitness equipment brand.</p>
-            <div class="project-links"><span class="btn-sm"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right:4px"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>View live demo</span></div>
-          </div>
-        </a>
+            <div style="margin-bottom: 16px;">
+              <span style="font-size: 11px; font-weight: 700; text-transform: uppercase; color: var(--color-text-muted); display: block; margin-bottom: 6px;">Tech Stack</span>
+              <div style="display: flex; gap: 6px; flex-wrap: wrap;">
+                <span style="padding: 3px 8px; border-radius: 4px; background: var(--color-gray-bg); color: var(--color-text); font-size: 11px; font-weight: 600;">HTML5</span>
+                <span style="padding: 3px 8px; border-radius: 4px; background: var(--color-gray-bg); color: var(--color-text); font-size: 11px; font-weight: 600;">CSS3</span>
+                <span style="padding: 3px 8px; border-radius: 4px; background: var(--color-gray-bg); color: var(--color-text); font-size: 11px; font-weight: 600;">JavaScript</span>
+                <span style="padding: 3px 8px; border-radius: 4px; background: var(--color-gray-bg); color: var(--color-text); font-size: 11px; font-weight: 600;">OpenAI API</span>
+              </div>
+            </div>
 
-        <a href="https://rkwebcrafts.github.io/portfolio/demo/lead-generation/" class="project-card reveal reveal-delay-2" data-category="landing" target="_blank" rel="noopener noreferrer">
-          <div class="project-image" style="background: linear-gradient(135deg, #059669 0%, #10b981 100%);">
-            <span class="project-status live">Live Demo</span>
-            <svg class="project-image-pattern" width="100%" height="100%" viewBox="0 0 400 180" preserveAspectRatio="none"><rect width="400" height="180" fill="white" opacity="0.03"/><circle cx="200" cy="90" r="70" fill="white" opacity="0.04"/></svg>
-            <span class="project-image-icon">🎯</span>
-            <div class="project-image-overlay"><span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>View live demo</span></div>
+            <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-top: auto;">
+              <a href="https://rkwebcrafts.github.io/portfolio/" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 6px; padding: 8px 14px; background: var(--color-accent); color: #fff; text-decoration: none; border-radius: var(--radius-sm); font-size: 12px; font-weight: 600;">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                Live Demo
+              </a>
+              <a href="https://github.com/rkwebcrafts" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 6px; padding: 8px 14px; background: var(--color-gray-bg); color: var(--color-text); text-decoration: none; border: 1px solid var(--color-border); border-radius: var(--radius-sm); font-size: 12px; font-weight: 600;">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                GitHub Code
+              </a>
+            </div>
           </div>
-          <div class="project-content">
-            <div class="project-meta"><span class="project-tag">HTML</span><span class="project-tag">CSS</span><span class="project-tag">JavaScript</span></div>
-            <h3>Lead generation page</h3>
-            <p>A conversion-focused lead capture page for a real estate agency. Features hero with video background, property showcase grid, mortgage calculator, lead form with multi-step progress, and WhatsApp CTA integration.</p>
-            <div class="project-links"><span class="btn-sm"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right:4px"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>View live demo</span></div>
-          </div>
-        </a>
+        </div>
 
-        <a href="https://rkwebcrafts.github.io/portfolio/demo/event-landing/" class="project-card reveal" data-category="landing" target="_blank" rel="noopener noreferrer">
-          <div class="project-image" style="background: linear-gradient(135deg, #dc2626 0%, #f97316 100%);">
-            <span class="project-status live">Live Demo</span>
-            <svg class="project-image-pattern" width="100%" height="100%" viewBox="0 0 400 180" preserveAspectRatio="none"><rect width="400" height="180" fill="white" opacity="0.03"/><circle cx="350" cy="120" r="50" fill="white" opacity="0.04"/></svg>
-            <span class="project-image-icon">🎤</span>
-            <div class="project-image-overlay"><span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>View live demo</span></div>
+        <!-- CARD 2: DASHBOARD & ADMIN PANEL UI -->
+        <div class="project-card reveal reveal-delay-1">
+          <div class="card-img-wrap">
+            <span style="position: absolute; top: 12px; left: 12px; background: rgba(16,185,129,0.95); color: #fff; font-size: 11px; font-weight: 700; padding: 4px 10px; border-radius: var(--radius-sm); z-index: 2;">STARTS AT $249</span>
+            <span style="position: absolute; top: 12px; right: 12px; background: rgba(124,58,237,0.9); color: #fff; font-size: 10px; font-weight: 700; padding: 4px 8px; border-radius: 4px; z-index: 2; text-transform: uppercase;">Dashboard UI</span>
+            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80" alt="Analytics Admin Dashboard UI Screenshot" onerror="this.onerror=null; this.src='images/projects/metricpulse-dashboard.png';">
           </div>
+          
           <div class="project-content">
-            <div class="project-meta"><span class="project-tag">HTML</span><span class="project-tag">CSS</span><span class="project-tag">JavaScript</span></div>
-            <h3>Event & webinar landing page</h3>
-            <p>An event registration page for a tech conference. Features speaker lineup with bios, schedule timeline, live countdown timer, ticket tier cards, and Stripe-ready payment section. Social proof with attendee counter.</p>
-            <div class="project-links"><span class="btn-sm"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right:4px"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>View live demo</span></div>
-          </div>
-        </a>
+            <h3 style="font-size: 1.15rem; font-weight: 700; margin-bottom: 8px;">MetricPulse — Analytics & CRM Dashboard</h3>
+            
+            <p style="font-size: 0.88rem; color: var(--color-text-muted); line-height: 1.6; margin-bottom: 12px;">
+              <strong>Problem:</strong> Business needed an intuitive admin panel to visualize sales revenue metrics and user activity trends.<br>
+              <strong>Solution:</strong> Developed a responsive dashboard UI with dark/light mode toggle, interactive line/bar charts, date filtering, and collapsible sidebar.<br>
+              <strong>Result:</strong> Clean component architecture ready for REST API integration.
+            </p>
 
-        <a href="https://rkwebcrafts.github.io/portfolio/demo/saas-landing/" class="project-card reveal reveal-delay-1" data-category="landing" target="_blank" rel="noopener noreferrer">
-          <div class="project-image" style="background: linear-gradient(135deg, #0891b2 0%, #06b6d4 100%);">
-            <span class="project-status live">Live Demo</span>
-            <svg class="project-image-pattern" width="100%" height="100%" viewBox="0 0 400 180" preserveAspectRatio="none"><rect width="400" height="180" fill="white" opacity="0.03"/><circle cx="60" cy="50" r="70" fill="white" opacity="0.04"/></svg>
-            <span class="project-image-icon">💻</span>
-            <div class="project-image-overlay"><span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>View live demo</span></div>
-          </div>
-          <div class="project-content">
-            <div class="project-meta"><span class="project-tag">HTML</span><span class="project-tag">CSS</span><span class="project-tag">JavaScript</span></div>
-            <h3>SaaS / app landing page</h3>
-            <p>A modern SaaS product page for a task management app. Features animated hero with app mockup, feature comparison table, interactive pricing calculator, integration logos marquee, and free trial signup with email validation.</p>
-            <div class="project-links"><span class="btn-sm"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right:4px"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>View live demo</span></div>
-          </div>
-        </a>
+            <div style="margin-bottom: 16px;">
+              <span style="font-size: 11px; font-weight: 700; text-transform: uppercase; color: var(--color-text-muted); display: block; margin-bottom: 6px;">Tech Stack</span>
+              <div style="display: flex; gap: 6px; flex-wrap: wrap;">
+                <span style="padding: 3px 8px; border-radius: 4px; background: var(--color-gray-bg); color: var(--color-text); font-size: 11px; font-weight: 600;">JavaScript ES6</span>
+                <span style="padding: 3px 8px; border-radius: 4px; background: var(--color-gray-bg); color: var(--color-text); font-size: 11px; font-weight: 600;">Tailwind CSS</span>
+                <span style="padding: 3px 8px; border-radius: 4px; background: var(--color-gray-bg); color: var(--color-text); font-size: 11px; font-weight: 600;">Chart.js</span>
+              </div>
+            </div>
 
-        <a href="https://rkwebcrafts.github.io/portfolio/demo/admin-dashboard/" class="project-card reveal" data-category="dashboard" target="_blank" rel="noopener noreferrer">
-          <div class="project-image" style="background: linear-gradient(135deg, #1e293b 0%, #334155 100%);">
-            <span class="project-status live">Live Demo</span>
-            <svg class="project-image-pattern" width="100%" height="100%" viewBox="0 0 400 180" preserveAspectRatio="none"><rect width="400" height="180" fill="white" opacity="0.03"/><rect x="40" y="40" width="320" height="100" rx="4" fill="white" opacity="0.02"/></svg>
-            <span class="project-image-icon">⚙️</span>
-            <div class="project-image-overlay"><span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>View live demo</span></div>
+            <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-top: auto;">
+              <a href="https://rkwebcrafts.github.io/portfolio/" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 6px; padding: 8px 14px; background: var(--color-accent); color: #fff; text-decoration: none; border-radius: var(--radius-sm); font-size: 12px; font-weight: 600;">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                Live Demo
+              </a>
+              <a href="https://github.com/rkwebcrafts" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 6px; padding: 8px 14px; background: var(--color-gray-bg); color: var(--color-text); text-decoration: none; border: 1px solid var(--color-border); border-radius: var(--radius-sm); font-size: 12px; font-weight: 600;">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                GitHub Code
+              </a>
+            </div>
           </div>
-          <div class="project-content">
-            <div class="project-meta"><span class="project-tag">HTML</span><span class="project-tag">CSS</span><span class="project-tag">JavaScript</span></div>
-            <h3>Admin dashboard for business</h3>
-            <p>A comprehensive admin panel for a retail business. Features collapsible sidebar, KPI summary cards, recent orders table with pagination, user management with role badges, and notification dropdown. Dark mode toggle included.</p>
-            <div class="project-links"><span class="btn-sm"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right:4px"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>View live demo</span></div>
-          </div>
-        </a>
+        </div>
 
-        <a href="https://rkwebcrafts.github.io/portfolio/demo/analytics-dashboard/" class="project-card reveal reveal-delay-1" data-category="dashboard" target="_blank" rel="noopener noreferrer">
-          <div class="project-image" style="background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);">
-            <span class="project-status live">Live Demo</span>
-            <svg class="project-image-pattern" width="100%" height="100%" viewBox="0 0 400 180" preserveAspectRatio="none"><rect width="400" height="180" fill="white" opacity="0.03"/><circle cx="200" cy="90" r="60" fill="white" opacity="0.04"/></svg>
-            <span class="project-image-icon">📈</span>
-            <div class="project-image-overlay"><span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>View live demo</span></div>
+        <!-- CARD 3: DEDICATED REACT.JS APPLICATION -->
+        <div class="project-card reveal reveal-delay-2">
+          <div class="card-img-wrap">
+            <span style="position: absolute; top: 12px; left: 12px; background: rgba(16,185,129,0.95); color: #fff; font-size: 11px; font-weight: 700; padding: 4px 10px; border-radius: var(--radius-sm); z-index: 2;">STARTS AT $199</span>
+            <span style="position: absolute; top: 12px; right: 12px; background: rgba(14,165,233,0.9); color: #fff; font-size: 10px; font-weight: 700; padding: 4px 8px; border-radius: 4px; z-index: 2; text-transform: uppercase;">React SPA</span>
+            <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=800&q=80" alt="TaskFlow React Single Page App Screenshot" onerror="this.onerror=null; this.src='images/projects/taskflow-react-app.png';">
           </div>
+          
           <div class="project-content">
-            <div class="project-meta"><span class="project-tag">HTML</span><span class="project-tag">CSS</span><span class="project-tag">JavaScript</span></div>
-            <h3>Analytics dashboard</h3>
-            <p>A data visualization dashboard for a marketing agency. Features line charts, bar charts, and donut charts using Chart.js, date range picker, traffic source breakdown, conversion funnel, and export to CSV functionality.</p>
-            <div class="project-links"><span class="btn-sm"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right:4px"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>View live demo</span></div>
-          </div>
-        </a>
+            <h3 style="font-size: 1.15rem; font-weight: 700; margin-bottom: 8px;">TaskFlow — React Productivity App</h3>
+            
+            <p style="font-size: 0.88rem; color: var(--color-text-muted); line-height: 1.6; margin-bottom: 12px;">
+              <strong>Problem:</strong> Client required a fast, dynamic web app for team task organization with drag-and-drop state management.<br>
+              <strong>Solution:</strong> Built a modular Single Page Application (SPA) using React hooks, local storage sync, and custom UI components.<br>
+              <strong>Result:</strong> Smooth sub-second state re-renders and clean, maintainable JSX code.
+            </p>
 
-        <a href="https://rkwebcrafts.github.io/portfolio/demo/ecommerce-dashboard/" class="project-card reveal reveal-delay-2" data-category="dashboard" target="_blank" rel="noopener noreferrer">
-          <div class="project-image" style="background: linear-gradient(135deg, #be185d 0%, #db2777 100%);">
-            <span class="project-status live">Live Demo</span>
-            <svg class="project-image-pattern" width="100%" height="100%" viewBox="0 0 400 180" preserveAspectRatio="none"><rect width="400" height="180" fill="white" opacity="0.03"/><circle cx="100" cy="80" r="50" fill="white" opacity="0.04"/><circle cx="300" cy="100" r="40" fill="white" opacity="0.03"/></svg>
-            <span class="project-image-icon">🛍️</span>
-            <div class="project-image-overlay"><span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>View live demo</span></div>
-          </div>
-          <div class="project-content">
-            <div class="project-meta"><span class="project-tag">HTML</span><span class="project-tag">CSS</span><span class="project-tag">JavaScript</span></div>
-            <h3>E-commerce dashboard</h3>
-            <p>A complete store management dashboard for an online boutique. Features order tracking with status badges, inventory table with stock alerts, sales trend graph, customer list with purchase history, and revenue calculator.</p>
-            <div class="project-links"><span class="btn-sm"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right:4px"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>View live demo</span></div>
-          </div>
-        </a>
+            <div style="margin-bottom: 16px;">
+              <span style="font-size: 11px; font-weight: 700; text-transform: uppercase; color: var(--color-text-muted); display: block; margin-bottom: 6px;">Tech Stack</span>
+              <div style="display: flex; gap: 6px; flex-wrap: wrap;">
+                <span style="padding: 3px 8px; border-radius: 4px; background: var(--color-gray-bg); color: var(--color-text); font-size: 11px; font-weight: 600;">React.js</span>
+                <span style="padding: 3px 8px; border-radius: 4px; background: var(--color-gray-bg); color: var(--color-text); font-size: 11px; font-weight: 600;">React Hooks</span>
+                <span style="padding: 3px 8px; border-radius: 4px; background: var(--color-gray-bg); color: var(--color-text); font-size: 11px; font-weight: 600;">Tailwind CSS</span>
+                <span style="padding: 3px 8px; border-radius: 4px; background: var(--color-gray-bg); color: var(--color-text); font-size: 11px; font-weight: 600;">REST API</span>
+              </div>
+            </div>
 
-        <a href="https://rkwebcrafts.github.io/portfolio/demo/student-dashboard/" class="project-card reveal" data-category="dashboard" target="_blank" rel="noopener noreferrer">
-          <div class="project-image" style="background: linear-gradient(135deg, #0d9488 0%, #14b8a6 100%);">
-            <span class="project-status live">Live Demo</span>
-            <svg class="project-image-pattern" width="100%" height="100%" viewBox="0 0 400 180" preserveAspectRatio="none"><rect width="400" height="180" fill="white" opacity="0.03"/><circle cx="350" cy="50" r="60" fill="white" opacity="0.04"/></svg>
-            <span class="project-image-icon">🎓</span>
-            <div class="project-image-overlay"><span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>View live demo</span></div>
+            <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-top: auto;">
+              <a href="https://rkwebcrafts.github.io/portfolio/" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 6px; padding: 8px 14px; background: var(--color-accent); color: #fff; text-decoration: none; border-radius: var(--radius-sm); font-size: 12px; font-weight: 600;">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                Live Demo
+              </a>
+              <a href="https://github.com/rkwebcrafts" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 6px; padding: 8px 14px; background: var(--color-gray-bg); color: var(--color-text); text-decoration: none; border: 1px solid var(--color-border); border-radius: var(--radius-sm); font-size: 12px; font-weight: 600;">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                GitHub Code
+              </a>
+            </div>
           </div>
-          <div class="project-content">
-            <div class="project-meta"><span class="project-tag">HTML</span><span class="project-tag">CSS</span><span class="project-tag">JavaScript</span></div>
-            <h3>Student dashboard</h3>
-            <p>A student portal for a coaching center. Features attendance calendar with color-coded days, marks table with grade calculation, assignment todo list with deadlines, progress bar for course completion, and notice board.</p>
-            <div class="project-links"><span class="btn-sm"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right:4px"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>View live demo</span></div>
-          </div>
-        </a>
+        </div>
 
-        <a href="https://rkwebcrafts.github.io/portfolio/demo/finance-dashboard/" class="project-card reveal reveal-delay-1" data-category="dashboard" target="_blank" rel="noopener noreferrer">
-          <div class="project-image" style="background: linear-gradient(135deg, #b45309 0%, #d97706 100%);">
-            <span class="project-status live">Live Demo</span>
-            <svg class="project-image-pattern" width="100%" height="100%" viewBox="0 0 400 180" preserveAspectRatio="none"><rect width="400" height="180" fill="white" opacity="0.03"/><circle cx="200" cy="90" r="70" fill="white" opacity="0.04"/></svg>
-            <span class="project-image-icon">💰</span>
-            <div class="project-image-overlay"><span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>View live demo</span></div>
+        <!-- CARD 4: WEBSITE REDESIGN -->
+        <div class="project-card reveal">
+          <div class="card-img-wrap">
+            <span style="position: absolute; top: 12px; left: 12px; background: rgba(16,185,129,0.95); color: #fff; font-size: 11px; font-weight: 700; padding: 4px 10px; border-radius: var(--radius-sm); z-index: 2;">STARTS AT $149</span>
+            <span style="position: absolute; top: 12px; right: 12px; background: rgba(22,163,74,0.9); color: #fff; font-size: 10px; font-weight: 700; padding: 4px 8px; border-radius: 4px; z-index: 2; text-transform: uppercase;">Redesign</span>
+            <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=800&q=80" alt="Restaurant Website Redesign Screenshot" onerror="this.onerror=null; this.src='images/projects/urbanbite-before-after.png';">
           </div>
+          
           <div class="project-content">
-            <div class="project-meta"><span class="project-tag">HTML</span><span class="project-tag">CSS</span><span class="project-tag">JavaScript</span></div>
-            <h3>Finance dashboard</h3>
-            <p>A personal finance tracker for small business owners. Features income vs expense bar chart, savings goal progress rings, transaction table with category filters, budget alerts, and monthly PDF report generation.</p>
-            <div class="project-links"><span class="btn-sm"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right:4px"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>View live demo</span></div>
-          </div>
-        </a>
+            <h3 style="font-size: 1.15rem; font-weight: 700; margin-bottom: 8px;">UrbanBite — Restaurant Website Redesign</h3>
+            
+            <p style="font-size: 0.88rem; color: var(--color-text-muted); line-height: 1.6; margin-bottom: 12px;">
+              <strong>Problem:</strong> Local restaurant had an outdated, non-responsive website with poor mobile reservation conversion.<br>
+              <strong>Solution:</strong> Redesigned with modern visual layout, digital menu with filterable categories, and instant WhatsApp ordering.<br>
+              <strong>Result:</strong> Reduced bounce rates and created a frictionless mobile booking experience.
+            </p>
 
-        <a href="https://rkwebcrafts.github.io/portfolio/demo/ecommerce-shop/" class="project-card reveal" data-category="ecommerce" target="_blank" rel="noopener noreferrer">
-          <div class="project-image" style="background: linear-gradient(135deg, #ea580c 0%, #f97316 100%);">
-            <span class="project-status live">Live Demo</span>
-            <svg class="project-image-pattern" width="100%" height="100%" viewBox="0 0 400 180" preserveAspectRatio="none"><rect width="400" height="180" fill="white" opacity="0.03"/><circle cx="300" cy="60" r="50" fill="white" opacity="0.04"/></svg>
-            <span class="project-image-icon">🛒</span>
-            <div class="project-image-overlay"><span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>View live demo</span></div>
-          </div>
-          <div class="project-content">
-            <div class="project-meta"><span class="project-tag">HTML</span><span class="project-tag">CSS</span><span class="project-tag">JavaScript</span></div>
-            <h3>Online store frontend</h3>
-            <p>A fully responsive e-commerce product page with image gallery, size/color selectors, add-to-cart functionality, customer reviews section, and related products carousel. Built for a local clothing brand in Tamil Nadu.</p>
-            <div class="project-links"><span class="btn-sm"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right:4px"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>View live demo</span></div>
-          </div>
-        </a>
+            <div style="margin-bottom: 16px;">
+              <span style="font-size: 11px; font-weight: 700; text-transform: uppercase; color: var(--color-text-muted); display: block; margin-bottom: 6px;">Tech Stack</span>
+              <div style="display: flex; gap: 6px; flex-wrap: wrap;">
+                <span style="padding: 3px 8px; border-radius: 4px; background: var(--color-gray-bg); color: var(--color-text); font-size: 11px; font-weight: 600;">HTML5</span>
+                <span style="padding: 3px 8px; border-radius: 4px; background: var(--color-gray-bg); color: var(--color-text); font-size: 11px; font-weight: 600;">CSS3</span>
+                <span style="padding: 3px 8px; border-radius: 4px; background: var(--color-gray-bg); color: var(--color-text); font-size: 11px; font-weight: 600;">JavaScript</span>
+                <span style="padding: 3px 8px; border-radius: 4px; background: var(--color-gray-bg); color: var(--color-text); font-size: 11px; font-weight: 600;">WhatsApp API</span>
+              </div>
+            </div>
 
-        <a href="https://rkwebcrafts.github.io/portfolio/demo/restaurant-menu/" class="project-card reveal reveal-delay-1" data-category="ecommerce" target="_blank" rel="noopener noreferrer">
-          <div class="project-image" style="background: linear-gradient(135deg, #16a34a 0%, #22c55e 100%);">
-            <span class="project-status live">Live Demo</span>
-            <svg class="project-image-pattern" width="100%" height="100%" viewBox="0 0 400 180" preserveAspectRatio="none"><rect width="400" height="180" fill="white" opacity="0.03"/><circle cx="100" cy="100" r="60" fill="white" opacity="0.04"/></svg>
-            <span class="project-image-icon">🍽️</span>
-            <div class="project-image-overlay"><span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>View live demo</span></div>
+            <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-top: auto;">
+              <a href="https://rkwebcrafts.github.io/portfolio/" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 6px; padding: 8px 14px; background: var(--color-accent); color: #fff; text-decoration: none; border-radius: var(--radius-sm); font-size: 12px; font-weight: 600;">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                Live Demo
+              </a>
+              <a href="https://github.com/rkwebcrafts" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 6px; padding: 8px 14px; background: var(--color-gray-bg); color: var(--color-text); text-decoration: none; border: 1px solid var(--color-border); border-radius: var(--radius-sm); font-size: 12px; font-weight: 600;">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                GitHub Code
+              </a>
+            </div>
           </div>
+        </div>
+
+        <!-- CARD 5: E-COMMERCE FRONTEND -->
+        <div class="project-card reveal reveal-delay-1">
+          <div class="card-img-wrap">
+            <span style="position: absolute; top: 12px; left: 12px; background: rgba(16,185,129,0.95); color: #fff; font-size: 11px; font-weight: 700; padding: 4px 10px; border-radius: var(--radius-sm); z-index: 2;">STARTS AT $179</span>
+            <span style="position: absolute; top: 12px; right: 12px; background: rgba(234,88,12,0.9); color: #fff; font-size: 10px; font-weight: 700; padding: 4px 8px; border-radius: 4px; z-index: 2; text-transform: uppercase;">E-Commerce UI</span>
+            <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=800&q=80" alt="E-Commerce Storefront Screenshot" onerror="this.onerror=null; this.src='images/projects/threadco-storefront.png';">
+          </div>
+          
           <div class="project-content">
-            <div class="project-meta"><span class="project-tag">HTML</span><span class="project-tag">CSS</span><span class="project-tag">JavaScript</span></div>
-            <h3>Restaurant menu & ordering</h3>
-            <p>A digital menu and table ordering system for a local restaurant. Features categorized menu with photos, cart with order summary, table number input, special instructions field, and bill total calculator with tax.</p>
-            <div class="project-links"><span class="btn-sm"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right:4px"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>View live demo</span></div>
+            <h3 style="font-size: 1.15rem; font-weight: 700; margin-bottom: 8px;">Thread & Co. — E-Commerce Storefront</h3>
+            
+            <p style="font-size: 0.88rem; color: var(--color-text-muted); line-height: 1.6; margin-bottom: 12px;">
+              <strong>Problem:</strong> Fashion brand required an interactive product UI with dynamic variant selectors and smooth cart interactions.<br>
+              <strong>Solution:</strong> Built image gallery with thumbnail switcher, dynamic size/color selectors, and sliding cart drawer UI.<br>
+              <strong>Result:</strong> Fast, responsive UI optimized specifically for mobile shoppers.
+            </p>
+
+            <div style="margin-bottom: 16px;">
+              <span style="font-size: 11px; font-weight: 700; text-transform: uppercase; color: var(--color-text-muted); display: block; margin-bottom: 6px;">Tech Stack</span>
+              <div style="display: flex; gap: 6px; flex-wrap: wrap;">
+                <span style="padding: 3px 8px; border-radius: 4px; background: var(--color-gray-bg); color: var(--color-text); font-size: 11px; font-weight: 600;">HTML5</span>
+                <span style="padding: 3px 8px; border-radius: 4px; background: var(--color-gray-bg); color: var(--color-text); font-size: 11px; font-weight: 600;">CSS Grid</span>
+                <span style="padding: 3px 8px; border-radius: 4px; background: var(--color-gray-bg); color: var(--color-text); font-size: 11px; font-weight: 600;">JavaScript ES6</span>
+              </div>
+            </div>
+
+            <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-top: auto;">
+              <a href="https://rkwebcrafts.github.io/portfolio/" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 6px; padding: 8px 14px; background: var(--color-accent); color: #fff; text-decoration: none; border-radius: var(--radius-sm); font-size: 12px; font-weight: 600;">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                Live Demo
+              </a>
+              <a href="https://github.com/rkwebcrafts" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 6px; padding: 8px 14px; background: var(--color-gray-bg); color: var(--color-text); text-decoration: none; border: 1px solid var(--color-border); border-radius: var(--radius-sm); font-size: 12px; font-weight: 600;">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                GitHub Code
+              </a>
+            </div>
           </div>
-        </a>
+        </div>
+
+        <!-- CARD 6: BUG FIXES & FRONTEND SUPPORT -->
+        <div class="project-card reveal reveal-delay-2">
+          <div class="card-img-wrap">
+            <span style="position: absolute; top: 12px; left: 12px; background: rgba(16,185,129,0.95); color: #fff; font-size: 11px; font-weight: 700; padding: 4px 10px; border-radius: var(--radius-sm); z-index: 2;">STARTS AT $39</span>
+            <span style="position: absolute; top: 12px; right: 12px; background: rgba(13,148,136,0.9); color: #fff; font-size: 10px; font-weight: 700; padding: 4px 8px; border-radius: 4px; z-index: 2; text-transform: uppercase;">Bug Fixes & Support</span>
+            <img src="https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?auto=format&fit=crop&w=800&q=80" alt="Frontend Bug Fixes and Code Audit Screenshot" onerror="this.onerror=null; this.src='images/projects/bug-fixes-audit.png';">
+          </div>
+          
+          <div class="project-content">
+            <h3 style="font-size: 1.15rem; font-weight: 700; margin-bottom: 8px;">Quick Frontend Troubleshooting & Fixes</h3>
+            
+            <p style="font-size: 0.88rem; color: var(--color-text-muted); line-height: 1.6; margin-bottom: 12px;">
+              <strong>Problem:</strong> Client sites experiencing broken mobile layouts, CSS overflow bugs, or console JavaScript errors.<br>
+              <strong>Solution:</strong> Performed code audits, layout fixes, cross-browser compatibility adjustments, and speed optimization.<br>
+              <strong>Result:</strong> Delivered clean, bug-free fixes within 24 hours with zero visual regressions.
+            </p>
+
+            <div style="margin-bottom: 16px;">
+              <span style="font-size: 11px; font-weight: 700; text-transform: uppercase; color: var(--color-text-muted); display: block; margin-bottom: 6px;">Tech Stack</span>
+              <div style="display: flex; gap: 6px; flex-wrap: wrap;">
+                <span style="padding: 3px 8px; border-radius: 4px; background: var(--color-gray-bg); color: var(--color-text); font-size: 11px; font-weight: 600;">HTML/CSS Fixes</span>
+                <span style="padding: 3px 8px; border-radius: 4px; background: var(--color-gray-bg); color: var(--color-text); font-size: 11px; font-weight: 600;">JS Debugging</span>
+                <span style="padding: 3px 8px; border-radius: 4px; background: var(--color-gray-bg); color: var(--color-text); font-size: 11px; font-weight: 600;">Chrome DevTools</span>
+              </div>
+            </div>
+
+            <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-top: auto;">
+              <a href="https://rkwebcrafts.github.io/portfolio/" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 6px; padding: 8px 14px; background: var(--color-accent); color: #fff; text-decoration: none; border-radius: var(--radius-sm); font-size: 12px; font-weight: 600;">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                Live Demo
+              </a>
+              <a href="https://github.com/rkwebcrafts" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 6px; padding: 8px 14px; background: var(--color-gray-bg); color: var(--color-text); text-decoration: none; border: 1px solid var(--color-border); border-radius: var(--radius-sm); font-size: 12px; font-weight: 600;">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                GitHub Code
+              </a>
+            </div>
+          </div>
+        </div>
+
       </div>
     </section>
 
+    <!-- WHY HIRE ME SECTION -->
+    <section id="why-me" class="reveal">
+      <div class="section-header" style="text-align: center;">
+        <span class="section-label">Trust & Quality</span>
+        <h2>Why Clients Choose Me</h2>
+        <p class="section-subtitle" style="margin: 0 auto;">Addressing common client concerns before project kickoff.</p>
+      </div>
+
+      <div class="trust-grid">
+        <div class="trust-box">
+          <div class="trust-icon">⚡</div>
+          <div class="trust-text">
+            <h4>Fast Loading Speed</h4>
+            <p>Clean code engineered for top Google PageSpeed scores.</p>
+          </div>
+        </div>
+        <div class="trust-box">
+          <div class="trust-icon">📱</div>
+          <div class="trust-text">
+            <h4>100% Mobile Responsive</h4>
+            <p>Tested on real devices across iOS, Android, and tablets.</p>
+          </div>
+        </div>
+        <div class="trust-box">
+          <div class="trust-icon">🎯</div>
+          <div class="trust-text">
+            <h4>Clean UI Execution</h4>
+            <p>Exact match implementation from your project brief or specs.</p>
+          </div>
+        </div>
+        <div class="trust-box">
+          <div class="trust-icon">💬</div>
+          <div class="trust-text">
+            <h4>Prompt Communication</h4>
+            <p>Direct daily updates and project progress tracking.</p>
+          </div>
+        </div>
+        <div class="trust-box">
+          <div class="trust-icon">🔍</div>
+          <div class="trust-text">
+            <h4>SEO & Accessibility First</h4>
+            <p>Built with semantic HTML, WCAG standards, and meta tags.</p>
+          </div>
+        </div>
+        <div class="trust-box">
+          <div class="trust-icon">🤝</div>
+          <div class="trust-text">
+            <h4>Post-Launch Support</h4>
+            <p>Bug-free guarantee and post-delivery assistance.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- POPULAR SOLUTIONS / INDUSTRIES -->
+      <div style="margin-top: 48px; text-align: center;">
+        <h4 style="font-size: 14px; text-transform: uppercase; letter-spacing: 1px; color: var(--color-gray-light); margin-bottom: 12px;">Industries & Solutions I Specialize In</h4>
+        <div class="industries-pills">
+          <span class="industry-pill">🚀 Startups & SaaS</span>
+          <span class="industry-pill">🏢 Small Businesses</span>
+          <span class="industry-pill">🛍️ E-Commerce Frontends</span>
+          <span class="industry-pill">🍽️ Restaurants & Cafes</span>
+          <span class="industry-pill">🏠 Real Estate Portals</span>
+          <span class="industry-pill">🎓 Education & Portals</span>
+          <span class="industry-pill">👨‍💻 Freelancer Portfolios</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROCESS SECTION -->
+    <section id="process" aria-labelledby="process-heading" class="reveal">
+      <div class="section-header">
+        <span class="section-label">Workflow</span>
+        <h2 id="process-heading">A Simple, Transparent Process</h2>
+        <p class="section-subtitle">How we take your project from initial inquiry to live deployment.</p>
+      </div>
+      <div class="process-grid">
+        <div class="process-step reveal reveal-delay-1">
+          <div class="process-num">1</div>
+          <h3>Discovery & Scope</h3>
+          <p>We clarify project goals, design preferences, feature sets, and target audience.</p>
+        </div>
+        <div class="process-step reveal reveal-delay-2">
+          <div class="process-num">2</div>
+          <h3>Proposal & Plan</h3>
+          <p>You receive a clear breakdown of milestones, deliverables, cost, and timeline.</p>
+        </div>
+        <div class="process-step reveal reveal-delay-3">
+          <div class="process-num">3</div>
+          <h3>Development</h3>
+          <p>I build your project with mobile responsiveness and clean code standards.</p>
+        </div>
+        <div class="process-step reveal reveal-delay-4">
+          <div class="process-num">4</div>
+          <h3>Review & Polish</h3>
+          <p>We test across devices and incorporate your feedback and revisions.</p>
+        </div>
+        <div class="process-step reveal">
+          <div class="process-num">5</div>
+          <h3>Launch & Handover</h3>
+          <p>Full project deployment, source code delivery, and handover documentation.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ SECTION -->
     <section id="faq" aria-labelledby="faq-heading" class="reveal">
       <div class="section-header" style="text-align:center;">
         <span class="section-label">FAQ</span>
-        <h2 id="faq-heading">Frequently asked questions</h2>
-        <p class="section-subtitle" style="margin:0 auto;">Got questions? I have got answers. If you do not see yours here, feel free to reach out.</p>
+        <h2 id="faq-heading">Frequently Asked Questions</h2>
+        <p class="section-subtitle" style="margin:0 auto;">Got questions? Here are quick answers regarding working with me on freelance platforms.</p>
       </div>
       <div class="faq-list">
         <div class="faq-item">
           <button class="faq-question" onclick="toggleFaq(this)">
-            How long does it take to build a website?
+            How long does a typical project take?
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
           </button>
-          <div class="faq-answer"><p>A simple landing page takes 3–5 days. A full business website with up to 5 pages takes 7–10 days. Complex dashboards may take 2–3 weeks. I always give you a clear timeline in my proposal before we start.</p></div>
+          <div class="faq-answer"><p>Landing pages typically take 2–4 days. Complete multi-page business sites take 5–8 days, and custom dashboards or React apps take 1–2 weeks depending on UI complexity.</p></div>
         </div>
         <div class="faq-item">
           <button class="faq-question" onclick="toggleFaq(this)">
-            Do I own the code after the project is done?
+            Do I own full source code after project completion?
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
           </button>
-          <div class="faq-answer"><p>Yes, absolutely. Once the project is complete and payment is settled, you own 100% of the code. I will also provide a simple guide so you or your team can make basic text and image updates without needing a developer.</p></div>
+          <div class="faq-answer"><p>Yes, absolutely. Once final delivery is accepted, you own 100% of the repository and intellectual property rights.</p></div>
         </div>
         <div class="faq-item">
           <button class="faq-question" onclick="toggleFaq(this)">
-            What if I need changes after the website is live?
+            Can you convert image or PDF mockups into clean code?
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
           </button>
-          <div class="faq-answer"><p>Minor text or image changes within the first 2 weeks are free. After that, you can opt for my monthly maintenance plan (₹2,000/month) which includes up to 5 content updates per month. One-off changes are charged at ₹300 each.</p></div>
+          <div class="faq-answer"><p>Yes! I can convert image mockups, sketch files, or design references into clean, responsive, and pixel-perfect HTML/CSS or React components.</p></div>
         </div>
         <div class="faq-item">
           <button class="faq-question" onclick="toggleFaq(this)">
-            Do you provide hosting and domain?
+            How do we handle web hosting and domain setup?
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
           </button>
-          <div class="faq-answer"><p>I do not provide hosting or domains directly, but I will guide you through buying them. I recommend Hostinger or Namecheap for domains, and Netlify or Vercel for free hosting. I will also deploy your site for free on these platforms as part of the project.</p></div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-question" onclick="toggleFaq(this)">
-            What payment methods do you accept?
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
-          </button>
-          <div class="faq-answer"><p>I accept UPI (Google Pay, PhonePe, Paytm), bank transfer, and PayPal for international clients. For projects above ₹5,000, I take 50% advance before starting and 50% on delivery. For smaller projects, full payment upfront.</p></div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-question" onclick="toggleFaq(this)">
-            Can you build e-commerce or payment-enabled websites?
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
-          </button>
-          <div class="faq-answer"><p>Currently, I specialize in frontend development — product pages, carts, and checkout UIs. For full e-commerce with payment gateways (Razorpay, Stripe), I can build the frontend and connect you with a backend developer, or we can use no-code tools like Shopify.</p></div>
+          <div class="faq-answer"><p>I can deploy your completed site directly to platforms like Netlify, Vercel, or GitHub Pages for free, or assist in connecting custom domain names from Namecheap or Hostinger.</p></div>
         </div>
       </div>
     </section>
 
+    <!-- HIRE CALL TO ACTION BANNER -->
     <section id="hire" aria-labelledby="hire-heading">
-      <h2 id="hire-heading">Ready to get your business online?</h2>
-      <p>I am currently available for freelance projects. Let us discuss your needs and I will give you a free, no-obligation quote. Most projects start within 48 hours.</p>
-      <a href="#contact" class="btn">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right:4px"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
-        Get your free quote
+      <h2 id="hire-heading">Have a project in mind? Let's build it together!</h2>
+      <p>Available for freelance contracts on Fiverr, Contra, and direct client projects. Contact me today for a free, no-obligation project consultation.</p>
+      <a href="#contact" class="btn" target="_self">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+        Get Free Consultation
       </a>
     </section>
 
+    <!-- CONTACT SECTION -->
     <section id="contact" aria-labelledby="contact-heading" class="reveal">
       <div class="section-header">
         <span class="section-label">Contact</span>
-        <h2 id="contact-heading">Get in touch</h2>
-        <p class="section-subtitle">Have a project in mind? Send me a message and I will reply within 24 hours.</p>
+        <h2 id="contact-heading">Get in Touch</h2>
+        <p class="section-subtitle">Send a direct project inquiry or question. I respond to all messages promptly.</p>
       </div>
+
       <div class="contact-grid">
         <div class="contact-item">
           <div class="contact-icon" aria-hidden="true">✉️</div>
@@ -782,15 +870,15 @@
         </div>
         <div class="contact-item">
           <div class="contact-icon" aria-hidden="true">📞</div>
-          <div class="contact-info"><h4>Phone</h4><a href="tel:+918072427088">+91 80724 27088</a></div>
+          <div class="contact-info"><h4>Phone / WhatsApp</h4><a href="https://wa.me/918072427088">+91 80724 27088</a></div>
         </div>
         <div class="contact-item">
           <div class="contact-icon" aria-hidden="true">📍</div>
-          <div class="contact-info"><h4>Location</h4><p>Thiruvannamalai, Tamil Nadu, India</p></div>
+          <div class="contact-info"><h4>Location</h4><p>Tamil Nadu, India (Available Worldwide)</p></div>
         </div>
         <div class="contact-item">
           <div class="contact-icon" aria-hidden="true">📄</div>
-          <div class="contact-info"><h4>Resume</h4><a href="https://rkwebcrafts.github.io/portfolio/arun%20resume.pdf" download>Download CV (PDF)</a></div>
+          <div class="contact-info"><h4>Resume / CV</h4><a href="https://rkwebcrafts.github.io/portfolio/arun%20resume.pdf" download>Download CV (PDF)</a></div>
         </div>
       </div>
 
@@ -798,77 +886,80 @@
         <form id="contactForm" action="https://formspree.io/f/xnqevwpy" method="POST">
           <div class="form-row">
             <div class="form-group">
-              <label for="name">Your name</label>
+              <label for="name">Your Name</label>
               <input type="text" id="name" name="name" placeholder="John Doe" required>
             </div>
             <div class="form-group">
-              <label for="email">Email address</label>
+              <label for="email">Email Address</label>
               <input type="email" id="email" name="email" placeholder="john@example.com" required>
             </div>
           </div>
           <div class="form-group">
-            <label for="service">What do you need?</label>
+            <label for="service">Select Service Needed</label>
             <select id="service" name="service" required>
-              <option value="" disabled selected>Select a service</option>
-              <option value="landing">Landing page (₹5,000)</option>
-              <option value="business">Business website (₹12,000)</option>
-              <option value="maintenance">Website maintenance (₹2,000/mo)</option>
-              <option value="other">Something else</option>
+              <option value="" disabled selected>Choose a service...</option>
+              <option value="landing">AI-Powered Landing Page ($99+)</option>
+              <option value="dashboard">Dashboard & Admin Panel UI ($249+)</option>
+              <option value="react">React Single Page App ($199+)</option>
+              <option value="ecommerce">E-Commerce & Store Frontend ($179+)</option>
+              <option value="redesign">Website Redesign ($149+)</option>
+              <option value="bugfix">Bug Fix & Frontend Support ($39+)</option>
+              <option value="other">Other / Custom Contract</option>
             </select>
           </div>
           <div class="form-group">
-            <label for="message">Tell me about your project</label>
-            <textarea id="message" name="message" placeholder="I need a website for my restaurant..." required></textarea>
+            <label for="message">Project Details</label>
+            <textarea id="message" name="message" placeholder="Describe your project goals, deadlines, or design requirements..." required></textarea>
           </div>
           <input type="text" name="_gotcha" style="display:none">
           <button type="submit" class="btn btn-accent form-submit">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right:4px"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
-            Send message
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+            Send Project Message
           </button>
-          <div class="form-status success" id="formSuccess">Thank you! Your message has been sent. I will reply within 24 hours.</div>
-          <div class="form-status error" id="formError">Oops! Something went wrong. Please try again or email me directly at rkwebcrafts@gmail.com</div>
+          <div class="form-status success" id="formSuccess">Thank you! Your message has been sent. I will reply as soon as possible.</div>
+          <div class="form-status error" id="formError">Oops! Something went wrong. Please try again or email directly at rkwebcrafts@gmail.com</div>
         </form>
       </div>
 
       <div class="social-links" aria-label="Social media links">
-        <a href="https://linkedin.com/in/arun-r-thiruvannamalai" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="LinkedIn profile of Arun Raja, Frontend Developer">
+        <a href="https://linkedin.com/in/arun-r-thiruvannamalai" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="LinkedIn Profile">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
         </a>
-
-        <a href="https://wa.me/918072427088" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="WhatsApp Arun Raja">
+        <a href="https://wa.me/918072427088" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="WhatsApp Contact">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.47-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
         </a>
       </div>
     </section>
   </main>
 
+  <!-- FOOTER -->
   <footer>
     <div class="footer-content">
       <div class="footer-grid">
         <div>
           <div class="footer-brand">
-            <div class="footer-logo" style="background:linear-gradient(135deg,#0066ff 0%,#0052cc 100%);font-family:'Poppins',sans-serif;font-weight:800;font-size:16px;letter-spacing:-1px;"><img src="logo.png" alt="RK Webcrafts logo" style="width:38px;height:38px;"></div>
+            <div class="footer-logo">RK</div>
             <div>
               <div style="font-family:'Poppins';font-weight:700;font-size:15px;color:#fff;">RK Webcrafts</div>
-              <div style="font-size:12px;color:var(--color-gray-light);">Frontend Developer</div>
+              <div style="font-size:12px;color:var(--color-gray-light);">Frontend & AI Specialist</div>
             </div>
           </div>
-          <p class="footer-desc">Building fast, responsive websites for small businesses across India. Based in Thiruvannamalai, Tamil Nadu.</p>
+          <p class="footer-desc">Crafting performant, high-converting websites and custom interfaces for startups and global clients.</p>
         </div>
         <div>
-          <div class="footer-title">Quick Links</div>
+          <div class="footer-title">Navigation</div>
           <ul class="footer-links">
-            <li><a href="#about">About</a></li>
-            <li><a href="#services">Services</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#process">Process</a></li>
+            <li><a href="#about" target="_self">About</a></li>
+            <li><a href="#services-work" target="_self">Services & Work</a></li>
+            <li><a href="#why-me" target="_self">Why Hire Me</a></li>
+            <li><a href="#process" target="_self">Process</a></li>
           </ul>
         </div>
         <div>
-          <div class="footer-title">Support</div>
+          <div class="footer-title">Freelance</div>
           <ul class="footer-links">
-            <li><a href="#faq">FAQ</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li><a href="#faq" target="_self">FAQ</a></li>
+            <li><a href="#contact" target="_self">Contact</a></li>
             <li><a href="https://rkwebcrafts.github.io/portfolio/arun%20resume.pdf" download>Download CV</a></li>
           </ul>
         </div>
@@ -877,17 +968,18 @@
           <ul class="footer-links">
             <li><a href="https://linkedin.com/in/arun-r-thiruvannamalai" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
             <li><a href="https://wa.me/918072427088" target="_blank" rel="noopener noreferrer">WhatsApp</a></li>
-            <li><a href="mailto:rkwebcrafts@gmail.com">Email</a></li>
+            <li><a href="mailto:rkwebcrafts@gmail.com">Email Direct</a></li>
           </ul>
         </div>
       </div>
       <div class="footer-bottom">
         <p>&copy; <span id="year">2026</span> RK Webcrafts. All rights reserved.</p>
-        <div class="footer-built">Built with <span>HTML</span><span>CSS</span><span>JavaScript</span></div>
+        <p style="color:var(--color-gray-light);font-size:12px;">Available on Fiverr & Contra</p>
       </div>
     </div>
   </footer>
 
+  <!-- JAVASCRIPT HANDLERS -->
   <script>
     // ===== THEME TOGGLE =====
     function toggleTheme() {
@@ -931,26 +1023,6 @@
       document.body.style.overflow = '';
     }
     navLinksItems.forEach(link => link.addEventListener('click', closeMenu));
-    document.addEventListener('click', (e) => {
-      if (!menuToggle.contains(e.target) && !navLinks.contains(e.target) && navLinks.classList.contains('active')) closeMenu();
-    });
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && navLinks.classList.contains('active')) { closeMenu(); menuToggle.focus(); }
-    });
-
-    // ===== PROJECT FILTERING =====
-    function filterProjects(category, btn) {
-      document.querySelectorAll('.project-tab').forEach(t => { t.classList.remove('active'); t.setAttribute('aria-selected', 'false'); });
-      btn.classList.add('active'); btn.setAttribute('aria-selected', 'true');
-      const cards = document.querySelectorAll('.project-card');
-      cards.forEach(card => {
-        if (category === 'all' || card.dataset.category === category) {
-          card.style.display = '';
-          card.style.opacity = '0'; card.style.transform = 'translateY(12px)';
-          requestAnimationFrame(() => { card.style.transition = 'opacity 0.35s ease, transform 0.35s ease'; card.style.opacity = '1'; card.style.transform = 'translateY(0)'; });
-        } else { card.style.display = 'none'; }
-      });
-    }
 
     // ===== FAQ ACCORDION =====
     function toggleFaq(btn) {
@@ -960,17 +1032,7 @@
       if (!isActive) item.classList.add('active');
     }
 
-    // ===== SMOOTH SCROLL =====
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function(e) {
-        const targetId = this.getAttribute('href');
-        if (targetId === '#') return;
-        const targetElement = document.querySelector(targetId);
-        if (targetElement) { e.preventDefault(); targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
-      });
-    });
-
-    // ===== SCROLL REVEAL ANIMATION =====
+    // ===== SCROLL REVEAL OBSERVER =====
     const revealObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -981,7 +1043,7 @@
     }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
     document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
-    // ===== FOOTER YEAR =====
+    // ===== DYNAMIC YEAR =====
     document.getElementById('year').textContent = new Date().getFullYear();
 
     // ===== CONTACT FORM HANDLING =====

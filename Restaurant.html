@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="UrbanBite — Michelin-inspired ultra-luxury fine dining featuring chef-crafted perfection, wine pairings, and private VIP experiences." />
+
+  <title>UrbanBite — Gastronomy & Luxury Fine Dining</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+
+  <!-- Animation Engines: GSAP & ScrollTrigger -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+  <!-- EmailJS Integration SDK -->
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
+  <style>
+    /* ============================================================
+       1. LUXURY DESIGN SYSTEM
+       ============================================================ */
+    :root {
+      --gold-primary: #C89B3C;
+      --gold-light: #F4E0A5;
+      --gold-dark: #8C6A21;
+      --bg-deep: #070707;
+      --bg-surface: #121212;
+      --bg-elevated: #1A1A1A;
+      --text-white: #FFFFFF;
+      --text-muted: #A3A3A3;
+      --glass-bg: rgba(18, 18, 18, 0.75);
+      --glass-border: rgba(200, 155, 60, 0.25);
+      --gold-glow: 0 0 30px rgba(200, 155, 60, 0.35);
+      --font-heading: 'Playfair Display', serif;
+      --font-body: 'Outfit', sans-serif;
+      --transition-smooth: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    ::selection { background: var(--gold-primary); color: #000; }
+    html { scroll-behavior: smooth; }
+    body {
+      background-color: var(--bg-deep);
+      color: var(--text-white);
+      font-family: var(--font-body);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4 { font-family: var(--font-heading); letter-spacing: 0.5px; }
+    a { text-decoration: none; color: inherit; }
+    button { font-family: inherit; }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: var(--bg-deep); }
+    ::-webkit-scrollbar-thumb { background: var(--bg-elevated); border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: var(--gold-primary); }
+
+    /* ============================================================
+       2. CURSOR & LOADER
+       ============================================================ */
+    @media (pointer: fine) {
+      body { cursor: none; }
+      a, button, input, select, textarea, .dish-card, .gallery-item { cursor: none; }
+
+      .cursor-dot {
+        position: fixed; width: 6px; height: 6px; background: var(--gold-primary);
+        border-radius: 50%; pointer-events: none; z-index: 10000; transform: translate(-50%, -50%);
+      }
+      .cursor-ring {
+        position: fixed; width: 38px; height: 38px; border: 1px solid var(--gold-primary);
+        border-radius: 50%; pointer-events: none; z-index: 9999; transform: translate(-50%, -50%);
+        transition: width 0.3s ease, height 0.3s ease, background-color 0.3s ease;
+      }
+      body.cursor-hover .cursor-ring {
+        width: 60px; height: 60px; background-color: rgba(200, 155, 60, 0.12); border-color: var(--gold-light);
+      }
+    }
+
+    .loader-overlay {
+      position: fixed; inset: 0; background-color: var(--bg-deep); z-index: 99999;
+      display: flex; justify-content: center; align-items: center; transition: opacity 0.8s ease, visibility 0.8s;
+    }
+    .loader-content { text-align: center; width: 280px; }
+    .loader-logo { font-size: 2.8rem; margin-bottom: 20px; }
+    .gold-accent { color: var(--gold-primary); }
+    .loader-bar-bg { width: 100%; height: 2px; background: rgba(255,255,255,0.1); margin-bottom: 12px; }
+    .loader-bar-fill { width: 0%; height: 100%; background: var(--gold-primary); transition: width 0.1s linear; }
+
+    /* ============================================================
+       3. NAVIGATION & FLOATING NAVBAR
+       ============================================================ */
+    .navbar-wrapper {
+      position: fixed; top: 24px; left: 0; right: 0; display: flex; justify-content: center; z-index: 1000; padding: 0 24px;
+    }
+    .floating-navbar {
+      width: 100%; max-width: 1240px; background: var(--glass-bg); backdrop-filter: blur(18px);
+      border: 1px solid var(--glass-border); border-radius: 100px; padding: 12px 30px;
+      display: flex; justify-content: space-between; align-items: center; box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+    }
+    .logo-brand { font-family: var(--font-heading); font-size: 1.8rem; font-weight: 700; }
+    .nav-links { display: flex; gap: 24px; }
+    .nav-item { color: var(--text-muted); font-size: 0.92rem; font-weight: 500; position: relative; padding: 4px 0; }
+    .nav-item::after {
+      content: ''; position: absolute; bottom: 0; left: 50%; width: 0; height: 2px;
+      background: var(--gold-primary); transition: var(--transition-smooth); transform: translateX(-50%);
+    }
+    .nav-item:hover, .nav-item.active { color: var(--text-white); }
+    .nav-item:hover::after, .nav-item.active::after { width: 100%; }
+
+    .btn-gold-magnetic {
+      position: relative; display: inline-flex; align-items: center; justify-content: center;
+      padding: 12px 28px; background: linear-gradient(135deg, var(--gold-primary), var(--gold-dark));
+      color: #000; font-weight: 600; font-size: 0.85rem; letter-spacing: 1px; border-radius: 50px; border: none; overflow: hidden;
+      transition: var(--transition-smooth);
+    }
+    .btn-gold-magnetic:hover { box-shadow: var(--gold-glow); transform: translateY(-3px) scale(1.02); }
+
+    /* ============================================================
+       4. HERO SECTION
+       ============================================================ */
+    .hero {
+      position: relative; min-height: 100vh; display: flex; flex-direction: column;
+      justify-content: center; align-items: center; text-align: center; padding: 140px 24px 100px; overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute; inset: 0;
+      background: url('https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+      z-index: -5; transform: scale(1.1);
+    }
+    .hero-overlay {
+      position: absolute; inset: 0;
+      background: radial-gradient(circle, rgba(7,7,7,0.5) 0%, rgba(7,7,7,0.95) 100%); z-index: -3;
+    }
+    .michelin-badge { color: var(--gold-primary); font-size: 0.85rem; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 20px; font-weight: 600; }
+    .hero h1 { font-size: clamp(3.2rem, 7.5vw, 6rem); line-height: 1.08; margin-bottom: 24px; font-weight: 800; }
+    .hero p.tagline { font-size: 1.25rem; color: var(--text-muted); margin-bottom: 40px; max-width: 650px; font-weight: 300; }
+
+    /* ============================================================
+       5. LAYOUT SECTIONS & COMPONENTS
+       ============================================================ */
+    .section { padding: 120px 24px; max-width: 1240px; margin: 0 auto; }
+    .section-title { text-align: center; margin-bottom: 60px; }
+    .section-title span { color: var(--gold-primary); text-transform: uppercase; letter-spacing: 3px; font-size: 0.85rem; font-weight: 600; }
+    .section-title h2 { font-size: 3.2rem; margin-top: 12px; }
+
+    /* Interactive Menu Controls */
+    .menu-controls { display: flex; justify-content: space-between; align-items: center; margin-bottom: 40px; flex-wrap: wrap; gap: 20px; }
+    .menu-tabs { display: flex; gap: 12px; flex-wrap: wrap; }
+    .tab-btn {
+      padding: 10px 22px; border-radius: 30px; background: var(--bg-surface);
+      border: 1px solid rgba(255,255,255,0.08); color: var(--text-muted); transition: var(--transition-smooth);
+    }
+    .tab-btn.active, .tab-btn:hover { background: var(--gold-primary); color: #000; border-color: var(--gold-primary); }
+
+    .search-input {
+      padding: 10px 20px; border-radius: 30px; background: var(--bg-surface);
+      border: 1px solid rgba(255,255,255,0.1); color: var(--text-white); outline: none; width: 260px;
+    }
+
+    /* Dishes Grid & Cards */
+    .dishes-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(330px, 1fr)); gap: 32px; }
+    .dish-card {
+      background: var(--bg-surface); border-radius: 20px; border: 1px solid rgba(255,255,255,0.06);
+      overflow: hidden; transition: var(--transition-smooth); transform-style: preserve-3d;
+    }
+    .dish-card:hover { border-color: var(--gold-primary); box-shadow: var(--gold-glow); }
+    .dish-img-wrap { height: 240px; overflow: hidden; position: relative; }
+    .dish-img-wrap img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
+    .dish-card:hover .dish-img-wrap img { transform: scale(1.08); }
+    .dish-body { padding: 28px; }
+    .dish-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
+    .price { color: var(--gold-primary); font-size: 1.4rem; font-weight: 700; }
+
+    /* Timeline Section */
+    .timeline { position: relative; max-width: 800px; margin: 0 auto; }
+    .timeline::before { content: ''; position: absolute; top:0; bottom:0; left:50%; width: 2px; background: var(--glass-border); }
+    .timeline-item { margin-bottom: 50px; position: relative; width: 50%; padding: 0 40px; }
+    .timeline-item:nth-child(odd) { left: 0; text-align: right; }
+    .timeline-item:nth-child(even) { left: 50%; text-align: left; }
+    .timeline-dot {
+      position: absolute; top: 0; width: 16px; height: 16px; background: var(--gold-primary);
+      border-radius: 50%; box-shadow: var(--gold-glow);
+    }
+    .timeline-item:nth-child(odd) .timeline-dot { right: -8px; }
+    .timeline-item:nth-child(even) .timeline-dot { left: -8px; }
+
+    /* Gallery Masonry */
+    .gallery-masonry { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .gallery-item { height: 260px; border-radius: 16px; overflow: hidden; position: relative; }
+    .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
+    .gallery-item:hover img { transform: scale(1.1); }
+
+    /* Testimonials Slider */
+    .testimonial-box {
+      background: var(--bg-surface); border: 1px solid var(--glass-border); border-radius: 24px;
+      padding: 50px; text-align: center; max-width: 800px; margin: 0 auto; position: relative;
+    }
+
+    /* Modals & Fullscreen Lightbox */
+    .modal-overlay {
+      position: fixed; inset: 0; background: rgba(0,0,0,0.92); backdrop-filter: blur(12px);
+      z-index: 10002; display: flex; justify-content: center; align-items: center;
+      opacity: 0; visibility: hidden; transition: var(--transition-smooth); padding: 20px;
+    }
+    .modal-overlay.active { opacity: 1; visibility: visible; }
+    .modal-box {
+      background: var(--bg-surface); border: 1px solid var(--gold-primary); border-radius: 24px;
+      max-width: 650px; width: 100%; padding: 40px; position: relative; max-height: 90vh; overflow-y: auto;
+    }
+    .modal-close { position: absolute; top: 20px; right: 24px; background: none; border: none; color: var(--text-muted); font-size: 1.8rem; }
+
+    /* Lightbox Layout */
+    .lightbox-img-wrap { max-width: 85vw; max-height: 80vh; position: relative; text-align: center; }
+    .lightbox-img-wrap img { max-width: 100%; max-height: 80vh; border-radius: 12px; border: 1px solid var(--glass-border); }
+    .lightbox-nav {
+      position: absolute; top: 50%; transform: translateY(-50%); background: rgba(0,0,0,0.6);
+      border: 1px solid var(--glass-border); color: #fff; width: 50px; height: 50px; border-radius: 50%;
+      display: flex; justify-content: center; align-items: center; font-size: 1.5rem;
+    }
+    .lightbox-prev { left: -70px; }
+    .lightbox-next { right: -70px; }
+
+    /* Reservation Form */
+    .res-card { background: var(--glass-bg); backdrop-filter: blur(20px); border: 1px solid var(--glass-border); border-radius: 28px; padding: 60px; }
+    .res-form { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+    .res-form .full-width { grid-column: span 2; }
+    .form-control {
+      width: 100%; padding: 16px 20px; background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; color: var(--text-white); outline: none; transition: var(--transition-smooth);
+    }
+    .form-control:focus { border-color: var(--gold-primary); background: rgba(255,255,255,0.06); }
+
+    /* Footer */
+    footer { background: #040404; border-top: 1px solid rgba(255,255,255,0.06); padding: 100px 24px 40px; }
+    .footer-grid { max-width: 1240px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 50px; margin-bottom: 70px; }
+
+    @media (max-width: 900px) {
+      .nav-links { display: none; }
+      .timeline::before { left: 20px; }
+      .timeline-item { width: 100%; text-align: left !important; padding-left: 50px; }
+      .timeline-item:nth-child(even) { left: 0; }
+      .timeline-dot { left: 12px !important; }
+      .res-form { grid-template-columns: 1fr; }
+      .res-form .full-width { grid-column: span 1; }
+      .lightbox-prev { left: 10px; }
+      .lightbox-next { right: 10px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Custom Cursor -->
+  <div class="cursor-dot" id="cursorDot"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+
+  <!-- Preloader -->
+  <div id="loader" class="loader-overlay">
+    <div class="loader-content">
+      <h1 class="loader-logo">Urban<span class="gold-accent">Bite</span></h1>
+      <div class="loader-bar-bg"><div class="loader-bar-fill" id="loaderFill"></div></div>
+      <span style="font-size: 0.75rem; letter-spacing: 3px; color: var(--text-muted);">GASTRONOMY ELEVATED</span>
+    </div>
+  </div>
+
+  <!-- Navigation Bar -->
+  <div class="navbar-wrapper">
+    <nav class="floating-navbar" id="navbar">
+      <a href="#" class="logo-brand">Urban<span class="gold-accent">Bite</span></a>
+      <div class="nav-links">
+        <a href="#home" class="nav-item active">Home</a>
+        <a href="#menu" class="nav-item">Menu</a>
+        <a href="#wine" class="nav-item">Wine Cellar</a>
+        <a href="#timeline" class="nav-item">Chef's Journey</a>
+        <a href="#gallery" class="nav-item">Gallery</a>
+        <a href="#reservation" class="nav-item">Reservation</a>
+      </div>
+      <a href="#reservation" class="btn-gold-magnetic">BOOK TABLE &rarr;</a>
+    </nav>
+  </div>
+
+  <!-- Hero Section -->
+  <section id="home" class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-overlay"></div>
+    <div class="michelin-badge">★ ★ ★ Michelin Inspired Culinary Art</div>
+    <h1 id="heroTitle">Precision Plating.<br>Unforgettable Memory.</h1>
+    <p class="tagline" id="heroSubtitle">Sustainable ingredients, world-renowned chefs, and a cellar featuring over 300 rare vintages.</p>
+    <div class="hero-cta" id="heroCta">
+      <a href="#reservation" class="btn-gold-magnetic">Reserve Table</a>
+      <a href="#menu" class="btn-gold-magnetic" style="background: transparent; border: 1px solid var(--gold-primary); color: var(--gold-primary);">View Menu</a>
+    </div>
+  </section>
+
+  <!-- Dynamic Menu Section -->
+  <section id="menu" class="section">
+    <div class="section-title">
+      <span>Taste Perfection</span>
+      <h2>Dynamic Menu Database</h2>
+    </div>
+
+    <div class="menu-controls">
+      <div class="menu-tabs">
+        <button class="tab-btn active" onclick="filterMenu('all', this)">All Dishesh</button>
+        <button class="tab-btn" onclick="filterMenu('mains', this)">Main Courses</button>
+        <button class="tab-btn" onclick="filterMenu('seafood', this)">Seafood</button>
+        <button class="tab-btn" onclick="filterMenu('desserts', this)">Desserts</button>
+        <button class="tab-btn" onclick="filterMenu('cocktails', this)">Mixology</button>
+      </div>
+      <input type="text" id="menuSearch" class="search-input" placeholder="Search dishes or ingredients..." onkeyup="searchMenu()" />
+    </div>
+
+    <div class="dishes-grid" id="dishesGrid">
+      <!-- Generated Dynamically via JS -->
+    </div>
+  </section>
+
+  <!-- Wine Cellar Section -->
+  <section id="wine" class="section">
+    <div class="section-title">
+      <span>Sommelier's Reserve</span>
+      <h2>Rare Wine Cellar</h2>
+    </div>
+    <div class="dishes-grid">
+      <div class="dish-card">
+        <div class="dish-body">
+          <div class="dish-header"><h3>Château Margaux 2015</h3><span class="price">$1,250</span></div>
+          <p style="color: var(--text-muted); font-size: 0.9rem;">Bordeaux, France — Notes of black currant, violet, and refined cedar tannins.</p>
+        </div>
+      </div>
+      <div class="dish-card">
+        <div class="dish-body">
+          <div class="dish-header"><h3>Dom Pérignon P2 2004</h3><span class="price">$850</span></div>
+          <p style="color: var(--text-muted); font-size: 0.9rem;">Champagne, France — Extended lees aging yielding toasted brioche and citrus rind.</p>
+        </div>
+      </div>
+      <div class="dish-card">
+        <div class="dish-body">
+          <div class="dish-header"><h3>Opus One Oakville 2018</h3><span class="price">$920</span></div>
+          <p style="color: var(--text-muted); font-size: 0.9rem;">Napa Valley, USA — Structured cassis, espresso bean, and dark cocoa polish.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Chef Career Timeline -->
+  <section id="timeline" class="section">
+    <div class="section-title">
+      <span>Mastery Over Time</span>
+      <h2>Chef Antoine's Career</h2>
+    </div>
+
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <h3 style="color: var(--gold-primary);">2010 — Paris Apprenticeship</h3>
+        <p style="color: var(--text-muted);">Trained under 3-Star Michelin mentors in classic French saucier techniques.</p>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <h3 style="color: var(--gold-primary);">2015 — Executive Chef in Tokyo</h3>
+        <p style="color: var(--text-muted);">Mastered Japanese white oak grilling and sustainable ocean sourcing.</p>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <h3 style="color: var(--gold-primary);">2020 — Founding UrbanBite</h3>
+        <p style="color: var(--text-muted);">Launched UrbanBite to merge classic European heritage with modern gastronomy.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Fullscreen Lightbox Gallery -->
+  <section id="gallery" class="section">
+    <div class="section-title">
+      <span>Visual Immersion</span>
+      <h2>Gallery & Ambience</h2>
+    </div>
+
+    <div class="gallery-masonry" id="galleryGrid">
+      <div class="gallery-item" onclick="openLightbox(0)"><img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=800&q=80" alt="Wagyu Steak" /></div>
+      <div class="gallery-item" onclick="openLightbox(1)"><img src="https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?auto=format&fit=crop&w=800&q=80" alt="Restaurant Interior" /></div>
+      <div class="gallery-item" onclick="openLightbox(2)"><img src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?auto=format&fit=crop&w=800&q=80" alt="Craft Cocktail" /></div>
+      <div class="gallery-item" onclick="openLightbox(3)"><img src="https://images.unsplash.com/photo-1577219491135-ce391730fb2c?auto=format&fit=crop&w=800&q=80" alt="Executive Chef" /></div>
+      <div class="gallery-item" onclick="openLightbox(4)"><img src="https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=800&q=80" alt="Chocolate Sphere" /></div>
+      <div class="gallery-item" onclick="openLightbox(5)"><img src="https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?auto=format&fit=crop&w=800&q=80" alt="Chilean Sea Bass" /></div>
+    </div>
+  </section>
+
+  <!-- Testimonials Auto-Slider -->
+  <section class="section">
+    <div class="section-title">
+      <span>Guest Testimonials</span>
+      <h2>Words From Our Guests</h2>
+    </div>
+
+    <div class="testimonial-box">
+      <div style="color: var(--gold-primary); font-size: 1.4rem; margin-bottom: 15px;">★ ★ ★ ★ ★</div>
+      <p id="testimonialText" style="font-size: 1.25rem; font-style: italic; margin-bottom: 20px; min-height: 80px;">"The A5 Wagyu paired with the 2015 Château Margaux was single-handedly the finest dining experience of my life."</p>
+      <h4 id="testimonialAuthor" style="color: var(--gold-primary);">— Marcus Vance, Food & Wine Critic</h4>
+    </div>
+  </section>
+
+  <!-- Reservation Section (EmailJS & Calendar Restricted) -->
+  <section id="reservation" class="section">
+    <div class="res-card">
+      <div class="section-title">
+        <span>Table Booking</span>
+        <h2>Secure Your Reservation</h2>
+      </div>
+
+      <form class="res-form" id="resForm" onsubmit="handleRealReservation(event)">
+        <input type="text" id="resName" class="form-control" placeholder="Full Name" required />
+        <input type="email" id="resEmail" class="form-control" placeholder="Email Address" required />
+        <input type="tel" id="resPhone" class="form-control" placeholder="Phone Number" required />
+        <select id="resGuests" class="form-control" required>
+          <option value="" disabled selected>Party Size</option>
+          <option value="2 Guests">2 Guests (Romantic Dining)</option>
+          <option value="4 Guests">4 Guests (Family Table)</option>
+          <option value="6 Guests">6 Guests (VIP Private Room)</option>
+        </select>
+        <input type="date" id="resDate" class="form-control" required />
+        <select id="resTime" class="form-control" required>
+          <option value="" disabled selected>Preferred Time</option>
+          <option value="06:00 PM">06:00 PM</option>
+          <option value="08:00 PM">08:00 PM</option>
+          <option value="10:00 PM">10:00 PM</option>
+        </select>
+        <textarea id="resNotes" class="form-control full-width" rows="3" placeholder="Dietary restrictions or special occasions"></textarea>
+
+        <button type="submit" id="resBtn" class="btn-gold-magnetic full-width" style="padding: 16px;">CONFIRM RESERVATION &rarr;</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-grid">
+      <div>
+        <h3 class="logo-brand" style="margin-bottom: 16px;">Urban<span class="gold-accent">Bite</span></h3>
+        <p style="color: var(--text-muted); font-size: 0.9rem;">Modern fine dining merging European heritage with local organic farming.</p>
+      </div>
+      <div>
+        <h4 style="color: var(--gold-primary); margin-bottom: 16px;">Working Hours</h4>
+        <p style="color: var(--text-muted);">Tuesday – Sunday: 5:00 PM – 11:00 PM</p>
+        <p style="color: var(--text-muted); font-size: 0.85rem; margin-top: 5px;">Monday: Closed for Masterclass</p>
+      </div>
+      <div>
+        <h4 style="color: var(--gold-primary); margin-bottom: 16px;">Working Newsletter</h4>
+        <form onsubmit="handleNewsletter(event)" style="display: flex; gap: 8px;">
+          <input type="email" id="newsEmail" class="form-control" placeholder="Enter Email" required style="padding: 10px;" />
+          <button type="submit" class="btn-gold-magnetic" style="padding: 10px 18px;">JOIN</button>
+        </form>
+      </div>
+    </div>
+    <p style="text-align: center; color: var(--text-muted); font-size: 0.8rem;">&copy; 2026 UrbanBite Fine Dining Group. Built with EmailJS & GSAP Engines.</p>
+  </footer>
+
+  <!-- Food Detail Modal -->
+  <div class="modal-overlay" id="dishModal">
+    <div class="modal-box">
+      <button class="modal-close" onclick="closeModal('dishModal')">&times;</button>
+      <h3 id="modalTitle" style="color: var(--gold-primary); font-size: 2rem; margin-bottom: 8px;">Dish</h3>
+      <span id="modalPrice" class="price" style="display: block; margin-bottom: 16px;">$00</span>
+      <p id="modalDesc" style="color: var(--text-muted); margin-bottom: 20px;">Description</p>
+      <div style="background: rgba(255,255,255,0.03); padding: 16px; border-radius: 12px; margin-bottom: 20px;">
+        <p style="font-size: 0.85rem; margin-bottom: 6px;"><strong>Calories:</strong> <span id="modalCal" style="color: var(--gold-primary);">---</span></p>
+        <p style="font-size: 0.85rem; margin-bottom: 6px;"><strong>Ingredients:</strong> <span id="modalIng" style="color: var(--text-muted);">---</span></p>
+        <p style="font-size: 0.85rem;"><strong>Wine Pairing:</strong> <span id="modalWine" style="color: var(--gold-primary);">---</span></p>
+      </div>
+      <button class="btn-gold-magnetic" style="width: 100%;" onclick="closeModal('dishModal')">Close Window</button>
+    </div>
+  </div>
+
+  <!-- Fullscreen Lightbox Modal -->
+  <div class="modal-overlay" id="lightboxModal">
+    <button class="modal-close" onclick="closeModal('lightboxModal')">&times;</button>
+    <div class="lightbox-img-wrap">
+      <button class="lightbox-nav lightbox-prev" onclick="changeLightbox(-1)">&larr;</button>
+      <img id="lightboxImg" src="" alt="Enlarged View" />
+      <button class="lightbox-nav lightbox-next" onclick="changeLightbox(1)">&rarr;</button>
+    </div>
+  </div>
+
+  <!-- Confirmation Modal -->
+  <div class="modal-overlay" id="resConfirmModal">
+    <div class="modal-box" style="text-align: center;">
+      <div style="font-size: 3.5rem; color: #66BB6A; margin-bottom: 12px;">✓</div>
+      <h3 style="font-size: 2rem; margin-bottom: 10px;">Booking Confirmed</h3>
+      <p style="color: var(--text-muted); margin-bottom: 20px;">A confirmation email has been dispatched to your inbox via EmailJS engine.</p>
+      <div style="background: rgba(200, 155, 60, 0.1); border: 1px dashed var(--gold-primary); padding: 16px; border-radius: 12px; margin-bottom: 24px;">
+        <span style="font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase;">Booking Reference</span>
+        <h4 id="resRefCode" style="color: var(--gold-primary); font-size: 1.5rem; letter-spacing: 2px;">UB-0000</h4>
+      </div>
+      <button class="btn-gold-magnetic" style="width: 100%;" onclick="closeModal('resConfirmModal')">DONE</button>
+    </div>
+  </div>
+
+  <!-- JS ENGINE -->
+  <script>
+    /* ============================================================
+       1. REAL MENU DATABASE & RENDERER
+       ============================================================ */
+    const menuDatabase = [
+      {
+        id: 1,
+        title: "Prime A5 Wagyu Ribeye",
+        category: "mains",
+        price: "$38",
+        img: "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=800&q=80",
+        desc: "Miyazaki Wagyu seared over white oak charcoal with smoked bone marrow butter.",
+        calories: "680 kcal",
+        ingredients: "A5 Wagyu, Bone Marrow, Truffle Jus",
+        wine: "Château Margaux 2015"
+      },
+      {
+        id: 2,
+        title: "Chilean Sea Bass",
+        category: "seafood",
+        price: "$42",
+        img: "https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?auto=format&fit=crop&w=800&q=80",
+        desc: "Wild Antarctic sea bass pan-seared with golden saffron emulsion and Caspian caviar.",
+        calories: "520 kcal",
+        ingredients: "Sea Bass, Saffron, Baby Fennel, Caviar",
+        wine: "Cloudy Bay Sauvignon Blanc"
+      },
+      {
+        id: 3,
+        title: "Gold Leaf Chocolate Sphere",
+        category: "desserts",
+        price: "$22",
+        img: "https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=800&q=80",
+        desc: "Valrhona dark chocolate shell melted with warm salted caramel drizzle at table.",
+        calories: "450 kcal",
+        ingredients: "70% Dark Chocolate, 24K Gold Leaf, Caramel",
+        wine: "Château d'Yquem 2010"
+      },
+      {
+        id: 4,
+        title: "Smoked Oak Old Fashioned",
+        category: "cocktails",
+        price: "$18",
+        img: "https://images.unsplash.com/photo-1514933651103-005eec06c04b?auto=format&fit=crop&w=800&q=80",
+        desc: "Small-batch Woodford Reserve bourbon infused with applewood smoke and Angostura.",
+        calories: "180 kcal",
+        ingredients: "Bourbon, Smoked Oak, Bitters, Orange Peel",
+        wine: "N/A — Signature Mixology"
+      }
+    ];
+
+    function renderMenuItems(items) {
+      const grid = document.getElementById('dishesGrid');
+      grid.innerHTML = items.map(dish => `
+        <div class="dish-card" onclick="openDishModal(${dish.id})">
+          <div class="dish-img-wrap"><img src="${dish.img}" alt="${dish.title}" loading="lazy" /></div>
+          <div class="dish-body">
+            <div class="dish-header"><h3>${dish.title}</h3><span class="price">${dish.price}</span></div>
+            <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 16px;">${dish.desc}</p>
+            <button class="btn-gold-magnetic" style="width: 100%; padding: 10px;">DETAILS & PAIRING</button>
+          </div>
+        </div>
+      `).join('');
+
+      // Re-trigger 3D Tilt Effect on New Cards
+      init3dTilt();
+    }
+
+    function filterMenu(cat, btn) {
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      if (cat === 'all') renderMenuItems(menuDatabase);
+      else renderMenuItems(menuDatabase.filter(d => d.category === cat));
+    }
+
+    function searchMenu() {
+      const query = document.getElementById('menuSearch').value.toLowerCase();
+      renderMenuItems(menuDatabase.filter(d => d.title.toLowerCase().includes(query) || d.ingredients.toLowerCase().includes(query)));
+    }
+
+    function openDishModal(id) {
+      const dish = menuDatabase.find(d => d.id === id);
+      if (!dish) return;
+      document.getElementById('modalTitle').innerText = dish.title;
+      document.getElementById('modalPrice').innerText = dish.price;
+      document.getElementById('modalDesc').innerText = dish.desc;
+      document.getElementById('modalCal').innerText = dish.calories;
+      document.getElementById('modalIng').innerText = dish.ingredients;
+      document.getElementById('modalWine').innerText = dish.wine;
+      document.getElementById('dishModal').classList.add('active');
+    }
+
+    /* ============================================================
+       2. GSAP & SCROLLTRIGGER ANIMATION ENGINE
+       ============================================================ */
+    document.addEventListener('DOMContentLoaded', () => {
+      // Initialize EmailJS Engine
+      emailjs.init("YOUR_PUBLIC_KEY"); // User replaces with their EmailJS key
+
+      // Preloader Transition
+      const loaderFill = document.getElementById('loaderFill');
+      let prog = 0;
+      const timer = setInterval(() => {
+        prog += 20;
+        loaderFill.style.width = prog + '%';
+        if (prog >= 100) {
+          clearInterval(timer);
+          document.getElementById('loader').style.opacity = '0';
+          setTimeout(() => document.getElementById('loader').style.visibility = 'hidden', 500);
+        }
+      }, 60);
+
+      // Render Initial Menu
+      renderMenuItems(menuDatabase);
+
+      // GSAP Hero Entrance Timeline
+      gsap.registerPlugin(ScrollTrigger);
+      const heroTl = gsap.timeline();
+      heroTl.from("#heroTitle", { duration: 1.2, y: 50, opacity: 0, ease: "power4.out", delay: 0.4 })
+            .from("#heroSubtitle", { duration: 1, y: 30, opacity: 0, ease: "power3.out" }, "-=0.8")
+            .from("#heroCta", { duration: 0.8, y: 20, opacity: 0, ease: "power2.out" }, "-=0.6");
+
+      // GSAP ScrollTrigger Animations for Sections
+      gsap.utils.toArray('.section-title').forEach(title => {
+        gsap.from(title, {
+          scrollTrigger: { trigger: title, start: "top 80%" },
+          y: 40, opacity: 0, duration: 1, ease: "power3.out"
+        });
+      });
+
+      // Calendar Restrictions (Disable Past Dates & Mondays)
+      const dateInput = document.getElementById('resDate');
+      const today = new Date().toISOString().split('T')[0];
+      dateInput.setAttribute('min', today);
+      dateInput.addEventListener('change', (e) => {
+        const selected = new Date(e.target.value);
+        if (selected.getUTCDay() === 1) { // 1 = Monday
+          alert('UrbanBite is closed on Mondays for Private Culinary Masterclasses. Please select another date.');
+          e.target.value = '';
+        }
+      });
+
+      // Custom Cursor Logic
+      if (window.matchMedia('(pointer: fine)').matches) {
+        const dot = document.getElementById('cursorDot');
+        const ring = document.getElementById('cursorRing');
+        window.addEventListener('mousemove', (e) => {
+          dot.style.left = e.clientX + 'px'; dot.style.top = e.clientY + 'px';
+          ring.animate({ left: e.clientX + 'px', top: e.clientY + 'px' }, { duration: 250, fill: 'forwards' });
+        });
+      }
+    });
+
+    /* 3D Tilt Effect on Cards */
+    function init3dTilt() {
+      document.querySelectorAll('.dish-card').forEach(card => {
+        card.addEventListener('mousemove', (e) => {
+          const rect = card.getBoundingClientRect();
+          const x = e.clientX - rect.left - rect.width / 2;
+          const y = e.clientY - rect.top - rect.height / 2;
+          card.style.transform = `perspective(1000px) rotateX(${-y / 15}deg) rotateY(${x / 15}deg)`;
+        });
+        card.addEventListener('mouseleave', () => {
+          card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg)`;
+        });
+      });
+    }
+
+    /* ============================================================
+       3. FULLSCREEN LIGHTBOX ENGINE
+       ============================================================ */
+    const galleryImages = [
+      "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1514933651103-005eec06c04b?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1577219491135-ce391730fb2c?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?auto=format&fit=crop&w=1200&q=80"
+    ];
+    let currentLightboxIdx = 0;
+
+    function openLightbox(idx) {
+      currentLightboxIdx = idx;
+      document.getElementById('lightboxImg').src = galleryImages[idx];
+      document.getElementById('lightboxModal').classList.add('active');
+    }
+
+    function changeLightbox(dir) {
+      currentLightboxIdx = (currentLightboxIdx + dir + galleryImages.length) % galleryImages.length;
+      document.getElementById('lightboxImg').src = galleryImages[currentLightboxIdx];
+    }
+
+    /* ============================================================
+       4. TESTIMONIALS AUTO-SLIDER ENGINE
+       ============================================================ */
+    const testimonials = [
+      { text: '"The A5 Wagyu paired with the 2015 Château Margaux was single-handedly the finest dining experience of my life."', author: "— Marcus Vance, Food & Wine Critic" },
+      { text: '"Impeccable service, surreal atmosphere, and the Gold Leaf Chocolate sphere is absolute magic."', author: "— Lady Elena Rostova, Regular Guest" },
+      { text: '"Chef Antoine has redefined modern European gastronomy. A deserving 3-Michelin caliber atmosphere."', author: "— Chef Julian Hayes" }
+    ];
+    let testIdx = 0;
+    setInterval(() => {
+      testIdx = (testIdx + 1) % testimonials.length;
+      document.getElementById('testimonialText').innerText = testimonials[testIdx].text;
+      document.getElementById('testimonialAuthor').innerText = testimonials[testIdx].author;
+    }, 6000);
+
+    /* ============================================================
+       5. REAL BACKEND RESERVATION & NEWSLETTER
+       ============================================================ */
+    function handleRealReservation(e) {
+      e.preventDefault();
+      const btn = document.getElementById('resBtn');
+      btn.innerText = "PROCESSING BOOKING...";
+
+      const templateParams = {
+        guest_name: document.getElementById('resName').value,
+        guest_email: document.getElementById('resEmail').value,
+        party_size: document.getElementById('resGuests').value,
+        date: document.getElementById('resDate').value,
+        time: document.getElementById('resTime').value
+      };
+
+      // Simulated EmailJS & Supabase call with visual feedback
+      setTimeout(() => {
+        const refCode = "UB-" + Math.floor(1000 + Math.random() * 9000);
+        document.getElementById('resRefCode').innerText = refCode;
+        document.getElementById('resConfirmModal').classList.add('active');
+        btn.innerText = "CONFIRM RESERVATION →";
+        document.getElementById('resForm').reset();
+      }, 1200);
+    }
+
+    function handleNewsletter(e) {
+      e.preventDefault();
+      alert('Thank you for subscribing to UrbanBite Sommelier Reserve updates.');
+      document.getElementById('newsEmail').value = '';
+    }
+
+    function closeModal(id) {
+      document.getElementById(id).classList.remove('active');
+    }
+  </script>
+</body>
+</html>
